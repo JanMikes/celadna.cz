@@ -1,0 +1,26 @@
+version: '3'
+services:
+    strapi:
+        image: strapi/strapi
+        environment:
+            DATABASE_CLIENT: postgres
+            DATABASE_NAME: celadna
+            DATABASE_HOST: postgres
+            DATABASE_PORT: 5432
+            DATABASE_USERNAME: celadna
+            DATABASE_PASSWORD: celadna
+        volumes:
+            - ./strapi:/srv/app
+        ports:
+            - '1337:1337'
+        depends_on:
+            - postgres
+
+    postgres:
+        image: postgres
+        environment:
+            POSTGRES_DB: celadna
+            POSTGRES_USER: celadna
+            POSTGRES_PASSWORD: celadna
+        volumes:
+            - ./.docker/postgres-data:/var/lib/postgresql/data
