@@ -16,14 +16,12 @@ services:
             context: ./strapi
             target: dev
         environment:
-            ADMIN_HOST: ubuntu
             DATABASE_CLIENT: postgres
             DATABASE_NAME: celadna
             DATABASE_HOST: postgres
             DATABASE_PORT: 5432
             DATABASE_USERNAME: celadna
             DATABASE_PASSWORD: celadna
-            PUBLIC_URL: http://ubuntu:1337
         volumes:
             - ./strapi/app:/srv/app
         ports:
