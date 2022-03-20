@@ -1,8 +1,20 @@
 version: '3'
 services:
+    frontend:
+        image: celadna-frontend
+        build:
+            context: ./frontend
+            target: dev
+        volumes:
+            - ./frontend:/www
+        ports:
+            - '8080:8080'
+
     strapi:
         image: celadna-strapi
-        build: ./strapi
+        build:
+            context: ./strapi
+            target: dev
         environment:
             ADMIN_HOST: ubuntu
             DATABASE_CLIENT: postgres
@@ -26,4 +38,4 @@ services:
             POSTGRES_USER: celadna
             POSTGRES_PASSWORD: celadna
         volumes:
-            - ./.docker/postgres-data:/var/lib/postgresql/data
+            - ./.postgres-data:/var/lib/postgresql/data
