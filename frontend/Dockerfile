@@ -14,13 +14,13 @@ RUN apt-get update && apt-get install -y \
 RUN install-php-extensions \
     intl \
     zip \
-    pdo_pgsql \
     xdebug
 
 COPY .docker/xdebug.ini /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
 COPY .docker/config.json /docker-entrypoint.d/config.json
 
+WORKDIR /www
 
 
 FROM dev as prod
@@ -30,8 +30,6 @@ ENV APP_DEBUG=0
 
 # Unload xdebug extension by deleting config
 RUN rm /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
-
-WORKDIR /www
 
 COPY composer.json composer.lock symfony.lock ./
 
