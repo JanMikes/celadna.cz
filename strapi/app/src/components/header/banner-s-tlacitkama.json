@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_header_banner_s_tlacitkamas",
+  "info": {
+    "displayName": "Banner s tlačítkama",
+    "icon": "grip-lines"
+  },
+  "options": {},
+  "attributes": {
+    "Nadpis": {
+      "type": "string",
+      "required": true
+    },
+    "Obrazek": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true,
+      "required": true
+    }
+  }
+}
