@@ -23,7 +23,7 @@ services:
             DATABASE_USERNAME: celadna
             DATABASE_PASSWORD: celadna
         volumes:
-            - ./strapi/app:/srv/app
+            - ./strapi:/app
         ports:
             - '1337:1337'
         depends_on:
