@@ -1,10 +1,10 @@
 FROM node:16 as dev
 
-RUN yarn global add @strapi/strapi
+RUN yarn global add @strapi/strapi --network-timeout 100000
 
-RUN mkdir /srv/app && chown 1000:1000 -R /srv/app
+RUN mkdir /app && chown 1000:1000 -R /app
 
-WORKDIR /srv/app
+WORKDIR /app
 
 COPY docker-entrypoint.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
@@ -19,12 +19,12 @@ FROM dev as prod
 
 ENV NODE_ENV=productionnn
 
-COPY ./app/package.json ./app/yarn.lock ./
+COPY ./package.json ./yarn.lock ./
 
-# RUN yarn install
+RUN yarn install
 
-COPY ./app ./
+COPY . .
 
-# RUN yarn build
+RUN yarn build
 
 CMD ["yarn", "start"]
