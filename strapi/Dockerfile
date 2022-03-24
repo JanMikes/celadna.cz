@@ -1,7 +1,5 @@
 FROM node:16 as dev
 
-RUN yarn global add @strapi/strapi --network-timeout 100000
-
 RUN mkdir /app && chown 1000:1000 -R /app
 
 WORKDIR /app
