@@ -4,3 +4,8 @@
 build/
 node_modules/
 data/
+.env
+
+Dockerfile
+.gitignore
+.editorconfig
