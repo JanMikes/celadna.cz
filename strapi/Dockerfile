@@ -15,7 +15,7 @@ EXPOSE 1337
 
 FROM dev as prod
 
-ENV NODE_ENV=productionnn
+ENV NODE_ENV=production
 
 COPY ./package.json ./yarn.lock ./
 
