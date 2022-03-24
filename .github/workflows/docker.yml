@@ -5,9 +5,7 @@ name: Release docker
 on:
     push:
         branches:
-            - 'master'
-        tags:
-            - 'v*.*.*'
+            - 'main'
 
 jobs:
     docker:
