@@ -14,14 +14,10 @@
     "Obsah": {
       "type": "richtext"
     },
-    "Zobrazovat_komponentu_uredni_desky": {
-      "type": "boolean",
-      "default": true,
-      "required": true
-    },
     "Kategorie_uredni_desky": {
       "type": "enumeration",
       "enum": [
+        "-",
         "Rozpocty",
         "Formulare",
         "Navody",
@@ -40,7 +36,8 @@
         "Volby",
         "Poskytnute_informace"
       ],
-      "required": true
+      "required": true,
+      "default": "-"
     },
     "Lide": {
       "displayName": "Člověk samosprávy",
