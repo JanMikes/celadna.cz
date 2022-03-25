@@ -14,11 +14,6 @@
     "Obsah": {
       "type": "richtext"
     },
-    "Lide": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::lide.lide"
-    },
     "Zobrazovat_komponentu_uredni_desky": {
       "type": "boolean",
       "default": true,
@@ -46,6 +41,12 @@
         "Poskytnute_informace"
       ],
       "required": true
+    },
+    "Lide": {
+      "displayName": "Člověk samosprávy",
+      "type": "component",
+      "repeatable": true,
+      "component": "samosprava.clovek-samospravy"
     }
   }
 }
