@@ -46,7 +46,7 @@
       "displayName": "Člověk samosprávy",
       "type": "component",
       "repeatable": true,
-      "component": "samosprava.clovek-samospravy"
+      "component": "komponenty.clovek-samospravy"
     }
   }
 }

@@ -16,10 +16,6 @@
       "type": "string",
       "required": true
     },
-    "Funkce": {
-      "type": "string",
-      "required": true
-    },
     "Email": {
       "type": "email"
     },
@@ -41,6 +37,9 @@
         "muz"
       ],
       "required": true
+    },
+    "Funkce": {
+      "type": "string"
     }
   }
 }
