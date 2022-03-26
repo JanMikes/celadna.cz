@@ -28,6 +28,9 @@
     "Odkaz_web": {
       "type": "string"
     },
+    "Adresa": {
+      "type": "string"
+    },
     "Odkaz_mapa": {
       "type": "string"
     }
