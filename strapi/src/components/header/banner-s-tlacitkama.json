@@ -2,7 +2,8 @@
   "collectionName": "components_header_banner_s_tlacitkamas",
   "info": {
     "displayName": "Banner s tlačítkama",
-    "icon": "grip-lines"
+    "icon": "grip-lines",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -11,12 +12,17 @@
       "required": true
     },
     "Obrazek": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": true,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Tlacitka": {
+      "type": "component",
+      "repeatable": true,
+      "component": "komponenty.tlacitko"
     }
   }
 }

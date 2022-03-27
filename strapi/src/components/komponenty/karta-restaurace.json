@@ -28,10 +28,10 @@
     "Odkaz_web": {
       "type": "string"
     },
-    "Adresa": {
+    "Odkaz_mapa": {
       "type": "string"
     },
-    "Odkaz_mapa": {
+    "Adresa": {
       "type": "string"
     }
   }
