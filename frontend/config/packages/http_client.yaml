@@ -1,0 +1,8 @@
+framework:
+    http_client:
+        scoped_clients:
+            strapi.client:
+                base_uri: '%strapi.api_uri%'
+                auth_bearer: '%strapi.api_key%'
+                headers:
+                    Accept: 'application/json'
