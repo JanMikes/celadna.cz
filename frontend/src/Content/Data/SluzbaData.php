@@ -4,17 +4,18 @@ declare(strict_types=1);
 
 namespace Celadna\Website\Content\Data;
 
-final class TlacitkoData
+final class SluzbaData
 {
     public function __construct(
-        public string $Text,
-        public string $Odkaz,
+        public readonly string $Nadpis,
+        public readonly null|string $Telefon,
+        public readonly string $Obsah,
     ) {}
 
 
     public static function createFromStrapiResponse(array $data): self
     {
-        return new self($data['Text'], $data['Odkaz']);
+        return new self($data['Nadpis'], $data['Telefon'], $data['Obsah']);
     }
 
 

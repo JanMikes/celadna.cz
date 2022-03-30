@@ -7,6 +7,7 @@ namespace Celadna\Website\Content;
 use Celadna\Website\Content\Data\FooterData;
 use Celadna\Website\Content\Data\GrafickyPasData;
 use Celadna\Website\Content\Data\RestauraceData;
+use Celadna\Website\Content\Data\SluzbyData;
 
 interface Content
 {
@@ -26,4 +27,6 @@ interface Content
      * @return array<GrafickyPasData>
      */
     public function getOrganizaceData(): array;
+
+    public function getSluzbyData(): SluzbyData;
 }

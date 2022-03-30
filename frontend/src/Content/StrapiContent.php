@@ -5,11 +5,14 @@ declare(strict_types=1);
 namespace Celadna\Website\Content;
 
 use Celadna\Website\Content\Data\BannerSTextemData;
+use Celadna\Website\Content\Data\BannerSTlacitkamaData;
 use Celadna\Website\Content\Data\FooterData;
 use Celadna\Website\Content\Data\GrafickyPasData;
 use Celadna\Website\Content\Data\KartaObjektuData;
 use Celadna\Website\Content\Data\LetajiciObrazekData;
 use Celadna\Website\Content\Data\RestauraceData;
+use Celadna\Website\Content\Data\SluzbaData;
+use Celadna\Website\Content\Data\SluzbyData;
 use Celadna\Website\Content\Data\TlacitkoData;
 use Celadna\Website\Strapi\StrapiClient;
 
@@ -87,6 +90,26 @@ final class StrapiContent implements Content
         return $this->getGrafickePasy('obec-organizace');
     }
 
+
+    public function getSluzbyData(): SluzbyData
+    {
+        $strapiResponse = $this->strapiClient->getSingleResource('obec-sluzby', [
+            'Banner.Obrazek',
+            'Banner.Tlacitka',
+            'Sluzby'
+        ]);
+
+        return new SluzbyData(
+            new BannerSTlacitkamaData(
+                $strapiResponse['data']['attributes']['Banner']['Nadpis'],
+                $strapiResponse['data']['attributes']['Banner']['Obrazek']['data']['attributes']['url'],
+                TlacitkoData::createManyFromStrapiResponse($strapiResponse['data']['attributes']['Banner']['Tlacitka']),
+            ),
+            SluzbaData::createManyFromStrapiResponse($strapiResponse['data']['attributes']['Sluzby']),
+        );
+    }
+
+
     /**
      * @return array<GrafickyPasData>
      */
@@ -120,10 +143,7 @@ final class StrapiContent implements Content
                 $grafickyPasData['Nadpis'],
                 $grafickyPasData['Obsah'],
                 $grafickyPasData['Obrazek']['data']['attributes']['url'],
-                new TlacitkoData(
-                    $grafickyPasData['Tlacitko']['Text'],
-                    $grafickyPasData['Tlacitko']['Odkaz'],
-                ),
+                TlacitkoData::createFromStrapiResponse($grafickyPasData['Tlacitko']),
                 $letajiciObrazky,
             );
         }

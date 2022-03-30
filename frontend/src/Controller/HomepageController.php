@@ -20,7 +20,7 @@ final class HomepageController extends AbstractController
     public function __invoke(): Response
     {
         // Just for testing
-        $data = $this->contentProvider->getAktivityData();
+        $data = $this->contentProvider->getSluzbyData();
 
         return $this->render('homepage.html.twig', [
             'footer' => $this->contentProvider->getFooterData(),
