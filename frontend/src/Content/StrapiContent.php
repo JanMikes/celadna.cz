@@ -4,7 +4,10 @@ declare(strict_types=1);
 
 namespace Celadna\Website\Content;
 
+use Celadna\Website\Content\Data\BannerSTextemData;
 use Celadna\Website\Content\Data\FooterData;
+use Celadna\Website\Content\Data\KartaObjektuData;
+use Celadna\Website\Content\Data\RestauraceData;
 use Celadna\Website\Strapi\StrapiClient;
 
 final class StrapiContent implements Content
@@ -32,5 +35,35 @@ final class StrapiContent implements Content
         }
 
         return $result;
+    }
+
+
+    public function getRestauraceData(): RestauraceData
+    {
+        $strapiResponse = $this->strapiClient->getSingleResource('obec-restaurace', [
+            'Banner.Obrazek',
+            'Restaurace.Obrazek',
+        ]);
+
+        $banner = new BannerSTextemData(
+            $strapiResponse['data']['attributes']['Banner']['Nadpis'],
+            $strapiResponse['data']['attributes']['Banner']['Obrazek']['data']['attributes']['url'],
+            $strapiResponse['data']['attributes']['Banner']['Text_pod_nadpisem'],
+        );
+
+        $objekty = [];
+        foreach ($strapiResponse['data']['attributes']['Restaurace'] as $objektData) {
+            $objekty[] = new KartaObjektuData(
+                $objektData['Obrazek']['data']['attributes']['url'],
+                $objektData['Nazev'],
+                $objektData['Telefon'],
+                $objektData['Email'],
+                $objektData['Odkaz_web'],
+                $objektData['Odkaz_mapa'],
+                $objektData['Adresa'],
+            );
+        }
+
+        return new RestauraceData($banner, $objekty);
     }
 }
