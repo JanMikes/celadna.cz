@@ -6,8 +6,11 @@ namespace Celadna\Website\Content;
 
 use Celadna\Website\Content\Data\BannerSTextemData;
 use Celadna\Website\Content\Data\FooterData;
+use Celadna\Website\Content\Data\GrafickyPasData;
 use Celadna\Website\Content\Data\KartaObjektuData;
+use Celadna\Website\Content\Data\LetajiciObrazekData;
 use Celadna\Website\Content\Data\RestauraceData;
+use Celadna\Website\Content\Data\TlacitkoData;
 use Celadna\Website\Strapi\StrapiClient;
 
 final class StrapiContent implements Content
@@ -65,5 +68,49 @@ final class StrapiContent implements Content
         }
 
         return new RestauraceData($banner, $objekty);
+    }
+
+    /**
+     * @return array<GrafickyPasData>
+     */
+    public function getAktivityData(): array
+    {
+        $strapiResponse = $this->strapiClient->getSingleResource('obec-aktivity', [
+            'Graficke_pasy.Tlacitko',
+            'Graficke_pasy.Obrazek',
+            'Graficke_pasy.Letajici_obrazky.Obrazek',
+        ]);
+
+        $grafickePasy = [];
+
+        foreach ($strapiResponse['data']['attributes']['Graficke_pasy'] as $grafickyPasData) {
+            $letajiciObrazky = [];
+
+            foreach ($grafickyPasData['Letajici_obrazky'] as $letajiciObrazek) {
+                $letajiciObrazky[] = new LetajiciObrazekData(
+                    $letajiciObrazek['Left'],
+                    $letajiciObrazek['Right'],
+                    $letajiciObrazek['Top'],
+                    $letajiciObrazek['Bottom'],
+                    $letajiciObrazek['Obrazek']['data']['attributes']['url'],
+                );
+            }
+
+            $grafickePasy[] = new GrafickyPasData(
+                $grafickyPasData['Umisteni'],
+                $grafickyPasData['Barva_gradientu_1'],
+                $grafickyPasData['Barva_gradientu_2'],
+                $grafickyPasData['Nadpis'],
+                $grafickyPasData['Obsah'],
+                $grafickyPasData['Obrazek']['data']['attributes']['url'],
+                new TlacitkoData(
+                    $grafickyPasData['Tlacitko']['Text'],
+                    $grafickyPasData['Tlacitko']['Odkaz'],
+                ),
+                $letajiciObrazky,
+            );
+        }
+
+        return $grafickePasy;
     }
 }
