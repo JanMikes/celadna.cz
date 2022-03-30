@@ -1,4 +1,13 @@
 {
+    "eag/easy-hydrator": {
+        "version": "1.0.2"
+    },
+    "nette/utils": {
+        "version": "v3.2.7"
+    },
+    "phpstan/phpdoc-parser": {
+        "version": "1.4.2"
+    },
     "psr/cache": {
         "version": "3.0.0"
     },

@@ -23,6 +23,14 @@ final class StrapiContent implements Content
             'Reklama_607x433.Obrazek',
         ]);
 
-        return [];
+        $result = [];
+        foreach ($strapiResponse['data']['attributes']['Reklama_607x433'] as $footerData) {
+            $result[] = new FooterData(
+                $footerData['Odkaz'],
+                $footerData['Obrazek']['data']['attributes']['url']
+            );
+        }
+
+        return $result;
     }
 }
