@@ -75,7 +75,24 @@ final class StrapiContent implements Content
      */
     public function getAktivityData(): array
     {
-        $strapiResponse = $this->strapiClient->getSingleResource('obec-aktivity', [
+        return $this->getGrafickePasy('obec-aktivity');
+    }
+
+
+    /**
+     * @return array<GrafickyPasData>
+     */
+    public function getOrganizaceData(): array
+    {
+        return $this->getGrafickePasy('obec-organizace');
+    }
+
+    /**
+     * @return array<GrafickyPasData>
+     */
+    private function getGrafickePasy(string $resourceName): array
+    {
+        $strapiResponse = $this->strapiClient->getSingleResource($resourceName, [
             'Graficke_pasy.Tlacitko',
             'Graficke_pasy.Obrazek',
             'Graficke_pasy.Letajici_obrazky.Obrazek',

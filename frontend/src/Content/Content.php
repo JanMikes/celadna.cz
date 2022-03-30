@@ -21,4 +21,9 @@ interface Content
      * @return array<GrafickyPasData>
      */
     public function getAktivityData(): array;
+
+    /**
+     * @return array<GrafickyPasData>
+     */
+    public function getOrganizaceData(): array;
 }
