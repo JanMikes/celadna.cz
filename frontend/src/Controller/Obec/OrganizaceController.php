@@ -20,7 +20,7 @@ final class OrganizaceController extends AbstractController
     public function __invoke(): Response
     {
         return $this->render('obec_organizace.html.twig', [
-            'graficke_pasy' => $this->contentProvider->getOrganizaceData(),
+            'organizace_graficke_pasy' => $this->contentProvider->getOrganizaceData(),
             'footer' => $this->contentProvider->getFooterData(),
         ]);
     }
