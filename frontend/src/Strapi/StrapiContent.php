@@ -18,11 +18,13 @@ use Celadna\Website\Content\Data\LetajiciObrazekData;
 use Celadna\Website\Content\Data\PristupnostData;
 use Celadna\Website\Content\Data\RestauraceData;
 use Celadna\Website\Content\Data\SamospravaData;
+use Celadna\Website\Content\Data\SekceSDlazdicemaData;
 use Celadna\Website\Content\Data\SluzbaData;
 use Celadna\Website\Content\Data\SluzbyData;
 use Celadna\Website\Content\Data\StrukturaUraduData;
 use Celadna\Website\Content\Data\TlacitkoData;
 use Celadna\Website\Content\Data\UbytovaniData;
+use Celadna\Website\Content\Data\UradData;
 
 final class StrapiContent implements Content
 {
@@ -330,5 +332,19 @@ final class StrapiContent implements Content
         ]);
 
         return StrukturaUraduData::createFromStrapiResponse($strapiResponse['data']['attributes']);
+    }
+
+
+    public function getUradData(): UradData
+    {
+        $strapiResponse = $this->strapiClient->getApiResource('urad', [
+            'Banner.Obrazek',
+            'Sekce_s_dlazdicema.Dlazdice.Ikona',
+        ]);
+
+        return new UradData(
+            BannerSTextemData::createFromStrapiResponse($strapiResponse['data']['attributes']['Banner']),
+            SekceSDlazdicemaData::createFromStrapiResponse($strapiResponse['data']['attributes']['Sekce_s_dlazdicema']),
+        );
     }
 }

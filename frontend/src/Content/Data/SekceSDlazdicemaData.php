@@ -1,0 +1,29 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Celadna\Website\Content\Data;
+
+final class SekceSDlazdicemaData
+{
+    public function __construct(
+        public readonly string $Nadpis,
+        public readonly string|null $Popis,
+
+        /**
+         * @var array<DlazdiceData> $Dlazdice
+         */
+        public readonly array $Dlazdice,
+    )
+    {
+    }
+
+    public static function createFromStrapiResponse(array $data): self
+    {
+        return new self(
+            $data['Nadpis'],
+            $data['Popis'],
+            DlazdiceData::createManyFromStrapiResponse($data['Dlazdice']),
+        );
+    }
+}

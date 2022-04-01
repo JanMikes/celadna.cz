@@ -16,6 +16,7 @@ use Celadna\Website\Content\Data\SamospravaData;
 use Celadna\Website\Content\Data\SluzbyData;
 use Celadna\Website\Content\Data\StrukturaUraduData;
 use Celadna\Website\Content\Data\UbytovaniData;
+use Celadna\Website\Content\Data\UradData;
 
 interface Content
 {
@@ -86,4 +87,6 @@ interface Content
     public function getKontaktyData(): KontaktyData;
 
     public function getStrukturaUraduData(): StrukturaUraduData;
+
+    public function getUradData(): UradData;
 }
