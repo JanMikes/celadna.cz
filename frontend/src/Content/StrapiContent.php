@@ -8,6 +8,7 @@ use Celadna\Website\Content\Data\AktualitaData;
 use Celadna\Website\Content\Data\BannerSTextemData;
 use Celadna\Website\Content\Data\BannerSTlacitkamaData;
 use Celadna\Website\Content\Data\FooterData;
+use Celadna\Website\Content\Data\GdprData;
 use Celadna\Website\Content\Data\GrafickyPasData;
 use Celadna\Website\Content\Data\KartaObjektuData;
 use Celadna\Website\Content\Data\LetajiciObrazekData;
@@ -176,5 +177,15 @@ final class StrapiContent implements Content
         );
 
         return AktualitaData::createFromStrapiResponse($strapiResponse['data']);
+    }
+
+    public function getGdprData(): GdprData
+    {
+        $strapiResponse = $this->strapiClient->getApiResource('gdpr');
+
+        return new GdprData(
+            $strapiResponse['data']['attributes']['Nadpis'],
+            $strapiResponse['data']['attributes']['Obsah'],
+        );
     }
 }

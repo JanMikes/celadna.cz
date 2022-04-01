@@ -6,6 +6,7 @@ namespace Celadna\Website\Content;
 
 use Celadna\Website\Content\Data\AktualitaData;
 use Celadna\Website\Content\Data\FooterData;
+use Celadna\Website\Content\Data\GdprData;
 use Celadna\Website\Content\Data\GrafickyPasData;
 use Celadna\Website\Content\Data\RestauraceData;
 use Celadna\Website\Content\Data\SluzbyData;
@@ -37,4 +38,6 @@ interface Content
     public function getAktualityData(): array;
 
     public function getAktualitaData(int $id): AktualitaData;
+
+    public function getGdprData(): GdprData;
 }
