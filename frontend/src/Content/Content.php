@@ -10,6 +10,7 @@ use Celadna\Website\Content\Data\GdprData;
 use Celadna\Website\Content\Data\GrafickyPasData;
 use Celadna\Website\Content\Data\RestauraceData;
 use Celadna\Website\Content\Data\SluzbyData;
+use Celadna\Website\Content\Data\UbytovaniData;
 
 interface Content
 {
@@ -40,4 +41,6 @@ interface Content
     public function getAktualitaData(int $id): AktualitaData;
 
     public function getGdprData(): GdprData;
+
+    public function getUbytovaniData(): UbytovaniData;
 }

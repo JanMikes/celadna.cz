@@ -6,6 +6,8 @@ namespace Celadna\Website\Content\Data;
 
 final class KartaObjektuData
 {
+    use CanCreateManyFromStrapiResponse;
+
     public function __construct(
         public readonly string $Obrazek,
         public readonly string $Nazev,
@@ -15,4 +17,18 @@ final class KartaObjektuData
         public readonly null|string $Odkaz_mapa,
         public readonly null|string $Adresa,
     ) {}
+
+
+    public static function createFromStrapiResponse(array $data): self
+    {
+        return new self(
+            $data['Obrazek']['data']['attributes']['url'],
+            $data['Nazev'],
+            $data['Telefon'],
+            $data['Email'],
+            $data['Odkaz_web'],
+            $data['Odkaz_mapa'],
+            $data['Adresa'],
+        );
+    }
 }

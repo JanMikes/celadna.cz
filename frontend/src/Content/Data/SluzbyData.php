@@ -8,6 +8,7 @@ final class SluzbyData
 {
     public function __construct(
         public readonly BannerSTlacitkamaData $BannerSTlacitkamaData,
+
         /**
          * @var array<SluzbaData> $Sluzby
          */

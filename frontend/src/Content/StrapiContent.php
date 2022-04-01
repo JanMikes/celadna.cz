@@ -16,6 +16,7 @@ use Celadna\Website\Content\Data\RestauraceData;
 use Celadna\Website\Content\Data\SluzbaData;
 use Celadna\Website\Content\Data\SluzbyData;
 use Celadna\Website\Content\Data\TlacitkoData;
+use Celadna\Website\Content\Data\UbytovaniData;
 use Celadna\Website\Strapi\StrapiClient;
 
 final class StrapiContent implements Content
@@ -53,26 +54,10 @@ final class StrapiContent implements Content
             'Restaurace.Obrazek',
         ]);
 
-        $banner = new BannerSTextemData(
-            $strapiResponse['data']['attributes']['Banner']['Nadpis'],
-            $strapiResponse['data']['attributes']['Banner']['Obrazek']['data']['attributes']['url'],
-            $strapiResponse['data']['attributes']['Banner']['Text_pod_nadpisem'],
+        return new RestauraceData(
+            BannerSTextemData::createFromStrapiResponse($strapiResponse['data']['attributes']['Banner']),
+            KartaObjektuData::createManyFromStrapiResponse($strapiResponse['data']['attributes']['Restaurace']),
         );
-
-        $objekty = [];
-        foreach ($strapiResponse['data']['attributes']['Restaurace'] as $objektData) {
-            $objekty[] = new KartaObjektuData(
-                $objektData['Obrazek']['data']['attributes']['url'],
-                $objektData['Nazev'],
-                $objektData['Telefon'],
-                $objektData['Email'],
-                $objektData['Odkaz_web'],
-                $objektData['Odkaz_mapa'],
-                $objektData['Adresa'],
-            );
-        }
-
-        return new RestauraceData($banner, $objekty);
     }
 
     /**
@@ -186,6 +171,19 @@ final class StrapiContent implements Content
         return new GdprData(
             $strapiResponse['data']['attributes']['Nadpis'],
             $strapiResponse['data']['attributes']['Obsah'],
+        );
+    }
+
+    public function getUbytovaniData(): UbytovaniData
+    {
+        $strapiResponse = $this->strapiClient->getApiResource('obec-ubytovani', [
+            'Banner.Obrazek',
+            'Ubytovani.Obrazek'
+        ]);
+
+        return new UbytovaniData(
+            BannerSTextemData::createFromStrapiResponse($strapiResponse['data']['attributes']['Banner']),
+            KartaObjektuData::createManyFromStrapiResponse($strapiResponse['data']['attributes']['Ubytovani']),
         );
     }
 }
