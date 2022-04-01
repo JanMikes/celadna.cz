@@ -43,4 +43,9 @@ interface Content
     public function getGdprData(): GdprData;
 
     public function getUbytovaniData(): UbytovaniData;
+
+    /**
+     * @return array<GrafickyPasData>
+     */
+    public function getVyletyData(): array;
 }

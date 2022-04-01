@@ -108,7 +108,7 @@ final class StrapiContent implements Content
             ],
         );
 
-        return AktualitaData::createManyFromStrapiResponse($strapiResponse['data']);
+        return AktualitaData::createManyFromStrapiReseponse($strapiResponse['data']);
     }
 
 
@@ -145,7 +145,7 @@ final class StrapiContent implements Content
                 $grafickyPasData['Nadpis'],
                 $grafickyPasData['Obsah'],
                 $grafickyPasData['Obrazek']['data']['attributes']['url'],
-                TlacitkoData::createFromStrapiResponse($grafickyPasData['Tlacitko']),
+                $grafickyPasData['Tlacitko'] ? TlacitkoData::createFromStrapiResponse($grafickyPasData['Tlacitko']) : null,
                 $letajiciObrazky,
             );
         }
@@ -164,6 +164,7 @@ final class StrapiContent implements Content
         return AktualitaData::createFromStrapiResponse($strapiResponse['data']);
     }
 
+
     public function getGdprData(): GdprData
     {
         $strapiResponse = $this->strapiClient->getApiResource('gdpr');
@@ -173,6 +174,7 @@ final class StrapiContent implements Content
             $strapiResponse['data']['attributes']['Obsah'],
         );
     }
+
 
     public function getUbytovaniData(): UbytovaniData
     {
@@ -185,5 +187,11 @@ final class StrapiContent implements Content
             BannerSTextemData::createFromStrapiResponse($strapiResponse['data']['attributes']['Banner']),
             KartaObjektuData::createManyFromStrapiResponse($strapiResponse['data']['attributes']['Ubytovani']),
         );
+    }
+
+
+    public function getVyletyData(): array
+    {
+        return $this->getGrafickePasy('obec-vylety');
     }
 }

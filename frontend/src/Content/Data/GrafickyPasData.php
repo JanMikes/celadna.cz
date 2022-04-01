@@ -13,7 +13,7 @@ final class GrafickyPasData
         public string $Nadpis,
         public string $Obsah,
         public string $Obrazek,
-        public TlacitkoData $Tlacitko,
+        public TlacitkoData|null $Tlacitko,
         /**
          * @var array<LetajiciObrazekData> $Letajici_obrazky
          */
