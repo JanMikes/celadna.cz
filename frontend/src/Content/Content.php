@@ -70,4 +70,6 @@ interface Content
     public function getDokumentyVyhlaskyData(): DokumentyData;
 
     public function getDokumentyVyrocniZpravaData(): DokumentyData;
+
+    public function getDokumentyZivotniSituaceData(): DokumentyData;
 }
