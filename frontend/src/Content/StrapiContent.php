@@ -270,4 +270,10 @@ final class StrapiContent implements Content
     {
         return $this->getGenericDokumentyData('urad-dokumenty-vyhlasky');
     }
+
+
+    public function getDokumentyVyrocniZpravaData(): DokumentyData
+    {
+        return $this->getGenericDokumentyData('urad-dokumenty-vyrocni-zprava');
+    }
 }
