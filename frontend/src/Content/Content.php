@@ -62,4 +62,6 @@ interface Content
     public function getDokumentyRozpoctyData(): DokumentyData;
 
     public function getDokumentyStrategickeDokumentyData(): DokumentyData;
+
+    public function getDokumentyUzemniPlanData(): DokumentyData;
 }

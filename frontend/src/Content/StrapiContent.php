@@ -252,4 +252,10 @@ final class StrapiContent implements Content
     {
         return $this->getGenericDokumentyData('urad-dokumenty-strategicke-dokumenty');
     }
+
+
+    public function getDokumentyUzemniPlanData(): DokumentyData
+    {
+        return $this->getGenericDokumentyData('urad-dokumenty-uzemni-plan');
+    }
 }
