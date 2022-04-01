@@ -35,4 +35,6 @@ interface Content
      * @return array<AktualitaData>
      */
     public function getAktualityData(): array;
+
+    public function getAktualitaData(int $id): AktualitaData;
 }

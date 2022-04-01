@@ -167,4 +167,14 @@ final class StrapiContent implements Content
         return $grafickePasy;
     }
 
+    public function getAktualitaData(int $id): AktualitaData
+    {
+        $strapiResponse = $this->strapiClient->getApiResource('aktualities/' . $id,
+            filters: [
+                'Zobrazovat' => ['$eq' => true],
+            ],
+        );
+
+        return AktualitaData::createFromStrapiResponse($strapiResponse['data']);
+    }
 }
