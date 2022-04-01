@@ -282,4 +282,10 @@ final class StrapiContent implements Content
     {
         return $this->getGenericDokumentyData('urad-dokumenty-zivotni-situace');
     }
+
+
+    public function getDokumentyPovinneInformaceData(): DokumentyData
+    {
+        return $this->getGenericDokumentyData('urad-povinne-zverejnovane-informace');
+    }
 }

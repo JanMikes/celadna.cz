@@ -72,4 +72,6 @@ interface Content
     public function getDokumentyVyrocniZpravaData(): DokumentyData;
 
     public function getDokumentyZivotniSituaceData(): DokumentyData;
+
+    public function getDokumentyPovinneInformaceData(): DokumentyData;
 }
