@@ -9,7 +9,7 @@ use Celadna\Website\Content\Data\BannerSTextemData;
 use Celadna\Website\Content\Data\BannerSTlacitkamaData;
 use Celadna\Website\Content\Data\FooterData;
 use Celadna\Website\Content\Data\GdprData;
-use Celadna\Website\Content\Data\GenericDokumentyData;
+use Celadna\Website\Content\Data\DokumentyData;
 use Celadna\Website\Content\Data\GrafickyPasData;
 use Celadna\Website\Content\Data\KartaObjektuData;
 use Celadna\Website\Content\Data\LetajiciObrazekData;
@@ -209,7 +209,7 @@ final class StrapiContent implements Content
     }
 
 
-    private function getGenericDokumentyData(string $resourceName): GenericDokumentyData
+    private function getGenericDokumentyData(string $resourceName): DokumentyData
     {
         $strapiResponse = $this->strapiClient->getApiResource($resourceName);
 
@@ -217,15 +217,27 @@ final class StrapiContent implements Content
             // TODO !!!
         }
 
-        return new GenericDokumentyData(
+        return new DokumentyData(
             $strapiResponse['data']['attributes']['Nadpis'],
             $strapiResponse['data']['attributes']['Obsah'],
         );
     }
 
 
-    public function getDokumentyFormulareData(): GenericDokumentyData
+    public function getDokumentyFormulareData(): DokumentyData
     {
         return $this->getGenericDokumentyData('urad-dokumenty-formulare');
+    }
+
+
+    public function getDokumentyNavodyData(): DokumentyData
+    {
+        return $this->getGenericDokumentyData('urad-dokumenty-navody');
+    }
+
+
+    public function getDokumentyOdpadyData(): DokumentyData
+    {
+        return $this->getGenericDokumentyData('urad-dokumenty-odpady');
     }
 }
