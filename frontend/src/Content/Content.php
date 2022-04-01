@@ -94,5 +94,7 @@ interface Content
     /**
      * @return array<UredniDeskaData>
      */
-    public function getUredniDeskaData(): array;
+    public function getUredniDeskyData(): array;
+
+    public function getUredniDeskaData(int $id): UredniDeskaData;
 }

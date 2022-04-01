@@ -353,7 +353,7 @@ final class StrapiContent implements Content
     /**
      * @return array<UredniDeskaData>
      */
-    public function getUredniDeskaData(): array
+    public function getUredniDeskyData(): array
     {
         $strapiResponse = $this->strapiClient->getApiResource('uredni-deskas', [
             'Soubory',
@@ -363,5 +363,17 @@ final class StrapiContent implements Content
         ]);
 
         return UredniDeskaData::createManyFromStrapiResponse($strapiResponse);
+    }
+
+    public function getUredniDeskaData(int $id): UredniDeskaData
+    {
+        $strapiResponse = $this->strapiClient->getApiResource('uredni-deskas/' . $id, [
+            'Soubory',
+            'Zodpovedna_osoba.Fotka',
+        ], filters: [
+            'Zobrazovat' => ['$eq' => true],
+        ]);
+
+        return UredniDeskaData::createFromStrapiResponse($strapiResponse['data']['attributes']);
     }
 }
