@@ -24,23 +24,11 @@ final class SamospravaData
 
     public static function createFromStrapiResponse(array $data): self
     {
-        /**
-         * @var array<ClovekData> $lide
-         */
-        $lide = array_map(function(array $clovekData) {
-            $data = $clovekData['Clovek']['data']['attributes'];
-
-            // It has higher priority than his default function
-            $data['Funkce'] = $clovekData['Funkce'];
-
-            return ClovekData::createFromStrapiResponse($data);
-        }, $data['Lide']);
-
         return new self(
             $data['Nadpis'],
             $data['Obsah'],
             $data['Kategorie_uredni_desky'],
-            $lide,
+            ClovekData::createManyFromStrapiResponse($data['Lide']),
         );
     }
 }

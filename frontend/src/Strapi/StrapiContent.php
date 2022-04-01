@@ -2,8 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Celadna\Website\Content;
+namespace Celadna\Website\Strapi;
 
+use Celadna\Website\Content\Content;
 use Celadna\Website\Content\Data\AktualitaData;
 use Celadna\Website\Content\Data\BannerSTextemData;
 use Celadna\Website\Content\Data\BannerSTlacitkamaData;
@@ -19,14 +20,14 @@ use Celadna\Website\Content\Data\RestauraceData;
 use Celadna\Website\Content\Data\SamospravaData;
 use Celadna\Website\Content\Data\SluzbaData;
 use Celadna\Website\Content\Data\SluzbyData;
+use Celadna\Website\Content\Data\StrukturaUraduData;
 use Celadna\Website\Content\Data\TlacitkoData;
 use Celadna\Website\Content\Data\UbytovaniData;
-use Celadna\Website\Strapi\StrapiClient;
 
 final class StrapiContent implements Content
 {
     public function __construct(
-        private StrapiClient $strapiClient,
+        private StrapiApiClient $strapiClient,
     ) {}
 
 
@@ -112,7 +113,7 @@ final class StrapiContent implements Content
             ],
         );
 
-        return AktualitaData::createManyFromStrapiReseponse($strapiResponse['data']);
+        return AktualitaData::createManyFromStrapiResponse($strapiResponse['data']);
     }
 
 
@@ -215,9 +216,11 @@ final class StrapiContent implements Content
     {
         $strapiResponse = $this->strapiClient->getApiResource($resourceName);
 
+        /*
         if ($strapiResponse['data']['attributes']['Zobrazovat_komponentu_uredni_desky'] === true) {
             // TODO !!!
         }
+        */
 
         return new DokumentyData(
             $strapiResponse['data']['attributes']['Nadpis'],
@@ -315,5 +318,17 @@ final class StrapiContent implements Content
         ]);
 
         return KontaktyData::createFromStrapiResponse($strapiResponse['data']['attributes']);
+    }
+
+
+    public function getStrukturaUraduData(): StrukturaUraduData
+    {
+        $strapiResponse = $this->strapiClient->getApiResource('urad-struktura-uradu', [
+            'Banner.Obrazek',
+            'Struktura_uradu.Clovek.Fotka',
+            'Struktura_stavebniho_uradu.Clovek.Fotka',
+        ]);
+
+        return StrukturaUraduData::createFromStrapiResponse($strapiResponse['data']['attributes']);
     }
 }

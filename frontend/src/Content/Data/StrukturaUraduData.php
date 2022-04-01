@@ -4,16 +4,21 @@ declare(strict_types=1);
 
 namespace Celadna\Website\Content\Data;
 
-final class KontaktyData
+final class StrukturaUraduData
 {
     public function __construct(
         public readonly BannerSTextemData $Banner,
         public readonly string $Obsah,
 
         /**
-         * @var array<ClovekData> $Vedeni_obce
+         * @var array<ClovekData> $Struktura_uradu
          */
-        public readonly array $Vedeni_obce,
+        public readonly array $Struktura_uradu,
+
+        /**
+         * @var array<ClovekData> $Struktura_stavebniho_uradu
+         */
+        public readonly array $Struktura_stavebniho_uradu,
     ) {}
 
 
@@ -22,7 +27,8 @@ final class KontaktyData
         return new self(
             BannerSTextemData::createFromStrapiResponse($data['Banner']),
             $data['Obsah'],
-            ClovekData::createManyFromStrapiResponse($data['Vedeni_obce'])
+            ClovekData::createManyFromStrapiResponse($data['Struktura_uradu']),
+            ClovekData::createManyFromStrapiResponse($data['Struktura_stavebniho_uradu']),
         );
     }
 }

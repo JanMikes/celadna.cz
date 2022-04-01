@@ -14,6 +14,7 @@ use Celadna\Website\Content\Data\PristupnostData;
 use Celadna\Website\Content\Data\RestauraceData;
 use Celadna\Website\Content\Data\SamospravaData;
 use Celadna\Website\Content\Data\SluzbyData;
+use Celadna\Website\Content\Data\StrukturaUraduData;
 use Celadna\Website\Content\Data\UbytovaniData;
 
 interface Content
@@ -83,4 +84,6 @@ interface Content
     public function getSamospravaData(): array;
 
     public function getKontaktyData(): KontaktyData;
+
+    public function getStrukturaUraduData(): StrukturaUraduData;
 }

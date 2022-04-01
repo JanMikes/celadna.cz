@@ -6,6 +6,8 @@ namespace Celadna\Website\Content\Data;
 
 final class ClovekData
 {
+    use CanCreateManyFromStrapiResponse;
+
     public function __construct(
         public string $Jmeno,
         public string $Funkce,
@@ -20,6 +22,13 @@ final class ClovekData
 
     public static function createFromStrapiResponse(array $data): self
     {
+        // Special type, data is wrapped and 'Funkce' will overwrite
+        if (isset($data['Clovek'], $data['Funkce'])) {
+            $funkce = $data['Funkce'];
+            $data = $data['Clovek']['data']['attributes'];
+            $data['funkce'] = $funkce;
+        }
+
         return new self(
             $data['Jmeno'],
             $data['Funkce'],

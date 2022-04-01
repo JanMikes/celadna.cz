@@ -6,7 +6,7 @@ namespace Celadna\Website\Strapi;
 
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
-final class StrapiClient
+final class StrapiApiClient
 {
     public function __construct(
         private HttpClientInterface $strapiClient,
