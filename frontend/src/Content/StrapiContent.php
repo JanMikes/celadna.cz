@@ -240,4 +240,10 @@ final class StrapiContent implements Content
     {
         return $this->getGenericDokumentyData('urad-dokumenty-odpady');
     }
+
+
+    public function getDokumentyRozpoctyData(): DokumentyData
+    {
+        return $this->getGenericDokumentyData('urad-dokumenty-rozpocty');
+    }
 }

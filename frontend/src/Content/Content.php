@@ -58,4 +58,6 @@ interface Content
     public function getDokumentyNavodyData(): DokumentyData;
 
     public function getDokumentyOdpadyData(): DokumentyData;
+
+    public function getDokumentyRozpoctyData(): DokumentyData;
 }
