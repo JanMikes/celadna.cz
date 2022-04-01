@@ -9,9 +9,10 @@ final class ClovekData
     public function __construct(
         public string $Jmeno,
         public string $Funkce,
-        public string $Email,
+        public string|null $Email,
         public string|null $Telefon,
         public string $Pohlavi,
+        public string|null $Fotka,
     )
     {
     }
@@ -25,6 +26,7 @@ final class ClovekData
             $data['Email'],
             $data['Telefon'],
             $data['Pohlavi'],
+            $data['Fotka']['data'] ? $data['Fotka']['data']['attributes']['url'] : null
         );
     }
 }

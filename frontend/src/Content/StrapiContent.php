@@ -15,6 +15,7 @@ use Celadna\Website\Content\Data\KartaObjektuData;
 use Celadna\Website\Content\Data\LetajiciObrazekData;
 use Celadna\Website\Content\Data\PristupnostData;
 use Celadna\Website\Content\Data\RestauraceData;
+use Celadna\Website\Content\Data\SamospravaData;
 use Celadna\Website\Content\Data\SluzbaData;
 use Celadna\Website\Content\Data\SluzbyData;
 use Celadna\Website\Content\Data\TlacitkoData;
@@ -287,5 +288,20 @@ final class StrapiContent implements Content
     public function getDokumentyPovinneInformaceData(): DokumentyData
     {
         return $this->getGenericDokumentyData('urad-povinne-zverejnovane-informace');
+    }
+
+
+    /**
+     * @return array<SamospravaData>
+     */
+    public function getSamospravaData(): array
+    {
+        $strapiResponse = $this->strapiClient->getApiResource('urad-samosprava', [
+            'Kategorie_samospravy.Lide.Clovek.Fotka'
+        ]);
+
+        // TODO: napojeni na uredni desku
+
+        return SamospravaData::createManyFromStrapiResponse($strapiResponse['data']['attributes']['Kategorie_samospravy']);
     }
 }

@@ -11,6 +11,7 @@ use Celadna\Website\Content\Data\DokumentyData;
 use Celadna\Website\Content\Data\GrafickyPasData;
 use Celadna\Website\Content\Data\PristupnostData;
 use Celadna\Website\Content\Data\RestauraceData;
+use Celadna\Website\Content\Data\SamospravaData;
 use Celadna\Website\Content\Data\SluzbyData;
 use Celadna\Website\Content\Data\UbytovaniData;
 
@@ -74,4 +75,9 @@ interface Content
     public function getDokumentyZivotniSituaceData(): DokumentyData;
 
     public function getDokumentyPovinneInformaceData(): DokumentyData;
+
+    /**
+     * @return array<SamospravaData>
+     */
+    public function getSamospravaData(): array;
 }
