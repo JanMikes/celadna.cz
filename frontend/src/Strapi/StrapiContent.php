@@ -14,7 +14,6 @@ use Celadna\Website\Content\Data\DokumentyData;
 use Celadna\Website\Content\Data\GrafickyPasData;
 use Celadna\Website\Content\Data\KartaObjektuData;
 use Celadna\Website\Content\Data\KontaktyData;
-use Celadna\Website\Content\Data\LetajiciObrazekData;
 use Celadna\Website\Content\Data\PristupnostData;
 use Celadna\Website\Content\Data\RestauraceData;
 use Celadna\Website\Content\Data\SamospravaData;
@@ -131,34 +130,7 @@ final class StrapiContent implements Content
             'Graficke_pasy.Letajici_obrazky.Obrazek',
         ]);
 
-        $grafickePasy = [];
-
-        foreach ($strapiResponse['data']['attributes']['Graficke_pasy'] as $grafickyPasData) {
-            $letajiciObrazky = [];
-
-            foreach ($grafickyPasData['Letajici_obrazky'] as $letajiciObrazek) {
-                $letajiciObrazky[] = new LetajiciObrazekData(
-                    $letajiciObrazek['Left'],
-                    $letajiciObrazek['Right'],
-                    $letajiciObrazek['Top'],
-                    $letajiciObrazek['Bottom'],
-                    $letajiciObrazek['Obrazek']['data']['attributes']['url'],
-                );
-            }
-
-            $grafickePasy[] = new GrafickyPasData(
-                $grafickyPasData['Umisteni'],
-                $grafickyPasData['Barva_gradientu_1'],
-                $grafickyPasData['Barva_gradientu_2'],
-                $grafickyPasData['Nadpis'],
-                $grafickyPasData['Obsah'],
-                $grafickyPasData['Obrazek']['data']['attributes']['url'],
-                $grafickyPasData['Tlacitko'] ? TlacitkoData::createFromStrapiResponse($grafickyPasData['Tlacitko']) : null,
-                $letajiciObrazky,
-            );
-        }
-
-        return $grafickePasy;
+        return GrafickyPasData::createManyFromStrapiResponse($strapiResponse['data']['attributes']['Graficke_pasy']);
     }
 
     public function getAktualitaData(int $id): AktualitaData
