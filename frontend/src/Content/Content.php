@@ -7,6 +7,7 @@ namespace Celadna\Website\Content;
 use Celadna\Website\Content\Data\AktualitaData;
 use Celadna\Website\Content\Data\FooterData;
 use Celadna\Website\Content\Data\GdprData;
+use Celadna\Website\Content\Data\GenericDokumentyData;
 use Celadna\Website\Content\Data\GrafickyPasData;
 use Celadna\Website\Content\Data\PristupnostData;
 use Celadna\Website\Content\Data\RestauraceData;
@@ -51,4 +52,6 @@ interface Content
     public function getVyletyData(): array;
 
     public function getPristupnostData(): PristupnostData;
+
+    public function getDokumentyFormulareData(): GenericDokumentyData;
 }

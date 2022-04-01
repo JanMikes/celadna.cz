@@ -9,6 +9,7 @@ use Celadna\Website\Content\Data\BannerSTextemData;
 use Celadna\Website\Content\Data\BannerSTlacitkamaData;
 use Celadna\Website\Content\Data\FooterData;
 use Celadna\Website\Content\Data\GdprData;
+use Celadna\Website\Content\Data\GenericDokumentyData;
 use Celadna\Website\Content\Data\GrafickyPasData;
 use Celadna\Website\Content\Data\KartaObjektuData;
 use Celadna\Website\Content\Data\LetajiciObrazekData;
@@ -205,5 +206,26 @@ final class StrapiContent implements Content
             $strapiResponse['data']['attributes']['Nadpis'],
             $strapiResponse['data']['attributes']['Obsah'],
         );
+    }
+
+
+    private function getGenericDokumentyData(string $resourceName): GenericDokumentyData
+    {
+        $strapiResponse = $this->strapiClient->getApiResource($resourceName);
+
+        if ($strapiResponse['data']['attributes']['Zobrazovat_komponentu_uredni_desky'] === true) {
+            // TODO !!!
+        }
+
+        return new GenericDokumentyData(
+            $strapiResponse['data']['attributes']['Nadpis'],
+            $strapiResponse['data']['attributes']['Obsah'],
+        );
+    }
+
+
+    public function getDokumentyFormulareData(): GenericDokumentyData
+    {
+        return $this->getGenericDokumentyData('urad-dokumenty-formulare');
     }
 }
