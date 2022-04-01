@@ -16,17 +16,24 @@ final class StrapiClient
     /**
      * @return mixed
      */
-    public function getSingleResource(
+    public function getApiResource(
         string $resourceName,
         array|null $populate = null,
-        array|null $fields = null
+        array|null $fields = null,
+        array|null $filters = null,
     ): array
     {
+        $query = [
+            'populate' => $populate ?: '*',
+            'fields' => $fields ?: '*',
+        ];
+
+        if ($filters !== null) {
+            $query['filters'] = $filters;
+        }
+
         $response = $this->strapiClient->request('GET', '/api/' . $resourceName, [
-            'query' => [
-                'populate' => $populate ? : '*',
-                'fields' => $fields ? : '*',
-            ]
+            'query' => $query
         ]);
 
         return $response->toArray();

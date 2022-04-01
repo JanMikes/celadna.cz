@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Celadna\Website\Content;
 
+use Celadna\Website\Content\Data\AktualitaData;
 use Celadna\Website\Content\Data\BannerSTextemData;
 use Celadna\Website\Content\Data\BannerSTlacitkamaData;
 use Celadna\Website\Content\Data\FooterData;
@@ -28,7 +29,7 @@ final class StrapiContent implements Content
      */
     public function getFooterData(): array
     {
-        $strapiResponse = $this->strapiClient->getSingleResource('footer', [
+        $strapiResponse = $this->strapiClient->getApiResource('footer', [
             'Reklama_607x433.Obrazek',
         ]);
 
@@ -46,7 +47,7 @@ final class StrapiContent implements Content
 
     public function getRestauraceData(): RestauraceData
     {
-        $strapiResponse = $this->strapiClient->getSingleResource('obec-restaurace', [
+        $strapiResponse = $this->strapiClient->getApiResource('obec-restaurace', [
             'Banner.Obrazek',
             'Restaurace.Obrazek',
         ]);
@@ -93,7 +94,7 @@ final class StrapiContent implements Content
 
     public function getSluzbyData(): SluzbyData
     {
-        $strapiResponse = $this->strapiClient->getSingleResource('obec-sluzby', [
+        $strapiResponse = $this->strapiClient->getApiResource('obec-sluzby', [
             'Banner.Obrazek',
             'Banner.Tlacitka',
             'Sluzby'
@@ -111,11 +112,26 @@ final class StrapiContent implements Content
 
 
     /**
+     * @return array<AktualitaData>
+     */
+    public function getAktualityData(): array
+    {
+        $strapiResponse = $this->strapiClient->getApiResource('aktualities',
+            filters: [
+                'Zobrazovat' => ['$eq' => true],
+            ],
+        );
+
+        return AktualitaData::createManyFromStrapiResponse($strapiResponse['data']);
+    }
+
+
+    /**
      * @return array<GrafickyPasData>
      */
     private function getGrafickePasy(string $resourceName): array
     {
-        $strapiResponse = $this->strapiClient->getSingleResource($resourceName, [
+        $strapiResponse = $this->strapiClient->getApiResource($resourceName, [
             'Graficke_pasy.Tlacitko',
             'Graficke_pasy.Obrazek',
             'Graficke_pasy.Letajici_obrazky.Obrazek',
@@ -150,4 +166,5 @@ final class StrapiContent implements Content
 
         return $grafickePasy;
     }
+
 }

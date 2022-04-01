@@ -6,6 +6,9 @@ namespace Celadna\Website\Content\Data;
 
 final class SluzbaData
 {
+    use CanCreateManyFromStrapiResponse;
+
+
     public function __construct(
         public readonly string $Nadpis,
         public readonly null|string $Telefon,
@@ -16,20 +19,5 @@ final class SluzbaData
     public static function createFromStrapiResponse(array $data): self
     {
         return new self($data['Nadpis'], $data['Telefon'], $data['Obsah']);
-    }
-
-
-    /**
-     * @return array<self>
-     */
-    public static function createManyFromStrapiResponse(array $data): array
-    {
-        $objects = [];
-
-        foreach ($data as $singleObjectData) {
-            $objects[] = self::createFromStrapiResponse($singleObjectData);
-        }
-
-        return $objects;
     }
 }

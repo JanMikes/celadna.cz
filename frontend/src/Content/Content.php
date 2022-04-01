@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Celadna\Website\Content;
 
+use Celadna\Website\Content\Data\AktualitaData;
 use Celadna\Website\Content\Data\FooterData;
 use Celadna\Website\Content\Data\GrafickyPasData;
 use Celadna\Website\Content\Data\RestauraceData;
@@ -29,4 +30,9 @@ interface Content
     public function getOrganizaceData(): array;
 
     public function getSluzbyData(): SluzbyData;
+
+    /**
+     * @return array<AktualitaData>
+     */
+    public function getAktualityData(): array;
 }
