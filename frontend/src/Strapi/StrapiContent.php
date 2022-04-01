@@ -25,6 +25,7 @@ use Celadna\Website\Content\Data\StrukturaUraduData;
 use Celadna\Website\Content\Data\TlacitkoData;
 use Celadna\Website\Content\Data\UbytovaniData;
 use Celadna\Website\Content\Data\UradData;
+use Celadna\Website\Content\Data\UredniDeskaData;
 
 final class StrapiContent implements Content
 {
@@ -346,5 +347,21 @@ final class StrapiContent implements Content
             BannerSTextemData::createFromStrapiResponse($strapiResponse['data']['attributes']['Banner']),
             SekceSDlazdicemaData::createFromStrapiResponse($strapiResponse['data']['attributes']['Sekce_s_dlazdicema']),
         );
+    }
+
+
+    /**
+     * @return array<UredniDeskaData>
+     */
+    public function getUredniDeskaData(): array
+    {
+        $strapiResponse = $this->strapiClient->getApiResource('uredni-deskas', [
+            'Soubory',
+            'Zodpovedna_osoba.Fotka',
+        ], filters: [
+            'Zobrazovat' => ['$eq' => true],
+        ]);
+
+        return UredniDeskaData::createManyFromStrapiResponse($strapiResponse);
     }
 }

@@ -4,15 +4,24 @@ declare(strict_types=1);
 
 namespace Celadna\Website\Controller;
 
+use Celadna\Website\Content\Content;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 final class UredniDeskaController extends AbstractController
 {
-    #[Route('/uredni-deska', 'uredni_deska')]
+    public function __construct(
+        private Content $contentProvider
+    ) {}
+
+
+    #[Route('/obecni-urad/uredni-deska', 'uredni_deska')]
     public function __invoke(): Response
     {
-        return $this->render('uredni_deska.html.twig');
+        return $this->render('uredni_deska.html.twig', [
+            'uredni_deska' => $this->contentProvider->getUredniDeskaData(),
+            'footer' => $this->contentProvider->getFooterData(),
+        ]);
     }
 }

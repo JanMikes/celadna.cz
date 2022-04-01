@@ -17,6 +17,7 @@ use Celadna\Website\Content\Data\SluzbyData;
 use Celadna\Website\Content\Data\StrukturaUraduData;
 use Celadna\Website\Content\Data\UbytovaniData;
 use Celadna\Website\Content\Data\UradData;
+use Celadna\Website\Content\Data\UredniDeskaData;
 
 interface Content
 {
@@ -89,4 +90,9 @@ interface Content
     public function getStrukturaUraduData(): StrukturaUraduData;
 
     public function getUradData(): UradData;
+
+    /**
+     * @return array<UredniDeskaData>
+     */
+    public function getUredniDeskaData(): array;
 }
