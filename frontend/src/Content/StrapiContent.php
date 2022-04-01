@@ -12,6 +12,7 @@ use Celadna\Website\Content\Data\GdprData;
 use Celadna\Website\Content\Data\DokumentyData;
 use Celadna\Website\Content\Data\GrafickyPasData;
 use Celadna\Website\Content\Data\KartaObjektuData;
+use Celadna\Website\Content\Data\KontaktyData;
 use Celadna\Website\Content\Data\LetajiciObrazekData;
 use Celadna\Website\Content\Data\PristupnostData;
 use Celadna\Website\Content\Data\RestauraceData;
@@ -303,5 +304,16 @@ final class StrapiContent implements Content
         // TODO: napojeni na uredni desku
 
         return SamospravaData::createManyFromStrapiResponse($strapiResponse['data']['attributes']['Kategorie_samospravy']);
+    }
+
+
+    public function getKontaktyData(): KontaktyData
+    {
+        $strapiResponse = $this->strapiClient->getApiResource('urad-kontakty',[
+            'Banner.Obrazek',
+            'Vedeni_obce.Clovek.Fotka',
+        ]);
+
+        return KontaktyData::createFromStrapiResponse($strapiResponse['data']['attributes']);
     }
 }

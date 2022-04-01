@@ -9,6 +9,7 @@ use Celadna\Website\Content\Data\FooterData;
 use Celadna\Website\Content\Data\GdprData;
 use Celadna\Website\Content\Data\DokumentyData;
 use Celadna\Website\Content\Data\GrafickyPasData;
+use Celadna\Website\Content\Data\KontaktyData;
 use Celadna\Website\Content\Data\PristupnostData;
 use Celadna\Website\Content\Data\RestauraceData;
 use Celadna\Website\Content\Data\SamospravaData;
@@ -80,4 +81,6 @@ interface Content
      * @return array<SamospravaData>
      */
     public function getSamospravaData(): array;
+
+    public function getKontaktyData(): KontaktyData;
 }
