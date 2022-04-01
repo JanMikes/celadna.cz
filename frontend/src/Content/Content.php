@@ -66,4 +66,6 @@ interface Content
     public function getDokumentyUzemniPlanData(): DokumentyData;
 
     public function getDokumentyUzemniStudieData(): DokumentyData;
+
+    public function getDokumentyVyhlaskyData(): DokumentyData;
 }
