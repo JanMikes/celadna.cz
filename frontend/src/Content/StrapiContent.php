@@ -12,6 +12,7 @@ use Celadna\Website\Content\Data\GdprData;
 use Celadna\Website\Content\Data\GrafickyPasData;
 use Celadna\Website\Content\Data\KartaObjektuData;
 use Celadna\Website\Content\Data\LetajiciObrazekData;
+use Celadna\Website\Content\Data\PristupnostData;
 use Celadna\Website\Content\Data\RestauraceData;
 use Celadna\Website\Content\Data\SluzbaData;
 use Celadna\Website\Content\Data\SluzbyData;
@@ -193,5 +194,16 @@ final class StrapiContent implements Content
     public function getVyletyData(): array
     {
         return $this->getGrafickePasy('obec-vylety');
+    }
+
+
+    public function getPristupnostData(): PristupnostData
+    {
+        $strapiResponse = $this->strapiClient->getApiResource('prohlaseni-o-pristupnosti');
+
+        return new PristupnostData(
+            $strapiResponse['data']['attributes']['Nadpis'],
+            $strapiResponse['data']['attributes']['Obsah'],
+        );
     }
 }
