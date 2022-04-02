@@ -1,6 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block content %}
+{% block title %}{{ dokumenty.Nadpis }}{% endblock %}
 
+{% block content %}
+    {{ include('_dokumenty.html.twig', {
+        'title': dokumenty.Nadpis
+    }) }}
 {% endblock %}
 
