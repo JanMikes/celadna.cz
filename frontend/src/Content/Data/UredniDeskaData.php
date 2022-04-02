@@ -12,6 +12,7 @@ final class UredniDeskaData
     use CanCreateManyFromStrapiResponse;
 
     public function __construct(
+        public readonly int|null $id,
         public readonly string $Nadpis,
         public readonly DateTimeInterface $Datum_zverejneni,
         public readonly DateTimeInterface|null $Datum_stazeni,
@@ -26,9 +27,10 @@ final class UredniDeskaData
     {
     }
 
-    public static function createFromStrapiResponse(array $data): self
+    public static function createFromStrapiResponse(array $data, int|null $id = null): self
     {
         return new self(
+            $id,
             $data['Nadpis'],
             DateTimeImmutable::createFromFormat('Y-m-d', $data['Datum_zverejneni']),
             $data['Datum_stazeni'] ? DateTimeImmutable::createFromFormat('Y-m-d', $data['Datum_stazeni']) : null,

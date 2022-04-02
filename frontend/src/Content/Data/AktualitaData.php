@@ -9,6 +9,7 @@ final class AktualitaData
     use CanCreateManyFromStrapiResponse;
 
     public function __construct(
+        public readonly int|null $id,
         public string $Nadpis,
         public \DateTimeImmutable $DatumZverejneni,
         public string $Obrazek,
@@ -25,12 +26,15 @@ final class AktualitaData
          * @var string[] $Tagy,
          */
         public array $Tagy,
+
+        public readonly string $Popis,
     ) {}
 
 
-    public static function createFromStrapiResponse(array $data): self
+    public static function createFromStrapiResponse(array $data, int|null $id = null): self
     {
         return new self(
+            $id,
             $data['Nadpis'],
             \DateTimeImmutable::createFromFormat('Y-m-d', $data['Datum_zverejneni']),
             $data['Obrazek']['data']['attributes']['url'],
@@ -38,6 +42,7 @@ final class AktualitaData
             array_map(fn(array $galerieData) => $galerieData['attributes']['url'], $data['Galerie']['data']),
             ClovekData::createFromStrapiResponse($data['Zverejnil']['data']['attributes']),
             array_map(fn(array $tagyData) => $tagyData['attributes']['Tag'], $data['Tagy']['data']),
+            $data['Popis'],
         );
     }
 }

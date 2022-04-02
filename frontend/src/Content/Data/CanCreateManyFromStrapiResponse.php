@@ -6,7 +6,7 @@ namespace Celadna\Website\Content\Data;
 
 trait CanCreateManyFromStrapiResponse
 {
-    abstract public static function createFromStrapiResponse(array $data): self;
+    abstract public static function createFromStrapiResponse(array $data, int|null $id = null): self;
 
 
     /**
@@ -18,7 +18,7 @@ trait CanCreateManyFromStrapiResponse
         $data = $data['data'] ?? $data;
 
         foreach ($data as $singleObjectData) {
-            $objects[] = self::createFromStrapiResponse($singleObjectData['attributes'] ?? $singleObjectData);
+            $objects[] = self::createFromStrapiResponse($singleObjectData['attributes'] ?? $singleObjectData, $singleObjectData['id'] ?? null);
         }
 
         return $objects;

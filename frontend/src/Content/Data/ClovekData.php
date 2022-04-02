@@ -20,7 +20,7 @@ final class ClovekData
     }
 
 
-    public static function createFromStrapiResponse(array $data): self
+    public static function createFromStrapiResponse(array $data, int|null $id = null): self
     {
         // Special type, data is wrapped and 'Funkce' will overwrite
         if (isset($data['Clovek'], $data['Funkce'])) {

@@ -19,7 +19,7 @@ final class KartaObjektuData
     ) {}
 
 
-    public static function createFromStrapiResponse(array $data): self
+    public static function createFromStrapiResponse(array $data, int|null $id = null): self
     {
         return new self(
             $data['Obrazek']['data']['attributes']['url'],

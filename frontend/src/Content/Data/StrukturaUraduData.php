@@ -22,7 +22,7 @@ final class StrukturaUraduData
     ) {}
 
 
-    public static function createFromStrapiResponse(array $data): self
+    public static function createFromStrapiResponse(array $data, int|null $id = null): self
     {
         return new self(
             BannerSTextemData::createFromStrapiResponse($data['Banner']),
