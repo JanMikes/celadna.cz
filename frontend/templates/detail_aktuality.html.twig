@@ -3,14 +3,7 @@
 {% block title %}{{ aktualita.Nadpis }}{% endblock %}
 
 {% block content %}
-    <nav>
-        <a href="{{ path('aktuality') }}">Všechny příspěvky</a>
-        <a href="{{ path('urad_dokumenty_formulare') }}">Formuláře</a>
-        <a href="{{ path('urad_dokumenty_odpady') }}">Odpady</a>
-        <a href="{{ path('urad_dokumenty_vyhlasky') }}">Vyhlášky</a>
-    </nav>
-
-    <section>
+    <article>
         <h2 id="aktualita-{{ aktualita.id }}">{{ aktualita.Nadpis }}</h2>
 
         <p>
@@ -23,6 +16,13 @@
         {% if aktualita.Obrazek %}
             <img src="{{ aktualita.Obrazek }}" alt="" aria-labelledby="aktualita-{{ aktualita.id }}">
         {% endif %}
-    </section>
+    </article>
+
+    <nav>
+        <a href="{{ path('aktuality') }}">Všechny příspěvky</a>
+        <a href="{{ path('urad_dokumenty_formulare') }}">Formuláře</a>
+        <a href="{{ path('urad_dokumenty_odpady') }}">Odpady</a>
+        <a href="{{ path('urad_dokumenty_vyhlasky') }}">Vyhlášky</a>
+    </nav>
 {% endblock %}
 
