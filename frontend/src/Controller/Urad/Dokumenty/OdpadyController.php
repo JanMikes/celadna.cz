@@ -16,7 +16,7 @@ final class OdpadyController extends AbstractController
     ) {}
 
 
-    #[Route('/obecni-urad/dokumenty-uradu/odpady', 'urad_dokumenty_odpady')]
+    #[Route('/obecni-urad/dokumenty-uradu/odpady', name: 'urad_dokumenty_odpady')]
     public function __invoke(): Response
     {
         return $this->render('urad_dokumenty_odpady.html.twig', [

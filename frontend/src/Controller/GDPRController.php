@@ -16,7 +16,7 @@ final class GDPRController extends AbstractController
     ) {}
 
 
-    #[Route('/gdpr', 'gdpr')]
+    #[Route('/gdpr', name: 'gdpr')]
     public function __invoke(): Response
     {
         return $this->render('gdpr.html.twig', [

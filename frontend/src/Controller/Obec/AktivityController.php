@@ -16,7 +16,7 @@ final class AktivityController extends AbstractController
     ) {}
 
 
-    #[Route('/obec/aktivity', 'obec_aktivity')]
+    #[Route('/obec/aktivity', name: 'obec_aktivity')]
     public function __invoke(): Response
     {
         return $this->render('obec_aktivity.html.twig', [

@@ -16,7 +16,7 @@ final class MapaStranekController extends AbstractController
     ) {}
 
 
-    #[Route('/mapa-stranek', 'mapa_stranek')]
+    #[Route('/mapa-stranek', name: 'mapa_stranek')]
     public function __invoke(): Response
     {
         return $this->render('mapa_stranek.html.twig', [

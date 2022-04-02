@@ -17,7 +17,7 @@ final class DetailAktualityController extends AbstractController
     ) {}
 
 
-    #[Route('/aktuality/{id}', 'detail_aktuality')]
+    #[Route('/aktuality/{id}', name: 'detail_aktuality')]
     public function __invoke($id): Response
     {
         try {

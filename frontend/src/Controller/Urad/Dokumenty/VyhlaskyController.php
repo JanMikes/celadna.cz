@@ -16,7 +16,7 @@ final class VyhlaskyController extends AbstractController
     ) {}
 
 
-    #[Route('/obecni-urad/dokumenty-uradu/vyhlasky', 'urad_dokumenty_vyhlasky')]
+    #[Route('/obecni-urad/dokumenty-uradu/vyhlasky', name: 'urad_dokumenty_vyhlasky')]
     public function __invoke(): Response
     {
         return $this->render('urad_dokumenty_vyhlasky.html.twig', [

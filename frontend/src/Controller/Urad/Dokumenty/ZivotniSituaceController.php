@@ -16,7 +16,7 @@ final class ZivotniSituaceController extends AbstractController
     ) {}
 
 
-    #[Route('/obecni-urad/dokumenty-uradu/zivotni-situace', 'urad_dokumenty_zivotni_situace')]
+    #[Route('/obecni-urad/dokumenty-uradu/zivotni-situace', name: 'urad_dokumenty_zivotni_situace')]
     public function __invoke(): Response
     {
         return $this->render('urad_dokumenty_zivotni_situace.html.twig', [

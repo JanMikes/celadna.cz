@@ -16,7 +16,7 @@ final class VyrocniZpravaController extends AbstractController
     ) {}
 
 
-    #[Route('/obecni-urad/dokumenty-uradu/vyrocni-zprava', 'urad_dokumenty_vyrocni_zprava')]
+    #[Route('/obecni-urad/dokumenty-uradu/vyrocni-zprava', name: 'urad_dokumenty_vyrocni_zprava')]
     public function __invoke(): Response
     {
         return $this->render('urad_dokumenty_vyrocni_zprava.html.twig', [

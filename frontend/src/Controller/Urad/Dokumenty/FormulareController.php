@@ -16,7 +16,7 @@ final class FormulareController extends AbstractController
     ) {}
 
 
-    #[Route('/obecni-urad/dokumenty-uradu/formulare', 'urad_dokumenty_formulare')]
+    #[Route('/obecni-urad/dokumenty-uradu/formulare', name: 'urad_dokumenty_formulare')]
     public function __invoke(): Response
     {
         return $this->render('urad_dokumenty_formulare.html.twig', [

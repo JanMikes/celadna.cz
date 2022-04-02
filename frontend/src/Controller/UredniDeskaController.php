@@ -16,7 +16,7 @@ final class UredniDeskaController extends AbstractController
     ) {}
 
 
-    #[Route('/obecni-urad/uredni-deska', 'uredni_deska')]
+    #[Route('/obecni-urad/uredni-deska', name: 'uredni_deska')]
     public function __invoke(): Response
     {
         return $this->render('uredni_deska.html.twig', [

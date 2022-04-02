@@ -16,7 +16,7 @@ final class UradController extends AbstractController
     ) {}
 
 
-    #[Route('/obecni-urad', 'urad')]
+    #[Route('/obecni-urad', name: 'urad')]
     public function __invoke(): Response
     {
         return $this->render('urad.html.twig', [

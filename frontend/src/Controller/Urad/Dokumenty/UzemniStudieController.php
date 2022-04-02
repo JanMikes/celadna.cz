@@ -16,7 +16,7 @@ final class UzemniStudieController extends AbstractController
     ) {}
 
 
-    #[Route('/obecni-urad/dokumenty-uradu/uzemni-studie', 'urad_dokumenty_uzemni_studie')]
+    #[Route('/obecni-urad/dokumenty-uradu/uzemni-studie', name: 'urad_dokumenty_uzemni_studie')]
     public function __invoke(): Response
     {
         return $this->render('urad_dokumenty_uzemni_studie.html.twig', [

@@ -16,7 +16,7 @@ final class OrganizaceController extends AbstractController
     ) {}
 
 
-    #[Route('/obec/organizace', 'obec_organizace')]
+    #[Route('/obec/organizace', name: 'obec_organizace')]
     public function __invoke(): Response
     {
         return $this->render('obec_organizace.html.twig', [

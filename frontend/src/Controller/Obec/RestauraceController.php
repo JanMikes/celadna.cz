@@ -16,7 +16,7 @@ final class RestauraceController extends AbstractController
     ) {}
 
 
-    #[Route('/obec/restaurace', 'obec_restaurace')]
+    #[Route('/obec/restaurace', name: 'obec_restaurace')]
     public function __invoke(): Response
     {
         return $this->render('obec_restaurace.html.twig', [

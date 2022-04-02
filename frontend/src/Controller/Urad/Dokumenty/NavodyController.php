@@ -16,7 +16,7 @@ final class NavodyController extends AbstractController
     ) {}
 
 
-    #[Route('/obecni-urad/dokumenty-uradu/navody', 'urad_dokumenty_navody')]
+    #[Route('/obecni-urad/dokumenty-uradu/navody', name: 'urad_dokumenty_navody')]
     public function __invoke(): Response
     {
         return $this->render('urad_dokumenty_navody.html.twig', [

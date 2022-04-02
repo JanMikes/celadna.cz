@@ -16,7 +16,7 @@ final class RozpoctyController extends AbstractController
     ) {}
 
 
-    #[Route('/obecni-urad/dokumenty-uradu/rozpocty', 'urad_dokumenty_rozpocty')]
+    #[Route('/obecni-urad/dokumenty-uradu/rozpocty', name: 'urad_dokumenty_rozpocty')]
     public function __invoke(): Response
     {
         return $this->render('urad_dokumenty_rozpocty.html.twig', [

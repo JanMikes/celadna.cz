@@ -16,7 +16,7 @@ final class StrukturaUraduController extends AbstractController
     ) {}
 
 
-    #[Route('/obec/struktura-uradu', 'urad_struktura_uradu')]
+    #[Route('/obec/struktura-uradu', name: 'urad_struktura_uradu')]
     public function __invoke(): Response
     {
         return $this->render('urad_struktura_uradu.html.twig', [

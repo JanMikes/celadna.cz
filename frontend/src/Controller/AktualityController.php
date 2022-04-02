@@ -15,7 +15,7 @@ final class AktualityController extends AbstractController
         private Content $contentProvider
     ) {}
 
-    #[Route('/aktuality', 'aktuality')]
+    #[Route('/aktuality', name: 'aktuality')]
     public function __invoke(): Response
     {
         return $this->render('aktuality.html.twig', [

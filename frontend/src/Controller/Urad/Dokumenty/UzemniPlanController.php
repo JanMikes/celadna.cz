@@ -16,7 +16,7 @@ final class UzemniPlanController extends AbstractController
     ) {}
 
 
-    #[Route('/obecni-urad/dokumenty-uradu/uzemni-plan', 'urad_dokumenty_uzemni_plan')]
+    #[Route('/obecni-urad/dokumenty-uradu/uzemni-plan', name: 'urad_dokumenty_uzemni_plan')]
     public function __invoke(): Response
     {
         return $this->render('urad_dokumenty_uzemni_plan.html.twig', [

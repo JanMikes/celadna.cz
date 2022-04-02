@@ -16,7 +16,7 @@ final class KontaktyController extends AbstractController
     ) {}
 
 
-    #[Route('/obec/kontakty', 'urad_kontakty')]
+    #[Route('/obec/kontakty', name: 'urad_kontakty')]
     public function __invoke(): Response
     {
         return $this->render('urad_kontakty.html.twig',[

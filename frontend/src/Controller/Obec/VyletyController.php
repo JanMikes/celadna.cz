@@ -16,7 +16,7 @@ final class VyletyController extends AbstractController
     ) {}
 
 
-    #[Route('/obec/vylety', 'obec_vylety')]
+    #[Route('/obec/vylety', name: 'obec_vylety')]
     public function __invoke(): Response
     {
         return $this->render('obec_vylety.html.twig', [

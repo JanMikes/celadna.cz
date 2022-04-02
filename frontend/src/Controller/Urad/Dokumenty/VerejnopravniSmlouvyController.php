@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 final class VerejnopravniSmlouvyController extends AbstractController
 {
-    #[Route('/urad/dokumenty/verejnopravni-smlouvy', 'urad_dokumenty_verejnopravni_smlouvy')]
+    #[Route('/urad/dokumenty/verejnopravni-smlouvy', name: 'urad_dokumenty_verejnopravni_smlouvy')]
     public function __invoke(): Response
     {
         return $this->render('urad_dokumenty_verejnopravni_smlouvy.html.twig');

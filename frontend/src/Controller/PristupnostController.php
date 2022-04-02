@@ -16,7 +16,7 @@ final class PristupnostController extends AbstractController
     ) {}
 
 
-    #[Route('/prohlaseni-o-pristupnosti', 'pristupnost')]
+    #[Route('/prohlaseni-o-pristupnosti', name: 'pristupnost')]
     public function __invoke(): Response
     {
         return $this->render('pristupnost.html.twig', [

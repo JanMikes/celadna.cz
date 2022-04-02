@@ -16,7 +16,7 @@ final class StrategickeDokumentyController extends AbstractController
     ) {}
 
 
-    #[Route('/obecni-urad/dokumenty-uradu/strategicke-dokumenty', 'urad_dokumenty_strategicke_dokumenty')]
+    #[Route('/obecni-urad/dokumenty-uradu/strategicke-dokumenty', name: 'urad_dokumenty_strategicke_dokumenty')]
     public function __invoke(): Response
     {
         return $this->render('urad_dokumenty_strategicke_dokumenty.html.twig', [
