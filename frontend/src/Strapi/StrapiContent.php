@@ -139,13 +139,16 @@ final class StrapiContent implements Content
 
     public function getAktualitaData(int $id): AktualitaData
     {
-        $strapiResponse = $this->strapiClient->getApiResource('aktualities/' . $id,
-            filters: [
-                'Zobrazovat' => ['$eq' => true],
-            ],
-        );
+        $strapiResponse = $this->strapiClient->getApiResource('aktualities/' . $id, [
+            'Obrazek',
+            'Galerie',
+            'Zverejnil.Fotka',
+            'Tagy',
+        ], filters: [
+            'Zobrazovat' => ['$eq' => true],
+        ]);
 
-        return AktualitaData::createFromStrapiResponse($strapiResponse['data']);
+        return AktualitaData::createFromStrapiResponse($strapiResponse['data']['attributes']);
     }
 
 
