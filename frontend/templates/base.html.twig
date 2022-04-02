@@ -30,10 +30,8 @@
 <body>
 
     <header>
-        <a href="{{ path('homepage') }}">
-            <h1>{% if app.request.pathInfo != path('homepage') %}{{ block('title') }} - {% endif %}Obec Čeladná</h1>
-            <img src="" alt="Znak obce">
-        </a>
+        <h1>{% if app.request.pathInfo != path('homepage') %}{{ block('title') }} - {% endif %}Obec Čeladná</h1>
+        <img src="" alt="Znak obce">
 
         <nav>
             <a href="{{ path('homepage') }}">Úvodní stránka</a>
