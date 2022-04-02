@@ -9,22 +9,22 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="skype_toolbar" content="skype_toolbar_parser_compatible">
 
-    <title>Úvod | Celadna</title>
+    <title>{% block title %}{% endblock %} | Obec Čeladná</title>
 
     <meta name="description" content="Obec Čeladná se nachází v okrese Frýdek-Místek v Moravskoslezském kraji. Obec je situována v podhůří Beskyd. Žije zde přibližně 2 900 obyvatel. ">
 
     <link rel="canonical" href="https://celadna.cz">
 
-    <meta property="og:title" content="Úvod | Celadna">
+    <title>{{ block('title')}} | Obec Čeladná</title>
     <meta property="og:description" content="Obec Čeladná se nachází v okrese Frýdek-Místek v Moravskoslezském kraji. Obec je situována v podhůří Beskyd. Žije zde přibližně 2 900 obyvatel. ">
 
     <meta property="og:url" content="https://celadna.cz">
 
-    <meta property="og:site_name" content="Celadna">
+    <meta property="og:site_name" content="Čeladná.cz">
     <meta property="og:type" content="website">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Úvod | Celadna">
+    <meta name="twitter:title" content="{{ block('title')}} | Obec Čeladná">
     <meta name="twitter:description" content="Obec Čeladná se nachází v okrese Frýdek-Místek v Moravskoslezském kraji. Obec je situována v podhůří Beskyd. Žije zde přibližně 2 900 obyvatel. ">
 
     <link rel="stylesheet" href="/assets/styles.css">

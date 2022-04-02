@@ -31,13 +31,13 @@ final class AktualitaData
     public static function createFromStrapiResponse(array $data): self
     {
         return new self(
-            $data['attributes']['Nadpis'],
-            \DateTimeImmutable::createFromFormat('Y-m-d', $data['attributes']['Datum_zverejneni']),
-            $data['attributes']['Obrazek']['data']['attributes']['url'],
-            $data['attributes']['Video_youtube'],
-            array_map(fn(array $galerieData) => $galerieData['attributes']['url'], $data['attributes']['Galerie']['data']),
-            ClovekData::createFromStrapiResponse($data['attributes']['Zverejnil']['data']['attributes']),
-            array_map(fn(array $tagyData) => $tagyData['attributes']['Tag'], $data['attributes']['Tagy']['data']),
+            $data['Nadpis'],
+            \DateTimeImmutable::createFromFormat('Y-m-d', $data['Datum_zverejneni']),
+            $data['Obrazek']['data']['attributes']['url'],
+            $data['Video_youtube'],
+            array_map(fn(array $galerieData) => $galerieData['attributes']['url'], $data['Galerie']['data']),
+            ClovekData::createFromStrapiResponse($data['Zverejnil']['data']['attributes']),
+            array_map(fn(array $tagyData) => $tagyData['attributes']['Tag'], $data['Tagy']['data']),
         );
     }
 }
