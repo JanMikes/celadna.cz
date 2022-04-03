@@ -3,6 +3,18 @@
 {% block title %}Restaurace{% endblock %}
 
 {% block content %}
+    {{ include('_banner_s_textem.html.twig', {
+        'banner': restaurace.BannerSTextem
+    }) }}
 
+    <section>
+        <h2>Restaurace</h2>
+
+        {% for restaurace_objekt in restaurace.Restaurace %}
+            {{ include('_karta_objektu.html.twig', {
+                'objekt': restaurace_objekt
+            }) }}
+        {% endfor %}
+    </section>
 {% endblock %}
 
