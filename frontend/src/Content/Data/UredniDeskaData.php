@@ -27,6 +27,8 @@ final class UredniDeskaData
     {
     }
 
+    // TODO: kategorie
+
     public static function createFromStrapiResponse(array $data, int|null $id = null): self
     {
         return new self(

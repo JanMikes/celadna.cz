@@ -1,0 +1,25 @@
+{% for uredni_deska_dokument in uredni_deska %}
+    <article>
+
+        <h3 id="uredni-deska-{{ uredni_deska_dokument.id }}">
+            <a href="{{ path('detail_uredni_desky', {'id': uredni_deska_dokument.id}) }}">
+                {{ uredni_deska_dokument.Nadpis }}
+            </a>
+        </h3>
+
+        <p>
+            Zveřejněno <time>{{ uredni_deska_dokument.Datum_zverejneni|date('d.m.Y') }}</time>
+            {% if uredni_deska_dokument.Datum_stazeni %}
+                do <time>{{ uredni_deska_dokument.Datum_stazeni|date('d.m.Y') }}</time>
+            {% endif %}
+        </p>
+
+        {% if uredni_deska_dokument.Zodpovedna_osoba %}
+            <p>Zveřejnil {{ uredni_deska_dokument.Zodpovedna_osoba.Jmeno }}</p>
+        {% endif %}
+
+        {% for soubor in uredni_deska_dokument.Soubory %}
+            <a href="{{ soubor }}">{{ soubor }}</a>
+        {% endfor %}
+    </article>
+{% endfor %}

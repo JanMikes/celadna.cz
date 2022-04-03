@@ -206,16 +206,20 @@ final class StrapiContent implements Content
     private function getGenericDokumentyData(string $resourceName): DokumentyData
     {
         $strapiResponse = $this->strapiClient->getApiResource($resourceName);
+        $uredniDeska = [];
 
-        /*
         if ($strapiResponse['data']['attributes']['Zobrazovat_komponentu_uredni_desky'] === true) {
-            // TODO !!!
+            $field = $this->resourceNameToUredniDeskaCategoryField($resourceName);
+
+            if ($field !== null) {
+                $uredniDeska = $this->getUredniDeskyData($field);
+            }
         }
-        */
 
         return new DokumentyData(
             $strapiResponse['data']['attributes']['Nadpis'],
             $strapiResponse['data']['attributes']['Obsah'],
+            $uredniDeska,
         );
     }
 
@@ -341,14 +345,18 @@ final class StrapiContent implements Content
     /**
      * @return array<UredniDeskaData>
      */
-    public function getUredniDeskyData(): array
+    public function getUredniDeskyData(string|null $categoryField = null): array
     {
+        $filters = ['Zobrazovat' => ['$eq' => true]];
+
+        if ($categoryField) {
+            $filters[$categoryField] = ['$eq' => true];
+        }
+
         $strapiResponse = $this->strapiClient->getApiResource('uredni-deskas', [
             'Soubory',
             'Zodpovedna_osoba.Fotka',
-        ], filters: [
-            'Zobrazovat' => ['$eq' => true],
-        ]);
+        ], filters: $filters);
 
         return UredniDeskaData::createManyFromStrapiResponse($strapiResponse);
     }
@@ -363,5 +371,24 @@ final class StrapiContent implements Content
         ]);
 
         return UredniDeskaData::createFromStrapiResponse($strapiResponse['data']['attributes']);
+    }
+
+
+    private function resourceNameToUredniDeskaCategoryField(string $resourceName): string|null
+    {
+        return match ($resourceName) {
+            'urad-dokumenty-formulare' => 'Zobrazit_v_formulare',
+            'urad-dokumenty-navody' => 'Zobrazit_v_navody',
+            'urad-dokumenty-odpady' => 'Zobrazit_v_odpady',
+            'urad-dokumenty-rozpocty' => 'Zobrazit_v_rozpocty',
+            'urad-dokumenty-strategicke-dokumenty' => 'Zobrazit_v_strategicke_dokumenty',
+            'urad-dokumenty-uzemni-plan' => 'Zobrazit_v_uzemni_plan',
+            'urad-dokumenty-uzemni-studie' => 'Zobrazit_v_uzemni_studie',
+            'urad-dokumenty-vyhlasky' => 'Zobrazit_v_vyhlasky',
+            'urad-dokumenty-vyrocni-zprava' => 'Zobrazit_v_vyrocni_zpravy',
+            'urad-dokumenty-zivotni-situace' => 'Zobrazit_v_zivotni_situace',
+            'urad-povinne-zverejnovane-informace' => 'Zobrazit_v_poskytnute_informace',
+            default => null,
+        };
     }
 }

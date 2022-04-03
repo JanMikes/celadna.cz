@@ -9,5 +9,10 @@ final class DokumentyData
     public function __construct(
         public readonly string|null $Nadpis,
         public readonly string|null $Obsah,
+
+        /**
+         * @var array<UredniDeskaData> $Uredni_deska
+         */
+        public readonly array $Uredni_deska,
     ) {}
 }
