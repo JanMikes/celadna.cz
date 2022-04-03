@@ -36,7 +36,7 @@
         <h1>{% if app.request.pathInfo != path('homepage') %}{{ block('title') }} - {% endif %}Obec Čeladná</h1>
 
         <nav class="navbar navbar-dark navbar-expand-md fixed-top">
-            <div class="container-fluid">
+            <div class="container">
 
                 <a class="navbar-brand" href="{{ path('homepage') }}">
                     <img src="{{ asset('build/images/logo.svg') }}" width="202" height="71" alt="Znak obce">
@@ -69,31 +69,52 @@
     </main>
 
     <footer>
-        <p>Aplikace Obec Čeladná ke stažení zdarma.</p>
+        <div class="container">
+            <p>Aplikace Obec Čeladná ke stažení zdarma.</p>
 
-        <nav>
-            <a href="https://play.google.com/store/apps/details?id=cz.tripon.obecceladna">Stáhnout z Google Play</a>
-            <a href="https://itunes.apple.com/us/app/obec-celadna/id1102072135?l=cs&ls=1&mt=8">Stáhnout z Apple App Store</a>
-        </nav>
+            <ul class="download-links">
+                <li class="google-play-download">
+                    <a href="https://play.google.com/store/apps/details?id=cz.tripon.obecceladna">
+                        <span class="visually-hidden-focusable">
+                            Stáhnout z Google Play
+                        </span>
+                    </a>
+                </li>
+                <li class="apple-app-store-download">
+                    <a href="https://itunes.apple.com/us/app/obec-celadna/id1102072135?l=cs&ls=1&mt=8">
+                        <span class="visually-hidden-focusable">
+                            Stáhnout z Apple App Store
+                        </span>
+                    </a>
+                </li>
+            </ul>
 
-        {% for footerItem in footer %}
-            <a href="{{ footerItem.Odkaz }}">
-                <img src="{{ footerItem.Obrazek }}" alt="">
-            </a>
-        {% endfor %}
+            {% if footer %}
+                <section class="banners">
+                    {% for footerItem in footer %}
+                        <a href="{{ footerItem.Odkaz }}"><img src="{{ footerItem.Obrazek }}" alt=""></a>
+                    {% endfor %}
+                </section>
+            {% endif %}
 
-        <nav>
-            <a href="{{ path('pristupnost') }}">Prohlášení o přístupnosti</a>
-            <a href="{{ path('mapa_stranek') }}">Mapa stránek</a>
-            <a href="{{ path('gdpr') }}">Ochrana osobních údajů</a>
-        </nav>
+            <ul>
+                <li>
+                    <a href="{{ path('pristupnost') }}">Prohlášení o přístupnosti</a>
+                </li>
+                <li>
+                    <a href="{{ path('mapa_stranek') }}">Mapa stránek</a>
+                </li>
+                <li>
+                    <a href="{{ path('gdpr') }}">Ochrana osobních údajů</a>
+                </li>
+            </ul>
 
-        <p>
-            Copyright &copy; Čeladná
-            Všechna práva vyhrazena.
-            Vytvořil <a href="https://wantoo.cz">Wantoo design</a>
-        </p>
-
+            <p class="copyright">
+                Copyright &copy; Čeladná
+                Všechna práva vyhrazena.
+                Vytvořil <a href="https://wantoo.cz">Wantoo design</a>
+            </p>
+        </div>
     </footer>
 </body>
 </html>

@@ -35,8 +35,11 @@ header {
         @include visually-hidden;
     }
 
-    .navbar {
+    .navbar, .container-fluid {
         background: #1b3175;
+    }
+
+    .navbar {
         height: 79px;
     }
 
@@ -67,6 +70,86 @@ header {
 
             span {
                 @include visually-hidden;
+            }
+        }
+    }
+}
+
+footer {
+    background: #c7c7c7;
+    color: #595959;
+    text-align: center;
+    font-size: 0.8em;
+    padding: 20px 0;
+
+    a {
+        color: #000;
+        text-decoration: underline;
+
+        &:hover {
+            color: #000;
+        }
+    }
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            margin: 0;
+            padding: 0;
+        }
+    }
+
+    .download-links li {
+        display: inline-block;
+    }
+
+    .copyright {
+        max-width: 190px;
+        margin: 20px auto 0;
+    }
+
+    .google-play-download,
+    .apple-app-store-download {
+        a {
+            display: inline-block;
+            width: 120px;
+            height: 40px;
+            background-size: contain;
+            margin: 8px;
+        }
+    }
+
+    .apple-app-store-download {
+        a {
+            background: url('../images/apple-app-store.svg') center center no-repeat;
+        }
+    }
+
+    .google-play-download {
+        a {
+            background: url('../images/google-play.svg') center center no-repeat;
+        }
+    }
+
+    p {
+        margin: 0;
+    }
+
+    .banners {
+        img {
+            width: 100%;
+            // max-width: xx;
+        }
+
+        a {
+            display: inline-block;
+            text-decoration: none;
+
+            + a {
+              margin-top: 10px;
             }
         }
     }
