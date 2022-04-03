@@ -3,60 +3,8 @@
 {% block title %}Prohlášení o přístupnosti{% endblock %}
 
 {% block content %}
-    <div id="SITE_PAGES" class="">
-        <div id="SITE_PAGES_TRANSITION_GROUP" class="_2YGAo">
-            <div style="max-width: 814px;margin: 45px auto 100px;">
-                <div id="as6f6" class="Ry26q">
-                    <div class="_3CemL"></div>
-                    <div class="_3K7uv">
-                        <div id="Containeras6f6" class="_1KV2M">
-                            <div data-mesh-id="Containeras6f6inlineContent" data-testid="inline-content" class="">
-                                <div data-mesh-id="Containeras6f6inlineContent-gridContainer"
-                                     data-testid="mesh-container-content">
-                                    <section id="comp-l0qw4sza" class="_3d64y">
-                                        <div id="bgLayers_comp-l0qw4sza" data-hook="bgLayers" class="_3wnIc">
-                                            <div data-testid="colorUnderlay" class="_3KzuS _3SQN-"></div>
-                                            <div id="bgMedia_comp-l0qw4sza" class="_2GUhU"></div>
-                                        </div>
-                                        <div data-testid="columns" class="_1uldx">
-                                            <div id="comp-l0qw4szc1" class="_1vNJf">
-                                                <div id="bgLayers_comp-l0qw4szc1" data-hook="bgLayers" class="_3wnIc">
-                                                    <div data-testid="colorUnderlay" class="_3KzuS _3SQN-"></div>
-                                                    <div id="bgMedia_comp-l0qw4szc1" class="_2GUhU"></div>
-                                                </div>
-                                                <div data-mesh-id="comp-l0qw4szc1inlineContent"
-                                                     data-testid="inline-content" class="">
-                                                    <div data-mesh-id="comp-l0qw4szc1inlineContent-gridContainer"
-                                                         data-testid="mesh-container-content">
-                                                        <div id="comp-l11sqizw" style="margin-bottom: 35px;" class="_2Hij5"
-                                                             data-testid="richTextElement"><p class="font_8"
-                                                                                              style="line-height:1.7em; font-size:14px;">
-                                                                Cesta:&nbsp;<span style="text-decoration:underline;"><a
-                                                                        href="https://www.obec-kunovice.cz/index.asp"
-                                                                        target="_blank" rel="noreferrer noopener">Titulní stránka</a></span>&nbsp;&gt;
-                                                                &nbsp;&gt;
-                                                                <span
-                                                                    style="font-family:wfont_5670fd_68091813929a4b2887ee94c2ac164735,wf_68091813929a4b2887ee94c2a,orig_montserratbold;">Prohlášení o přístupnosti</span>
-                                                            </p></div>
-                                                        <div id="comp-l0qw4sze3" class="_2Hij5"
-                                                             data-testid="richTextElement"><h2 class="font_2"
-                                                                                               style="font-size:40px;">
-                                                                {{ pristupnost.Nadpis }}</h2>
-
-                                                            {{ pristupnost.Obsah }}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </section>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <article>
+        <h2>{{ pristupnost.Nadpis }}</h2>
+        {{ pristupnost.Obsah }}
+    </article>
 {% endblock %}
-
