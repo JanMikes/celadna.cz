@@ -35,7 +35,7 @@ header {
         @include visually-hidden;
     }
 
-    .navbar, .container-fluid {
+    .navbar, .container {
         background: #1b3175;
     }
 
@@ -187,5 +187,19 @@ footer {
         .banner-text {
             width: calc(100% - 618px);
         }
+    }
+}
+
+#homepage-carousel {
+    background: linear-gradient(180deg, #244199 0%, #127242 100%) #244199;
+    color: #fff;
+
+    .carousel-item {
+        min-height: 500px
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 7.5%;
     }
 }
