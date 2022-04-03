@@ -3,11 +3,20 @@
 {% block title %}{{ aktualita.Nadpis }}{% endblock %}
 
 {% block content %}
+    <nav>
+        <a href="{{ path('aktuality') }}">Všechny příspěvky</a>
+        <a href="{{ path('urad_dokumenty_formulare') }}">Formuláře</a>
+        <a href="{{ path('urad_dokumenty_odpady') }}">Odpady</a>
+        <a href="{{ path('urad_dokumenty_vyhlasky') }}">Vyhlášky</a>
+    </nav>
+
     <article>
         <h2 id="aktualita-{{ aktualita.id }}">{{ aktualita.Nadpis }}</h2>
 
         <p>
-            {{ aktualita.Zverejnil.Jmeno }}
+            {% if aktualita.Zverejnil %}
+                {{ aktualita.Zverejnil.Jmeno }}
+            {% endif %}
             <time>{{ aktualita.DatumZverejneni|date('d.m.Y') }}</time>
         </p>
 
@@ -18,11 +27,5 @@
         {% endif %}
     </article>
 
-    <nav>
-        <a href="{{ path('aktuality') }}">Všechny příspěvky</a>
-        <a href="{{ path('urad_dokumenty_formulare') }}">Formuláře</a>
-        <a href="{{ path('urad_dokumenty_odpady') }}">Odpady</a>
-        <a href="{{ path('urad_dokumenty_vyhlasky') }}">Vyhlášky</a>
-    </nav>
 {% endblock %}
 

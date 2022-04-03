@@ -3,5 +3,7 @@
 {% block title %}Organizace{% endblock %}
 
 {% block content %}
-    {{ include('_graficke_pasy.html.twig') }}
+    {{ include('_graficke_pasy.html.twig', {
+        'graficke_pasy': organizace_graficke_pasy
+    }) }}
 {% endblock %}

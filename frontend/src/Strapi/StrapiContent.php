@@ -25,6 +25,7 @@ use Celadna\Website\Content\Data\TlacitkoData;
 use Celadna\Website\Content\Data\UbytovaniData;
 use Celadna\Website\Content\Data\UradData;
 use Celadna\Website\Content\Data\UredniDeskaData;
+use Symfony\Component\HttpClient\Exception\ClientException;
 
 final class StrapiContent implements Content
 {
@@ -128,11 +129,19 @@ final class StrapiContent implements Content
      */
     private function getGrafickePasy(string $resourceName): array
     {
-        $strapiResponse = $this->strapiClient->getApiResource($resourceName, [
-            'Graficke_pasy.Tlacitko',
-            'Graficke_pasy.Obrazek',
-            'Graficke_pasy.Letajici_obrazky.Obrazek',
-        ]);
+        try {
+            $strapiResponse = $this->strapiClient->getApiResource($resourceName, [
+                'Graficke_pasy.Tlacitko',
+                'Graficke_pasy.Obrazek',
+                'Graficke_pasy.Letajici_obrazky.Obrazek',
+            ]);
+        } catch (ClientException $clientException) {
+            if ($clientException->getCode() === 404) {
+                return [];
+            }
+
+            throw $clientException;
+        }
 
         return GrafickyPasData::createManyFromStrapiResponse($strapiResponse['data']['attributes']['Graficke_pasy']);
     }
