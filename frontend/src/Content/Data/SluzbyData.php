@@ -7,7 +7,7 @@ namespace Celadna\Website\Content\Data;
 final class SluzbyData
 {
     public function __construct(
-        public readonly BannerSTlacitkamaData $BannerSTlacitkamaData,
+        public readonly BannerSTlacitkamaData $BannerSTlacitkama,
 
         /**
          * @var array<SluzbaData> $Sluzby

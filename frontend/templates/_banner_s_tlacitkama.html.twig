@@ -1,0 +1,10 @@
+<section>
+    <h2>{{ banner.Nadpis }}</h2>
+    {# {{ banner.Obrazek }}  #}
+
+    {% for tlacitko in banner.Tlacitka %}
+        <a href="{{ tlacitko.Odkaz }}">
+            {{ tlacitko.Text }}
+        </a>
+    {% endfor %}
+</section>
