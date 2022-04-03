@@ -7,6 +7,7 @@ services:
             target: dev
         volumes:
             - ./frontend:/www
+            - ./strapi/public/uploads:/www/public/uploads
         ports:
             - '8080:8080'
 

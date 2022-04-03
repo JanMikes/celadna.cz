@@ -1,5 +1,10 @@
-<section>
-    <h2>{{ banner.Nadpis }}</h2>
-    <p>{{ banner.Text_pod_nadpisem }}</p>
-    {#  {{ banner.Obrazek }}  #}
+<section class="text-banner">
+    <div class="container">
+        <div class="banner-text">
+            <h2>{{ banner.Nadpis }}</h2>
+            <p>{{ banner.Text_pod_nadpisem }}</p>
+        </div>
+
+        <span role="presentation" class="decoration-image" style="background-image: url('{{ banner.Obrazek }}');"></span>
+    </div>
 </section>

@@ -154,3 +154,38 @@ footer {
         }
     }
 }
+
+.text-banner {
+    background: linear-gradient(180deg, #244199 0%, #127242 100%) #244199;
+    color: #fff;
+
+    @include clearfix;
+
+    .decoration-image {
+        display: block;
+        max-width: 100%;
+        aspect-ratio: 618 / 397;
+        background-size: contain;
+    }
+
+    @include media-breakpoint-up(md) {
+        .decoration-image {
+            max-width: 400px;
+        }
+
+        .banner-text {
+            float: right;
+            width: calc(100% - 400px);
+        }
+    }
+
+    @include media-breakpoint-up(lg) {
+        .decoration-image {
+            max-width: 618px;
+        }
+
+        .banner-text {
+            width: calc(100% - 618px);
+        }
+    }
+}
