@@ -210,10 +210,7 @@ final class StrapiContent implements Content
 
         if ($strapiResponse['data']['attributes']['Zobrazovat_komponentu_uredni_desky'] === true) {
             $field = $this->resourceNameToUredniDeskaCategoryField($resourceName);
-
-            if ($field !== null) {
-                $uredniDeska = $this->getUredniDeskyData($field);
-            }
+            $uredniDeska = $this->getUredniDeskyData($field);
         }
 
         return new DokumentyData(
@@ -251,6 +248,12 @@ final class StrapiContent implements Content
     public function getDokumentyStrategickeDokumentyData(): DokumentyData
     {
         return $this->getGenericDokumentyData('urad-dokumenty-strategicke-dokumenty');
+    }
+
+
+    public function getDokumentyVerejnopravniSmlouvyData(): DokumentyData
+    {
+        return $this->getGenericDokumentyData('urad-dokumenty-verejnopravni-smlouvy');
     }
 
 
@@ -374,7 +377,7 @@ final class StrapiContent implements Content
     }
 
 
-    private function resourceNameToUredniDeskaCategoryField(string $resourceName): string|null
+    private function resourceNameToUredniDeskaCategoryField(string $resourceName): string
     {
         return match ($resourceName) {
             'urad-dokumenty-formulare' => 'Zobrazit_v_formulare',
@@ -388,7 +391,8 @@ final class StrapiContent implements Content
             'urad-dokumenty-vyrocni-zprava' => 'Zobrazit_v_vyrocni_zpravy',
             'urad-dokumenty-zivotni-situace' => 'Zobrazit_v_zivotni_situace',
             'urad-povinne-zverejnovane-informace' => 'Zobrazit_v_poskytnute_informace',
-            default => null,
+            'urad-dokumenty-verejnopravni-smlouvy' => 'Zobrazit_v_verejnopravni_smlouvy',
+            default => throw new \LogicException('Resource not matched: ' . $resourceName),
         };
     }
 }

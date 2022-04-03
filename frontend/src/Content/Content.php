@@ -80,6 +80,8 @@ interface Content
 
     public function getDokumentyPovinneInformaceData(): DokumentyData;
 
+    public function getDokumentyVerejnopravniSmlouvyData(): DokumentyData;
+
     /**
      * @return array<SamospravaData>
      */
