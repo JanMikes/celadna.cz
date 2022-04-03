@@ -430,4 +430,13 @@ final class StrapiContent implements Content
             default => throw new \LogicException('Resource not matched: ' . $kategorie),
         };
     }
+
+    public function getDokumentyUraduData(): SekceSDlazdicemaData
+    {
+        $strapiResponse = $this->strapiClient->getApiResource('urad-dokumenty-uradu', [
+            'Sekce_s_dlazdicema.Dlazdice.Ikona',
+        ]);
+
+        return SekceSDlazdicemaData::createFromStrapiResponse($strapiResponse['data']['attributes']['Sekce_s_dlazdicema']);
+    }
 }

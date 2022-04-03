@@ -7,11 +7,8 @@
       'banner': urad.Banner
     }) }}
 
-    <h3>{{ urad.Sekce_s_dlazdicema.Nadpis }}</h3>
-    <p>{{ urad.Sekce_s_dlazdicema.Popis }}</p>
-
-    {% for dlazdice in urad.Sekce_s_dlazdicema.Dlazdice %}
-        {{ include('_dlazdice.html.twig') }}
-    {% endfor %}
+    {{ include('_sekce_s_dlazdicema.html.twig', {
+        'sekce': urad.Sekce_s_dlazdicema
+    }) }}
 {% endblock %}
 

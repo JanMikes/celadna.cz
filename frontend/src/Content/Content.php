@@ -13,6 +13,7 @@ use Celadna\Website\Content\Data\KontaktyData;
 use Celadna\Website\Content\Data\PristupnostData;
 use Celadna\Website\Content\Data\RestauraceData;
 use Celadna\Website\Content\Data\SamospravaData;
+use Celadna\Website\Content\Data\SekceSDlazdicemaData;
 use Celadna\Website\Content\Data\SluzbyData;
 use Celadna\Website\Content\Data\StrukturaUraduData;
 use Celadna\Website\Content\Data\UbytovaniData;
@@ -99,4 +100,6 @@ interface Content
     public function getUredniDeskyData(): array;
 
     public function getUredniDeskaData(int $id): UredniDeskaData;
+
+    public function getDokumentyUraduData(): SekceSDlazdicemaData;
 }

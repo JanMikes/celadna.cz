@@ -1,0 +1,8 @@
+<section>
+    <h3>{{ sekce.Nadpis }}</h3>
+    <p>{{ sekce.Popis }}</p>
+
+    {% for dlazdice in sekce.Dlazdice %}
+        {{ include('_dlazdice.html.twig') }}
+    {% endfor %}
+</section>

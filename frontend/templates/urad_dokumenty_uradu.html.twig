@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dokumenty úřadu{% endblock %}
+
+{% block content %}
+    {{ include('_sekce_s_dlazdicema.html.twig', {
+        'sekce': dokumenty_uradu
+    }) }}
+{% endblock %}
+
+
