@@ -1,6 +1,28 @@
 {% extends 'base.html.twig' %}
 
-{% block content %}
+{% block title %}Struktura úřadu{% endblock %}
 
+{% block content %}
+    {{ include('_banner_s_textem.html.twig', {
+        banner: struktura_uradu.Banner
+    }) }}
+
+    <h2>Struktura úřadu</h2>
+
+    {% for clovek in struktura_uradu.Struktura_uradu %}
+        {{ include('_clovek.html.twig', {
+            'full_udaje': false
+        }) }}
+    {% endfor %}
+
+    <p>{{ struktura_uradu.Obsah }}</p>
+
+    <h2>Struktura stavebního úřadu</h2>
+
+    {% for clovek in struktura_uradu.Struktura_stavebniho_uradu %}
+        {{ include('_clovek.html.twig',{
+            'full_udaje': false
+        }) }}
+    {% endfor %}
 {% endblock %}
 
