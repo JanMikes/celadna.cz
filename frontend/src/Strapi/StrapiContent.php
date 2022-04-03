@@ -209,7 +209,7 @@ final class StrapiContent implements Content
         $uredniDeska = [];
 
         if ($strapiResponse['data']['attributes']['Zobrazovat_komponentu_uredni_desky'] === true) {
-            $field = $this->resourceNameToUredniDeskaCategoryField($resourceName);
+            $field = $this->resourceNameToUredniDeskaField($resourceName);
             $uredniDeska = $this->getUredniDeskyData($field);
         }
 
@@ -302,7 +302,17 @@ final class StrapiContent implements Content
             'Kategorie_samospravy.Lide.Clovek.Fotka'
         ]);
 
-        // TODO: napojeni na uredni desku
+        // Decorate with uredni deska data
+        foreach ($strapiResponse['data']['attributes']['Kategorie_samospravy'] as $i => $kategorieData) {
+            $uredniDeska = [];
+            $uredniDeskaField = $this->samospravaKategorieToUredniDeskaField($kategorieData['Kategorie_uredni_desky']);
+
+            if ($uredniDeskaField !== null) {
+                $uredniDeska = $this->getUredniDeskyData($uredniDeskaField);
+            }
+
+            $strapiResponse['data']['attributes']['Kategorie_samospravy'][$i]['Uredni_deska'] = $uredniDeska;
+        }
 
         return SamospravaData::createManyFromStrapiResponse($strapiResponse['data']['attributes']['Kategorie_samospravy']);
     }
@@ -377,7 +387,7 @@ final class StrapiContent implements Content
     }
 
 
-    private function resourceNameToUredniDeskaCategoryField(string $resourceName): string
+    private function resourceNameToUredniDeskaField(string $resourceName): string
     {
         return match ($resourceName) {
             'urad-dokumenty-formulare' => 'Zobrazit_v_formulare',
@@ -393,6 +403,31 @@ final class StrapiContent implements Content
             'urad-povinne-zverejnovane-informace' => 'Zobrazit_v_poskytnute_informace',
             'urad-dokumenty-verejnopravni-smlouvy' => 'Zobrazit_v_verejnopravni_smlouvy',
             default => throw new \LogicException('Resource not matched: ' . $resourceName),
+        };
+    }
+
+    private function samospravaKategorieToUredniDeskaField(string $kategorie): string|null
+    {
+        return match ($kategorie) {
+            'Formulare' => 'Zobrazit_v_formulare',
+            'Navody' => 'Zobrazit_v_navody',
+            'Odpady' => 'Zobrazit_v_odpady',
+            'Rozpocty' => 'Zobrazit_v_rozpocty',
+            'Strategicke_dokumenty' => 'Zobrazit_v_strategicke_dokumenty',
+            'Uzemni_plan' => 'Zobrazit_v_uzemni_plan',
+            'Uzemni_studie' => 'Zobrazit_v_uzemni_studie',
+            'Vyhlasky' => 'Zobrazit_v_vyhlasky',
+            'Vyrocni_zpravy' => 'Zobrazit_v_vyrocni_zpravy',
+            'Zivotni_situace' => 'Zobrazit_v_zivotni_situace',
+            'Poskytnute_informace' => 'Zobrazit_v_poskytnute_informace',
+            'Verejnopravni_smlouvy' => 'Zobrazit_v_verejnopravni_smlouvy',
+            'Zapisy_z_jednani_zastupitelstva' => 'Zobrazit_v_zapisy_z_jednani_zastupitelstva',
+            'Usneseni_rady' => 'Zobrazit_v_usneseni_rady',
+            'Financni_vybor' => 'Zobrazit_v_financni_vybor',
+            'Kulturni_komise' => 'Zobrazit_v_kulturni_komise',
+            'Volby' => 'Zobrazit_v_volby',
+            '-' => null,
+            default => throw new \LogicException('Resource not matched: ' . $kategorie),
         };
     }
 }

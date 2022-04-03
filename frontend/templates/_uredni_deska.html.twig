@@ -1,11 +1,11 @@
 {% for uredni_deska_dokument in uredni_deska %}
     <article>
 
-        <h3 id="uredni-deska-{{ uredni_deska_dokument.id }}">
+        <h4 id="uredni-deska-{{ uredni_deska_dokument.id }}">
             <a href="{{ path('detail_uredni_desky', {'id': uredni_deska_dokument.id}) }}">
                 {{ uredni_deska_dokument.Nadpis }}
             </a>
-        </h3>
+        </h4>
 
         <p>
             Zveřejněno <time>{{ uredni_deska_dokument.Datum_zverejneni|date('d.m.Y') }}</time>
