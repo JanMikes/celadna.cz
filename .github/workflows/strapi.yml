@@ -64,3 +64,20 @@ jobs:
                 run: |
                     rm -rf /tmp/.buildx-cache
                     mv /tmp/.buildx-cache-new /tmp/.buildx-cache
+
+    deploy:
+        needs:
+            - docker-image
+        steps:
+            - name: executing remote ssh commands using ssh key
+              uses: appleboy/ssh-action@master
+              with:
+                host: ${{ secrets.DEPLOY_HOST }}
+                username: ${{ secrets.DEPLOY_USERNAME }}
+                key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
+                port: ${{ secrets.DEPLOY_PORT }}
+                script_stop: true
+                script: |
+                  cd /app
+                  docker-compose pull strapi
+                  docker-compose up -d strapi
