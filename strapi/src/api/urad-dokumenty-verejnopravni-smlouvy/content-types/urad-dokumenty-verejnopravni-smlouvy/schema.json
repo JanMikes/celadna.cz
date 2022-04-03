@@ -20,7 +20,9 @@
       "type": "richtext"
     },
     "Zobrazovat_komponentu_uredni_desky": {
-      "type": "boolean"
+      "type": "boolean",
+      "default": true,
+      "required": true
     }
   }
 }
