@@ -12,8 +12,11 @@ $font-weight-light:           200;
 // the ~ allows you to reference things in node_modules
 @import "~bootstrap/scss/bootstrap";
 
+body {
+    padding-top: 79px;
+}
+
 header {
-    background: #1b3175;
     color: #fff;
 
     a {
@@ -30,6 +33,11 @@ header {
 
     h1 {
         @include visually-hidden;
+    }
+
+    .navbar {
+        background: #1b3175;
+        height: 79px;
     }
 
     .navbar-nav {
