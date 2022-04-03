@@ -26,6 +26,9 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{% if app.request.pathInfo != path('homepage') %}{{ block('title') }} - {% endif %}Obec Čeladná">
     <meta name="twitter:description" content="Obec Čeladná se nachází v okrese Frýdek-Místek v Moravskoslezském kraji. Obec je situována v podhůří Beskyd. Žije zde přibližně 2 900 obyvatel. ">
+
+    {{ encore_entry_link_tags('app') }}
+    {{ encore_entry_script_tags('app') }}
 </head>
 <body>
 
