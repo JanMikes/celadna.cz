@@ -34,18 +34,33 @@
 
     <header>
         <h1>{% if app.request.pathInfo != path('homepage') %}{{ block('title') }} - {% endif %}Obec Čeladná</h1>
-        <img src="{{ asset('assets/logo.svg') }}" alt="Znak obce">
 
-        <nav>
-            <a href="{{ path('homepage') }}">Úvodní stránka</a>
-            <a href="https://instagram.com/obecceladna">Instagram</a>
-            <a href="https://www.facebook.com/Obec-Čeladná-109458195016182/">Facebook</a>
+        <nav class="navbar navbar-dark navbar-expand-md">
+            <div class="container-fluid">
 
-            <a href="{{ path('obec_aktivity') }}">Obec</a>
-            <a href="{{ path('urad') }}">Obecní úřad</a>
-            <a href="{{ path('aktuality') }}">Aktuality</a>
-            <a href="{{ path('urad_kontakty') }}">Kontakty</a>
+                <a class="navbar-brand" href="{{ path('homepage') }}">
+                    <img src="{{ asset('build/images/logo.svg') }}" width="202" height="71" alt="Znak obce">
+                </a>
 
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Otevřít navigaci">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="main-navbar">
+                    <div class="navbar-nav">
+                        <div class="nav-link">
+                            <a class="homepage" href="{{ path('homepage') }}"><span>Úvodní stránka</span></a>
+                            <a class="instagram" href="https://instagram.com/obecceladna"><span>Instagram</span></a>
+                            <a class="facebook" href="https://www.facebook.com/Obec-Čeladná-109458195016182/"><span>Facebook</span></a>
+                        </div>
+
+                        <a class="nav-link" href="{{ path('obec_aktivity') }}">Obec</a>
+                        <a class="nav-link" href="{{ path('urad') }}">Obecní úřad</a>
+                        <a class="nav-link" href="{{ path('aktuality') }}">Aktuality</a>
+                        <a class="nav-link" href="{{ path('urad_kontakty') }}">Kontakty</a>
+                    </div>
+                </div>
+            </div>
         </nav>
     </header>
 
