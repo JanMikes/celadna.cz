@@ -46,7 +46,7 @@ final class StrapiContent implements Content
         foreach ($strapiResponse['data']['attributes']['Reklama_607x433'] as $footerData) {
             $result[] = new FooterData(
                 $footerData['Odkaz'],
-                $footerData['Obrazek']['data']['attributes']['url']
+                $footerData['Obrazek']['data']['attributes']['url'] ?? null
             );
         }
 

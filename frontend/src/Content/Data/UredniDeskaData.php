@@ -36,7 +36,7 @@ final class UredniDeskaData
             $data['Datum_stazeni'] ? DateTimeImmutable::createFromFormat('Y-m-d', $data['Datum_stazeni']) : null,
             $data['Soubory']['data'] ? array_map(fn(array $souborData) => $souborData['attributes']['url'], $data['Soubory']['data']) : [],
             $data['Popis'],
-            ClovekData::createFromStrapiResponse($data['Zodpovedna_osoba']['data']['attributes']),
+            $data['Zodpovedna_osoba']['data'] ? ClovekData::createFromStrapiResponse($data['Zodpovedna_osoba']['data']['attributes']) : null,
         );
     }
 }

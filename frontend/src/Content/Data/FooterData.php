@@ -8,6 +8,6 @@ final class FooterData
 {
     public function __construct(
         public readonly string $Odkaz,
-        public readonly string $Obrazek,
+        public readonly string|null $Obrazek,
     ) {}
 }

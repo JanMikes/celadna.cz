@@ -48,7 +48,7 @@ services:
     js-watch:
         image: node:14
         volumes:
-            - .:/www
+            - ./frontend:/www
         working_dir: /www
         restart: unless-stopped
         entrypoint: [""]
