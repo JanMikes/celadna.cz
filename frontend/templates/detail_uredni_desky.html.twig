@@ -1,6 +1,27 @@
 {% extends 'base.html.twig' %}
 
-{% block content %}
+{% block title %}{{ uredni_deska.Nadpis }}{% endblock %}
 
+{% block content %}
+    <article>
+        <h2 id="uredni-deska-{{ uredni_deska.id }}">{{ uredni_deska.Nadpis }}</h2>
+
+        <p>
+            Zveřejněno <time>{{ uredni_deska.Datum_zverejneni|date('d.m.Y') }}</time>
+            {% if uredni_deska.Datum_stazeni %}
+                do <time>{{ uredni_deska.Datum_stazeni|date('d.m.Y') }}</time>
+            {% endif %}
+        </p>
+
+        {% if uredni_deska.Zodpovedna_osoba %}
+            <p>Zveřejnil {{ uredni_deska.Zodpovedna_osoba.Jmeno }}</p>
+        {% endif %}
+
+        {% for soubor in uredni_deska.Soubory %}
+            <a href="{{ soubor }}">{{ soubor }}</a>
+        {% endfor %}
+
+        <p>{{ uredni_deska.Popis }}</p>
+    </article>
 {% endblock %}
 

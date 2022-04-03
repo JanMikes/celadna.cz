@@ -34,12 +34,12 @@
 
         {% for aktualita in aktuality %}
             <article>
-                <time>{{ aktualita.DatumZverejneni|date('d.m.Y') }}</time>
                 <h4>
                     <a href="{{ path('detail_aktuality', {'id': aktualita.id}) }}">
                         {{ aktualita.Nadpis }}
                     </a>
                 </h4>
+                <p><time>{{ aktualita.DatumZverejneni|date('d.m.Y') }}</time></p>
                 <p>{{ aktualita.Popis }}</p>
             </article>
         {% endfor %}
@@ -50,12 +50,15 @@
 
         {% for uredni_deska_aktualita in uredni_deska %}
             <article>
-                <time>Zveřejněno od {{ uredni_deska_aktualita.Datum_zverejneni|date('d.m.Y') }} {% if uredni_deska_aktualita.Datum_stazeni %}do {{ uredni_deska_aktualita.Datum_stazeni|date('d.m.Y') }}{% endif %}</time>
                 <h4>
                     <a href="{{ path('detail_uredni_desky', {'id': uredni_deska_aktualita.id}) }}">
                         {{ uredni_deska_aktualita.Nadpis }}
                     </a>
                 </h4>
+
+                <p>
+                    Zveřejněno od <time>{{ uredni_deska_aktualita.Datum_zverejneni|date('d.m.Y') }}</time> {% if uredni_deska_aktualita.Datum_stazeni %}do <time>{{ uredni_deska_aktualita.Datum_stazeni|date('d.m.Y') }}</time>{% endif %}
+                </p>
             </article>
         {% endfor %}
 
