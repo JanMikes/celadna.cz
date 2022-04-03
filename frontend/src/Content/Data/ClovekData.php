@@ -26,7 +26,7 @@ final class ClovekData
         if (isset($data['Clovek'], $data['Funkce'])) {
             $funkce = $data['Funkce'];
             $data = $data['Clovek']['data']['attributes'];
-            $data['funkce'] = $funkce;
+            $data['Funkce'] = $funkce;
         }
 
         return new self(
