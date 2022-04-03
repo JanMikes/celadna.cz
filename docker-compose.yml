@@ -44,3 +44,13 @@ services:
             - '8000:8080'
         depends_on:
             - postgres
+
+    js-watch:
+        image: node:14
+        volumes:
+            - .:/www
+        working_dir: /www
+        restart: unless-stopped
+        entrypoint: [""]
+        user: 1000:1000
+        command: "bash -c 'yarn install && yarn run watch'"
