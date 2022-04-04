@@ -23,6 +23,10 @@ header {
         color: #fff;
         font-weight: bold;
         text-decoration: none;
+
+        &:hover {
+            color: #a9bf04 !important;
+        }
     }
 
     img {
@@ -35,12 +39,8 @@ header {
         @include visually-hidden;
     }
 
-    .navbar, .container {
-        background: #1b3175;
-    }
-
     .navbar {
-        height: 79px;
+        background: #1b3175;
     }
 
     .navbar-nav {
@@ -71,6 +71,27 @@ header {
             span {
                 @include visually-hidden;
             }
+        }
+    }
+
+    @include media-breakpoint-up(lg) {
+        .navbar-nav {
+            width: 100%;
+        }
+
+        div.nav-link {
+            margin-left: 70px;
+        }
+
+        .nav-link {
+            padding: 0 25px !important;
+            height: 84px;
+            line-height: 84px;
+            display: inline-block;
+        }
+
+        .nav-link a {
+            margin-top: 25px;
         }
     }
 }
@@ -240,6 +261,10 @@ footer {
     }
 
     @include media-breakpoint-up(lg) {
+        .container {
+            padding-top: 45px;
+        }
+
         .decoration-image {
             max-width: 680px;
             width: 60%;

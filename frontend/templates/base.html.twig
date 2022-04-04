@@ -35,7 +35,7 @@
     <header>
         <h1>{% if app.request.pathInfo != path('homepage') %}{{ block('title') }} - {% endif %}Obec Čeladná</h1>
 
-        <nav class="navbar navbar-dark navbar-expand-md fixed-top">
+        <nav class="navbar navbar-dark navbar-expand-lg fixed-top">
             <div class="container">
 
                 <a class="navbar-brand" href="{{ path('homepage') }}">
@@ -53,11 +53,12 @@
                             <a class="instagram" href="https://instagram.com/obecceladna"><span>Instagram</span></a>
                             <a class="facebook" href="https://www.facebook.com/Obec-Čeladná-109458195016182/"><span>Facebook</span></a>
                         </div>
-
-                        <a class="nav-link" href="{{ path('obec_aktivity') }}">Obec</a>
-                        <a class="nav-link" href="{{ path('urad') }}">Obecní úřad</a>
-                        <a class="nav-link" href="{{ path('aktuality') }}">Aktuality</a>
-                        <a class="nav-link" href="{{ path('urad_kontakty') }}">Kontakty</a>
+                        <div class="ms-lg-auto">
+                            <a class="nav-link" href="{{ path('obec_aktivity') }}">Obec</a>
+                            <a class="nav-link" href="{{ path('urad') }}">Obecní úřad</a>
+                            <a class="nav-link" href="{{ path('aktuality') }}">Aktuality</a>
+                            <a class="nav-link" href="{{ path('urad_kontakty') }}">Kontakty</a>
+                        </div>
                     </div>
                 </div>
             </div>
