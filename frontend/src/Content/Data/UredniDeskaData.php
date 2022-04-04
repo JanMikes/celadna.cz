@@ -21,7 +21,7 @@ final class UredniDeskaData
          * @var array<string> $Soubory
          */
         public readonly array $Soubory,
-        public readonly string $Popis,
+        public readonly string|null $Popis,
         public readonly ClovekData|null $Zodpovedna_osoba,
     )
     {
