@@ -868,3 +868,18 @@ footer {
         }
     }
 }
+
+.objekty-section {
+    @include make-container();
+    max-width: 940px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    min-height: 400px;
+
+    h2 {
+        font-size: 40px;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-bottom: 30px;
+    }
+}

@@ -2,11 +2,12 @@
     <h3>{{ objekt.Nazev }}</h3>
 
     <address>
-        {{ objekt.Telefon }}
-        {{ objekt.Email }}
-        {{ objekt.Odkaz_web }}
-        {{ objekt.Adresa }}
-        {{ objekt.Odkaz_mapa }}
+        {{ objekt.Telefon }}<br>
+        <a href="mailto:{{ objekt.Email }}">{{ objekt.Email }}</a><br>
+        <a href="{{ objekt.Odkaz_web }}">{{ objekt.Odkaz_web }}</a><br>
+        {% if objekt.Odkaz_mapa %}
+            <a href="{{ objekt.Odkaz_mapa }}">Zobrazit na mapě</a>
+       {% endif %}
     </address>
 </article>
 
