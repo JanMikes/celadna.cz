@@ -79,7 +79,7 @@
                                 </a>
                             </h4>
                             <p><time>{{ aktualita.DatumZverejneni|date('d.m.Y') }}</time></p>
-                            <p>{{ aktualita.Popis }}</p>
+                            {{ aktualita.Popis|u.truncate(150)|markdown_to_html }}
                         </article>
                     {% endfor %}
 
