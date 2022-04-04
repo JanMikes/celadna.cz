@@ -10,7 +10,7 @@ final class DlazdiceData
 
 
     public function __construct(
-        public readonly string $Ikona,
+        public readonly string|null $Ikona,
         public readonly string $Nadpis_dlazdice,
         public readonly string $Odkaz,
     )
@@ -20,7 +20,7 @@ final class DlazdiceData
     public static function createFromStrapiResponse(array $data, int|null $id = null): self
     {
         return new self(
-            $data['Ikona']['data']['attributes']['url'],
+            $data['Ikona']['data']['attributes']['url'] ?? null,
             $data['Nadpis_dlazdice'],
             $data['Odkaz'],
         );

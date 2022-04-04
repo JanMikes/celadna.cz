@@ -1,8 +1,13 @@
-<section>
+<section class="sekce-s-dlazdicema">
     <h3>{{ sekce.Nadpis }}</h3>
-    <p>{{ sekce.Popis }}</p>
 
-    {% for dlazdice in sekce.Dlazdice %}
-        {{ include('_dlazdice.html.twig') }}
-    {% endfor %}
+    {% if sekce.Popis %}
+        {{ sekce.Popis|markdown_to_html }}
+    {% endif %}
+
+    <section class="dlazdice-wrapper">
+        {% for dlazdice in sekce.Dlazdice %}
+            {{ include('_dlazdice.html.twig') }}
+        {% endfor %}
+    </section>
 </section>

@@ -199,6 +199,10 @@ footer {
         align-items: center;
     }
 
+    a {
+        color: #fff;
+    }
+
     @include clearfix;
 
     .decoration-image {
@@ -491,5 +495,55 @@ footer {
 
     p {
         margin-left: 40px;
+    }
+}
+
+.sekce-s-dlazdicema {
+    @include make-container();
+    max-width: 1016px;
+    padding: 45px 0;
+
+    h3 {
+        color: #1b3175;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 40px;
+        margin-bottom: 25px;
+    }
+
+    .dlazdice-wrapper {
+        @include make-row();
+        margin-top: 35px;
+
+        a {
+            width: 250px;
+            transition: all 0.4s ease-in-out 0s;
+            display: block;
+            background: #fafafa;
+            padding: 20px;
+            text-decoration: none;
+            color: #a8be04;
+            text-align: center;
+            margin: 5px;
+
+            &:hover {
+                color: #fff;
+                background: #a8be04;
+            }
+        }
+
+        h4 {
+            text-transform: uppercase;
+            font-size: 20px;
+            font-weight: 900;
+            margin: 0;
+
+            .image {
+                display: block;
+                width: 75px;
+                height: 68px;
+                margin: 0 auto;
+            }
+        }
     }
 }
