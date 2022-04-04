@@ -468,6 +468,7 @@ footer {
     @include make-container();
     max-width: 900px;
     padding: 50px 0;
+    min-height: 450px;
 
     h2 {
         font-size: 40px;
