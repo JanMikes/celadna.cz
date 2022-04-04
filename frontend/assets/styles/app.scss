@@ -484,6 +484,19 @@ footer {
     min-height: 150px;
 }
 
+.uredni-deska-text-section {
+    @include make-container();
+    max-width: 920px;
+    padding: 50px 0 20px;
+
+    h2 {
+        font-size: 40px;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+    }
+}
+
 .simple-text-section {
     @include make-container();
     max-width: 900px;
