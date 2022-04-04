@@ -14,6 +14,10 @@ $font-weight-light:           200;
 
 body {
     padding-top: 79px;
+
+    @include media-breakpoint-up(lg) {
+        padding-top: 100px;
+    }
 }
 
 header {
@@ -457,5 +461,22 @@ footer {
                 padding-left: 20px;
             }
         }
+    }
+}
+
+.simple-text-section {
+    @include make-container();
+    max-width: 900px;
+    padding: 50px 0;
+
+    h2 {
+        font-size: 40px;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+    }
+
+    p {
+        margin-left: 40px;
     }
 }

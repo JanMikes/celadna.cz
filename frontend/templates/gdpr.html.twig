@@ -3,8 +3,9 @@
 {% block title %}Ochrana osobních údajů{% endblock %}
 
 {% block content %}
-    <article>
+    <article class="simple-text-section">
         <h2>{{ gdpr.Nadpis }}</h2>
-        {{ gdpr.Obsah }}
+
+        {{ gdpr.Obsah|markdown_to_html }}
     </article>
 {% endblock %}

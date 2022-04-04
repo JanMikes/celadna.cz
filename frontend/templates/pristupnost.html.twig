@@ -3,8 +3,9 @@
 {% block title %}Prohlášení o přístupnosti{% endblock %}
 
 {% block content %}
-    <article>
+    <article class="simple-text-section">
         <h2>{{ pristupnost.Nadpis }}</h2>
-        {{ pristupnost.Obsah }}
+
+        {{ pristupnost.Obsah|markdown_to_html }}
     </article>
 {% endblock %}

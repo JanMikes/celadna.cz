@@ -1,6 +1,18 @@
 {
+    "dflydev/dot-access-data": {
+        "version": "v3.0.1"
+    },
     "eag/easy-hydrator": {
         "version": "1.0.2"
+    },
+    "league/commonmark": {
+        "version": "2.2.3"
+    },
+    "league/config": {
+        "version": "v1.1.1"
+    },
+    "nette/schema": {
+        "version": "v1.2.2"
     },
     "nette/utils": {
         "version": "v3.2.7"
@@ -193,6 +205,9 @@
         "version": "v6.0.3"
     },
     "twig/extra-bundle": {
+        "version": "v3.3.8"
+    },
+    "twig/markdown-extra": {
         "version": "v3.3.8"
     },
     "twig/twig": {
