@@ -9,13 +9,12 @@
         <h4>{{ clovek.Jmeno }}</h4>
         <strong>{{ clovek.Funkce }}</strong><br>
 
-        {% if clovek.Email %}
-            <a href="mailto:{{ clovek.Email }}">{{ clovek.Email }}</a><br>
-        {% endif %}
-
-        {{ clovek.Telefon }}
-
         {% if full_udaje %}
+            {% if clovek.Email %}
+                <a href="mailto:{{ clovek.Email }}">{{ clovek.Email }}</a><br>
+            {% endif %}
+
+            {{ clovek.Telefon }}
         {% endif %}
     </div>
 </article>

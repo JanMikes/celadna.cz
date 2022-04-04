@@ -3,21 +3,25 @@
 {% block title %}Samospráva{% endblock %}
 
 {% block content %}
-    {% for kategorie in kategorie_samospravy %}
-        <h2>{{ kategorie.Nadpis }}</h2>
-        <p>{{ kategorie.Obsah }}</p>
+    <section class="samosprava-section">
+        <h2>Samospráva</h2>
 
-        {% for clovek in kategorie.Lide %}
-            {{ include('_clovek.html.twig', {
-                'full_udaje': false
-            }) }}
+        {% for kategorie in kategorie_samospravy %}
+            <h3>{{ kategorie.Nadpis }}</h3>
+            <p>{{ kategorie.Obsah }}</p>
+
+            {% for clovek in kategorie.Lide %}
+                {{ include('_clovek.html.twig', {
+                    'full_udaje': false
+                }) }}
+            {% endfor %}
+
+            {% if kategorie.Uredni_deska %}
+                {{ include('_uredni_deska.html.twig', {
+                    'uredni_deska': kategorie.Uredni_deska
+                }) }}
+            {% endif %}
         {% endfor %}
-
-        {% if kategorie.Uredni_deska %}
-            {{ include('_uredni_deska.html.twig', {
-                'uredni_deska': kategorie.Uredni_deska
-            }) }}
-        {% endif %}
-    {% endfor %}
+    </section>
 {% endblock %}
 
