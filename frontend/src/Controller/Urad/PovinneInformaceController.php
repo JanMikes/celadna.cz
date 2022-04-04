@@ -16,7 +16,7 @@ final class PovinneInformaceController extends AbstractController
     ) {}
 
 
-    #[Route('/obecni-urad/dokumenty-uradu/povinne-zverejnovani-informace', name: 'urad_povinne_informace')]
+    #[Route('/obecni-urad/povinne-zverejnovane-informace', name: 'urad_povinne_informace')]
     public function __invoke(): Response
     {
         return $this->render('urad_povinne_informace.html.twig', [
