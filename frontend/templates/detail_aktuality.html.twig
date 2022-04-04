@@ -21,7 +21,7 @@
                 <time>{{ aktualita.DatumZverejneni|date('d.m.Y') }}</time>
             </p>
 
-            {{ aktualita.Popis|markdown_to_html }}
+            {{ aktualita.Popis|markdown_to_html|nl2br }}
 
             {% if aktualita.Obrazek %}
                 <img src="{{ aktualita.Obrazek }}" alt="" aria-labelledby="aktualita-{{ aktualita.id }}">

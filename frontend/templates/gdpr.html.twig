@@ -6,6 +6,6 @@
     <article class="simple-text-section">
         <h2>{{ gdpr.Nadpis }}</h2>
 
-        {{ gdpr.Obsah|markdown_to_html }}
+        {{ gdpr.Obsah|markdown_to_html|nl2br }}
     </article>
 {% endblock %}

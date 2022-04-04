@@ -641,6 +641,10 @@ footer {
 .person-detail {
     display: flex;
 
+    + .person-detail {
+        margin-top: 20px;
+    }
+
     .photo {
         margin-right: 20px;
 
