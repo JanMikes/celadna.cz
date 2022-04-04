@@ -520,7 +520,7 @@ footer {
             transition: all 0.4s ease-in-out 0s;
             display: block;
             background: #fafafa;
-            padding: 20px;
+            padding: 40px 20px;
             text-decoration: none;
             color: #a8be04;
             text-align: center;
@@ -542,7 +542,10 @@ footer {
                 display: block;
                 width: 75px;
                 height: 68px;
-                margin: 0 auto;
+                margin: 0 auto 20px;
+                background-size: contain;
+                background-position: center center;
+                background-repeat: no-repeat;
             }
         }
     }
