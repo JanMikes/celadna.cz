@@ -375,3 +375,30 @@ footer {
         background-size: contain;
     }
 }
+
+.homepage-infoservis {
+    background: #f9f9f9;
+    padding: 40px 0;
+
+    h2, h3 {
+        color: #084627;
+        text-transform: uppercase;
+    }
+
+    h2 {
+        font-weight: bold;
+    }
+
+    .content-wrapper {
+        @include make-row();
+
+        > section {
+            @include make-col();
+        }
+    }
+
+    h4 a {
+        font-size: 14px;
+        color: #000;
+    }
+}

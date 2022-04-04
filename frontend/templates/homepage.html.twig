@@ -63,41 +63,50 @@
         </ul>
     </section>
 
-    <section>
-        <h2>Infoservis</h2>
+    <section class="homepage-infoservis">
+        <div class="container">
+            <h2>Infoservis</h2>
 
-        <h3>Aktuality</h3>
+            <div class="content-wrapper">
+                <section>
+                    <h3>Aktuality</h3>
 
-        {% for aktualita in aktuality %}
-            <article>
-                <h4>
-                    <a href="{{ path('detail_aktuality', {'id': aktualita.id}) }}">
-                        {{ aktualita.Nadpis }}
-                    </a>
-                </h4>
-                <p><time>{{ aktualita.DatumZverejneni|date('d.m.Y') }}</time></p>
-                <p>{{ aktualita.Popis }}</p>
-            </article>
-        {% endfor %}
+                    {% for aktualita in aktuality %}
+                        <article>
+                            <h4>
+                                <a href="{{ path('detail_aktuality', {'id': aktualita.id}) }}">
+                                    {{ aktualita.Nadpis }}
+                                </a>
+                            </h4>
+                            <p><time>{{ aktualita.DatumZverejneni|date('d.m.Y') }}</time></p>
+                            <p>{{ aktualita.Popis }}</p>
+                        </article>
+                    {% endfor %}
 
-        <a href="{{ path('aktuality') }}">Všechny aktuality</a>
+                    <a href="{{ path('aktuality') }}">Všechny aktuality</a>
+                </section>
 
-        <h3>Úřední deska</h3>
+                <section>
+                    <h3>Úřední deska</h3>
 
-        {% for uredni_deska_aktualita in uredni_deska %}
-            <article>
-                <h4>
-                    <a href="{{ path('detail_uredni_desky', {'id': uredni_deska_aktualita.id}) }}">
-                        {{ uredni_deska_aktualita.Nadpis }}
-                    </a>
-                </h4>
+                    {% for uredni_deska_aktualita in uredni_deska %}
+                        <article>
+                            <h4>
+                                <a href="{{ path('detail_uredni_desky', {'id': uredni_deska_aktualita.id}) }}">
+                                    {{ uredni_deska_aktualita.Nadpis }}
+                                </a>
+                            </h4>
 
-                <p>
-                    Zveřejněno od <time>{{ uredni_deska_aktualita.Datum_zverejneni|date('d.m.Y') }}</time> {% if uredni_deska_aktualita.Datum_stazeni %}do <time>{{ uredni_deska_aktualita.Datum_stazeni|date('d.m.Y') }}</time>{% endif %}
-                </p>
-            </article>
-        {% endfor %}
+                            <p>
+                                Zveřejněno od <time>{{ uredni_deska_aktualita.Datum_zverejneni|date('d.m.Y') }}</time> {% if uredni_deska_aktualita.Datum_stazeni %}do <time>{{ uredni_deska_aktualita.Datum_stazeni|date('d.m.Y') }}</time>{% endif %}
+                            </p>
+                        </article>
+                    {% endfor %}
 
-        <a href="{{ path('uredni_deska') }}">Celá úřední deska</a>
+                    <a href="{{ path('uredni_deska') }}">Celá úřední deska</a>
+                </section>
+
+            </div>
+        </div>
     </section>
 {% endblock %}
