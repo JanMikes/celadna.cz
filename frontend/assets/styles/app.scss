@@ -16,7 +16,8 @@ body {
     padding-top: 79px;
 
     @include media-breakpoint-up(lg) {
-        padding-top: 100px;
+        // padding-top: 100px; // TODO: uncomment after panel removed
+        padding-top: 134px;
     }
 }
 
@@ -882,4 +883,17 @@ footer {
         text-transform: uppercase;
         margin-bottom: 30px;
     }
+}
+
+.in-progress-lista {
+    position: fixed;
+    width: 100%;
+    background: #fff;
+    color: #000;
+    font-size: 12px;
+    left: 0;
+    top: 100px;
+    padding: 8px 0;
+    text-align: center;
+    box-shadow: #000000 0 0 7px 1px;
 }
