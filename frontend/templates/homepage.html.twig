@@ -1,51 +1,60 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
+    <div class="carousel-wrapper">
+        <section id="homepage-carousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#homepage-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Golf a turistika"></button>
+                <button type="button" data-bs-target="#homepage-carousel" data-bs-slide-to="1" aria-label="Moderní obec"></button>
+                <button type="button" data-bs-target="#homepage-carousel" data-bs-slide-to="2" aria-label="Lázeňství"></button>
+            </div>
+            <div class="carousel-inner">
+                <article class="carousel-item active">
+                    <div class="container">
+                        <div class="slide-inner">
+                            <h2>Golf a turistika</h2>
+                            <p>V novodobé historii se Čeladná stala nejen vyhlášeným golfovým rájem, ale také významným turistickým centrem. Na počátku 21. století prošla většina zdejších ubytovacích zařízení výraznou modernizací a zároveň začaly vyrůstat nové hotely a penziony. Díky tomu dnes v obci najdou vhodné místo k rekreaci rodiny s dětmi, turisté i klienti, kteří hledají služby na nejvyšší světové úrovni.</p>
+                        </div>
+                        <span role="presentation" class="decoration-image image-golf"></span>
+                    </div>
+                </article>
 
-    <section id="homepage-carousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#homepage-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Golf a turistika"></button>
-            <button type="button" data-bs-target="#homepage-carousel" data-bs-slide-to="1" aria-label="Moderní obec"></button>
-            <button type="button" data-bs-target="#homepage-carousel" data-bs-slide-to="2" aria-label="Lázeňství"></button>
-        </div>
-        <div class="carousel-inner">
-            <article class="carousel-item active">
-                <div class="container">
-                    <span class="decoration-image" role="presentation"></span>
-                    <h2>Golf a turistika</h2>
-                    <p>V novodobé historii se Čeladná stala nejen vyhlášeným golfovým rájem, ale také významným turistickým centrem. Na počátku 21. století prošla většina zdejších ubytovacích zařízení výraznou modernizací a zároveň začaly vyrůstat nové hotely a penziony. Díky tomu dnes v obci najdou vhodné místo k rekreaci rodiny s dětmi, turisté i klienti, kteří hledají služby na nejvyšší světové úrovni.</p>
-                </div>
-            </article>
+                <article class="carousel-item">
+                    <div class="container">
+                        <div class="slide-inner">
+                            <h2>Moderní obec</h2>
+                            <p>Nová éra Čeladné se datuje k roku 2000, kdy bylo v obci otevřeno největší golfové hřiště v ČR a začala výstavba nového centra obce. Od té doby zažívá Čeladná bouřlivý rozvoj a stala se vyhledávaným místem pro bydlení i rekreaci.</p>
+                        </div>
+                        <span role="presentation" class="decoration-image image-moderni-obec"></span>
+                    </div>
+                </article>
 
-            <article class="carousel-item">
-                <div class="container">
-                    <h2>Moderní obec</h2>
-                    <p>Nová éra Čeladné se datuje k roku 2000, kdy bylo v obci otevřeno největší golfové hřiště v ČR a začala výstavba nového centra obce. Od té doby zažívá Čeladná bouřlivý rozvoj a stala se vyhledávaným místem pro bydlení i rekreaci.</p>
-                </div>
-            </article>
+                <article class="carousel-item">
+                    <div class="container">
+                        <div class="slide-inner">
+                            <h2>Lázeňství</h2>
+                            <p>Na lázeňskou tradici navázalo Beskydské rehabilitační centrum na úpatí Ondřejníku. Díky&nbsp; vysoké úrovni rehabilitační péče je BRC vyhledávaným zdravotnickým zařízením. Lara Spa doplnilo léčebné kůry o nadstandardní wellness služby a spolu s možností komfortního ubytování a stravování jezdí za vzácnou atmosférou rodinných lázní do Čeladné pacienti a hosté z celé republiky.</p>
+                        </div>
+                        <span role="presentation" class="decoration-image image-lazenstvi"></span>
+                    </div>
+                </article>
+            </div>
 
-            <article class="carousel-item">
-                <div class="container">
-                    <h2>Lázeňství</h2>
-                    <p>Na lázeňskou tradici navázalo Beskydské rehabilitační centrum na úpatí Ondřejníku. Díky&nbsp; vysoké úrovni rehabilitační péče je BRC vyhledávaným zdravotnickým zařízením. Lara Spa doplnilo léčebné kůry o nadstandardní wellness služby a spolu s možností komfortního ubytování a stravování jezdí za vzácnou atmosférou rodinných lázní do Čeladné pacienti a hosté z celé republiky.</p>
-                </div>
-            </article>
-        </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#homepage-carousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Předchozí</span>
+            </button>
 
-        <button class="carousel-control-prev" type="button" data-bs-target="#homepage-carousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Předchozí</span>
-        </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#homepage-carousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Další</span>
+            </button>
+        </section>
 
-        <button class="carousel-control-next" type="button" data-bs-target="#homepage-carousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Další</span>
-        </button>
-    </section>
+        <h2>Hledáte u nás?</h2>
+    </div>
 
     <section>
-        <h2>Hledáte u nás?</h2>
-
         <ul>
             <li><a href="{{ path('obec_ubytovani') }}">Zobrazit Ubytování</a></li>
             <li><a href="{{ path('obec_restaurace') }}">Zobrazit Restaurace</a></li>

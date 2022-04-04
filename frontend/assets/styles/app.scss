@@ -164,7 +164,7 @@ footer {
     .decoration-image {
         display: block;
         max-width: 100%;
-        aspect-ratio: 618 / 397;
+        aspect-ratio: 3 / 2;
         background-size: contain;
     }
 
@@ -176,31 +176,80 @@ footer {
         .banner-text {
             float: right;
             width: calc(100% - 400px);
+            padding-left: 30px;
         }
     }
 
     @include media-breakpoint-up(lg) {
         .decoration-image {
-            max-width: 618px;
+            max-width: 680px;
         }
 
         .banner-text {
-            width: calc(100% - 618px);
+            width: calc(100% - 680px);
         }
     }
 }
 
-#homepage-carousel {
+.carousel-wrapper {
     background: linear-gradient(180deg, #244199 0%, #127242 100%) #244199;
     color: #fff;
+}
 
-    .carousel-item {
-        min-height: 500px
+#homepage-carousel {
+
+    h2 {
+        text-transform: uppercase;
+        font-weight: 900;
     }
-
 
     .carousel-control-prev,
     .carousel-control-next {
         width: 7.5%;
+    }
+
+    .carousel-inner {
+        min-height: 700px;
+    }
+
+    .slide-inner {
+        padding: 20px 7.5%;
+    }
+
+    .decoration-image {
+        display: block;
+        max-width: 100%;
+        aspect-ratio: 3 / 2;
+        background-size: contain !important;
+    }
+
+    .image-moderni-obec {
+        background: url('../images/homepage-moderni-obec.png') center center no-repeat;
+    }
+
+    .image-golf {
+        background: url('../images/homepage-golf-a-turistika.png') center center no-repeat;
+    }
+
+    .image-lazenstvi {
+        background: url('../images/homepage-lazenstvi.png') center center no-repeat;
+    }
+
+    @include media-breakpoint-up(md) {
+
+    }
+
+    @include media-breakpoint-up(lg) {
+        .decoration-image {
+            max-width: 680px;
+            width: 60%;
+        }
+
+        .slide-inner {
+            float: right;
+            padding-left: 30px;
+            padding-right: 0;
+            width: calc(100% - min(60%, 680px));
+        }
     }
 }
