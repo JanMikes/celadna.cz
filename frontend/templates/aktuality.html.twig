@@ -3,24 +3,26 @@
 {% block title %}Aktuality{% endblock %}
 
 {% block content %}
-    <section>
+    <section class="aktuality-section">
         <h2>Aktuality</h2>
 
         {% for aktualita in aktuality %}
             <article>
-                <h3 id="aktualita-{{ aktualita.id }}">
-                    <a href="{{ path('detail_aktuality', {'id': aktualita.id}) }}">
-                        {{ aktualita.Nadpis }}
-                    </a>
-                </h3>
-
-                <time>{{ aktualita.DatumZverejneni|date('d.m.Y') }}</time>
-
-                <p>{{ aktualita.Popis }}</p>
-
                 {% if aktualita.Obrazek %}
                     <img src="{{ aktualita.Obrazek }}" alt="" aria-labelledby="aktualita-{{ aktualita.id }}">
                 {% endif %}
+
+                <div class="actuality-content">
+                    <h3 id="aktualita-{{ aktualita.id }}">
+                        <a href="{{ path('detail_aktuality', {'id': aktualita.id}) }}">
+                            {{ aktualita.Nadpis }}
+                        </a>
+                    </h3>
+
+                    <p><time>{{ aktualita.DatumZverejneni|date('d.m.Y') }}</time></p>
+
+                    {{ aktualita.Popis|u.truncate(150, '...', true)|markdown_to_html }}
+                </div>
             </article>
         {% endfor %}
     </section>

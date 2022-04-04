@@ -1,11 +1,13 @@
-<section>
-    <h2>{{ dokumenty.Nadpis }}</h2>
+<div class="documents-section">
+    <section class="simple-text-section">
+        <h2>{{ dokumenty.Nadpis }}</h2>
 
-    <p>{{ dokumenty.Obsah }}</p>
-</section>
+        <p>{{ dokumenty.Obsah }}</p>
+    </section>
 
-<section>
-    {{ include('_uredni_deska.html.twig', {
-        'uredni_deska': dokumenty.Uredni_deska
-    }) }}
-</section>
+    <section>
+        {{ include('_uredni_deska.html.twig', {
+            'uredni_deska': dokumenty.Uredni_deska
+        }) }}
+    </section>
+</div>
