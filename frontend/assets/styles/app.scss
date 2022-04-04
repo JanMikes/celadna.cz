@@ -604,3 +604,36 @@ footer {
         }
     }
 }
+
+.detail-aktuality-section {
+    @include make-container();
+    max-width: 940px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    min-height: 400px;
+
+    a {
+        color: #000;
+    }
+
+    nav {
+        a {
+            font-size: 14px;
+            display: inline-block;
+
+            + a {
+                margin-left: 25px;
+            }
+        }
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+    article {
+        margin-top: 30px;
+        border: 1px solid #eaeaea;
+        padding: 24px 36px;
+    }
+}

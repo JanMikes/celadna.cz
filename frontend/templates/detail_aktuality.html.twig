@@ -3,29 +3,30 @@
 {% block title %}{{ aktualita.Nadpis }}{% endblock %}
 
 {% block content %}
-    <nav>
-        <a href="{{ path('aktuality') }}">Všechny příspěvky</a>
-        <a href="{{ path('urad_dokumenty_formulare') }}">Formuláře</a>
-        <a href="{{ path('urad_dokumenty_odpady') }}">Odpady</a>
-        <a href="{{ path('urad_dokumenty_vyhlasky') }}">Vyhlášky</a>
-    </nav>
+    <section class="detail-aktuality-section">
+        <nav>
+            <a href="{{ path('aktuality') }}">Všechny příspěvky</a>
+            <a href="{{ path('urad_dokumenty_formulare') }}">Formuláře</a>
+            <a href="{{ path('urad_dokumenty_odpady') }}">Odpady</a>
+            <a href="{{ path('urad_dokumenty_vyhlasky') }}">Vyhlášky</a>
+        </nav>
 
-    <article>
-        <h2 id="aktualita-{{ aktualita.id }}">{{ aktualita.Nadpis }}</h2>
+        <article>
+            <h2 id="aktualita-{{ aktualita.id }}">{{ aktualita.Nadpis }}</h2>
 
-        <p>
-            {% if aktualita.Zverejnil %}
-                {{ aktualita.Zverejnil.Jmeno }}
+            <p>
+                {% if aktualita.Zverejnil %}
+                    {{ aktualita.Zverejnil.Jmeno }}
+                {% endif %}
+                <time>{{ aktualita.DatumZverejneni|date('d.m.Y') }}</time>
+            </p>
+
+            {{ aktualita.Popis|markdown_to_html }}
+
+            {% if aktualita.Obrazek %}
+                <img src="{{ aktualita.Obrazek }}" alt="" aria-labelledby="aktualita-{{ aktualita.id }}">
             {% endif %}
-            <time>{{ aktualita.DatumZverejneni|date('d.m.Y') }}</time>
-        </p>
-
-        <p>{{ aktualita.Popis }}</p>
-
-        {% if aktualita.Obrazek %}
-            <img src="{{ aktualita.Obrazek }}" alt="" aria-labelledby="aktualita-{{ aktualita.id }}">
-        {% endif %}
-    </article>
-
+        </article>
+    </section>
 {% endblock %}
 
