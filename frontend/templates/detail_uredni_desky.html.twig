@@ -25,7 +25,9 @@
             </p>
         {% endif %}
 
-        {{ uredni_deska.Popis|markdown_to_html|nl2br }}
+        {% if uredni_deska.Popis %}
+            {{ uredni_deska.Popis|markdown_to_html|nl2br }}
+        {% endif %}
     </article>
 {% endblock %}
 

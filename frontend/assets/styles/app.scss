@@ -16,8 +16,7 @@ body {
     padding-top: 79px;
 
     @include media-breakpoint-up(lg) {
-        // padding-top: 100px; // TODO: uncomment after panel removed
-        padding-top: 134px;
+        padding-top: 100px;
     }
 }
 
