@@ -241,6 +241,76 @@ footer {
     }
 }
 
+.button-banner {
+    background: linear-gradient(180deg, #244199 0%, #127242 100%) #244199;
+    color: #fff;
+
+    .container {
+        min-height: 450px;
+        display: flex;
+        align-items: center;
+    }
+
+    a {
+        color: #fff;
+    }
+
+    @include clearfix;
+
+    .decoration-image {
+        width: 100%;
+        aspect-ratio: 3 / 2;
+        background-size: contain;
+    }
+
+    h2 {
+        font-size: 60px;
+        font-weight: 900;
+        text-transform: uppercase;
+        margin-top: -15px;
+        margin-bottom: 30px;
+    }
+
+    .buttons a {
+        display: inline-block;
+        color: #fff;
+        transition: all 0.4s ease-in-out 0s;
+        border: 1px solid #fff;
+        padding: 8px 30px;
+        text-decoration: none;
+
+        + a {
+            margin-left: 15px;
+        }
+
+        &:hover {
+            background: #a9bf04;
+        }
+    }
+
+    @include media-breakpoint-up(md) {
+        .decoration-image {
+            max-width: 400px;
+        }
+
+        .banner-text {
+            float: right;
+            width: calc(100% - 400px);
+            padding-left: 30px;
+        }
+    }
+
+    @include media-breakpoint-up(lg) {
+        .decoration-image {
+            max-width: 680px;
+        }
+
+        .banner-text {
+            width: calc(100% - 680px);
+        }
+    }
+}
+
 .carousel-wrapper {
     background: linear-gradient(180deg, #244199 0%, #127242 100%) #244199;
     color: #fff;
@@ -772,4 +842,29 @@ footer {
     padding-top: 40px;
     padding-bottom: 40px;
     min-height: 400px;
+}
+
+.sluzby-section {
+    @include make-container();
+    max-width: 940px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    min-height: 400px;
+
+    .sluzby-wrapper {
+        @include make-row();
+
+        article {
+            @include make-col();
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        h3 {
+            color: #244199;
+            font-weight: bold;
+            font-size: 16px;
+            text-transform: uppercase;
+        }
+    }
 }

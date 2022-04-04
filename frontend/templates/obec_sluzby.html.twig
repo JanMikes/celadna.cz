@@ -7,13 +7,17 @@
        'banner': sluzby.BannerSTlacitkama
    }) }}
 
-    <section>
-        <article>
+    <section class="sluzby-section">
+        <div class="sluzby-wrapper">
             {% for sluzba in sluzby.Sluzby %}
-                <h3>{{ sluzba.Nadpis }}</h3>
-                <p>{{ sluzba.Telefon }}</p>
-                <p>{{ sluzba.Obsah }}</p>
+                <article>
+                    <h3>{{ sluzba.Nadpis }}</h3>
+
+                    <p>{{ sluzba.Telefon }}</p>
+
+                    {{ sluzba.Obsah|markdown_to_html }}
+                </article>
             {% endfor %}
-        </article>
+        </div>
     </section>
 {% endblock %}
