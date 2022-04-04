@@ -3,7 +3,7 @@
 {% block title %}{{ uredni_deska.Nadpis }}{% endblock %}
 
 {% block content %}
-    <article>
+    <article class="uredni-deska-detail">
         <h2 id="uredni-deska-{{ uredni_deska.id }}">{{ uredni_deska.Nadpis }}</h2>
 
         <p>
@@ -17,11 +17,15 @@
             <p>Zveřejnil {{ uredni_deska.Zodpovedna_osoba.Jmeno }}</p>
         {% endif %}
 
-        {% for soubor in uredni_deska.Soubory %}
-            <a href="{{ soubor }}">{{ soubor }}</a>
-        {% endfor %}
+        {% if uredni_deska.Soubory %}
+            <p>
+                {% for soubor in uredni_deska.Soubory %}
+                    <a href="{{ soubor }}">Dokument ke stažení</a>
+                {% endfor %}
+            </p>
+        {% endif %}
 
-        <p>{{ uredni_deska.Popis }}</p>
+        {{ uredni_deska.Popis|markdown_to_html|nl2br }}
     </article>
 {% endblock %}
 
