@@ -78,8 +78,10 @@
                                     {{ aktualita.Nadpis }}
                                 </a>
                             </h4>
+
                             <p><time>{{ aktualita.DatumZverejneni|date('d.m.Y') }}</time></p>
-                            {{ aktualita.Popis|u.truncate(150)|markdown_to_html }}
+
+                            {{ aktualita.Popis|u.truncate(150, '...', true)|markdown_to_html }}
                         </article>
                     {% endfor %}
 
