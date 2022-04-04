@@ -123,6 +123,15 @@ footer {
         }
     }
 
+    .footer-links {
+        margin-top: 20px;
+
+        li {
+            display: inline-block;
+            padding: 0 10px;
+        }
+    }
+
     .download-links li {
         display: inline-block;
     }
@@ -267,7 +276,7 @@ footer {
         }
 
         .container {
-            padding-top: 45px;
+            padding-top: 70px;
         }
 
         .decoration-image {
@@ -278,7 +287,7 @@ footer {
         .slide-inner {
             float: right;
             padding-left: 30px;
-            padding-right: 0;
+            padding-right: 120px;
             width: calc(100% - min(60%, 680px));
         }
     }
@@ -288,6 +297,7 @@ footer {
     @include make-container();
     max-width: 1480px;
     margin-top: -180px;
+    margin-bottom: 40px;
 
     h2 {
         color: #fff;
@@ -331,7 +341,7 @@ footer {
             position: absolute;
             display: block;
             left: 50%;
-            margin-left: -25%;
+            transform: translate(-50%, 0);
             bottom: 10px;
             color: #A9BF04;
             border: 1px solid #A9BF04;
@@ -378,15 +388,59 @@ footer {
 
 .homepage-infoservis {
     background: #f9f9f9;
-    padding: 40px 0;
+    padding: 55px 0;
+    font-size: 14px;
+
+    .container, h2 {
+        max-width: 940px;
+    }
 
     h2, h3 {
-        color: #084627;
         text-transform: uppercase;
     }
 
-    h2 {
+    h2, h3, h4 {
+        color: #084627;
         font-weight: bold;
+    }
+
+    h2 {
+        margin: 0 auto 30px;
+        font-size: 40px;
+    }
+
+    h3  {
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+
+    h4 {
+        font-size: 15px;
+        margin-top: 30px;
+    }
+
+    a {
+        color: #000;
+    }
+
+    .all-link {
+        display: inline-block;
+        color: #A9BF04;
+        border: 1px solid #A9BF04;
+        border-radius: 40px;
+        height: 48px;
+        line-height: 46px;
+        padding: 0 30px;
+        @include transition(all .45s);
+        font-weight: bold;
+        font-size: 13px;
+        text-decoration: none;
+        margin-top: 20px;
+
+        &:hover {
+            color: #fff;
+            background: #A9BF04;
+        }
     }
 
     .content-wrapper {
@@ -394,11 +448,14 @@ footer {
 
         > section {
             @include make-col();
-        }
-    }
 
-    h4 a {
-        font-size: 14px;
-        color: #000;
+            &:nth-child(1) {
+                padding-right: 20px;
+            }
+
+            &:nth-child(2) {
+                padding-left: 20px;
+            }
+        }
     }
 }

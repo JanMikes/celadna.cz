@@ -64,9 +64,9 @@
     </section>
 
     <section class="homepage-infoservis">
-        <div class="container">
-            <h2>Infoservis</h2>
+        <h2>Infoservis</h2>
 
+        <div class="container">
             <div class="content-wrapper">
                 <section>
                     <h3>Aktuality</h3>
@@ -83,7 +83,7 @@
                         </article>
                     {% endfor %}
 
-                    <a href="{{ path('aktuality') }}">Všechny aktuality</a>
+                    <a class="all-link" href="{{ path('aktuality') }}">Všechny aktuality</a>
                 </section>
 
                 <section>
@@ -103,9 +103,8 @@
                         </article>
                     {% endfor %}
 
-                    <a href="{{ path('uredni_deska') }}">Celá úřední deska</a>
+                    <a class="all-link" href="{{ path('uredni_deska') }}">Celá úřední deska</a>
                 </section>
-
             </div>
         </div>
     </section>
