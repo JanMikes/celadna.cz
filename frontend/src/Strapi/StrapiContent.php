@@ -14,6 +14,7 @@ use Celadna\Website\Content\Data\DokumentyData;
 use Celadna\Website\Content\Data\GrafickyPasData;
 use Celadna\Website\Content\Data\KartaObjektuData;
 use Celadna\Website\Content\Data\KontaktyData;
+use Celadna\Website\Content\Data\ObecData;
 use Celadna\Website\Content\Data\PristupnostData;
 use Celadna\Website\Content\Data\RestauraceData;
 use Celadna\Website\Content\Data\SamospravaData;
@@ -362,6 +363,20 @@ final class StrapiContent implements Content
         ]);
 
         return new UradData(
+            BannerSTextemData::createFromStrapiResponse($strapiResponse['data']['attributes']['Banner']),
+            SekceSDlazdicemaData::createFromStrapiResponse($strapiResponse['data']['attributes']['Sekce_s_dlazdicema']),
+        );
+    }
+
+
+    public function getObecData(): ObecData
+    {
+        $strapiResponse = $this->strapiClient->getApiResource('obec', [
+            'Banner.Obrazek',
+            'Sekce_s_dlazdicema.Dlazdice.Ikona',
+        ]);
+
+        return new ObecData(
             BannerSTextemData::createFromStrapiResponse($strapiResponse['data']['attributes']['Banner']),
             SekceSDlazdicemaData::createFromStrapiResponse($strapiResponse['data']['attributes']['Sekce_s_dlazdicema']),
         );

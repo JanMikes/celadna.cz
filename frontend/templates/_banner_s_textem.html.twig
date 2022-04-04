@@ -1,10 +1,11 @@
 <section class="text-banner">
     <div class="container">
+        <div role="presentation" class="decoration-image" style="background-image: url('{{ banner.Obrazek }}');"></div>
+
         <div class="banner-text">
             <h2>{{ banner.Nadpis }}</h2>
-            <p>{{ banner.Text_pod_nadpisem }}</p>
-        </div>
 
-        <span role="presentation" class="decoration-image" style="background-image: url('{{ banner.Obrazek }}');"></span>
+            {{ banner.Text_pod_nadpisem|markdown_to_html }}
+        </div>
     </div>
 </section>

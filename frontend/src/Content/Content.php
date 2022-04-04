@@ -10,6 +10,7 @@ use Celadna\Website\Content\Data\GdprData;
 use Celadna\Website\Content\Data\DokumentyData;
 use Celadna\Website\Content\Data\GrafickyPasData;
 use Celadna\Website\Content\Data\KontaktyData;
+use Celadna\Website\Content\Data\ObecData;
 use Celadna\Website\Content\Data\PristupnostData;
 use Celadna\Website\Content\Data\RestauraceData;
 use Celadna\Website\Content\Data\SamospravaData;
@@ -102,4 +103,6 @@ interface Content
     public function getUredniDeskaData(int $id): UredniDeskaData;
 
     public function getDokumentyUraduData(): SekceSDlazdicemaData;
+
+    public function getObecData(): ObecData;
 }

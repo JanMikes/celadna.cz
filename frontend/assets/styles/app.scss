@@ -193,13 +193,25 @@ footer {
     background: linear-gradient(180deg, #244199 0%, #127242 100%) #244199;
     color: #fff;
 
+    .container {
+        min-height: 450px;
+        display: flex;
+        align-items: center;
+    }
+
     @include clearfix;
 
     .decoration-image {
-        display: block;
-        max-width: 100%;
+        width: 100%;
         aspect-ratio: 3 / 2;
         background-size: contain;
+    }
+
+    h2 {
+        font-size: 60px;
+        font-weight: 900;
+        text-transform: uppercase;
+        margin-top: -15px;
     }
 
     @include media-breakpoint-up(md) {

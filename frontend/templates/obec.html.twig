@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Obec{% endblock %}
+
+{% block content %}
+    {{ include('_banner_s_textem.html.twig', {
+        'banner': obec.Banner
+    }) }}
+
+    {{ include('_sekce_s_dlazdicema.html.twig', {
+        'sekce': obec.Sekce_s_dlazdicema
+    }) }}
+{% endblock %}
+
+
