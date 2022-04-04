@@ -16,7 +16,7 @@ final class SamospravaController extends AbstractController
     ) {}
 
 
-    #[Route('/obec/samosprava', name: 'urad_samosprava')]
+    #[Route('/obecni-urad/samosprava', name: 'urad_samosprava')]
     public function __invoke(): Response
     {
         return $this->render('urad_samosprava.html.twig', [
