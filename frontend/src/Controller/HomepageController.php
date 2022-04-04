@@ -20,8 +20,8 @@ final class HomepageController extends AbstractController
     public function __invoke(): Response
     {
         return $this->render('homepage.html.twig', [
-            'aktuality' => $this->contentProvider->getAktualityData(),
-            'uredni_deska' => $this->contentProvider->getUredniDeskyData(),
+            'aktuality' => $this->contentProvider->getAktualityData(limit: 4),
+            'uredni_deska' => $this->contentProvider->getUredniDeskyData(limit: 4),
             'footer' => $this->contentProvider->getFooterData(),
         ]);
     }

@@ -21,12 +21,22 @@ final class StrapiApiClient
         array|null $populate = null,
         array|null $fields = null,
         array|null $filters = null,
+        array|null $pagination = null,
+        array|null $sort = null,
     ): array
     {
         $query = [
             'populate' => $populate ?: '*',
             'fields' => $fields ?: '*',
         ];
+
+        if ($pagination !== null) {
+            $query['pagination'] = $pagination;
+        }
+
+        if ($sort !== null) {
+            $query['sort'] = $sort;
+        }
 
         if ($filters !== null) {
             $query['filters'] = $filters;

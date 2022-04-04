@@ -108,8 +108,17 @@ final class StrapiContent implements Content
     /**
      * @return array<AktualitaData>
      */
-    public function getAktualityData(): array
+    public function getAktualityData(int|null $limit = null): array
     {
+        $pagination = null;
+
+        if ($limit !== null) {
+            $pagination = [
+                'limit' => $limit,
+                'start' => 0,
+            ];
+        }
+
         $strapiResponse = $this->strapiClient->getApiResource('aktualities', [
             'Obrazek',
             'Galerie',
@@ -118,6 +127,10 @@ final class StrapiContent implements Content
         ],
         filters: [
             'Zobrazovat' => ['$eq' => true],
+        ],
+        pagination: $pagination,
+        sort: [
+            'Datum_zverejneni:desc'
         ]);
 
         return AktualitaData::createManyFromStrapiResponse($strapiResponse['data']);
@@ -358,7 +371,7 @@ final class StrapiContent implements Content
     /**
      * @return array<UredniDeskaData>
      */
-    public function getUredniDeskyData(string|null $categoryField = null): array
+    public function getUredniDeskyData(string|null $categoryField = null, int|null $limit = null): array
     {
         $filters = ['Zobrazovat' => ['$eq' => true]];
 
@@ -366,10 +379,19 @@ final class StrapiContent implements Content
             $filters[$categoryField] = ['$eq' => true];
         }
 
+        $pagination = null;
+
+        if ($limit !== null) {
+            $pagination = [
+                'limit' => $limit,
+                'start' => 0,
+            ];
+        }
+
         $strapiResponse = $this->strapiClient->getApiResource('uredni-deskas', [
             'Soubory',
             'Zodpovedna_osoba.Fotka',
-        ], filters: $filters);
+        ], filters: $filters, pagination: $pagination, sort: ['Datum_zverejneni:desc']);
 
         return UredniDeskaData::createManyFromStrapiResponse($strapiResponse);
     }

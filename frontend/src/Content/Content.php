@@ -44,7 +44,7 @@ interface Content
     /**
      * @return array<AktualitaData>
      */
-    public function getAktualityData(): array;
+    public function getAktualityData(int|null $limit = null): array;
 
     public function getAktualitaData(int $id): AktualitaData;
 
@@ -97,7 +97,7 @@ interface Content
     /**
      * @return array<UredniDeskaData>
      */
-    public function getUredniDeskyData(): array;
+    public function getUredniDeskyData(string|null $categoryField = null, int|null $limit = null): array;
 
     public function getUredniDeskaData(int $id): UredniDeskaData;
 
