@@ -215,6 +215,7 @@ footer {
 .carousel-wrapper {
     background: linear-gradient(180deg, #244199 0%, #127242 100%) #244199;
     color: #fff;
+    min-height: 800px;
 }
 
 #homepage-carousel {
@@ -261,6 +262,10 @@ footer {
     }
 
     @include media-breakpoint-up(lg) {
+        .carousel-inner {
+            min-height: 530px;
+        }
+
         .container {
             padding-top: 45px;
         }
@@ -282,7 +287,16 @@ footer {
 .homepage-quick-links {
     @include make-container();
     max-width: 1480px;
-    margin-top: -110px;
+    margin-top: -180px;
+
+    h2 {
+        color: #fff;
+        max-width: 943px;
+        text-transform: uppercase;
+        font-size: 40px;
+        margin: 0 auto 30px;
+        font-weight: bold;
+    }
 
     ul {
         list-style-type: none;
