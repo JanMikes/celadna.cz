@@ -9,6 +9,7 @@
         "ext-iconv": "*",
         "eag/easy-hydrator": "^1.0",
         "league/commonmark": "^2.2",
+        "sentry/sentry-symfony": "^4.2",
         "symfony/console": "6.0.*",
         "symfony/dotenv": "6.0.*",
         "symfony/flex": "^2",
