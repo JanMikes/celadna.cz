@@ -1,10 +1,21 @@
-{{ clovek.Jmeno }}
-{{ clovek.Funkce }}
-{{ clovek.Email }}
-{{ clovek.Telefon }}
-{{ clovek.Fotka }}
-{# {{ clovek.Pohlavi }} #}
+<article class="person-detail">
+    <div class="photo default-{{ clovek.muz ? 'muz' : 'zena' }}">
+        {% if clovek.Fotka %}
+            <img src="{{ clovek.Fotka }}" alt="Fotografie {{ clovek.Jmeno }}">
+        {% endif %}
+    </div>
 
-{% if full_udaje %}
+    <div>
+        <h4>{{ clovek.Jmeno }}</h4>
+        <strong>{{ clovek.Funkce }}</strong><br>
 
-{% endif %}
+        {% if clovek.Email %}
+            <a href="mailto:{{ clovek.Email }}">{{ clovek.Email }}</a><br>
+        {% endif %}
+
+        {{ clovek.Telefon }}
+
+        {% if full_udaje %}
+        {% endif %}
+    </div>
+</article>

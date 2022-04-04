@@ -7,14 +7,16 @@
        'banner': kontakty.Banner
    }) }}
 
-    <article>{{ kontakty.Obsah }}</article>
+    <section class="kontakty-section">
+        <article>{{ kontakty.Obsah|markdown_to_html }}</article>
 
-    <h3>Vedení obce</h3>
+        <h3>Vedení obce</h3>
 
-    {% for clovek in kontakty.Vedeni_obce %}
-       {{ include('_clovek.html.twig', {
-           'full_udaje': true
-       })}}
-    {% endfor %}
+        {% for clovek in kontakty.Vedeni_obce %}
+           {{ include('_clovek.html.twig', {
+               'full_udaje': true
+           })}}
+        {% endfor %}
+    </section>
 {% endblock %}
 
