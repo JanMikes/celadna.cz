@@ -278,3 +278,86 @@ footer {
         }
     }
 }
+
+.homepage-quick-links {
+    @include make-container();
+    max-width: 1480px;
+    margin-top: -110px;
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        @include make-row();
+    }
+
+    li {
+        margin: 0;
+        padding: 0;
+        @include make-col();
+        text-align: center;
+    }
+
+    a {
+        display: block;
+        position: relative;
+        padding-bottom: 100px;
+        font-weight: 900;
+        color: #1a3174;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-size: 30px;
+
+        &:hover span {
+            color: #fff;
+            background: #A9BF04;
+        }
+
+        span {
+            position: absolute;
+            display: block;
+            left: 50%;
+            margin-left: -25%;
+            bottom: 10px;
+            color: #A9BF04;
+            border: 1px solid #A9BF04;
+            border-radius: 40px;
+            height: 56px;
+            line-height: 56px;
+            padding: 0 55px;
+            @include transition(all .45s);
+            font-weight: bold;
+            letter-spacing: 0.05em;
+            font-size: 16px;
+            text-transform: none;
+        }
+
+        &::before {
+            content: '';
+            display: block;
+            width: 85%;
+            aspect-ratio: 3/2;
+            margin: 0 auto -25px;
+        }
+    }
+
+    .link-aktivity a::before {
+        background: url("../images/homepage-aktivity.png") center center no-repeat;
+        background-size: contain;
+    }
+
+    .link-restaurace a::before {
+        background: url("../images/homepage-restaurace.png") center center no-repeat;
+        background-size: contain;
+    }
+
+    .link-vylety a::before {
+        background: url("../images/homepage-vylety.png") center center no-repeat;
+        background-size: contain;
+    }
+
+    .link-ubytovani a::before {
+        background: url("../images/homepage-ubytovani.png") center center no-repeat;
+        background-size: contain;
+    }
+}
