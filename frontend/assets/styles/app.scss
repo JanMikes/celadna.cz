@@ -846,7 +846,7 @@ footer {
 
 .sluzby-section {
     @include make-container();
-    max-width: 940px;
+    max-width: 900px;
     padding-top: 40px;
     padding-bottom: 40px;
     min-height: 400px;
@@ -855,16 +855,29 @@ footer {
         @include make-row();
 
         article {
-            @include make-col();
-            padding-left: 20px;
-            padding-right: 20px;
+            @include make-col-auto();
+            width: calc(50% - 60px);
+            margin: 30px;
         }
 
         h3 {
             color: #244199;
             font-weight: bold;
-            font-size: 16px;
+            font-size: 20px;
             text-transform: uppercase;
+        }
+    }
+
+    table {
+        @extend .table;
+        font-size: 14px;
+        margin-top: 20px;
+
+        thead {
+            th, td {
+                color: #fff;
+                background: #182b66;
+            }
         }
     }
 }
