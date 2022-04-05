@@ -3,18 +3,24 @@
 
     <h3>
         {% if objekt.Odkaz_mapa %}
-            <a href="{{ objekt.Odkaz_mapa }}">{{ objekt.Nazev }}</a>
+            <a target="_blank" href="{{ objekt.Odkaz_mapa }}">{{ objekt.Nazev }}</a>
         {% else %}
             {{ objekt.Nazev }}
         {% endif %}
     </h3>
 
     <address>
+        {% if objekt.Adresa %}
+            <span class="address">{{ objekt.Adresa }}</span><br>
+        {% endif %}
+
         {{ objekt.Telefon }}<br>
         <a href="mailto:{{ objekt.Email }}">{{ objekt.Email }}</a>
+
+
         {% if objekt.Odkaz_web %}
             <br>
-            <a class="website-link" href="{{ objekt.Odkaz_web }}">Navštívit web</a>
+            <a target="_blank" class="website-link" href="{{ objekt.Odkaz_web }}">Navštívit web</a>
         {% endif %}
     </address>
 </article>
