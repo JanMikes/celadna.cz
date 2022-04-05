@@ -16,7 +16,8 @@ body {
     padding-top: 79px;
 
     @include media-breakpoint-up(lg) {
-        padding-top: 100px;
+        // padding-top: 100px;
+        padding-top: 132px;
     }
 }
 
