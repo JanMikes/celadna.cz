@@ -2,7 +2,7 @@
     <section class="simple-text-section">
         <h2>{{ dokumenty.Nadpis }}</h2>
 
-        <p>{{ dokumenty.Obsah }}</p>
+        {{ dokumenty.Obsah|markdown_to_html }}
     </section>
 
     <section class="uredni-deska-section">
