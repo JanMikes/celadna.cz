@@ -2,11 +2,11 @@
     "clue/stream-filter": {
         "version": "v1.6.0"
     },
-    "dflydev/dot-access-data": {
-        "version": "v3.0.1"
-    },
     "eag/easy-hydrator": {
         "version": "1.0.2"
+    },
+    "erusev/parsedown": {
+        "version": "1.7.4"
     },
     "guzzlehttp/promises": {
         "version": "1.5.1"
@@ -19,15 +19,6 @@
     },
     "jean85/pretty-package-versions": {
         "version": "2.0.5"
-    },
-    "league/commonmark": {
-        "version": "2.2.3"
-    },
-    "league/config": {
-        "version": "v1.1.1"
-    },
-    "nette/schema": {
-        "version": "v1.2.2"
     },
     "nette/utils": {
         "version": "v3.2.7"
@@ -76,6 +67,9 @@
     },
     "ralouphie/getallheaders": {
         "version": "3.0.3"
+    },
+    "roave/security-advisories": {
+        "version": "dev-latest"
     },
     "sentry/sdk": {
         "version": "3.1.1"

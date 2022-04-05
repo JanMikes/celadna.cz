@@ -279,10 +279,7 @@ footer {
         border: 1px solid #fff;
         padding: 8px 30px;
         text-decoration: none;
-
-        + a {
-            margin-left: 15px;
-        }
+        margin: 0 15px 15px 0;
 
         &:hover {
             background: #a9bf04;

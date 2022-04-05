@@ -8,7 +8,7 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "eag/easy-hydrator": "^1.0",
-        "league/commonmark": "^2.2",
+        "erusev/parsedown": "^1.7",
         "sentry/sentry-symfony": "^4.2",
         "symfony/console": "6.0.*",
         "symfony/dotenv": "6.0.*",
@@ -23,6 +23,10 @@
         "twig/markdown-extra": "^3.3",
         "twig/string-extra": "^3.3",
         "twig/twig": "^2.12|^3.0"
+    }
+    ,
+    "require-dev": {
+        "roave/security-advisories": "dev-latest"
     },
     "config": {
         "allow-plugins": {
