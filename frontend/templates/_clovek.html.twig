@@ -7,13 +7,15 @@
 
     <div>
         <h4>{{ clovek.Jmeno }}</h4>
-        <strong>{{ clovek.Funkce }}</strong><br>
+        <strong>{{ clovek.Funkce }}</strong>
 
-        {% if full_udaje %}
-            {% if clovek.Email %}
-                <a href="mailto:{{ clovek.Email }}">{{ clovek.Email }}</a><br>
-            {% endif %}
+        {% if show_email and clovek.Email %}
+            <br>
+            <a href="mailto:{{ clovek.Email }}">{{ clovek.Email }}</a>
+        {% endif %}
 
+        {% if show_telefon %}
+            <br>
             {{ clovek.Telefon }}
         {% endif %}
     </div>

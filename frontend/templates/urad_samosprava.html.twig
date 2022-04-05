@@ -12,7 +12,8 @@
 
             {% for clovek in kategorie.Lide %}
                 {{ include('_clovek.html.twig', {
-                    'full_udaje': false
+                    'show_email': false,
+                    'show_telefon': false
                 }) }}
             {% endfor %}
 

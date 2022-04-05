@@ -955,3 +955,32 @@ footer {
     text-align: center;
     padding: 140px 20px;
 }
+
+.struktura-uradu-section {
+    @include make-container();
+    max-width: 940px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    min-height: 450px;
+
+    h2 {
+        font-size: 40px;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-bottom: 30px;
+    }
+
+    h3 {
+        color: #244199;
+        font-weight: 900;
+        font-size: 30px;
+        margin-bottom: 40px;
+        border-bottom: 2px solid #244199;
+        padding-bottom: 18px;
+        margin-top: 30px;
+    }
+
+    article + h3 {
+        margin-top: 50px;
+    }
+}

@@ -7,22 +7,30 @@
         banner: struktura_uradu.Banner
     }) }}
 
-    <h2>Struktura úřadu</h2>
+    <section class="struktura-uradu-section">
+        <h3>Struktura úřadu</h3>
 
-    {% for clovek in struktura_uradu.Struktura_uradu %}
-        {{ include('_clovek.html.twig', {
-            'full_udaje': false
-        }) }}
-    {% endfor %}
+        {% for clovek in struktura_uradu.Struktura_uradu %}
+            {{ include('_clovek.html.twig', {
+                'show_email': true,
+                'show_telefon': false
+            }) }}
+        {% endfor %}
 
-    <p>{{ struktura_uradu.Obsah }}</p>
+        {% if struktura_uradu.Obsah %}
+            <div class="mt-5 mb-5">
+                {{ struktura_uradu.Obsah|markdown_to_html }}
+            </div>
+        {% endif %}
 
-    <h2>Struktura stavebního úřadu</h2>
+        <h3>Struktura stavebního úřadu</h3>
 
-    {% for clovek in struktura_uradu.Struktura_stavebniho_uradu %}
-        {{ include('_clovek.html.twig',{
-            'full_udaje': false
-        }) }}
-    {% endfor %}
+        {% for clovek in struktura_uradu.Struktura_stavebniho_uradu %}
+            {{ include('_clovek.html.twig',{
+                'show_email': true,
+                'show_telefon': false
+            }) }}
+        {% endfor %}
+    </section>
 {% endblock %}
 

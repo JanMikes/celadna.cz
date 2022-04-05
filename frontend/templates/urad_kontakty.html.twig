@@ -14,7 +14,8 @@
 
         {% for clovek in kontakty.Vedeni_obce %}
            {{ include('_clovek.html.twig', {
-               'full_udaje': true
+               'show_email': true,
+               'show_telefon': true
            })}}
         {% endfor %}
     </section>
