@@ -2,7 +2,9 @@
     <section class="simple-text-section">
         <h2>{{ dokumenty.Nadpis }}</h2>
 
-        {{ dokumenty.Obsah|markdown_to_html }}
+        {% if dokumenty.Obsah %}
+            {{ dokumenty.Obsah|markdown_to_html }}
+        {% endif %}
     </section>
 
     {{ include('_uredni_deska.html.twig', {
