@@ -872,16 +872,57 @@ footer {
 
 .objekty-section {
     @include make-container();
-    max-width: 940px;
+    max-width: 1200px;
     padding-top: 40px;
     padding-bottom: 40px;
     min-height: 400px;
 
-    h2 {
-        font-size: 40px;
+    .objekty-wrapper {
+        @include make-row();
+        justify-content: center;
+    }
+
+    article {
+        @include make-col-auto;
+        width: 240px;
+        margin: 30px;
+        text-align: center;
+    }
+
+    img {
+        width: 100%;
+    }
+
+    h3 {
+        font-size: 16px;
         font-weight: bold;
-        text-transform: uppercase;
-        margin-bottom: 30px;
+        margin: 15px 0;
+
+        &, a {
+            color: #084627;
+        }
+    }
+
+    a {
+        color: #A9BF04;
+    }
+
+    .website-link {
+        display: inline-block;
+        color: #A9BF04;
+        border: 1px solid #A9BF04;
+        border-radius: 40px;
+        padding: 7px 30px;
+        @include transition(all .45s);
+        font-weight: bold;
+        font-size: 14px;
+        text-decoration: none;
+        margin-top: 15px;
+
+        &:hover {
+            color: #fff;
+            background: #A9BF04;
+        }
     }
 }
 

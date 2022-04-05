@@ -8,13 +8,13 @@
     }) }}
 
     <section class="objekty-section">
-        <h2>Restaurace</h2>
-
-        {% for restaurace_objekt in restaurace.Restaurace %}
-            {{ include('_karta_objektu.html.twig', {
-                'objekt': restaurace_objekt
-            }) }}
-        {% endfor %}
+        <div class="objekty-wrapper">
+            {% for restaurace_objekt in restaurace.Restaurace %}
+                {{ include('_karta_objektu.html.twig', {
+                    'objekt': restaurace_objekt
+                }) }}
+            {% endfor %}
+        </div>
     </section>
 {% endblock %}
 

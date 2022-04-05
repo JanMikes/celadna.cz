@@ -1,14 +1,20 @@
 <article>
-    <h3>{{ objekt.Nazev }}</h3>
+    <img src="{{ objekt.Obrazek }}" alt="Foto {{ objekt.Nazev }}">
+
+    <h3>
+        {% if objekt.Odkaz_mapa %}
+            <a href="{{ objekt.Odkaz_mapa }}">{{ objekt.Nazev }}</a>
+        {% else %}
+            {{ objekt.Nazev }}
+        {% endif %}
+    </h3>
 
     <address>
         {{ objekt.Telefon }}<br>
-        <a href="mailto:{{ objekt.Email }}">{{ objekt.Email }}</a><br>
-        <a href="{{ objekt.Odkaz_web }}">{{ objekt.Odkaz_web }}</a><br>
-        {% if objekt.Odkaz_mapa %}
-            <a href="{{ objekt.Odkaz_mapa }}">Zobrazit na mapě</a>
-       {% endif %}
+        <a href="mailto:{{ objekt.Email }}">{{ objekt.Email }}</a>
+        {% if objekt.Odkaz_web %}
+            <br>
+            <a class="website-link" href="{{ objekt.Odkaz_web }}">Navštívit web</a>
+        {% endif %}
     </address>
 </article>
-
-{# {{ objekt.Obrazek }} #}

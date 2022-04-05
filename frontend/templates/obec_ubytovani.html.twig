@@ -8,13 +8,13 @@
     }) }}
 
     <section class="objekty-section">
-        <h2>Ubytování</h2>
-
-        {% for ubytovani_objekt in ubytovani.Ubytovani %}
-            {{ include('_karta_objektu.html.twig', {
-                'objekt': ubytovani_objekt
-            }) }}
-        {% endfor %}
+        <div class="objekty-wrapper">
+            {% for ubytovani_objekt in ubytovani.Ubytovani %}
+                {{ include('_karta_objektu.html.twig', {
+                    'objekt': ubytovani_objekt
+                }) }}
+            {% endfor %}
+        </div>
     </section>
 {% endblock %}
 
