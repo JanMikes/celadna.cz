@@ -1,18 +1,30 @@
 {% for graficky_pas in graficke_pasy %}
-    <article>
-        <h2>{{ graficky_pas.Nadpis }}</h2>
-        <p>{{ graficky_pas.Obsah }}</p>
+    <article class="graficky-pas alignment-{{ graficky_pas.Umisteni is same as 'Vlevo' ? 'left' : 'right' }}" style="background: {{ graficky_pas.Barva_gradientu_1 }};background: radial-gradient(circle, {{ graficky_pas.Barva_gradientu_1 }} 0%, {{ graficky_pas.Barva_gradientu_2 }} 100%);">
+        {% for letajici_obrazek in graficky_pas.Letajici_obrazky %}
+            <img class="letajici-obrazek" src="{{ letajici_obrazek.Obrazek }}" alt="" role="presentation" style="left: {{ letajici_obrazek.Left ? letajici_obrazek.Left ~ 'px' : 'auto' }};top: {{ letajici_obrazek.Top ? letajici_obrazek.Top ~ 'px' : 'auto' }};right: {{ letajici_obrazek.Right ? letajici_obrazek.Right ~ 'px' : 'auto' }};bottom: {{ letajici_obrazek.Bottom ? letajici_obrazek.Bottom ~ 'px' : 'auto' }};">
+        {% endfor %}
 
-        {% if graficky_pas.Tlacitko %}
-            <p>
-                <a href="{{ graficky_pas.Tlacitko.Odkaz }}">
-                    {{ graficky_pas.Tlacitko.Text }}
-                </a>
-            </p>
-        {% endif %}
+        <div class="container">
+            <div role="presentation" class="decoration-image" style="background-image: url('{{ graficky_pas.Obrazek }}');"></div>
+
+            <div class="banner-text">
+                <h2>{{ graficky_pas.Nadpis }}</h2>
+
+                {% if graficky_pas.Obsah %}
+                    {{ graficky_pas.Obsah|markdown_to_html|nl2br }}
+                {% endif %}
+
+                {% if graficky_pas.Tlacitko %}
+                    <p>
+                        <a class="tlacitko-link" href="{{ graficky_pas.Tlacitko.Odkaz }}">
+                            {{ graficky_pas.Tlacitko.Text }}
+                        </a>
+                    </p>
+                {% endif %}
+            </div>
+        </div>
     </article>
 
-    <span></span>
 {% endfor %}
 
 {# todo: obrazek, litajici obrazky, umisteni, gradient #}

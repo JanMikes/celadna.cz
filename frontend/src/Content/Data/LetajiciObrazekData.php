@@ -10,10 +10,10 @@ final class LetajiciObrazekData
 
 
     public function __construct(
-        public int $Left,
-        public int $Right,
-        public int $Top,
-        public int $Bottom,
+        public int|null $Left,
+        public int|null $Right,
+        public int|null $Top,
+        public int|null $Bottom,
         public string $Obrazek,
     ) {}
 
