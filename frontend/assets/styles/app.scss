@@ -1014,8 +1014,12 @@ footer {
         position: absolute;
     }
 
+    .banner-text {
+        z-index: 5;
+    }
+
     .container {
-        min-height: 750px;
+        min-height: 900px;
         display: flex;
         align-items: center;
     }
