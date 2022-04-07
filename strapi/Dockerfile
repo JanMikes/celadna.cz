@@ -23,4 +23,4 @@ RUN yarn install --network-timeout 100000
 
 COPY . .
 
-CMD ["yarn", "build;", "yarn", "start"]
+CMD ["yarn", "start"]

@@ -81,4 +81,5 @@ jobs:
                 script: |
                   cd /app
                   docker-compose pull strapi
+                  docker-compose run --rm strapi yarn build
                   docker-compose up -d strapi

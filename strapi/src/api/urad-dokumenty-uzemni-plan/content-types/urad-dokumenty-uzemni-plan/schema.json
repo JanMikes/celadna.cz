@@ -16,13 +16,15 @@
       "type": "string",
       "required": true
     },
-    "Obsah": {
-      "type": "richtext"
-    },
     "Zobrazovat_komponentu_uredni_desky": {
       "type": "boolean",
       "default": true,
       "required": true
+    },
+    "Kategorie": {
+      "type": "component",
+      "repeatable": true,
+      "component": "komponenty.kategorie-plany"
     }
   }
 }
