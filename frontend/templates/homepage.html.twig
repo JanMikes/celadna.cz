@@ -91,17 +91,26 @@
                 <section>
                     <h3>Úřední deska</h3>
 
-                    {% for uredni_deska_aktualita in uredni_deska %}
+                    {% for uredni_deska_dokument in uredni_deska %}
                         <article>
                             <h4>
-                                <a href="{{ path('detail_uredni_desky', {'id': uredni_deska_aktualita.id}) }}">
-                                    {{ uredni_deska_aktualita.Nadpis }}
+                                <a href="{{ path('detail_uredni_desky', {'id': uredni_deska_dokument.id}) }}">
+                                    {{ uredni_deska_dokument.Nadpis }}
                                 </a>
                             </h4>
 
                             <p>
-                                Zveřejněno od <time>{{ uredni_deska_aktualita.Datum_zverejneni|date('d.m.Y') }}</time> {% if uredni_deska_aktualita.Datum_stazeni %}do <time>{{ uredni_deska_aktualita.Datum_stazeni|date('d.m.Y') }}</time>{% endif %}
+                                Zveřejněno od <time>{{ uredni_deska_dokument.Datum_zverejneni|date('d.m.Y') }}</time> {% if uredni_deska_dokument.Datum_stazeni %}do <time>{{ uredni_deska_dokument.Datum_stazeni|date('d.m.Y') }}</time>{% endif %}
                             </p>
+
+                            {% if uredni_deska_dokument.Kategorie %}
+                                <p class="tags">
+                                    {% for Kategorie in uredni_deska_dokument.Kategorie %}
+                                        {#  <a href="{{ Kategorie.name }}" class="tag-link">{{ Kategorie.value }}</a> #}
+                                        <span class="tag-link">{{ Kategorie.value }}</span>
+                                    {% endfor %}
+                                </p>
+                            {% endif %}
                         </article>
                     {% endfor %}
 
