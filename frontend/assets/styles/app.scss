@@ -1095,3 +1095,21 @@ footer {
         }
     }
 }
+
+.tags {
+    margin-top: 12px;
+}
+
+.tag-link {
+    font-size: 13px;
+    display: inline-block;
+    padding: 4px 8px;
+    color: #fff !important;
+    background: #A9BF04;
+    text-decoration: none;
+    margin: 3px 3px 3px 0;
+
+    &:hover {
+        // color: #000 !important;
+    }
+}

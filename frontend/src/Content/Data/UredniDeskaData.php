@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Celadna\Website\Content\Data;
 
+use Celadna\Website\Strapi\StrapiContent;
 use DateTimeImmutable;
 use DateTimeInterface;
 
@@ -23,6 +24,11 @@ final class UredniDeskaData
         public readonly array $Soubory,
         public readonly string|null $Popis,
         public readonly ClovekData|null $Zodpovedna_osoba,
+
+        /**
+         * @var array<KategorieUredniDesky> $Kategorie
+         */
+        public readonly array $Kategorie,
     )
     {
     }
@@ -31,6 +37,14 @@ final class UredniDeskaData
 
     public static function createFromStrapiResponse(array $data, int|null $id = null): self
     {
+        $kategorie = [];
+
+        foreach (UredniDeskaKategorieField::cases() as $uredniDeskaField) {
+            if (isset($data[$uredniDeskaField->name]) && $data[$uredniDeskaField->name] === true) {
+                $kategorie[] = $uredniDeskaField->toKategorie();
+            }
+        }
+
         return new self(
             $id,
             $data['Nadpis'],
@@ -39,6 +53,7 @@ final class UredniDeskaData
             $data['Soubory']['data'] ? array_map(fn(array $souborData) => $souborData['attributes']['url'], $data['Soubory']['data']) : [],
             $data['Popis'],
             $data['Zodpovedna_osoba']['data'] ? ClovekData::createFromStrapiResponse($data['Zodpovedna_osoba']['data']['attributes']) : null,
+            $kategorie,
         );
     }
 }

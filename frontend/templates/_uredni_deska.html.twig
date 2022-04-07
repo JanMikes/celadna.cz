@@ -21,6 +21,15 @@
             {% for soubor in uredni_deska_dokument.Soubory %}
                 <a href="{{ soubor }}">Dokument ke stažení</a>
             {% endfor %}
+
+            {% if uredni_deska_dokument.Kategorie %}
+                <p class="tags">
+                    {% for Kategorie in uredni_deska_dokument.Kategorie %}
+                        {#  <a href="{{ Kategorie.name }}" class="tag-link">{{ Kategorie.value }}</a> #}
+                        <span class="tag-link">{{ Kategorie.value }}</span>
+                    {% endfor %}
+                </p>
+            {% endif %}
         </article>
     {% endfor %}
 </section>
