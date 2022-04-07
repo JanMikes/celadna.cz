@@ -804,6 +804,16 @@ footer {
     article + h3 {
         margin-top: 50px;
     }
+
+    h4.uredni-deska-title {
+        font-size: 18px;
+        font-weight: bold;
+        margin-top: 40px;
+
+        + .uredni-deska-section {
+            padding-top: 10px;
+        }
+    }
 }
 
 .uredni-deska-section {

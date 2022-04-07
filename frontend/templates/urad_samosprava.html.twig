@@ -18,6 +18,10 @@
             {% endfor %}
 
             {% if kategorie.Uredni_deska %}
+                {% if kategorie.Nadpis_uredni_desky %}
+                    <h4 class="uredni-deska-title">{{ kategorie.Nadpis_uredni_desky }}</h4>
+                {% endif %}
+
                 {{ include('_uredni_deska.html.twig', {
                     'uredni_deska': kategorie.Uredni_deska
                 }) }}

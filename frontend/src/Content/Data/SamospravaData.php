@@ -9,6 +9,7 @@ final class SamospravaData
     public function __construct(
         public readonly string $Nadpis,
         public readonly string|null $Obsah,
+        public readonly string|null $Nadpis_uredni_desky,
         public readonly string $Kategorie_uredni_desky,
 
         /**
@@ -45,6 +46,7 @@ final class SamospravaData
         return new self(
             $data['Nadpis'],
             $data['Obsah'],
+            $data['Nadpis_uredni_desky'],
             $data['Kategorie_uredni_desky'],
             ClovekData::createManyFromStrapiResponse($data['Lide']),
             $data['Uredni_deska'],
