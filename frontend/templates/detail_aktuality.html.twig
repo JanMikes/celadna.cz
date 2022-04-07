@@ -21,6 +21,16 @@
                 <time>{{ aktualita.DatumZverejneni|date('d.m.Y') }}</time>
             </p>
 
+
+            {% if aktualita.Tagy %}
+                <p class="tags">
+                    {% for Tag in aktualita.Tagy %}
+                        {#  <a href="{{ Kategorie.name }}" class="tag-link">{{ Kategorie.value }}</a> #}
+                        <span class="tag-link">{{ Tag }}</span>
+                    {% endfor %}
+                </p>
+            {% endif %}
+
             {{ aktualita.Popis|markdown_to_html|nl2br }}
 
             {% if aktualita.Obrazek %}

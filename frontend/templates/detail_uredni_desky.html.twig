@@ -17,6 +17,16 @@
             <p>Zveřejnil {{ uredni_deska.Zodpovedna_osoba.Jmeno }}</p>
         {% endif %}
 
+
+        {% if uredni_deska.Kategorie %}
+            <p class="tags">
+                {% for Kategorie in uredni_deska.Kategorie %}
+                    {#  <a href="{{ Kategorie.name }}" class="tag-link">{{ Kategorie.value }}</a> #}
+                    <span class="tag-link">{{ Kategorie.value }}</span>
+                {% endfor %}
+            </p>
+        {% endif %}
+
         {% if uredni_deska.Soubory %}
             <p>
                 {% for soubor in uredni_deska.Soubory %}
