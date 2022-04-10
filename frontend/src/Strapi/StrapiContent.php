@@ -26,6 +26,7 @@ use Celadna\Website\Content\Data\TlacitkoData;
 use Celadna\Website\Content\Data\UbytovaniData;
 use Celadna\Website\Content\Data\UradData;
 use Celadna\Website\Content\Data\UredniDeskaData;
+use Celadna\Website\Content\Data\UzemniData;
 use Symfony\Component\HttpClient\Exception\ClientException;
 
 final class StrapiContent implements Content
@@ -271,15 +272,32 @@ final class StrapiContent implements Content
     }
 
 
-    public function getDokumentyUzemniPlanData(): DokumentyData
+    public function getUzemniPlanData(): UzemniData
     {
-        return $this->getGenericDokumentyData('urad-dokumenty-uzemni-plan');
+        return $this->getUzemniDataForResource('urad-dokumenty-uzemni-plan');
     }
 
 
-    public function getDokumentyUzemniStudieData(): DokumentyData
+    public function getUzemniStudieData(): UzemniData
     {
-        return $this->getGenericDokumentyData('urad-dokumenty-uzemni-studie');
+        return $this->getUzemniDataForResource('urad-dokumenty-uzemni-studie');
+    }
+
+
+    private function getUzemniDataForResource(string $resourceName): UzemniData
+    {
+        $strapiResponse = $this->strapiClient->getApiResource($resourceName, [
+            'Kategorie.Dokumenty.Soubor'
+        ]);
+
+        $uredniDeska = [];
+
+        if ($strapiResponse['data']['attributes']['Zobrazovat_komponentu_uredni_desky'] === true) {
+            $field = $this->resourceNameToUredniDeskaField($resourceName);
+            $uredniDeska = $this->getUredniDeskyData($field);
+        }
+
+        return UzemniData::createFromStrapiResponse($strapiResponse['data']['attributes'], $uredniDeska);
     }
 
 

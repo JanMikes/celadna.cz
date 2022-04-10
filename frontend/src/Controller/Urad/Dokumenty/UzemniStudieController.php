@@ -20,7 +20,7 @@ final class UzemniStudieController extends AbstractController
     public function __invoke(): Response
     {
         return $this->render('urad_dokumenty_uzemni_studie.html.twig', [
-            'dokumenty' => $this->contentProvider->getDokumentyUzemniStudieData(),
+            'dokumenty' => $this->contentProvider->getUzemniStudieData(),
             'footer' => $this->contentProvider->getFooterData(),
         ]);
     }

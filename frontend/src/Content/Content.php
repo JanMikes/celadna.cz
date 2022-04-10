@@ -20,6 +20,7 @@ use Celadna\Website\Content\Data\StrukturaUraduData;
 use Celadna\Website\Content\Data\UbytovaniData;
 use Celadna\Website\Content\Data\UradData;
 use Celadna\Website\Content\Data\UredniDeskaData;
+use Celadna\Website\Content\Data\UzemniData;
 
 interface Content
 {
@@ -70,9 +71,9 @@ interface Content
 
     public function getDokumentyStrategickeDokumentyData(): DokumentyData;
 
-    public function getDokumentyUzemniPlanData(): DokumentyData;
+    public function getUzemniPlanData(): UzemniData;
 
-    public function getDokumentyUzemniStudieData(): DokumentyData;
+    public function getUzemniStudieData(): UzemniData;
 
     public function getDokumentyVyhlaskyData(): DokumentyData;
 

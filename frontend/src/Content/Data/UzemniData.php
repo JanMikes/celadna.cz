@@ -19,4 +19,17 @@ final class UzemniData
          */
         public readonly array $Kategorie,
     ) {}
+
+
+    /**
+     * @param array<UredniDeskaData> $uredniDeska
+     */
+    public static function createFromStrapiResponse(mixed $data, array $uredniDeska): self
+    {
+        return new self(
+            $data['Nadpis'],
+            $uredniDeska,
+            KategoriePlanyData::createManyFromStrapiResponse($data['Kategorie'])
+        );
+    }
 }
