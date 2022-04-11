@@ -10,11 +10,12 @@ final class LetajiciObrazekData
 
 
     public function __construct(
-        public int|null $Left,
-        public int|null $Right,
-        public int|null $Top,
-        public int|null $Bottom,
-        public string $Obrazek,
+        public readonly int|null $Left,
+        public readonly int|null $Right,
+        public readonly int|null $Top,
+        public readonly int|null $Bottom,
+        public readonly string $Obrazek,
+        public readonly float $Scale,
     ) {}
 
 
@@ -26,6 +27,7 @@ final class LetajiciObrazekData
             $data['Top'],
             $data['Bottom'],
             $data['Obrazek']['data']['attributes']['url'],
+            ($data['Velikost_procent'] ?? 100) / 100,
         );
     }
 }

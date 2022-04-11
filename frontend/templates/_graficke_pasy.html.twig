@@ -1,7 +1,7 @@
 {% for graficky_pas in graficke_pasy %}
     <article class="graficky-pas alignment-{{ graficky_pas.Umisteni is same as 'Vlevo' ? 'left' : 'right' }}" style="background: {{ graficky_pas.Barva_gradientu_1 }};background: radial-gradient(circle, {{ graficky_pas.Barva_gradientu_1 }} 0%, {{ graficky_pas.Barva_gradientu_2 }} 100%);">
         {% for letajici_obrazek in graficky_pas.Letajici_obrazky %}
-            <img class="letajici-obrazek" src="{{ letajici_obrazek.Obrazek }}" alt="" role="presentation" style="left: {{ letajici_obrazek.Left ? letajici_obrazek.Left ~ '%' : 'auto' }};top: {{ letajici_obrazek.Top ? letajici_obrazek.Top ~ '%' : 'auto' }};right: {{ letajici_obrazek.Right ? letajici_obrazek.Right ~ '%' : 'auto' }};bottom: {{ letajici_obrazek.Bottom ? letajici_obrazek.Bottom ~ '%' : 'auto' }};">
+            <img class="letajici-obrazek" src="{{ letajici_obrazek.Obrazek }}" alt="" role="presentation" style="left: {{ letajici_obrazek.Left ? letajici_obrazek.Left ~ '%' : 'auto' }};top: {{ letajici_obrazek.Top ? letajici_obrazek.Top ~ '%' : 'auto' }};right: {{ letajici_obrazek.Right ? letajici_obrazek.Right ~ '%' : 'auto' }};bottom: {{ letajici_obrazek.Bottom ? letajici_obrazek.Bottom ~ '%' : 'auto' }};scale: {{ letajici_obrazek.Scale }};">
         {% endfor %}
 
         <div class="container">
