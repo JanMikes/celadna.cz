@@ -3,6 +3,13 @@
 {% block title %}Úřední deska{% endblock %}
 
 {% block content %}
+    {{ include('_breadcrumb.html.twig', {
+        'current': page_title,
+        'items': {
+            'urad': 'Obecní úrad',
+        },
+    }) }}
+
     <section class="uredni-deska-text-section" style="min-height: 0;">
         <h2>Úřední deska</h2>
 

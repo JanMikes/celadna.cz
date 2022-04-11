@@ -3,6 +3,11 @@
 {% block title %}Aktuality{% endblock %}
 
 {% block content %}
+    {{ include('_breadcrumb.html.twig', {
+        'items': [],
+        'current': block('title'),
+    }) }}
+
     <section class="aktuality-section">
         <h2>Aktuality</h2>
 

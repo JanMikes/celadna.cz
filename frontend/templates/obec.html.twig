@@ -7,6 +7,11 @@
         'banner': obec.Banner
     }) }}
 
+    {{ include('_breadcrumb.html.twig', {
+        'current': block('title'),
+        'items': {},
+    }) }}
+
     {{ include('_sekce_s_dlazdicema.html.twig', {
         'sekce': obec.Sekce_s_dlazdicema
     }) }}

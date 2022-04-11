@@ -1,0 +1,16 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="path">Cesta:</li>
+        <li class="breadcrumb-item"><a href="{{ path('homepage') }}">Titulní stránka</a></li>
+
+        {% for breadcrumb_path, breadcrumb_title in items %}
+            <li class="breadcrumb-item">
+                <a href="{{ path(breadcrumb_path) }}">
+                    {{ breadcrumb_title }}
+                </a>
+            </li>
+        {% endfor %}
+
+        <li class="breadcrumb-item active" aria-current="page">{{ current }}</li>
+    </ol>
+</nav>

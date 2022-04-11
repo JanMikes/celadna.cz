@@ -7,6 +7,13 @@
         'banner': restaurace.BannerSTextem
     }) }}
 
+    {{ include('_breadcrumb.html.twig', {
+        'current': block('title'),
+        'items': {
+            'obec': 'Obec',
+        },
+    }) }}
+
     <section class="objekty-section">
         <div class="objekty-wrapper">
             {% for restaurace_objekt in restaurace.Restaurace %}

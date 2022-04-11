@@ -3,6 +3,13 @@
 {% block title %}{{ uredni_deska.Nadpis }}{% endblock %}
 
 {% block content %}
+    {{ include('_breadcrumb.html.twig', {
+        'current': block('title'),
+        'items': {
+            'uredni_deska': 'Úřední deska',
+        },
+    }) }}
+
     <article class="uredni-deska-detail">
         <h2 id="uredni-deska-{{ uredni_deska.id }}">{{ uredni_deska.Nadpis }}</h2>
 

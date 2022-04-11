@@ -7,6 +7,13 @@
         banner: struktura_uradu.Banner
     }) }}
 
+    {{ include('_breadcrumb.html.twig', {
+        'current': page_title,
+        'items': {
+            'urad': 'Obecní úrad',
+        },
+    }) }}
+
     <section class="struktura-uradu-section">
         <h3>Struktura úřadu</h3>
 

@@ -3,9 +3,16 @@
 {% block title %}Kontakty{% endblock %}
 
 {% block content %}
-   {{ include('_banner_s_textem.html.twig', {
+    {{ include('_banner_s_textem.html.twig', {
        'banner': kontakty.Banner
-   }) }}
+    }) }}
+
+    {{ include('_breadcrumb.html.twig', {
+        'current': page_title,
+        'items': {
+            'urad': 'Obecní úrad',
+        },
+    }) }}
 
     <section class="kontakty-section">
         <article>{{ kontakty.Obsah|markdown_to_html }}</article>

@@ -3,6 +3,11 @@
 {% block title %}Prohlášení o přístupnosti{% endblock %}
 
 {% block content %}
+    {{ include('_breadcrumb.html.twig', {
+        'current': block('title'),
+        'items': {},
+    }) }}
+
     <article class="simple-text-section">
         <h2>{{ pristupnost.Nadpis }}</h2>
 

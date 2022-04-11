@@ -3,6 +3,13 @@
 {% block title %}Mapa stránek{% endblock %}
 
 {% block content %}
+    {{ include('_breadcrumb.html.twig', {
+        'current': block('title'),
+        'items': {
+            'uredni_deska': 'Úřední deska',
+        },
+    }) }}
+
     <h2>Mapa stránek</h2>
 
     <nav>

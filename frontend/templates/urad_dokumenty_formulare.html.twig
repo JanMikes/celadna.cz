@@ -3,6 +3,7 @@
 {% block title %}{{ dokumenty.Nadpis }}{% endblock %}
 
 {% block content %}
-    {{ include('_dokumenty.html.twig') }}
+    {{ include('_dokumenty.html.twig', {
+        'page_title': block('title'),
+    }) }}
 {% endblock %}
-

@@ -3,6 +3,11 @@
 {% block title %}Ochrana osobních údajů{% endblock %}
 
 {% block content %}
+    {{ include('_breadcrumb.html.twig', {
+        'current': block('title'),
+        'items': {},
+    }) }}
+
     <article class="simple-text-section">
         <h2>{{ gdpr.Nadpis }}</h2>
 

@@ -4,6 +4,7 @@
 
 {% block content %}
     {{ include('_uzemni_dokumenty.html.twig', {
-        'dokument': uzemni_studie
+        'dokument': uzemni_plan,
+        'page_title': block('title'),
     }) }}
 {% endblock %}

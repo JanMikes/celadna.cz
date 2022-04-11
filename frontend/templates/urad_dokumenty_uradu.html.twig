@@ -3,6 +3,13 @@
 {% block title %}Dokumenty úřadu{% endblock %}
 
 {% block content %}
+    {{ include('_breadcrumb.html.twig', {
+        'current': block('title'),
+        'items': {
+            'urad': 'Obecní úřad',
+        },
+    }) }}
+
     {{ include('_sekce_s_dlazdicema.html.twig', {
         'sekce': dokumenty_uradu
     }) }}

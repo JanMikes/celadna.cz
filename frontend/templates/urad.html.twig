@@ -7,6 +7,11 @@
       'banner': urad.Banner
     }) }}
 
+    {{ include('_breadcrumb.html.twig', {
+        'current': block('title'),
+        'items': {},
+    }) }}
+
     {{ include('_sekce_s_dlazdicema.html.twig', {
         'sekce': urad.Sekce_s_dlazdicema
     }) }}

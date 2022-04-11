@@ -3,6 +3,13 @@
 {% block title %}Samospráva{% endblock %}
 
 {% block content %}
+    {{ include('_breadcrumb.html.twig', {
+        'current': page_title,
+        'items': {
+            'urad': 'Obecní úrad',
+        },
+    }) }}
+
     <section class="samosprava-section">
         <h2>Samospráva</h2>
 

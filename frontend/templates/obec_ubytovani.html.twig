@@ -7,6 +7,13 @@
         'banner': ubytovani.BannerSTextem
     }) }}
 
+    {{ include('_breadcrumb.html.twig', {
+        'current': block('title'),
+        'items': {
+            'obec': 'Obec',
+        },
+    }) }}
+
     <section class="objekty-section">
         <div class="objekty-wrapper">
             {% for ubytovani_objekt in ubytovani.Ubytovani %}

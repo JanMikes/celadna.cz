@@ -3,6 +3,13 @@
 {% block title %}Historie obce{% endblock %}
 
 {% block content %}
+    {{ include('_breadcrumb.html.twig', {
+        'current': block('title'),
+        'items': {
+            'obec': 'Obec',
+        },
+    }) }}
+
     <p class="sorry-in-progress">Tuto sekci pro vás momentálně intenzivně připravujeme.<br><br>Rozhodně se máte na co těšit!</p>
 {% endblock %}
 

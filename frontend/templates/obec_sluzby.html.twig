@@ -3,9 +3,16 @@
 {% block title %}Služby{% endblock %}
 
 {% block content %}
-   {{ include('_banner_s_tlacitkama.html.twig', {
+    {{ include('_banner_s_tlacitkama.html.twig', {
        'banner': sluzby.BannerSTlacitkama
-   }) }}
+    }) }}
+
+    {{ include('_breadcrumb.html.twig', {
+        'current': block('title'),
+        'items': {
+            'obec': 'Obec',
+        },
+    }) }}
 
     <section class="sluzby-section">
         <div class="sluzby-wrapper">

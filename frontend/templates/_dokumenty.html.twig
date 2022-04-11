@@ -1,3 +1,11 @@
+{{ include('_breadcrumb.html.twig', {
+    'current': page_title,
+    'items': {
+        'urad': 'Obecní úrad',
+        'urad_dokumenty_uradu': 'Dokumenty úřadu',
+    },
+}) }}
+
 <div class="documents-section">
     <section class="simple-text-section">
         <h2>{{ dokumenty.Nadpis }}</h2>
