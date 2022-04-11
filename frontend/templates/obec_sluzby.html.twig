@@ -10,7 +10,7 @@
     <section class="sluzby-section">
         <div class="sluzby-wrapper">
             {% for sluzba in sluzby.Sluzby %}
-                <article>
+                <article id="{{ sluzba.Nadpis|lower|slug }}">
                     <h3>{{ sluzba.Nadpis }}</h3>
 
                     <p>{{ sluzba.Telefon }}</p>
