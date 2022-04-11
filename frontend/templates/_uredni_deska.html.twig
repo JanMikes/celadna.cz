@@ -19,7 +19,11 @@
             {% endif %}
 
             {% for file in uredni_deska_dokument.Soubory %}
-                <a href="{{ file.url }}">{{ file.caption}} ({{ file.ext}} {{ file.kbytes }}kb)</a>
+                <a class="file-link" href="{{ file.url }}">
+                    <span class="file-caption">{{ file.caption}}</span>
+                    <span class="file-info">({{ file.ext}} {{ file.kbytes }}kb)</span>
+                    <span class="icon-download"></span>
+                </a>
             {% endfor %}
 
             {% if uredni_deska_dokument.Kategorie %}

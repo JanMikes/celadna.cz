@@ -860,6 +860,10 @@ footer {
         font-weight: bold;
         margin-bottom: 30px;
     }
+
+    a {
+        color: #000;
+    }
 }
 
 .sluzby-section {
@@ -1188,5 +1192,39 @@ footer {
     .active {
         font-weight: bold;
         color: #000;
+    }
+}
+
+.file-caption {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.file-link {
+    text-decoration: none;
+}
+
+.file-info {
+    font-size: 13px;
+    padding: 0 10px;
+    text-decoration: underline;
+}
+
+.icon-download {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    position: relative;
+
+    &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 19px;
+        height: 19px;
+        background: url('../images/download-icon.svg') center center no-repeat;
+        background-size: contain;
+        left: 0;
+        top: -5px;
     }
 }
