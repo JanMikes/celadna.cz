@@ -88,6 +88,15 @@ final class StrapiContent implements Content
     }
 
 
+    /**
+     * @return array<GrafickyPasData>
+     */
+    public function getObecniOrganizaceData(): array
+    {
+        return $this->getGrafickePasy('obec-obecni-organizace');
+    }
+
+
     public function getSluzbyData(): SluzbyData
     {
         $strapiResponse = $this->strapiClient->getApiResource('obec-sluzby', [

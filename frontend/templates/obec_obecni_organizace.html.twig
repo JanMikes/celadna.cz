@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Obecní organizace{% endblock %}
+
+{% block content %}
+    {{ include('_graficke_pasy.html.twig', {
+        'graficke_pasy': organizace_graficke_pasy
+    }) }}
+{% endblock %}

@@ -106,4 +106,9 @@ interface Content
     public function getDokumentyUraduData(): SekceSDlazdicemaData;
 
     public function getObecData(): ObecData;
+
+    /**
+     * @return array<GrafickyPasData>
+     */
+    public function getObecniOrganizaceData(): array;
 }
