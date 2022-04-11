@@ -23,4 +23,10 @@ enum KategorieUredniDesky: string
     case Financni_vybor = 'Finanční výbor';
     case Kulturni_komise = 'Kultirní komise';
     case Volby = 'Volby';
+
+
+    public function slug(): string
+    {
+        return strtolower(str_replace('_', '-', $this->name));
+    }
 }

@@ -106,8 +106,7 @@
                             {% if uredni_deska_dokument.Kategorie %}
                                 <p class="tags">
                                     {% for Kategorie in uredni_deska_dokument.Kategorie %}
-                                        {#  <a href="{{ Kategorie.name }}" class="tag-link">{{ Kategorie.value }}</a> #}
-                                        <span class="tag-link">{{ Kategorie.value }}</span>
+                                        <a href="{{ path('uredni_deska_kategorie_filter', {'kategorie': Kategorie.slug}) }}" class="tag-link">{{ Kategorie.value }}</a>
                                     {% endfor %}
                                 </p>
                             {% endif %}

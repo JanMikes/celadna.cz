@@ -23,6 +23,10 @@ body {
     }
 }
 
+a {
+    color: #000;
+}
+
 header {
     color: #fff;
 
@@ -1226,5 +1230,16 @@ footer {
         background-size: contain;
         left: 0;
         top: -5px;
+    }
+}
+
+.file-list {
+    list-style-type: none;
+    margin: 12px 0;
+    padding: 0;
+
+    li {
+        margin: 3px 0;
+        padding: 0;
     }
 }

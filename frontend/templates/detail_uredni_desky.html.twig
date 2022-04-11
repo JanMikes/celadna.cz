@@ -28,8 +28,7 @@
         {% if uredni_deska.Kategorie %}
             <p class="tags">
                 {% for Kategorie in uredni_deska.Kategorie %}
-                    {#  <a href="{{ Kategorie.name }}" class="tag-link">{{ Kategorie.value }}</a> #}
-                    <span class="tag-link">{{ Kategorie.value }}</span>
+                    <a href="{{ path('uredni_deska_kategorie_filter', {'kategorie': Kategorie.slug}) }}" class="tag-link">{{ Kategorie.value }}</a>
                 {% endfor %}
             </p>
         {% endif %}
@@ -39,7 +38,7 @@
                 {% for file in uredni_deska.Soubory %}
                     <a class="file-link" href="{{ file.url }}">
                         <span class="file-caption">{{ file.caption}}</span>
-                        <span class="file-info">({{ file.ext}} {{ file.kbytes }}kb)</span>
+                        <span class="file-info">({{ file.kbytes }}kb)</span>
                         <span class="icon-download"></span>
                     </a>
                 {% endfor %}
