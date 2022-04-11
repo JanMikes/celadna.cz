@@ -11,7 +11,7 @@
                 <h2>{{ graficky_pas.Nadpis }}</h2>
 
                 {% if graficky_pas.Obsah %}
-                    {{ graficky_pas.Obsah|markdown_to_html }}
+                    {{ graficky_pas.Obsah|markdown_to_html|nl2br }}
                 {% endif %}
 
                 {% if graficky_pas.Tlacitko %}

@@ -35,7 +35,7 @@
                 <img src="{{ aktualita.Obrazek }}" alt="" aria-labelledby="aktualita-{{ aktualita.id }}">
             {% endif %}
 
-            {{ aktualita.Popis|markdown_to_html }}
+            {{ aktualita.Popis|markdown_to_html|nl2br }}
         </article>
     </section>
 {% endblock %}

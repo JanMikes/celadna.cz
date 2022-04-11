@@ -22,7 +22,7 @@
 
                     <p>{{ sluzba.Telefon }}</p>
 
-                    {{ sluzba.Obsah|markdown_to_html }}
+                    {{ sluzba.Obsah|markdown_to_html|nl2br }}
                 </article>
             {% endfor %}
         </div>

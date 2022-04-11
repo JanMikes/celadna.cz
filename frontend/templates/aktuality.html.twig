@@ -35,7 +35,7 @@
                         </p>
                     {% endif %}
 
-                    {{ aktualita.Popis|u.truncate(150, '...', true)|markdown_to_html }}
+                    {{ aktualita.Popis|u.truncate(150, '...', true)|markdown_to_html|nl2br }}
                 </div>
             </article>
         {% endfor %}

@@ -81,7 +81,7 @@
 
                             <p><time>{{ aktualita.DatumZverejneni|date('d.m.Y') }}</time></p>
 
-                            {{ aktualita.Popis|u.truncate(150, '...', true)|markdown_to_html }}
+                            {{ aktualita.Popis|u.truncate(150, '...', true)|markdown_to_html|nl2br }}
                         </article>
                     {% endfor %}
 

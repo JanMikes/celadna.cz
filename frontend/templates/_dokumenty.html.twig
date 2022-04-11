@@ -11,7 +11,7 @@
         <h2>{{ dokumenty.Nadpis }}</h2>
 
         {% if dokumenty.Obsah %}
-            {{ dokumenty.Obsah|markdown_to_html }}
+            {{ dokumenty.Obsah|markdown_to_html|nl2br }}
         {% endif %}
     </section>
 

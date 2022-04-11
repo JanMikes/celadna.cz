@@ -2,7 +2,7 @@
     <h3>{{ sekce.Nadpis }}</h3>
 
     {% if sekce.Popis %}
-        {{ sekce.Popis|markdown_to_html }}
+        {{ sekce.Popis|markdown_to_html|nl2br }}
     {% endif %}
 
     <section class="dlazdice-wrapper">

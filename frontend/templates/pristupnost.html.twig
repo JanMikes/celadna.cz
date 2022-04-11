@@ -11,6 +11,6 @@
     <article class="simple-text-section">
         <h2>{{ pristupnost.Nadpis }}</h2>
 
-        {{ pristupnost.Obsah|markdown_to_html }}
+        {{ pristupnost.Obsah|markdown_to_html|nl2br }}
     </article>
 {% endblock %}
