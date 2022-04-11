@@ -19,7 +19,7 @@ final class UredniDeskaData
         public readonly DateTimeInterface|null $Datum_stazeni,
 
         /**
-         * @var array<string> $Soubory
+         * @var array<FileData> $Soubory
          */
         public readonly array $Soubory,
         public readonly string|null $Popis,
@@ -32,8 +32,6 @@ final class UredniDeskaData
     )
     {
     }
-
-    // TODO: kategorie
 
     public static function createFromStrapiResponse(array $data, int|null $id = null): self
     {
@@ -50,7 +48,7 @@ final class UredniDeskaData
             $data['Nadpis'],
             DateTimeImmutable::createFromFormat('Y-m-d', $data['Datum_zverejneni']),
             $data['Datum_stazeni'] ? DateTimeImmutable::createFromFormat('Y-m-d', $data['Datum_stazeni']) : null,
-            $data['Soubory']['data'] ? array_map(fn(array $souborData) => $souborData['attributes']['url'], $data['Soubory']['data']) : [],
+            FileData::createManyFromStrapiResponse($data['Soubory']),
             $data['Popis'],
             $data['Zodpovedna_osoba']['data'] ? ClovekData::createFromStrapiResponse($data['Zodpovedna_osoba']['data']['attributes']) : null,
             $kategorie,

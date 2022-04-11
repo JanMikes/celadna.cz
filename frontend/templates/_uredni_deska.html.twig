@@ -18,8 +18,8 @@
                 <p>Zveřejnil {{ uredni_deska_dokument.Zodpovedna_osoba.Jmeno }}</p>
             {% endif %}
 
-            {% for soubor in uredni_deska_dokument.Soubory %}
-                <a href="{{ soubor }}">Dokument ke stažení</a>
+            {% for file in uredni_deska_dokument.Soubory %}
+                <a href="{{ file.url }}">{{ file.caption}} ({{ file.ext}} {{ file.kbytes }}kb)</a>
             {% endfor %}
 
             {% if uredni_deska_dokument.Kategorie %}
