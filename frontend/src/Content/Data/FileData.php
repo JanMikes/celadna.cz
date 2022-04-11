@@ -19,6 +19,8 @@ final class FileData
 
     public static function createFromStrapiResponse(array $data, int|null $id = null): self
     {
+        $data = $data['data']['attributes'] ?? $data;
+
         return new self(
             $data['name'],
             $data['caption'],

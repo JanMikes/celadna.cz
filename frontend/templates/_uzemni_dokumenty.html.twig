@@ -32,13 +32,13 @@
                                 <time>{{ Dokument.Datum_nahrani|date('d.m.Y') }}</time>
                             {% endif %}
 
-                            <a href="{{ Dokument.Soubor }}">
-                                <span class="name">{{ Dokument.Nazev }}</span>
-                            </a>
-
-                            <a href="{{ Dokument.Soubor }}">
-                                {{ Dokument.Soubor }}
-                            </a>
+                            {% if Dokument.Soubor %}
+                                <a class="file-link" href="{{ Dokument.Soubor.url }}">
+                                    <span class="file-caption name">{{ Dokument.Nazev }}</span>
+                                    <span class="file-info">({{ Dokument.Soubor.ext}} {{ Dokument.Soubor.kbytes }}kb)</span>
+                                    <span class="icon-download"></span>
+                                </a>
+                            {% endif %}
                         </li>
                     {% endfor %}
                 </ul>

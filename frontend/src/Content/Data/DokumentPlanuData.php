@@ -14,7 +14,7 @@ final class DokumentPlanuData
     public function __construct(
         public readonly null|string $Nazev,
         public readonly null|DateTimeImmutable $Datum_nahrani,
-        public readonly null|string $Soubor,
+        public readonly null|FileData $Soubor,
     ) {}
 
 
@@ -23,7 +23,7 @@ final class DokumentPlanuData
         return new self(
             $data['Nazev'],
             $data['Datum_nahrani'] ? DateTimeImmutable::createFromFormat('Y-m-d', $data['Datum_nahrani']) : null,
-            $data['Soubor']['data']['attributes']['url'] ?? null,
+            $data['Soubor']['data']['attributes']['url'] ? FileData::createFromStrapiResponse($data['Soubor']) : null,
         );
     }
 }
