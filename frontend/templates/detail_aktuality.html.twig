@@ -31,11 +31,11 @@
                 </p>
             {% endif %}
 
-            {{ aktualita.Popis|markdown_to_html|nl2br }}
-
             {% if aktualita.Obrazek %}
                 <img src="{{ aktualita.Obrazek }}" alt="" aria-labelledby="aktualita-{{ aktualita.id }}">
             {% endif %}
+
+            {{ aktualita.Popis|markdown_to_html }}
         </article>
     </section>
 {% endblock %}

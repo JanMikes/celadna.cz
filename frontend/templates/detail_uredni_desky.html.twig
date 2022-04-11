@@ -36,7 +36,7 @@
         {% endif %}
 
         {% if uredni_deska.Popis %}
-            {{ uredni_deska.Popis|markdown_to_html|nl2br }}
+            {{ uredni_deska.Popis|markdown_to_html }}
         {% endif %}
     </article>
 {% endblock %}

@@ -12,20 +12,20 @@
                 <article class="carousel-item active">
                     <div class="container">
                         <div class="slide-inner">
-                            <h2>Golf a turistika</h2>
-                            <p>V novodobé historii se Čeladná stala nejen vyhlášeným golfovým rájem, ale také významným turistickým centrem. Na počátku 21. století prošla většina zdejších ubytovacích zařízení výraznou modernizací a zároveň začaly vyrůstat nové hotely a penziony. Díky tomu dnes v obci najdou vhodné místo k rekreaci rodiny s dětmi, turisté i klienti, kteří hledají služby na nejvyšší světové úrovni.</p>
+                            <h2>Moderní obec</h2>
+                            <p>Nová éra Čeladné se datuje k roku 2000, kdy bylo v obci otevřeno největší golfové hřiště v ČR a začala výstavba nového centra obce. Od té doby zažívá Čeladná bouřlivý rozvoj a stala se vyhledávaným místem pro bydlení i rekreaci.</p>
                         </div>
-                        <span role="presentation" class="decoration-image image-golf"></span>
+                        <span role="presentation" class="decoration-image image-moderni-obec"></span>
                     </div>
                 </article>
 
                 <article class="carousel-item">
                     <div class="container">
                         <div class="slide-inner">
-                            <h2>Moderní obec</h2>
-                            <p>Nová éra Čeladné se datuje k roku 2000, kdy bylo v obci otevřeno největší golfové hřiště v ČR a začala výstavba nového centra obce. Od té doby zažívá Čeladná bouřlivý rozvoj a stala se vyhledávaným místem pro bydlení i rekreaci.</p>
+                            <h2>Golf a turistika</h2>
+                            <p>V novodobé historii se Čeladná stala nejen vyhlášeným golfovým rájem, ale také významným turistickým centrem. Na počátku 21. století prošla většina zdejších ubytovacích zařízení výraznou modernizací a zároveň začaly vyrůstat nové hotely a penziony. Díky tomu dnes v obci najdou vhodné místo k rekreaci rodiny s dětmi, turisté i klienti, kteří hledají služby na nejvyšší světové úrovni.</p>
                         </div>
-                        <span role="presentation" class="decoration-image image-moderni-obec"></span>
+                        <span role="presentation" class="decoration-image image-golf"></span>
                     </div>
                 </article>
 
@@ -81,16 +81,7 @@
 
                             <p><time>{{ aktualita.DatumZverejneni|date('d.m.Y') }}</time></p>
 
-                            {{ aktualita.Popis|u.truncate(150, '...', true)|markdown_to_html|nl2br }}
-
-                            {% if aktualita.Tagy %}
-                                <p class="tags">
-                                    {% for Tag in aktualita.Tagy %}
-                                        {#  <a href="{{ Kategorie.name }}" class="tag-link">{{ Kategorie.value }}</a> #}
-                                        <span class="tag-link">{{ Tag }}</span>
-                                    {% endfor %}
-                                </p>
-                            {% endif %}
+                            {{ aktualita.Popis|u.truncate(150, '...', true)|markdown_to_html }}
                         </article>
                     {% endfor %}
 
