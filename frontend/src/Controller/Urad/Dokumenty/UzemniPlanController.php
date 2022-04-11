@@ -20,7 +20,7 @@ final class UzemniPlanController extends AbstractController
     public function __invoke(): Response
     {
         return $this->render('urad_dokumenty_uzemni_plan.html.twig', [
-            'dokumenty' => $this->contentProvider->getUzemniPlanData(),
+            'uzemni_plan' => $this->contentProvider->getUzemniPlanData(),
             'footer' => $this->contentProvider->getFooterData(),
         ]);
     }

@@ -1,0 +1,42 @@
+<ul class="uzemni-dokumenty-section">
+    <h2>{{ dokument.Nadpis }}</h2>
+
+    {% if dokument.Uredni_deska %}
+        {{ include('_uredni_deska.html.twig', {
+            'uredni_deska': dokument.Uredni_deska
+        }) }}
+    {% endif %}
+
+    {% for Kategorie in dokument.Kategorie %}
+        <article class="kategorie">
+            <h3>{{ Kategorie.Nazev }}</h3>
+
+            {% if Kategorie.Datum_vyveseni %}
+                <time>{{ Kategorie.Datum_vyveseni|date('d.m.Y') }}</time>
+            {% endif %}
+
+            {% if Kategorie.Dokumenty %}
+                <ul class="dokumenty">
+
+                    {% for Dokument in Kategorie.Dokumenty %}
+                        <li>
+                            {% if Dokument.Datum_nahrani %}
+                                <time>{{ Dokument.Datum_nahrani|date('d.m.Y') }}</time>
+                            {% endif %}
+
+                            <a href="{{ Dokument.Soubor }}">
+                                <span class="name">{{ Dokument.Nazev }}</span>
+                            </a>
+
+                            <a href="{{ Dokument.Soubor }}">
+                                {{ Dokument.Soubor }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+            {{ Kategorie.Obsah|markdown_to_html }}
+        </article>
+    {% endfor %}
+</section>

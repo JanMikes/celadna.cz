@@ -1113,3 +1113,54 @@ footer {
         // color: #000 !important;
     }
 }
+
+.uzemni-dokumenty-section {
+    @include make-container();
+    max-width: 940px;
+    padding-top: 40px;
+    padding-bottom: 50px;
+    min-height: 450px;
+
+    h2 {
+        font-size: 40px;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-bottom: 30px;
+    }
+
+    h3 {
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .kategorie {
+        padding: 0 0 20px;
+        border-bottom: 1px solid #000;
+        margin: 30px 0;
+    }
+
+    ul.dokumenty {
+        list-style-type: none;
+        margin: 20px 0;
+        padding: 0;
+        font-size: 12px;
+
+        a {
+            color: #000;
+        }
+
+        li {
+            background: #E3E3E3;
+            margin: 2px 0;
+            padding: 3px 6px;
+        }
+
+        .name {
+            font-weight: bold;
+            font-size: 14px;
+            display: inline-block;
+            margin: 0 25px;
+        }
+    }
+
+}

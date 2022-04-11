@@ -1,7 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ dokumenty.Nadpis }}{% endblock %}
+{% block title %}{{ uzemni_plan.Nadpis }}{% endblock %}
 
 {% block content %}
-
+    {{ include('_uzemni_dokumenty.html.twig', {
+        'dokument': uzemni_plan
+    }) }}
 {% endblock %}
