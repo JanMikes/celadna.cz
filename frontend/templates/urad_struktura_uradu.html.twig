@@ -8,7 +8,7 @@
     }) }}
 
     {{ include('_breadcrumb.html.twig', {
-        'current': page_title,
+        'current': block('title'),
         'items': {
             'urad': 'Obecní úrad',
         },
