@@ -44,7 +44,9 @@
                 </ul>
             {% endif %}
 
-            {{ Kategorie.Obsah|markdown_to_html }}
+            {% if Kategorie.Obsah %}
+                {{ Kategorie.Obsah|markdown_to_html }}
+            {% endif %}
         </article>
     {% endfor %}
 </section>
