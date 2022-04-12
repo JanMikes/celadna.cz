@@ -20,10 +20,6 @@
         <article class="kategorie">
             <h3>{{ Kategorie.Nazev }}</h3>
 
-            {% if Kategorie.Datum_vyveseni %}
-                <time>{{ Kategorie.Datum_vyveseni|date('d.m.Y') }}</time>
-            {% endif %}
-
             {% if Kategorie.Dokumenty %}
                 <ul class="dokumenty">
 
@@ -31,6 +27,8 @@
                         <li>
                             {% if Dokument.Datum_nahrani %}
                                 <time>{{ Dokument.Datum_nahrani|date('d.m.Y') }}</time>
+                            {% elseif Kategorie.Datum_vyveseni %}
+                                <time>{{ Kategorie.Datum_vyveseni|date('d.m.Y') }}</time>
                             {% endif %}
 
                             {% if Dokument.Soubor %}
