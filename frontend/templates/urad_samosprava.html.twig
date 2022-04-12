@@ -30,7 +30,8 @@
                 {% endif %}
 
                 {{ include('_uredni_deska.html.twig', {
-                    'uredni_deska': kategorie.Uredni_deska
+                    'uredni_deska': kategorie.Uredni_deska,
+                    'show_categories': false,
                 }) }}
             {% endif %}
         {% endfor %}

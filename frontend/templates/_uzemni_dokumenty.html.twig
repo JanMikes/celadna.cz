@@ -11,7 +11,8 @@
 
     {% if dokument.Uredni_deska %}
         {{ include('_uredni_deska.html.twig', {
-            'uredni_deska': dokument.Uredni_deska
+            'uredni_deska': dokument.Uredni_deska,
+            'show_categories': false,
         }) }}
     {% endif %}
 
@@ -35,7 +36,7 @@
                             {% if Dokument.Soubor %}
                                 <a class="file-link" href="{{ Dokument.Soubor.url }}">
                                     <span class="file-caption name">{{ Dokument.Nazev }}</span>
-                                    <span class="file-info">({{ Dokument.Soubor.ext}} {{ Dokument.Soubor.kbytes }}kb)</span>
+                                    <span class="file-info">({{ Dokument.Soubor.kbytes }}kb)</span>
                                     <span class="icon-download"></span>
                                 </a>
                             {% endif %}

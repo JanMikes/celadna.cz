@@ -14,25 +14,7 @@
                 {% endif %}
             </p>
 
-            {% if uredni_deska_dokument.Zodpovedna_osoba %}
-                <p>Zveřejnil {{ uredni_deska_dokument.Zodpovedna_osoba.Jmeno }}</p>
-            {% endif %}
-
-            {% if uredni_deska_dokument.Soubory %}
-                <ul class="file-list">
-                    {% for file in uredni_deska_dokument.Soubory %}
-                        <li>
-                            <a class="file-link" href="{{ file.url }}">
-                                <span class="file-caption">{{ file.caption}}</span>
-                                <span class="file-info">({{ file.kbytes }}kb)</span>
-                                <span class="icon-download"></span>
-                            </a>
-                        </li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-
-            {% if uredni_deska_dokument.Kategorie %}
+            {% if show_categories and uredni_deska_dokument.Kategorie %}
                 <p class="tags">
                     {% for Kategorie in uredni_deska_dokument.Kategorie %}
                         <a href="{{ path('uredni_deska_kategorie_filter', {'kategorie': Kategorie.slug}) }}" class="tag-link">{{ Kategorie.value }}</a>

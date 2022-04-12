@@ -1170,12 +1170,16 @@ footer {
             margin: 2px 0;
             padding: 3px 6px;
         }
+        time {
+            display: inline-block;
+            margin: 0 15px 0 0;
+        }
 
         .name {
             font-weight: bold;
             font-size: 14px;
             display: inline-block;
-            margin: 0 25px;
+            margin: 0 15px 0 0;
         }
     }
 }
