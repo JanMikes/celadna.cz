@@ -99,7 +99,7 @@ interface Content
     /**
      * @return array<UredniDeskaData>
      */
-    public function getUredniDeskyData(string|null $categoryField = null, int|null $limit = null): array;
+    public function getUredniDeskyData(string|null $categoryField = null, int|null $limit = null, bool $shouldHideIfExpired = false): array;
 
     public function getUredniDeskaData(int $id): UredniDeskaData;
 

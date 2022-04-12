@@ -413,17 +413,21 @@ final class StrapiContent implements Content
     /**
      * @return array<UredniDeskaData>
      */
-    public function getUredniDeskyData(string|null $categoryField = null, int|null $limit = null): array
+    public function getUredniDeskyData(string|null $categoryField = null, int|null $limit = null, bool $shouldHideIfExpired = false): array
     {
         $now = new \DateTimeImmutable();
 
-        $filters = [
-            'Zobrazovat' => ['$eq' => true],
-            '$or' => [
-                ['Datum_stazeni' => ['$null' => true]],
-                ['Datum_stazeni' => ['$gte' => $now->format('Y-m-d')]],
-            ],
-        ];
+        $filters = [];
+
+        if ($shouldHideIfExpired === true) {
+            $filters = [
+                'Zobrazovat' => ['$eq' => true],
+                '$or' => [
+                    ['Datum_stazeni' => ['$null' => true]],
+                    ['Datum_stazeni' => ['$gte' => $now->format('Y-m-d')]],
+                ],
+            ];
+        }
 
         if ($categoryField) {
             $filters[$categoryField] = ['$eq' => true];
