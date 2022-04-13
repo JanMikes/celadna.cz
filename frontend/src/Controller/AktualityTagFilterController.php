@@ -15,7 +15,7 @@ final class AktualityTagFilterController extends AbstractController
         private Content $contentProvider
     ) {}
 
-    #[Route('/aktuality/{tag}', name: 'aktuality_tag_filter')]
+    #[Route('/aktuality/kategorie/{tag}', name: 'aktuality_tag_filter')]
     public function __invoke(string $tag): Response
     {
         return $this->render('aktuality.html.twig', [

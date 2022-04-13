@@ -17,7 +17,7 @@ final class DetailUredniDeskyController extends AbstractController
     ) {}
 
 
-    #[Route('/obecni-urad/uredni-deska/{id}', name: 'detail_uredni_desky')]
+    #[Route('/obecni-urad/uredni-deska/dokument/{id}', name: 'detail_uredni_desky')]
     public function __invoke($id): Response
     {
         try {
