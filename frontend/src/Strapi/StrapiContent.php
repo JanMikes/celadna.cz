@@ -13,6 +13,7 @@ use Celadna\Website\Content\Data\GdprData;
 use Celadna\Website\Content\Data\DokumentyData;
 use Celadna\Website\Content\Data\GrafickyPasData;
 use Celadna\Website\Content\Data\KartaObjektuData;
+use Celadna\Website\Content\Data\KategorieUredniDesky;
 use Celadna\Website\Content\Data\KontaktyData;
 use Celadna\Website\Content\Data\ObecData;
 use Celadna\Website\Content\Data\PristupnostData;
@@ -27,6 +28,7 @@ use Celadna\Website\Content\Data\UbytovaniData;
 use Celadna\Website\Content\Data\UradData;
 use Celadna\Website\Content\Data\UredniDeskaData;
 use Celadna\Website\Content\Data\UzemniData;
+use Celadna\Website\Content\Exception\InvalidKategorie;
 use Symfony\Component\HttpClient\Exception\ClientException;
 
 final class StrapiContent implements Content
@@ -346,7 +348,7 @@ final class StrapiContent implements Content
         // Decorate with uredni deska data
         foreach ($strapiResponse['data']['attributes']['Kategorie_samospravy'] as $i => $kategorieData) {
             $uredniDeska = [];
-            $uredniDeskaField = $this->samospravaKategorieToUredniDeskaField($kategorieData['Kategorie_uredni_desky']);
+            $uredniDeskaField = $this->uredniDeskaKategorieToUredniDeskaField($kategorieData['Kategorie_uredni_desky']);
 
             if ($uredniDeskaField !== null) {
                 $uredniDeska = $this->getUredniDeskyData($uredniDeskaField);
@@ -463,6 +465,20 @@ final class StrapiContent implements Content
     }
 
 
+    /**
+     * @throws InvalidKategorie
+     *
+     * @return array<UredniDeskaData>
+     */
+    public function getUredniDeskyDataFilteredByKategorie(string $kategorieSlug): array
+    {
+        $kategorie = KategorieUredniDesky::fromSlug($kategorieSlug);
+        $field = $this->uredniDeskaKategorieToUredniDeskaField($kategorie->name);
+
+        return $this->getUredniDeskyData($field, shouldHideIfExpired: true);
+    }
+
+
     private function resourceNameToUredniDeskaField(string $resourceName): string
     {
         return match ($resourceName) {
@@ -482,7 +498,7 @@ final class StrapiContent implements Content
         };
     }
 
-    private function samospravaKategorieToUredniDeskaField(string $kategorie): string|null
+    private function uredniDeskaKategorieToUredniDeskaField(string $kategorie): string|null
     {
         return match ($kategorie) {
             'Formulare' => 'Zobrazit_v_formulare',

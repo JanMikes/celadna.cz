@@ -22,3 +22,4 @@ services:
             - '../src/Entity/'
             - '../src/Kernel.php'
             - '*/Data/*'
+            - '*/Exception/*'

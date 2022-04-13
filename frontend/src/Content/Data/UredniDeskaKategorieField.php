@@ -18,6 +18,10 @@ enum UredniDeskaKategorieField
     case Zobrazit_v_zivotni_situace;
     case Zobrazit_v_poskytnute_informace;
     case Zobrazit_v_verejnopravni_smlouvy;
+    case Zobrazit_v_usneseni_rady;
+    case Zobrazit_v_financni_vybor;
+    case Zobrazit_v_kulturni_komise;
+    case Zobrazit_v_volby;
 
 
     public function toKategorie(): KategorieUredniDesky
@@ -35,6 +39,10 @@ enum UredniDeskaKategorieField
             self::Zobrazit_v_zivotni_situace => KategorieUredniDesky::Zivotni_situace,
             self::Zobrazit_v_poskytnute_informace => KategorieUredniDesky::Poskytnute_informace,
             self::Zobrazit_v_verejnopravni_smlouvy => KategorieUredniDesky::Verejnopravni_smlouvy,
+            self::Zobrazit_v_usneseni_rady => KategorieUredniDesky::Usneseni_rady,
+            self::Zobrazit_v_financni_vybor => KategorieUredniDesky::Financni_vybor,
+            self::Zobrazit_v_kulturni_komise => KategorieUredniDesky::Kulturni_komise,
+            self::Zobrazit_v_volby => KategorieUredniDesky::Volby,
         };
     }
 }

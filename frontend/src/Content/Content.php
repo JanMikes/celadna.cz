@@ -21,6 +21,7 @@ use Celadna\Website\Content\Data\UbytovaniData;
 use Celadna\Website\Content\Data\UradData;
 use Celadna\Website\Content\Data\UredniDeskaData;
 use Celadna\Website\Content\Data\UzemniData;
+use Celadna\Website\Content\Exception\InvalidKategorie;
 
 interface Content
 {
@@ -100,6 +101,13 @@ interface Content
      * @return array<UredniDeskaData>
      */
     public function getUredniDeskyData(string|null $categoryField = null, int|null $limit = null, bool $shouldHideIfExpired = false): array;
+
+    /**
+     * @throws InvalidKategorie
+     *
+     * @return array<UredniDeskaData>
+     */
+    public function getUredniDeskyDataFilteredByKategorie(string $kategorieSlug): array;
 
     public function getUredniDeskaData(int $id): UredniDeskaData;
 

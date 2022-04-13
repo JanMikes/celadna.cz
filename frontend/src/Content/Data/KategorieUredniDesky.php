@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Celadna\Website\Content\Data;
 
+use Celadna\Website\Content\Exception\InvalidKategorie;
+
 enum KategorieUredniDesky: string
 {
     case Formulare = 'Formuláře';
@@ -28,5 +30,20 @@ enum KategorieUredniDesky: string
     public function slug(): string
     {
         return strtolower(str_replace('_', '-', $this->name));
+    }
+
+
+    /**
+     * @throws InvalidKategorie
+     */
+    public static function fromSlug(string $slug): self
+    {
+        foreach (self::cases() as $name => $kategorie) {
+            if ($slug === $kategorie->slug()) {
+                return $kategorie;
+            }
+        }
+
+        throw new InvalidKategorie();
     }
 }
