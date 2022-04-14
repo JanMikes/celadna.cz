@@ -72,7 +72,7 @@
     </main>
 
     <footer>
-        <div class="container">
+        <div class="inner-footer">
             <p>Aplikace Obec Čeladná ke stažení zdarma.</p>
 
             <ul class="download-links">
@@ -92,13 +92,17 @@
                 </li>
             </ul>
 
-            {% if footer %}
                 <section class="banners">
                     {% for footerItem in footer %}
                         <a href="{{ footerItem.Odkaz }}"><img src="{{ footerItem.Obrazek }}" alt=""></a>
                     {% endfor %}
+
+                    <div class="iframe-polar">
+                        <iframe src="https://polar.cz/rss/celadna" scrolling="no"></iframe>
+                    </div>
+
+                    <img src="https://ovm.bezstavy.cz/v1/gAkgN2F-FTL4Zf7btVeZd3FlmWSv-g/b/250" alt="ČEZ Distribuce – Plánované odstávky">
                 </section>
-            {% endif %}
 
             <ul class="footer-links">
                 <li>
