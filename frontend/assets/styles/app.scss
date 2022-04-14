@@ -185,13 +185,19 @@ footer {
     }
 
     .banners {
-        img, iframe, .iframe-polar {
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        margin: 0 -5px;
+
+        .banner-wrapper, img, iframe {
             width: 280px;
             height: 280px;
+            flex-direction: row;
         }
 
-        .iframe-polar {
-            display: inline-block;
+        .banner-wrapper {
+            margin: 5px;
         }
 
         a {
