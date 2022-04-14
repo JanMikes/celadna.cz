@@ -57,6 +57,11 @@
       "relation": "manyToMany",
       "target": "api::tagy.tagy",
       "inversedBy": "Aktuality"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "Nadpis",
+      "required": true
     }
   }
 }
