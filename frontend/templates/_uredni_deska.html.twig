@@ -2,7 +2,7 @@
     {% for uredni_deska_dokument in uredni_deska %}
         <article>
             <h4 id="uredni-deska-{{ uredni_deska_dokument.id }}">
-                <a href="{{ path('detail_uredni_desky', {'id': uredni_deska_dokument.id}) }}">
+                <a href="{{ path('detail_uredni_desky', {'slug': uredni_deska_dokument.slug}) }}">
                     {{ uredni_deska_dokument.Nadpis }}
                 </a>
             </h4>

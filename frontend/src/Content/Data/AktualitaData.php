@@ -30,6 +30,8 @@ final class AktualitaData
         public readonly array $Tagy,
 
         public readonly string $Popis,
+
+        public readonly string $slug,
     ) {}
 
 
@@ -51,6 +53,7 @@ final class AktualitaData
             $data['Zverejnil']['data'] ? ClovekData::createFromStrapiResponse($data['Zverejnil']['data']['attributes']) : null,
             $tags,
             $data['Popis'],
+            $data['slug'],
         );
     }
 }

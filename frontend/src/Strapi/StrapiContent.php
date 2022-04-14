@@ -29,6 +29,7 @@ use Celadna\Website\Content\Data\UradData;
 use Celadna\Website\Content\Data\UredniDeskaData;
 use Celadna\Website\Content\Data\UzemniData;
 use Celadna\Website\Content\Exception\InvalidKategorie;
+use Celadna\Website\Content\Exception\NotFound;
 use Symfony\Component\HttpClient\Exception\ClientException;
 
 final class StrapiContent implements Content
@@ -176,18 +177,21 @@ final class StrapiContent implements Content
         return GrafickyPasData::createManyFromStrapiResponse($strapiResponse['data']['attributes']['Graficke_pasy']);
     }
 
-    public function getAktualitaData(int $id): AktualitaData
+    public function getAktualitaData(string $slug): AktualitaData
     {
-        $strapiResponse = $this->strapiClient->getApiResource('aktualities/' . $id, [
+        $strapiResponse = $this->strapiClient->getApiResource('aktualities', [
             'Obrazek',
             'Galerie',
             'Zverejnil.Fotka',
             'Tagy',
         ], filters: [
             'Zobrazovat' => ['$eq' => true],
+            'slug' => ['$eq' => $slug]
         ]);
 
-        return AktualitaData::createFromStrapiResponse($strapiResponse['data']['attributes']);
+        return AktualitaData::createFromStrapiResponse(
+            $strapiResponse['data'][0]['attributes'] ?? throw new NotFound
+        );
     }
 
 
@@ -456,16 +460,19 @@ final class StrapiContent implements Content
         return UredniDeskaData::createManyFromStrapiResponse($strapiResponse);
     }
 
-    public function getUredniDeskaData(int $id): UredniDeskaData
+    public function getUredniDeskaData(string $slug): UredniDeskaData
     {
-        $strapiResponse = $this->strapiClient->getApiResource('uredni-deskas/' . $id, [
+        $strapiResponse = $this->strapiClient->getApiResource('uredni-deskas', [
             'Soubory',
             'Zodpovedna_osoba.Fotka',
         ], filters: [
             'Zobrazovat' => ['$eq' => true],
+            'slug' => ['$eq' => $slug],
         ]);
 
-        return UredniDeskaData::createFromStrapiResponse($strapiResponse['data']['attributes']);
+        return UredniDeskaData::createFromStrapiResponse(
+            $strapiResponse['data'][0]['attributes'] ?? throw new NotFound
+        );
     }
 
 

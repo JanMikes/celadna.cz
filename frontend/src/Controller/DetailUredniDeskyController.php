@@ -17,12 +17,12 @@ final class DetailUredniDeskyController extends AbstractController
     ) {}
 
 
-    #[Route('/obecni-urad/uredni-deska/dokument/{id}', name: 'detail_uredni_desky')]
-    public function __invoke($id): Response
+    #[Route('/obecni-urad/uredni-deska/dokument/{slug}', name: 'detail_uredni_desky')]
+    public function __invoke(string $slug): Response
     {
         try {
             return $this->render('detail_uredni_desky.html.twig', [
-                'uredni_deska' => $this->contentProvider->getUredniDeskaData((int) $id),
+                'uredni_deska' => $this->contentProvider->getUredniDeskaData($slug),
                 'footer' => $this->contentProvider->getFooterData(),
             ]);
         } catch (ClientException) {

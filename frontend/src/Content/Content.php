@@ -49,7 +49,7 @@ interface Content
      */
     public function getAktualityData(int|null $limit = null, null|string $tag = null): array;
 
-    public function getAktualitaData(int $id): AktualitaData;
+    public function getAktualitaData(string $slug): AktualitaData;
 
     public function getGdprData(): GdprData;
 
@@ -109,7 +109,7 @@ interface Content
      */
     public function getUredniDeskyDataFilteredByKategorie(string $kategorieSlug): array;
 
-    public function getUredniDeskaData(int $id): UredniDeskaData;
+    public function getUredniDeskaData(string $slug): UredniDeskaData;
 
     public function getDokumentyUraduData(): SekceSDlazdicemaData;
 

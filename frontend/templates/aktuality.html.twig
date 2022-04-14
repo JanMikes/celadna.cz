@@ -19,7 +19,7 @@
 
                 <div class="actuality-content">
                     <h3 id="aktualita-{{ aktualita.id }}">
-                        <a href="{{ path('detail_aktuality', {'id': aktualita.id}) }}">
+                        <a href="{{ path('detail_aktuality', {'slug': aktualita.slug}) }}">
                             {{ aktualita.Nadpis }}
                         </a>
                     </h3>

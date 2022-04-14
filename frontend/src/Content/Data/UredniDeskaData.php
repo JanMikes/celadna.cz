@@ -29,6 +29,8 @@ final class UredniDeskaData
          * @var array<KategorieUredniDesky> $Kategorie
          */
         public readonly array $Kategorie,
+
+        public readonly string $slug,
     )
     {
     }
@@ -52,6 +54,7 @@ final class UredniDeskaData
             $data['Popis'],
             $data['Zodpovedna_osoba']['data'] ? ClovekData::createFromStrapiResponse($data['Zodpovedna_osoba']['data']['attributes']) : null,
             $kategorie,
+            $data['slug'],
         );
     }
 }

@@ -17,12 +17,12 @@ final class DetailAktualityController extends AbstractController
     ) {}
 
 
-    #[Route('/aktualita/{id}', name: 'detail_aktuality')]
-    public function __invoke($id): Response
+    #[Route('/aktualita/{slug}', name: 'detail_aktuality')]
+    public function __invoke(string $slug): Response
     {
         try {
             return $this->render('detail_aktuality.html.twig',[
-                'aktualita' => $this->contentProvider->getAktualitaData((int) $id),
+                'aktualita' => $this->contentProvider->getAktualitaData($slug),
                 'footer' => $this->contentProvider->getFooterData(),
             ]);
         } catch (ClientException) {
