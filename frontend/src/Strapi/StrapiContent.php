@@ -121,7 +121,7 @@ final class StrapiContent implements Content
     /**
      * @return array<AktualitaData>
      */
-    public function getAktualityData(int|null $limit = null): array
+    public function getAktualityData(int|null $limit = null, null|string $tag = null): array
     {
         $pagination = null;
 
@@ -132,15 +132,19 @@ final class StrapiContent implements Content
             ];
         }
 
+        $filters = ['Zobrazovat' => ['$eq' => true]];
+
+        if ($tag !== null) {
+            $filters['Tagy']['slug']['$eq'] = $tag;
+        }
+
         $strapiResponse = $this->strapiClient->getApiResource('aktualities', [
             'Obrazek',
             'Galerie',
             'Zverejnil.Fotka',
             'Tagy',
         ],
-        filters: [
-            'Zobrazovat' => ['$eq' => true],
-        ],
+        filters: $filters,
         pagination: $pagination,
         sort: [
             'Datum_zverejneni:desc'

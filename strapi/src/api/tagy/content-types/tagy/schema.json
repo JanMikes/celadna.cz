@@ -21,6 +21,11 @@
       "relation": "manyToMany",
       "target": "api::aktuality.aktuality",
       "mappedBy": "Tagy"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "Tag",
+      "required": true
     }
   }
 }

@@ -47,7 +47,7 @@ interface Content
     /**
      * @return array<AktualitaData>
      */
-    public function getAktualityData(int|null $limit = null): array;
+    public function getAktualityData(int|null $limit = null, null|string $tag = null): array;
 
     public function getAktualitaData(int $id): AktualitaData;
 

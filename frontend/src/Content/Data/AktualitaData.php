@@ -25,7 +25,7 @@ final class AktualitaData
         public readonly ClovekData|null $Zverejnil,
 
         /**
-         * @var string[] $Tagy,
+         * @var array<string, string> $Tagy,
          */
         public readonly array $Tagy,
 
@@ -35,6 +35,12 @@ final class AktualitaData
 
     public static function createFromStrapiResponse(array $data, int|null $id = null): self
     {
+        $tags = [];
+
+        foreach ($data['Tagy']['data'] ?? [] as $tagData) {
+            $tags[$tagData['attributes']['slug']] = $tagData['attributes']['Tag'];
+        }
+
         return new self(
             $id,
             $data['Nadpis'],
@@ -43,7 +49,7 @@ final class AktualitaData
             $data['Video_youtube'],
             $data['Galerie']['data'] ? array_map(fn(array $galerieData) => $galerieData['attributes']['url'], $data['Galerie']['data']) : [],
             $data['Zverejnil']['data'] ? ClovekData::createFromStrapiResponse($data['Zverejnil']['data']['attributes']) : null,
-            array_map(fn(array $tagyData) => $tagyData['attributes']['Tag'], $data['Tagy']['data']),
+            $tags,
             $data['Popis'],
         );
     }

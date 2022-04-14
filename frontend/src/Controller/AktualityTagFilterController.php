@@ -19,7 +19,7 @@ final class AktualityTagFilterController extends AbstractController
     public function __invoke(string $tag): Response
     {
         return $this->render('aktuality.html.twig', [
-            'aktuality' => $this->contentProvider->getAktualityData(),
+            'aktuality' => $this->contentProvider->getAktualityData(tag: $tag),
             'footer' => $this->contentProvider->getFooterData(),
         ]);
     }
