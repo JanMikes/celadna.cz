@@ -114,6 +114,11 @@ footer {
     font-size: 0.8em;
     padding: 20px 0;
 
+    .inner-footer {
+        @include make-container();
+        max-width: 1300px;
+    }
+
     a {
         color: #000;
         text-decoration: underline;
@@ -180,9 +185,20 @@ footer {
     }
 
     .banners {
-        img {
-            width: 100%;
-            max-width: 320px;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        margin: 0 -5px;
+        flex-wrap: wrap;
+
+        .banner-wrapper, img, iframe {
+            width: 280px;
+            height: 280px;
+            flex-direction: row;
+        }
+
+        .banner-wrapper {
+            margin: 5px;
         }
 
         a {
