@@ -116,6 +116,11 @@ interface Content
     public function getObecData(): ObecData;
 
     /**
+     * @return array<int>|null
+     */
+    public function getUredniDeskaYears(): array|null;
+
+    /**
      * @return array<GrafickyPasData>
      */
     public function getObecniOrganizaceData(): array;

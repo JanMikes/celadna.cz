@@ -577,7 +577,7 @@ footer {
 .uredni-deska-text-section {
     @include make-container();
     max-width: 920px;
-    padding: 50px 0 20px;
+    padding: 50px 0 0;
 
     h2 {
         font-size: 40px;
@@ -841,8 +841,8 @@ footer {
 .uredni-deska-section {
     @include make-container();
     max-width: 940px;
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding-top: 25px;
+    padding-bottom: 25px;
 
     article {
         padding: 20px 0;
@@ -1262,4 +1262,8 @@ footer {
         margin: 3px 0;
         padding: 0;
     }
+}
+
+p + br, br + br {
+    display: none;
 }
