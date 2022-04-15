@@ -1,4 +1,4 @@
-{% set year_filter_value = app.request.query.get(years_filter_name) %}
+{% set year_filter_value = years_filter_name ? app.request.query.get(years_filter_name) : null %}
 
 <section class="uredni-deska-section">
     {% if years %}
