@@ -13,6 +13,8 @@
         {{ include('_uredni_deska.html.twig', {
             'uredni_deska': dokument.Uredni_deska,
             'show_categories': false,
+            'years': dokument.Uredni_deska_roky,
+            'years_filter_name': 'rok',
         }) }}
     {% endif %}
 

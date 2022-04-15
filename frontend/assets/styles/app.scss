@@ -1267,3 +1267,21 @@ footer {
 p + br, br + br {
     display: none;
 }
+
+.years-selector {
+    list-style-type: none;
+    padding: 0;
+    margin: 15px 0;
+
+    .show-only {
+        font-weight: bold;
+        margin-right: 15px;
+    }
+
+    li {
+        padding: 0;
+        margin: 0 8px 0 0;
+        display: inline-block;
+        font-size: 14px;
+    }
+}

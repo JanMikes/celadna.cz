@@ -4,8 +4,12 @@ declare(strict_types=1);
 
 namespace Celadna\Website\Content\Data;
 
+use Nette\Utils\Strings;
+
 final class SamospravaData
 {
+    use HasUredniDeskaYears;
+
     public function __construct(
         public readonly string $Nadpis,
         public readonly string|null $Obsah,
@@ -21,6 +25,11 @@ final class SamospravaData
          * @var array<UredniDeskaData> $Uredni_deska
          */
         public readonly array $Uredni_deska,
+
+        /**
+         * @var array<int>
+         */
+        public readonly array $Uredni_deska_roky,
     ) {
     }
 
@@ -50,6 +59,7 @@ final class SamospravaData
             $data['Kategorie_uredni_desky'],
             ClovekData::createManyFromStrapiResponse($data['Lide']),
             $data['Uredni_deska'],
+            self::getUredniDeskaYears($data['Uredni_deska']),
         );
     }
 }

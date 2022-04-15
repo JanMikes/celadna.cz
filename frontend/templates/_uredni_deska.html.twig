@@ -1,27 +1,52 @@
+{% set year_filter_value = app.request.query.get(years_filter_name) %}
+
 <section class="uredni-deska-section">
-    {% for uredni_deska_dokument in uredni_deska %}
-        <article>
-            <h4 id="uredni-deska-{{ uredni_deska_dokument.id }}">
-                <a href="{{ path('detail_uredni_desky', {'slug': uredni_deska_dokument.slug}) }}">
-                    {{ uredni_deska_dokument.Nadpis }}
-                </a>
-            </h4>
-
-            <p>
-                Zveřejněno <time>{{ uredni_deska_dokument.Datum_zverejneni|date('d.m.Y') }}</time>
-                {% if uredni_deska_dokument.Datum_stazeni %}
-                    do <time>{{ uredni_deska_dokument.Datum_stazeni|date('d.m.Y') }}</time>
-                {% endif %}
-            </p>
-
-            {% if show_categories and uredni_deska_dokument.Kategorie %}
-                <p class="tags">
-                    {% for Kategorie in uredni_deska_dokument.Kategorie %}
-                        <a href="{{ path('uredni_deska_kategorie_filter', {'kategorie': Kategorie.slug}) }}" class="tag-link">{{ Kategorie.value }}</a>
-                    {% endfor %}
-                </p>
+    {% if years %}
+        <ul class="years-selector">
+            <li class="show-only">Zobrazit pouze rok:</li>
+            {% for year in years %}
+                <li>
+                    <a href="{{ path(app.request.attributes.get('_route')) }}?{{ years_filter_name }}={{ year }}">
+                        {{ year }}
+                    </a>
+                </li>
+            {% endfor %}
+            {% if year_filter_value %}
+                <li>
+                    <a href="{{ path(app.request.attributes.get('_route')) }}">
+                        Zrušit filtrování ({{ year_filter_value }})
+                    </a>
+                </li>
             {% endif %}
-        </article>
+        </ul>
+    {% endif %}
+
+
+    {% for uredni_deska_dokument in uredni_deska %}
+        {% if not year_filter_value or year_filter_value is same as uredni_deska_dokument.Datum_zverejneni.format('Y') %}
+            <article>
+                <h4 id="uredni-deska-{{ uredni_deska_dokument.id }}">
+                    <a href="{{ path('detail_uredni_desky', {'slug': uredni_deska_dokument.slug}) }}">
+                        {{ uredni_deska_dokument.Nadpis }}
+                    </a>
+                </h4>
+
+                <p>
+                    Zveřejněno <time>{{ uredni_deska_dokument.Datum_zverejneni|date('d.m.Y') }}</time>
+                    {% if uredni_deska_dokument.Datum_stazeni %}
+                        do <time>{{ uredni_deska_dokument.Datum_stazeni|date('d.m.Y') }}</time>
+                    {% endif %}
+                </p>
+
+                {% if show_categories and uredni_deska_dokument.Kategorie %}
+                    <p class="tags">
+                        {% for Kategorie in uredni_deska_dokument.Kategorie %}
+                            <a href="{{ path('uredni_deska_kategorie_filter', {'kategorie': Kategorie.slug}) }}" class="tag-link">{{ Kategorie.value }}</a>
+                        {% endfor %}
+                    </p>
+                {% endif %}
+            </article>
+        {% endif %}
     {% endfor %}
 </section>
 

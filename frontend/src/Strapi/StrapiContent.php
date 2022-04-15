@@ -543,40 +543,4 @@ final class StrapiContent implements Content
 
         return SekceSDlazdicemaData::createFromStrapiResponse($strapiResponse['data']['attributes']['Sekce_s_dlazdicema']);
     }
-
-    /**
-     * @return array<int>|null
-     */
-    public function getUredniDeskaYears(): array|null
-    {
-        $filters = [
-            'Zobrazovat' => ['$eq' => true],
-        ];
-
-        $pagination = [
-            'limit' => 1000,
-            'start' => 0,
-        ];
-
-        $strapiResponse = $this->strapiClient->getApiResource('uredni-deskas',
-            populate: [''],
-            fields: ['Datum_zverejneni'],
-            filters: $filters,
-            pagination: $pagination,
-        );
-
-
-        if (count($strapiResponse['data']) === 0) {
-            return null;
-        }
-
-        $years = [];
-
-        foreach ($strapiResponse['data'] as $row) {
-            $year = Strings::before($row['attributes']['Datum_zverejneni'], '-');
-            $years[$year] = (int) $year;
-        }
-
-        return $years;
-    }
 }

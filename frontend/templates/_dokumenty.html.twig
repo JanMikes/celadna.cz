@@ -18,5 +18,7 @@
     {{ include('_uredni_deska.html.twig', {
         'uredni_deska': dokumenty.Uredni_deska,
         'show_categories': false,
+        'years': dokumenty.Uredni_deska_roky,
+        'years_filter_name': 'rok',
     }) }}
 </div>

@@ -32,6 +32,8 @@
                 {{ include('_uredni_deska.html.twig', {
                     'uredni_deska': kategorie.Uredni_deska,
                     'show_categories': false,
+                    'years': kategorie.Uredni_deska_roky,
+                    'years_filter_name': kategorie.Nadpis|slug|lower ~ '-rok',
                 }) }}
             {% endif %}
         {% endfor %}

@@ -6,6 +6,8 @@ namespace Celadna\Website\Content\Data;
 
 final class UzemniData
 {
+    use HasUredniDeskaYears;
+
     public function __construct(
         public readonly string $Nadpis,
 
@@ -18,6 +20,11 @@ final class UzemniData
          * @var array<KategoriePlanyData> $Uredni_deska
          */
         public readonly array $Kategorie,
+
+        /**
+         * @var array<int>
+         */
+        public readonly array $Uredni_deska_roky,
     ) {}
 
 
@@ -29,7 +36,8 @@ final class UzemniData
         return new self(
             $data['Nadpis'],
             $uredniDeska,
-            KategoriePlanyData::createManyFromStrapiResponse($data['Kategorie'])
+            KategoriePlanyData::createManyFromStrapiResponse($data['Kategorie']),
+            self::getUredniDeskaYears($uredniDeska),
         );
     }
 }
