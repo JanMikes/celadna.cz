@@ -31,7 +31,7 @@ final class AktualitaData
 
         public readonly string $Popis,
 
-        public readonly string $slug,
+        public readonly null|string $slug,
     ) {}
 
 
@@ -40,6 +40,10 @@ final class AktualitaData
         $tags = [];
 
         foreach ($data['Tagy']['data'] ?? [] as $tagData) {
+            if ($tagData['attributes']['slug'] === null) {
+                continue;
+            }
+
             $tags[$tagData['attributes']['slug']] = $tagData['attributes']['Tag'];
         }
 

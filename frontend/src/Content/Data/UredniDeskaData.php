@@ -30,7 +30,7 @@ final class UredniDeskaData
          */
         public readonly array $Kategorie,
 
-        public readonly string $slug,
+        public readonly null|string $slug,
     )
     {
     }

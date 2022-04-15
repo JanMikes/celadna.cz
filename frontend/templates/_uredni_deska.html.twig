@@ -26,9 +26,13 @@
         {% if not year_filter_value or year_filter_value is same as uredni_deska_dokument.Datum_zverejneni.format('Y') %}
             <article>
                 <h4 id="uredni-deska-{{ uredni_deska_dokument.id }}">
-                    <a href="{{ path('detail_uredni_desky', {'slug': uredni_deska_dokument.slug}) }}">
+                    {% if uredni_deska_dokument.slug %}
+                        <a href="{{ path('detail_uredni_desky', {'slug': uredni_deska_dokument.slug}) }}">
+                            {{ uredni_deska_dokument.Nadpis }}
+                        </a>
+                    {% else %}
                         {{ uredni_deska_dokument.Nadpis }}
-                    </a>
+                    {% endif %}
                 </h4>
 
                 <p>
