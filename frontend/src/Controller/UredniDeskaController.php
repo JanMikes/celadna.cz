@@ -20,7 +20,6 @@ final class UredniDeskaController extends AbstractController
     public function __invoke(): Response
     {
         return $this->render('uredni_deska.html.twig', [
-            'years' => $this->contentProvider->getUredniDeskaYears(),
             'uredni_desky' => $this->contentProvider->getUredniDeskyData(shouldHideIfExpired: true),
             'footer' => $this->contentProvider->getFooterData(),
         ]);

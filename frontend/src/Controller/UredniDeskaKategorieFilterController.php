@@ -25,7 +25,6 @@ final class UredniDeskaKategorieFilterController extends AbstractController
             $kategorieUredniDesky = KategorieUredniDesky::fromSlug($kategorie);
 
             return $this->render('uredni_deska.html.twig', [
-                'years' => $this->contentProvider->getUredniDeskaYears(),
                 'uredni_desky' => $this->contentProvider->getUredniDeskyDataFilteredByKategorie($kategorie),
                 'kategorie_uredni_desky' => $kategorieUredniDesky,
                 'footer' => $this->contentProvider->getFooterData(),
