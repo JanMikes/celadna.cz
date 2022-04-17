@@ -1,11 +1,13 @@
 <section class="text-banner">
     <div class="container">
-        <div role="presentation" class="decoration-image" style="background-image: url('{{ banner.Obrazek }}');"></div>
+        <div class="text-banner-inner">
+            <div role="presentation" class="decoration-image" style="background-image: url('{{ banner.Obrazek }}');"></div>
 
-        <div class="banner-text">
-            <h2>{{ banner.Nadpis }}</h2>
+            <div class="banner-text">
+                <h2>{{ banner.Nadpis }}</h2>
 
-            {{ banner.Text_pod_nadpisem|markdown_to_html|nl2br }}
+                {{ banner.Text_pod_nadpisem|markdown_to_html|nl2br }}
+            </div>
         </div>
     </div>
 </section>

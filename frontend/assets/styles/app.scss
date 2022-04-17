@@ -268,35 +268,53 @@ footer {
 .text-banner {
     background: linear-gradient(180deg, #244199 0%, #127242 100%) #244199;
     color: #fff;
-
-    .container {
-        min-height: 450px;
-        display: flex;
-        align-items: center;
-    }
+    @include clearfix;
 
     a {
         color: #fff;
     }
 
-    @include clearfix;
+    .text-banner-inner {
+        @include make-row();
+        align-items: center;
+        min-height: 450px;
+    }
 
     .decoration-image {
-        width: 100%;
+        @include make-col-ready();
+        width: 90%;
         aspect-ratio: 3 / 2;
         background-size: contain;
+        margin: 0 auto;
+    }
+
+    .banner-text {
+        @include make-col-ready();
+        margin-top: 30px;
+        padding-bottom: 15px;
     }
 
     h2 {
-        font-size: 60px;
+        font-size: 32px;
         font-weight: 900;
         text-transform: uppercase;
-        margin-top: -15px;
+
+        @include media-breakpoint-up(md) {
+            margin-top: -15px;
+            font-size: 40px;
+        }
+        @include media-breakpoint-up(lg) {
+            font-size: 48px;
+        }
+        @include media-breakpoint-up(xl) {
+            font-size: 60px;
+        }
     }
 
     @include media-breakpoint-up(md) {
         .decoration-image {
             max-width: 400px;
+            width: 100%
         }
 
         .banner-text {
@@ -307,6 +325,16 @@ footer {
     }
 
     @include media-breakpoint-up(lg) {
+        .decoration-image {
+            max-width: 540px;
+        }
+
+        .banner-text {
+            width: calc(100% - 540px);
+        }
+    }
+
+    @include media-breakpoint-up(xl) {
         .decoration-image {
             max-width: 680px;
         }
@@ -745,25 +773,31 @@ footer {
 
 .sekce-s-dlazdicema {
     @include make-container();
-    max-width: 1016px;
-    padding: 45px 0;
+    max-width: $content-max-width;
+    padding-top: 20px;
+    padding-bottom: 20px;
 
     h3 {
         color: #1b3175;
         text-transform: uppercase;
         font-weight: bold;
-        font-size: 40px;
+        font-size: 30px;
         margin-bottom: 25px;
+
+        @include media-breakpoint-up(md) {
+            font-size: 40px;
+        }
     }
 
     .dlazdice-wrapper {
         @include make-row();
         margin-top: 35px;
+        justify-content: center;
 
         a {
+            @include make-col-ready();
             width: 250px;
             transition: all 0.4s ease-in-out 0s;
-            display: block;
             background: #fafafa;
             padding: 40px 20px;
             text-decoration: none;
