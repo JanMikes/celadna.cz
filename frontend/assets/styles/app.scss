@@ -580,10 +580,10 @@ footer {
 
 .homepage-infoservis {
     background: #f9f9f9;
-    padding: 55px 0;
+    padding: 55px 0 25px;
     font-size: 14px;
 
-    .container, h2 {
+    .container {
         max-width: 940px;
     }
 
@@ -598,7 +598,8 @@ footer {
 
     h2 {
         margin: 0 auto 30px;
-        font-size: 40px;
+        font-size: 32px;
+        font-weight: 900;
     }
 
     h3  {
@@ -639,14 +640,29 @@ footer {
         @include make-row();
 
         > section {
-            @include make-col();
+            @include make-col-ready();
+            margin: 30px 0;
+        }
+    }
 
-            &:nth-child(1) {
-                padding-right: 20px;
-            }
+    @include media-breakpoint-up(sm) {
+        h2 {
+            font-size: 40px;
+        }
+    }
 
-            &:nth-child(2) {
-                padding-left: 20px;
+    @include media-breakpoint-up(md) {
+        .content-wrapper {
+            > section {
+                @include make-col(6);
+
+                &:nth-child(1) {
+                    padding-right: 20px;
+                }
+
+                &:nth-child(2) {
+                    padding-left: 20px;
+                }
             }
         }
     }
