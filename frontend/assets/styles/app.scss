@@ -1045,15 +1045,23 @@ footer {
 
 .uredni-deska-detail {
     @include make-container();
-    max-width: 940px;
-    padding-top: 40px;
+    max-width: $content-max-width;
+    padding-top: 20px;
     padding-bottom: 40px;
     min-height: 400px;
 
+    time {
+        font-weight: bold;
+    }
+
     h2 {
-        font-size: 40px;
+        font-size: 30px;
         font-weight: bold;
         margin-bottom: 30px;
+
+        @include media-breakpoint-up(sm) {
+            font-size: 40px;
+        }
     }
 
     a {
@@ -1401,6 +1409,17 @@ footer {
     text-decoration: underline;
 }
 
+.files-list {
+    list-style-type: none;
+    margin: 10px 0 15px;
+    padding: 0;
+
+    li {
+        margin: 5px 0;
+        padding: 0;
+    }
+}
+
 .file-link {
     text-decoration: none;
 }
@@ -1425,8 +1444,8 @@ footer {
         height: 19px;
         background: url('../images/download-icon.svg') center center no-repeat;
         background-size: contain;
-        left: 0;
-        top: -5px;
+        left: -5px;
+        top: -4px;
     }
 }
 

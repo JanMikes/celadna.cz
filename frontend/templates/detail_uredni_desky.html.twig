@@ -34,15 +34,17 @@
         {% endif %}
 
         {% if uredni_deska.Soubory %}
-            <p>
+            <ul class="files-list">
                 {% for file in uredni_deska.Soubory %}
-                    <a class="file-link" href="{{ file.url }}">
-                        <span class="file-caption">{{ file.caption}}</span>
-                        <span class="file-info">({{ file.kbytes }}kb)</span>
-                        <span class="icon-download"></span>
-                    </a>
+                    <li>
+                        <a class="file-link" href="{{ file.url }}">
+                            <span class="file-caption">{{ file.caption}}</span>
+                            <span class="file-info">({{ file.kbytes }}kb)</span>
+                            <span class="icon-download"></span>
+                        </a>
+                    </li>
                 {% endfor %}
-            </p>
+            </ul>
         {% endif %}
 
         {% if uredni_deska.Popis %}
