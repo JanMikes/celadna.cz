@@ -91,11 +91,11 @@ header {
         }
 
         div.nav-link {
-            margin-left: 70px;
+            margin-left: 40px;
         }
 
         .nav-link {
-            padding: 0 25px !important;
+            padding: 0 18px !important;
             height: 84px;
             line-height: 84px;
             display: inline-block;
@@ -103,6 +103,20 @@ header {
 
         .nav-link a {
             margin-top: 25px;
+        }
+    }
+
+    @include media-breakpoint-up(xl) {
+        .navbar-nav {
+            width: 100%;
+        }
+
+        div.nav-link {
+            margin-left: 70px;
+        }
+
+        .nav-link {
+            padding: 0 25px !important;
         }
     }
 }
@@ -120,18 +134,29 @@ footer {
     }
 
     .apps-row {
-        display: flex;
+        @include make-row();
         justify-content: center;
         align-items: center;
+        margin-bottom: 25px;
 
         p {
-            width: 280px;
+            @include make-col-ready();
+            text-align: center;
         }
     }
 
-    .copyright {
-        text-align: left;
+    @include media-breakpoint-up(sm) {
+        .copyright {
+            text-align: left;
+        }
+
+        .apps-row {
+            p {
+                width: 280px;
+            }
+        }
     }
+
 
     a {
         color: #000;
@@ -439,21 +464,21 @@ footer {
     }
 
     li {
-        margin: 0;
+        margin: 20px 0 0 0;
         padding: 0;
-        @include make-col();
         text-align: center;
+        @include make-col-ready();
     }
 
     a {
         display: block;
         position: relative;
-        padding-bottom: 100px;
+        padding-bottom: 65px;
         font-weight: 900;
         color: #1a3174;
         text-transform: uppercase;
         text-decoration: none;
-        font-size: 30px;
+        font-size: 24px;
 
         &:hover span {
             color: #fff;
@@ -469,9 +494,9 @@ footer {
             color: #A9BF04;
             border: 1px solid #A9BF04;
             border-radius: 40px;
-            height: 56px;
-            line-height: 56px;
-            padding: 0 55px;
+            height: 40px;
+            line-height: 40px;
+            padding: 0 40px;
             @include transition(all .45s);
             font-weight: bold;
             letter-spacing: 0.05em;
@@ -485,6 +510,7 @@ footer {
             width: 85%;
             aspect-ratio: 3/2;
             margin: 0 auto -25px;
+            max-width: 330px;
         }
     }
 
@@ -506,6 +532,36 @@ footer {
     .link-ubytovani a::before {
         background: url("../images/homepage-ubytovani.png") center center no-repeat;
         background-size: contain;
+    }
+
+    @include media-breakpoint-up(md) {
+        ul {
+        }
+
+        li {
+            @include make-col(6);
+        }
+
+        a {
+            font-size: 30px;
+            padding-bottom: 100px;
+
+            span {
+                height: 56px;
+                line-height: 56px;
+                padding: 0 55px;
+            }
+
+            &::before {
+
+            }
+        }
+    }
+
+    @include media-breakpoint-up(lg) {
+        li {
+            @include make-col(3);
+        }
     }
 }
 
