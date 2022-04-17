@@ -145,19 +145,6 @@ footer {
         }
     }
 
-    @include media-breakpoint-up(sm) {
-        .copyright {
-            text-align: left;
-        }
-
-        .apps-row {
-            p {
-                width: 280px;
-            }
-        }
-    }
-
-
     a {
         color: #000;
         text-decoration: underline;
@@ -188,7 +175,7 @@ footer {
     }
 
     .download-links {
-        padding: 0 30px;
+        padding: 0 15px;
 
         li {
             display: inline-block;
@@ -199,7 +186,7 @@ footer {
     .apple-app-store-download {
         a {
             display: inline-block;
-            width: 150px;
+            width: 130px;
             height: 60px;
             background-size: contain;
             margin: 8px;
@@ -245,6 +232,31 @@ footer {
 
             + a {
               margin-top: 10px;
+            }
+        }
+    }
+
+    @include media-breakpoint-up(lg) {
+        .apps-row {
+            p {
+                width: 304px;
+            }
+
+            .copyright {
+                text-align: left;
+            }
+        }
+    }
+
+    @include media-breakpoint-up(xl) {
+        .download-links {
+            padding: 0 30px;
+        }
+
+        .google-play-download,
+        .apple-app-store-download {
+            a {
+                width: 150px;
             }
         }
     }
