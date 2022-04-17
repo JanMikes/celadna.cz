@@ -718,19 +718,24 @@ footer {
 
 .simple-text-section {
     @include make-container();
-    max-width: 900px;
-    padding: 50px 0;
-    min-height: 450px;
+    max-width: $content-max-width;
+    margin-bottom: 25px;
 
     h2 {
-        font-size: 40px;
+        font-size: 30px;
         font-weight: bold;
         text-transform: uppercase;
         margin-bottom: 20px;
+
+        @include media-breakpoint-up(sm) {
+            font-size: 40px;
+        }
     }
 
     p {
-        margin-left: 40px;
+        @include media-breakpoint-up(sm) {
+            margin-left: 40px;
+        }
     }
 }
 
