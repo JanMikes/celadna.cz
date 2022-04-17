@@ -385,7 +385,7 @@ footer {
 .carousel-wrapper {
     background: linear-gradient(180deg, #244199 0%, #127242 100%) #244199;
     color: #fff;
-    min-height: 800px;
+    min-height: 870px;
 }
 
 #homepage-carousel {
@@ -401,7 +401,7 @@ footer {
     }
 
     .carousel-inner {
-        min-height: 700px;
+        min-height: 660px;
     }
 
     .slide-inner {
@@ -464,9 +464,10 @@ footer {
         color: #fff;
         max-width: 943px;
         text-transform: uppercase;
-        font-size: 40px;
+        font-size: 30px;
         margin: 0 auto 30px;
         font-weight: bold;
+        text-align: center;
     }
 
     ul {
@@ -548,7 +549,9 @@ footer {
     }
 
     @include media-breakpoint-up(md) {
-        ul {
+        h2 {
+            font-size: 40px;
+            text-align: left;
         }
 
         li {
