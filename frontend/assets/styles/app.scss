@@ -705,14 +705,18 @@ footer {
 
 .uredni-deska-text-section {
     @include make-container();
-    max-width: 920px;
-    padding: 50px 0 0;
+    max-width: $content-max-width;
+    padding-top: 20px;
 
     h2 {
-        font-size: 40px;
+        font-size: 30px;
         font-weight: bold;
         text-transform: uppercase;
         margin-bottom: 20px;
+
+        @include media-breakpoint-up(sm) {
+            font-size: 40px;
+        }
     }
 }
 
@@ -1015,7 +1019,7 @@ footer {
 
 .uredni-deska-section {
     @include make-container();
-    max-width: 940px;
+    max-width: $content-max-width;
     padding-top: 25px;
     padding-bottom: 25px;
 
