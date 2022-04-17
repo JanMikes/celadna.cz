@@ -858,8 +858,7 @@ footer {
 
 .detail-aktuality-section {
     @include make-container();
-    max-width: 940px;
-    padding-top: 40px;
+    max-width: $content-max-width;
     padding-bottom: 40px;
     min-height: 400px;
 
@@ -878,14 +877,37 @@ footer {
         }
     }
 
+    .img-wrapper {
+        text-align: center;
+    }
+
     img {
         max-width: 100%;
+        max-height: 500px;
+        margin-bottom: 20px;
     }
 
     article {
         margin-top: 30px;
         border: 1px solid #eaeaea;
-        padding: 24px 36px;
+        padding: 20px 15px;
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        @include media-breakpoint-up(sm) {
+            padding: 24px 36px;
+        }
+    }
+
+    h2 {
+        font-weight: bold;
+        font-size: 26px;
+
+        @include media-breakpoint-up(sm) {
+            font-size: 32px;
+        }
     }
 }
 
