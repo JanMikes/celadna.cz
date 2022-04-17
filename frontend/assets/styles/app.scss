@@ -386,10 +386,21 @@ footer {
     background: linear-gradient(180deg, #244199 0%, #127242 100%) #244199;
     color: #fff;
     min-height: 870px;
+
+    @include media-breakpoint-up(md) {
+        min-height: 910px;
+    }
+
+    @include media-breakpoint-up(lg) {
+        min-height: 690px;
+    }
+
+    @include media-breakpoint-up(xl) {
+        min-height: 800px;
+    }
 }
 
 #homepage-carousel {
-
     h2 {
         text-transform: uppercase;
         font-weight: 900;
@@ -402,6 +413,10 @@ footer {
 
     .carousel-inner {
         min-height: 660px;
+
+        @include media-breakpoint-up(md) {
+            min-height: 710px;
+        }
     }
 
     .slide-inner {
@@ -427,19 +442,30 @@ footer {
         background: url('../images/homepage-lazenstvi.png') center center no-repeat;
     }
 
-    @include media-breakpoint-up(md) {
-
-    }
-
     @include media-breakpoint-up(lg) {
         .carousel-inner {
-            min-height: 530px;
+            min-height: 470px;
         }
 
         .container {
             padding-top: 70px;
         }
 
+        .decoration-image {
+            max-width: 500px;
+            width: 45%;
+        }
+
+        .slide-inner {
+            float: right;
+            padding-left: 30px;
+            padding-right: 120px;
+            width: calc(100% - min(45%, 500px));
+        }
+
+    }
+
+    @include media-breakpoint-up(xl) {
         .decoration-image {
             max-width: 680px;
             width: 60%;
