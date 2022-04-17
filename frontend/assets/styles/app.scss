@@ -9,6 +9,8 @@ $font-weight-light:           200;
 
 $breadcrumb-divider: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E");
 
+$content-max-width: 1024px;
+
 @import "montserrat-font.css";
 
 // the ~ allows you to reference things in node_modules
@@ -787,36 +789,59 @@ footer {
 
 .aktuality-section {
     @include make-container();
-    max-width: 940px;
+    max-width: $content-max-width;
     padding-top: 30px;
     padding-bottom: 40px;
     min-height: 400px;
 
     h2 {
-        font-size: 40px;
+        font-size: 30px;
         font-weight: bold;
         text-transform: uppercase;
         margin-bottom: 30px;
+
+        @include media-breakpoint-up(sm) {
+            font-size: 40px;
+        }
     }
 
     article {
         border: 1px solid #eaeaea;
-        display: flex;
+        @include make-row();
         justify-items: center;
+        align-items: center;
+        margin-left: 0;
+        margin-right: 0;
 
         + article {
             margin-top: 15px;
         }
 
         img {
-            max-width: 290px;
+            @include make-col-ready();
+            padding: 0;
+
+            @include media-breakpoint-up(sm) {
+                @include make-col();
+                max-width: 200px;
+            }
+
+            @include media-breakpoint-up(md) {
+                max-width: 290px;
+            }
         }
 
         .actuality-content {
-            padding: 24px 36px;
+            @include make-col-ready();
+            padding: 24px 15px 24px 15px;
 
             p:last-child {
                 margin-bottom: 0;
+            }
+
+            @include media-breakpoint-up(sm) {
+                @include make-col();
+                padding: 24px 15px 24px 30px;
             }
         }
 
@@ -1328,8 +1353,10 @@ footer {
 }
 
 .breadcrumb {
-    max-width: 1020px;
-    margin: 30px auto;
+    @include make-container();
+    max-width: $content-max-width;
+    margin-top: 30px;
+    margin-bottom: 30px;
     font-size: 14px;
 
     a {
