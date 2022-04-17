@@ -18,8 +18,8 @@ body {
     padding-top: 79px;
 
     @include media-breakpoint-up(lg) {
-        // padding-top: 100px;
-        padding-top: 132px;
+        padding-top: 100px;
+        // padding-top: 132px;
     }
 }
 
@@ -119,6 +119,20 @@ footer {
         max-width: 1300px;
     }
 
+    .apps-row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        p {
+            width: 280px;
+        }
+    }
+
+    .copyright {
+        text-align: left;
+    }
+
     a {
         color: #000;
         text-decoration: underline;
@@ -148,21 +162,20 @@ footer {
         }
     }
 
-    .download-links li {
-        display: inline-block;
-    }
+    .download-links {
+        padding: 0 30px;
 
-    .copyright {
-        max-width: 190px;
-        margin: 20px auto 0;
+        li {
+            display: inline-block;
+        }
     }
 
     .google-play-download,
     .apple-app-store-download {
         a {
             display: inline-block;
-            width: 120px;
-            height: 40px;
+            width: 150px;
+            height: 60px;
             background-size: contain;
             margin: 8px;
         }
@@ -1264,7 +1277,7 @@ footer {
     }
 }
 
-p + br, br + br {
+p + br {
     display: none;
 }
 

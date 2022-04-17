@@ -65,7 +65,9 @@
         </nav>
     </header>
 
-    <div class="in-progress-lista">Právě pro vás aktualizujeme webové stránky, omluvte prosím případně dočasné nedostatky. Staré webové stránky jsou dostupné na adrese <a href="http://www.archiv.celadna.cz"><b>www.archiv.celadna.cz</b></a>.</div>
+    {#
+        <div class="in-progress-lista">Právě pro vás aktualizujeme webové stránky, omluvte prosím případně dočasné nedostatky. Staré webové stránky jsou dostupné na adrese <a href="http://www.archiv.celadna.cz"><b>www.archiv.celadna.cz</b></a>.</div>
+    #}
 
     <main>
         {% block content %}{% endblock %}
@@ -73,40 +75,48 @@
 
     <footer>
         <div class="inner-footer">
-            <p>Aplikace Obec Čeladná ke stažení zdarma.</p>
+            <div class="apps-row">
+                <p>Aplikace Obec Čeladná ke stažení zdarma.</p>
 
-            <ul class="download-links">
-                <li class="google-play-download">
-                    <a href="https://play.google.com/store/apps/details?id=cz.tripon.obecceladna">
-                        <span class="visually-hidden-focusable">
-                            Stáhnout z Google Play
-                        </span>
-                    </a>
-                </li>
-                <li class="apple-app-store-download">
-                    <a href="https://itunes.apple.com/us/app/obec-celadna/id1102072135?l=cs&ls=1&mt=8">
-                        <span class="visually-hidden-focusable">
-                            Stáhnout z Apple App Store
-                        </span>
-                    </a>
-                </li>
-            </ul>
+                <ul class="download-links">
+                    <li class="google-play-download">
+                        <a href="https://play.google.com/store/apps/details?id=cz.tripon.obecceladna">
+                            <span class="visually-hidden-focusable">
+                                Stáhnout z Google Play
+                            </span>
+                        </a>
+                    </li>
+                    <li class="apple-app-store-download">
+                        <a href="https://itunes.apple.com/us/app/obec-celadna/id1102072135?l=cs&ls=1&mt=8">
+                            <span class="visually-hidden-focusable">
+                                Stáhnout z Apple App Store
+                            </span>
+                        </a>
+                    </li>
+                </ul>
 
-                <section class="banners">
-                    {% for footerItem in footer %}
-                        <div class="banner-wrapper">
-                            <a href="{{ footerItem.Odkaz }}"><img src="{{ footerItem.Obrazek }}" alt=""></a>
-                        </div>
-                    {% endfor %}
+                <p class="copyright">
+                    Copyright &copy; Čeladná<br>
+                    Všechna práva vyhrazena.<br>
+                    Vytvořil <a href="https://wantoo.cz">Wantoo design</a>
+                </p>
+            </div>
 
+            <section class="banners">
+                {% for footerItem in footer %}
                     <div class="banner-wrapper">
-                        <iframe src="https://polar.cz/rss/celadna" scrolling="no"></iframe>
+                        <a href="{{ footerItem.Odkaz }}"><img src="{{ footerItem.Obrazek }}" alt=""></a>
                     </div>
+                {% endfor %}
 
-                    <div class="banner-wrapper">
-                        <img src="https://ovm.bezstavy.cz/v1/gAkgN2F-FTL4Zf7btVeZd3FlmWSv-g/b/250" alt="ČEZ Distribuce – Plánované odstávky">
-                    </div>
-                </section>
+                <div class="banner-wrapper">
+                    <iframe src="https://polar.cz/rss/celadna" scrolling="no"></iframe>
+                </div>
+
+                <div class="banner-wrapper">
+                    <img src="https://ovm.bezstavy.cz/v1/gAkgN2F-FTL4Zf7btVeZd3FlmWSv-g/b/250" alt="ČEZ Distribuce – Plánované odstávky">
+                </div>
+            </section>
 
             <ul class="footer-links">
                 <li>
@@ -118,13 +128,10 @@
                 <li>
                     <a href="{{ path('gdpr') }}">Ochrana osobních údajů</a>
                 </li>
+                <li>
+                    <a href="https://archiv.celadna.cz">Archiv</a>
+                </li>
             </ul>
-
-            <p class="copyright">
-                Copyright &copy; Čeladná
-                Všechna práva vyhrazena.
-                Vytvořil <a href="https://wantoo.cz">Wantoo design</a>
-            </p>
         </div>
     </footer>
 </body>
