@@ -1272,19 +1272,22 @@ footer {
     }
 
     .graficky-pas-inner {
-        min-height: 900px;
         @include make-row();
         align-items: center;
+
+        @include media-breakpoint-up(md) {
+            min-height: 900px;
+        }
     }
 
     &.alignment-left {
-        .container {
+        .graficky-pas-inner {
             flex-direction: row;
         }
     }
 
     &.alignment-right {
-        .container {
+        .graficky-pas-inner {
             flex-direction: row-reverse;
         }
     }
@@ -1319,21 +1322,10 @@ footer {
         }
     }
 
-    @include media-breakpoint-up(md) {
-        .decoration-image {
-            max-width: 400px;
-        }
-
-        .banner-text {
-            float: right;
-            width: calc(100% - 400px);
-            padding-left: 30px;
-        }
-    }
-
     .tlacitko-link {
         display: inline-block;
-        color: #A9BF04;
+        background: #A9BF04;
+        color: #fff;
         border: 1px solid #A9BF04;
         border-radius: 40px;
         height: 48px;
@@ -1346,12 +1338,35 @@ footer {
         margin-top: 20px;
 
         &:hover {
-            color: #fff;
-            background: #A9BF04;
+            color: #000;
+            background: #fff;
+            border-color: #000;
+        }
+    }
+
+    @include media-breakpoint-up(md) {
+        .decoration-image {
+            max-width: 400px;
+        }
+
+        .banner-text {
+            float: right;
+            width: calc(100% - 400px);
+            padding-left: 30px;
         }
     }
 
     @include media-breakpoint-up(lg) {
+        .decoration-image {
+            max-width: 540px;
+        }
+
+        .banner-text {
+            width: calc(100% - 540px);
+        }
+    }
+
+    @include media-breakpoint-up(xl) {
         .decoration-image {
             max-width: 680px;
         }
