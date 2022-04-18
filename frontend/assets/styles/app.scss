@@ -891,7 +891,6 @@ footer {
     max-width: $content-max-width;
     padding-top: 30px;
     padding-bottom: 40px;
-    min-height: 400px;
 
     h2 {
         font-size: 30px;
@@ -959,7 +958,6 @@ footer {
     @include make-container();
     max-width: $content-max-width;
     padding-bottom: 40px;
-    min-height: 400px;
 
     a {
         color: #000;
@@ -1078,7 +1076,6 @@ footer {
     max-width: $content-max-width;
     padding-top: 40px;
     padding-bottom: 40px;
-    min-height: 450px;
 
     h2 {
         font-size: 30px;
@@ -1165,7 +1162,6 @@ footer {
     max-width: $content-max-width;
     padding-top: 20px;
     padding-bottom: 40px;
-    min-height: 400px;
 
     time {
         font-weight: bold;
@@ -1239,7 +1235,6 @@ footer {
     max-width: 1200px;
     padding-top: 25px;
     padding-bottom: 25px;
-    min-height: 400px;
 
     .objekty-wrapper {
         @include make-row();
@@ -1342,7 +1337,6 @@ footer {
     max-width: $content-max-width;
     padding-top: 40px;
     padding-bottom: 50px;
-    min-height: 450px;
 
     h2 {
         font-size: 40px;
