@@ -363,6 +363,11 @@ footer {
         @include make-col-ready();
         margin-top: 10px;
         padding-bottom: 15px;
+        text-align: center;
+
+        @include media-breakpoint-up(md) {
+            text-align: left;
+        }
     }
 
     .decoration-image {
@@ -398,10 +403,14 @@ footer {
         border: 1px solid #fff;
         padding: 8px 30px;
         text-decoration: none;
-        margin: 0 15px 15px 0;
+        margin: 0 15px 15px 15px;
 
         &:hover {
             background: #a9bf04;
+        }
+
+        @include media-breakpoint-up(md) {
+            margin-left: 0;
         }
     }
 
