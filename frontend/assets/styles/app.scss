@@ -1003,10 +1003,16 @@ footer {
     h3 {
         color: #244199;
         font-weight: 900;
-        font-size: 30px;
-        margin-bottom: 40px;
+        font-size: 24px;
+        margin-bottom: 30px;
         border-bottom: 2px solid #244199;
-        padding-bottom: 18px;
+        padding-bottom: 12px;
+
+        @include media-breakpoint-up(sm) {
+            font-size: 30px;
+            margin-bottom: 40px;
+            padding-bottom: 18px;
+        }
     }
 }
 
@@ -1279,6 +1285,8 @@ footer {
     .graficky-pas-inner {
         @include make-row();
         align-items: center;
+        padding-top: 20px;
+        padding-bottom: 20px;
 
         @include media-breakpoint-up(md) {
             min-height: 900px;
