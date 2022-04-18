@@ -1260,6 +1260,7 @@ footer {
     color: #fff;
     @include clearfix;
     position: relative;
+    overflow: hidden;
 
     .letajici-obrazek {
         position: absolute;
@@ -1267,11 +1268,12 @@ footer {
 
     .banner-text {
         z-index: 5;
+        @include make-col-ready();
     }
 
-    .container {
+    .graficky-pas-inner {
         min-height: 900px;
-        display: flex;
+        @include make-row();
         align-items: center;
     }
 
@@ -1292,16 +1294,29 @@ footer {
     }
 
     .decoration-image {
-        width: 100%;
+        @include make-col-ready();
         aspect-ratio: 3 / 2;
         background-size: contain;
     }
 
     h2 {
-        font-size: 60px;
+        font-size: 32px;
         font-weight: 900;
         text-transform: uppercase;
         margin-top: -15px;
+
+        @include media-breakpoint-up(sm) {
+            font-size: 40px;
+        }
+        @include media-breakpoint-up(md) {
+            font-size: 48px;
+        }
+        @include media-breakpoint-up(lg) {
+            font-size: 54px;
+        }
+        @include media-breakpoint-up(xl) {
+            font-size: 60px;
+        }
     }
 
     @include media-breakpoint-up(md) {
