@@ -1081,21 +1081,34 @@ footer {
     min-height: 450px;
 
     h2 {
-        font-size: 40px;
+        font-size: 30px;
         font-weight: bold;
         text-transform: uppercase;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
+
+        @include media-breakpoint-up(sm){
+            font-size: 40px;
+            margin-bottom: 30px;
+        }
     }
 
     h3 {
         color: #244199;
         font-weight: 900;
-        font-size: 30px;
-        margin-bottom: 40px;
         border-bottom: 2px solid #244199;
-        padding-bottom: 18px;
         margin-top: 30px;
+        font-size: 24px;
+        margin-bottom: 30px;
+        border-bottom: 2px solid #244199;
+        padding-bottom: 12px;
+
+        @include media-breakpoint-up(sm) {
+            font-size: 30px;
+            margin-bottom: 40px;
+            padding-bottom: 18px;
+        }
     }
+
 
     article + h3 {
         margin-top: 50px;
@@ -1109,6 +1122,11 @@ footer {
         + .uredni-deska-section {
             padding-top: 10px;
         }
+    }
+
+    .uredni-deska-section {
+        padding-left: 0;
+        padding-right: 0;
     }
 }
 
@@ -1186,7 +1204,7 @@ footer {
                 @include make-col(6);
             }
             @include media-breakpoint-up(lg) {
-                width: calc(50% - 60px);
+                width: calc(50% - 40px);
             }
         }
 
