@@ -347,31 +347,48 @@ footer {
 .button-banner {
     background: linear-gradient(180deg, #244199 0%, #127242 100%) #244199;
     color: #fff;
-
-    .container {
-        min-height: 450px;
-        display: flex;
-        align-items: center;
-    }
+    @include clearfix;
 
     a {
         color: #fff;
     }
 
-    @include clearfix;
+    .button-banner-inner {
+        @include make-row();
+        align-items: center;
+        min-height: 450px;
+    }
+
+    .banner-text {
+        @include make-col-ready();
+        margin-top: 10px;
+        padding-bottom: 15px;
+    }
 
     .decoration-image {
-        width: 100%;
+        @include make-col-ready();
+        width: 90%;
         aspect-ratio: 3 / 2;
         background-size: contain;
+        margin: 0 auto;
     }
 
     h2 {
-        font-size: 60px;
+        font-size: 32px;
         font-weight: 900;
         text-transform: uppercase;
-        margin-top: -15px;
         margin-bottom: 30px;
+
+        @include media-breakpoint-up(md) {
+            margin-top: -15px;
+            font-size: 40px;
+        }
+        @include media-breakpoint-up(lg) {
+            font-size: 48px;
+        }
+        @include media-breakpoint-up(xl) {
+            font-size: 60px;
+        }
     }
 
     .buttons a {
@@ -394,13 +411,22 @@ footer {
         }
 
         .banner-text {
-            float: right;
             width: calc(100% - 400px);
             padding-left: 30px;
         }
     }
 
     @include media-breakpoint-up(lg) {
+        .decoration-image {
+            max-width: 540px;
+        }
+
+        .banner-text {
+            width: calc(100% - 540px);
+        }
+    }
+
+    @include media-breakpoint-up(xl) {
         .decoration-image {
             max-width: 680px;
         }
@@ -1135,18 +1161,28 @@ footer {
 
 .sluzby-section {
     @include make-container();
-    max-width: 900px;
-    padding-top: 40px;
-    padding-bottom: 40px;
-    min-height: 400px;
+    max-width: $content-max-width;
+    padding-bottom: 20px;
 
     .sluzby-wrapper {
         @include make-row();
+        justify-content: space-between;
 
         article {
-            @include make-col-auto();
-            width: calc(50% - 60px);
-            margin: 30px;
+            @include make-col-ready();
+            margin-top: 30px;
+            margin-bottom: 30px;
+
+            @include media-breakpoint-up(sm) {
+                @include make-col(6);
+            }
+            @include media-breakpoint-up(lg) {
+                width: calc(50% - 60px);
+            }
+        }
+
+        br + br {
+            display: none;
         }
 
         h3 {

@@ -1,17 +1,19 @@
 <section class="button-banner">
     <div class="container">
-        <div role="presentation" class="decoration-image" style="background-image: url('{{ banner.Obrazek }}');"></div>
+        <div class="text-banner-inner">
+            <div role="presentation" class="decoration-image" style="background-image: url('{{ banner.Obrazek }}');"></div>
 
-        <div class="banner-text">
-            <h2>{{ banner.Nadpis }}</h2>
+            <div class="banner-text">
+                <h2>{{ banner.Nadpis }}</h2>
 
-            <p class="buttons">
-                {% for tlacitko in banner.Tlacitka %}
-                    <a href="{{ tlacitko.Odkaz }}">
-                        {{ tlacitko.Text }}
-                    </a>
-                {% endfor %}
-            </p>
+                <p class="buttons">
+                    {% for tlacitko in banner.Tlacitka %}
+                        <a href="{{ tlacitko.Odkaz }}">
+                            {{ tlacitko.Text }}
+                        </a>
+                    {% endfor %}
+                </p>
+            </div>
         </div>
     </div>
 </section>
