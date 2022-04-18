@@ -18,7 +18,8 @@
         <div class="objekty-wrapper">
             {% for restaurace_objekt in restaurace.Restaurace %}
                 {{ include('_karta_objektu.html.twig', {
-                    'objekt': restaurace_objekt
+                    'objekt': restaurace_objekt,
+                    'number': loop.index,
                 }) }}
             {% endfor %}
         </div>

@@ -1186,8 +1186,23 @@ footer {
     article {
         @include make-col-auto;
         width: 240px;
-        margin: 40px 30px;
+        margin: 65px 30px 50px;
         text-align: center;
+        position: relative;
+
+        &::after {
+            content: var(--tooltip);
+            font-weight: bold;
+            font-size: 150px;
+            color: rgba(0, 0, 0, 0.04);
+            letter-spacing: -5px;
+            position: absolute;
+            left: 0;
+            top: -155px;
+            width: 100%;
+            text-align: center;
+            z-index: 1;
+        }
     }
 
     .address {
