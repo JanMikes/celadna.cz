@@ -1212,6 +1212,8 @@ footer {
 
     img {
         width: 100%;
+        position: relative;
+        z-index: 2;
     }
 
     h3 {
@@ -1243,6 +1245,8 @@ footer {
         font-size: 14px;
         text-decoration: none;
         margin-top: 20px;
+        position: relative;
+        z-index: 2;
 
         &:hover {
             color: #fff;
