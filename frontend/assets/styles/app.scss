@@ -992,13 +992,12 @@ footer {
 
 .kontakty-section {
     @include make-container();
-    max-width: 940px;
-    padding-top: 40px;
-    padding-bottom: 40px;
-    min-height: 400px;
+    max-width: $content-max-width;
+    padding-top: 15px;
+    padding-bottom: 25px;
 
     article {
-        margin: 25px 0 40px;
+        margin: 10px 0 40px;
     }
 
     h3 {
