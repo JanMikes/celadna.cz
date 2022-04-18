@@ -1264,6 +1264,11 @@ footer {
 
     .letajici-obrazek {
         position: absolute;
+        display: none;
+
+        @include media-breakpoint-up(md) {
+            display: inline-block;
+        }
     }
 
     .banner-text {
