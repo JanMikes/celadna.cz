@@ -783,10 +783,6 @@ footer {
     }
 }
 
-.documents-section .simple-text-section {
-    min-height: 150px;
-}
-
 .uredni-deska-text-section {
     @include make-container();
     max-width: $content-max-width;
@@ -1672,5 +1668,17 @@ p + br {
         margin: 0 8px 0 0;
         display: inline-block;
         font-size: 14px;
+    }
+
+    a.year {
+        display: inline-block;
+        background: #a9bf04;
+        text-decoration: none;
+        color: #fff;
+        padding: 3px 8px;
+
+        &:hover {
+            color: #000;
+        }
     }
 }

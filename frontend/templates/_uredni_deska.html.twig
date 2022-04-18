@@ -6,7 +6,7 @@
             <li class="show-only">Zobrazit pouze rok:</li>
             {% for year in years %}
                 <li>
-                    <a href="{{ path(app.request.attributes.get('_route')) }}?{{ years_filter_name }}={{ year }}">
+                    <a class="year" href="{{ path(app.request.attributes.get('_route')) }}?{{ years_filter_name }}={{ year }}">
                         {{ year }}
                     </a>
                 </li>
