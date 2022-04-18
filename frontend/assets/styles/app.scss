@@ -512,7 +512,7 @@ footer {
 .homepage-quick-links {
     @include make-container();
     max-width: 1480px;
-    margin-top: -180px;
+    margin-top: -190px;
     margin-bottom: 40px;
 
     h2 {
@@ -520,7 +520,7 @@ footer {
         max-width: 943px;
         text-transform: uppercase;
         font-size: 30px;
-        margin: 0 auto 30px;
+        margin: 0 auto 60px;
         font-weight: bold;
         text-align: center;
     }
@@ -537,6 +537,26 @@ footer {
         padding: 0;
         text-align: center;
         @include make-col-ready();
+        position: relative;
+
+        &::after {
+            content: var(--tooltip);
+            font-weight: bold;
+            font-size: 150px;
+            color: rgba(231, 231, 231, 0.15);
+            letter-spacing: -5px;
+            position: absolute;
+            left: 0;
+            top: -100px;
+            width: 100%;
+            text-align: center;
+            z-index: 1;
+            display: none;
+
+            @include media-breakpoint-up(md) {
+                display: inline-block;
+            }
+        }
     }
 
     a {
@@ -548,6 +568,7 @@ footer {
         text-transform: uppercase;
         text-decoration: none;
         font-size: 24px;
+        z-index: 2;
 
         &:hover span {
             color: #fff;
@@ -571,6 +592,7 @@ footer {
             letter-spacing: 0.05em;
             font-size: 16px;
             text-transform: none;
+            z-index: 3;
         }
 
         &::before {
@@ -1250,11 +1272,17 @@ footer {
     h3 {
         color: #244199;
         font-weight: 900;
-        font-size: 30px;
-        margin-bottom: 40px;
-        border-bottom: 2px solid #244199;
-        padding-bottom: 18px;
+        font-size: 24px;
         margin-top: 30px;
+        margin-bottom: 30px;
+        border-bottom: 2px solid #244199;
+        padding-bottom: 12px;
+
+        @include media-breakpoint-up(sm) {
+            font-size: 30px;
+            margin-bottom: 40px;
+            padding-bottom: 18px;
+        }
     }
 
     article + h3 {
