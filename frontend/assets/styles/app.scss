@@ -1679,3 +1679,28 @@ p + br {
         }
     }
 }
+
+.sitemap {
+    @include make-container();
+    max-width: $content-max-width;
+    margin-bottom: 25px;
+
+    h2 {
+        font-size: 30px;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+
+        @include media-breakpoint-up(sm) {
+            font-size: 40px;
+        }
+    }
+
+    a {
+        font-size: 16px;
+    }
+
+    li {
+      margin-top: 8px;
+    }
+}

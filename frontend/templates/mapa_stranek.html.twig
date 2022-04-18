@@ -10,22 +10,62 @@
         },
     }) }}
 
-    <h2>Mapa stránek</h2>
+    <section class="sitemap">
+        <h2>Mapa stránek</h2>
 
-    <nav>
-        <ul>
-            <li><a href="#">Odkaz</a></li>
-            <li><a href="#">Odkaz</a></li>
-
+        <nav>
             <ul>
-                <li><a href="#">Odkaz</a></li>
-                <li><a href="#">Odkaz</a></li>
-            </ul>
+                <li><a href="{{ path('homepage') }}">Úvodní stránka</a></li>
+                <li><a href="{{ path('aktuality') }}">Aktuality</a></li>
 
-            <li><a href="#">Odkaz</a></li>
-            <li><a href="#">Odkaz</a></li>
-        </ul>
-    </nav>
+                <li>
+                    <a href="{{ path('obec') }}">Obec</a>
+                    <ul>
+                        <li><a href="{{ path('obec_aktivity') }}">Aktivity</a></li>
+                        <li><a href="{{ path('obec_historie') }}">Historie</a></li>
+                        <li><a href="{{ path('obec_obecni_organizace') }}">Obecní organizace</a></li>
+                        <li><a href="{{ path('obec_organizace') }}">Organizace</a></li>
+                        <li><a href="{{ path('obec_restaurace') }}">Restaurace</a></li>
+                        <li><a href="{{ path('obec_sluzby') }}">Služby</a></li>
+                        <li><a href="{{ path('obec_ubytovani') }}">Ubytování</a></li>
+                        <li><a href="{{ path('obec_vylety') }}">Výlety</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="{{ path('urad') }}">Obecní úřad</a>
+                    <ul>
+                        <li>
+                            <a href="{{ path('urad_dokumenty_uradu') }}">Dokumenty úřadu</a>
+                            <ul>
+                                <li><a href="{{ path('urad_dokumenty_formulare') }}">Formuláře</a></li>
+                                <li><a href="{{ path('urad_dokumenty_navody') }}">Návody</a></li>
+                                <li><a href="{{ path('urad_dokumenty_odpady') }}">Odpady</a></li>
+                                <li><a href="{{ path('urad_dokumenty_rozpocty') }}">Rozpočty</a></li>
+                                <li><a href="{{ path('urad_dokumenty_strategicke_dokumenty') }}">Strategické dokumenty</a></li>
+                                <li><a href="{{ path('urad_dokumenty_uzemni_plan') }}">Územní plán</a></li>
+                                <li><a href="{{ path('urad_dokumenty_uzemni_studie') }}">Územní studie</a></li>
+                                <li><a href="{{ path('urad_dokumenty_verejnopravni_smlouvy') }}">Veřejnoprávní smlouvy</a></li>
+                                <li><a href="{{ path('urad_dokumenty_vyhlasky') }}">Vyhlášky</a></li>
+                                <li><a href="{{ path('urad_dokumenty_vyrocni_zprava') }}">Výroční zprávy</a></li>
+                                <li><a href="{{ path('urad_dokumenty_zivotni_situace') }}">Životní situace</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="{{ path('urad_kontakty') }}">Kontakty</a></li>
+                        <li><a href="{{ path('urad_povinne_informace') }}">Povinně zveřejňované informace</a></li>
+                        <li><a href="{{ path('urad_samosprava') }}">Samospráva</a></li>
+                        <li><a href="{{ path('urad_struktura_uradu') }}">Struktura úřadu</a></li>
+                        <li><a href="{{ path('uredni_deska') }}">Úřední deska</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="{{ path('pristupnost') }}">Prohlášení o přístupnosti</a></li>
+                <li><a href="{{ path('gdpr') }}">Ochrana osobních údajů</a></li>
+                <li><a href="{{ path('mapa_stranek') }}">Mapa stránek</a></li>
+            </ul>
+        </nav>
+    </section>
+
 
 {% endblock %}
 
