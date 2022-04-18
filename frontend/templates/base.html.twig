@@ -14,6 +14,7 @@
     <meta name="description" content="Obec Čeladná se nachází v okrese Frýdek-Místek v Moravskoslezském kraji. Obec je situována v podhůří Beskyd. Žije zde přibližně 2 900 obyvatel. ">
 
     <link rel="canonical" href="https://celadna.cz">
+    <link rel="icon" type="image/x-icon" href="{{ asset('images/favicon.ico') }}">
 
     <title>{% if app.request.pathInfo != path('homepage') %}{{ block('title') }} - {% endif %}Obec Čeladná</title>
     <meta property="og:description" content="Obec Čeladná se nachází v okrese Frýdek-Místek v Moravskoslezském kraji. Obec je situována v podhůří Beskyd. Žije zde přibližně 2 900 obyvatel. ">
@@ -103,15 +104,15 @@
             </div>
 
             <section class="banners">
+                <div class="banner-wrapper">
+                    <iframe src="https://polar.cz/rss/celadna" scrolling="no"></iframe>
+                </div>
+
                 {% for footerItem in footer %}
                     <div class="banner-wrapper">
                         <a href="{{ footerItem.Odkaz }}"><img src="{{ footerItem.Obrazek }}" alt=""></a>
                     </div>
                 {% endfor %}
-
-                <div class="banner-wrapper">
-                    <iframe src="https://polar.cz/rss/celadna" scrolling="no"></iframe>
-                </div>
 
                 <div class="banner-wrapper">
                     <img src="https://ovm.bezstavy.cz/v1/gAkgN2F-FTL4Zf7btVeZd3FlmWSv-g/b/250" alt="ČEZ Distribuce – Plánované odstávky">

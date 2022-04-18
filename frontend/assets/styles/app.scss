@@ -699,7 +699,7 @@ footer {
     font-size: 14px;
 
     .container {
-        max-width: 940px;
+        max-width: $content-max-width;
     }
 
     h2, h3 {
@@ -1075,7 +1075,7 @@ footer {
 
 .samosprava-section {
     @include make-container();
-    max-width: 940px;
+    max-width: $content-max-width;
     padding-top: 40px;
     padding-bottom: 40px;
     min-height: 450px;
@@ -1339,7 +1339,7 @@ footer {
 
 .struktura-uradu-section {
     @include make-container();
-    max-width: 940px;
+    max-width: $content-max-width;
     padding-top: 40px;
     padding-bottom: 50px;
     min-height: 450px;
@@ -1520,16 +1520,20 @@ footer {
 
 .uzemni-dokumenty-section {
     @include make-container();
-    max-width: 940px;
+    max-width: $content-max-width;
     padding-top: 40px;
     padding-bottom: 50px;
     min-height: 450px;
 
     h2 {
-        font-size: 40px;
+        font-size: 30px;
         font-weight: bold;
         text-transform: uppercase;
         margin-bottom: 30px;
+
+        @include media-breakpoint-up(sm) {
+            font-size: 40px;
+        }
     }
 
     h3 {
