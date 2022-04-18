@@ -850,6 +850,10 @@ footer {
         margin-top: 35px;
         justify-content: center;
 
+        @include media-breakpoint-up(md) {
+            justify-content: flex-start;
+        }
+
         a {
             @include make-col-ready();
             width: 245px;
