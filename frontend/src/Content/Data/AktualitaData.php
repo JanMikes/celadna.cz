@@ -32,6 +32,11 @@ final class AktualitaData
         public readonly string $Popis,
 
         public readonly null|string $slug,
+
+        /**
+         * @var array<FileData> $Soubory
+         */
+        public readonly array $Soubory,
     ) {}
 
 
@@ -58,6 +63,7 @@ final class AktualitaData
             $tags,
             $data['Popis'],
             $data['slug'],
+            $data['Soubory']['data'] ? FileData::createManyFromStrapiResponse($data['Soubory']) : [],
         );
     }
 }

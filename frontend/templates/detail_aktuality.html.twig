@@ -47,6 +47,20 @@
             {% endif %}
 
             {{ aktualita.Popis|markdown_to_html|nl2br }}
+
+            {% if aktualita.Soubory %}
+                <ul class="files-list">
+                    {% for file in aktualita.Soubory %}
+                        <li>
+                            <a class="file-link" href="{{ file.url }}">
+                                <span class="file-caption">{{ file.caption}}</span>
+                                <span class="file-info">({{ file.kbytes }}kb)</span>
+                                <span class="icon-download"></span>
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
         </article>
     </section>
 {% endblock %}

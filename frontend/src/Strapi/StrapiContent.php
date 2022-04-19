@@ -185,6 +185,7 @@ final class StrapiContent implements Content
             'Galerie',
             'Zverejnil.Fotka',
             'Tagy',
+            'Soubory'
         ], filters: [
             'Zobrazovat' => ['$eq' => true],
             'slug' => ['$eq' => $slug]
