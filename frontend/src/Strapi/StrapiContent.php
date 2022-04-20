@@ -511,6 +511,7 @@ final class StrapiContent implements Content
         };
     }
 
+
     private function uredniDeskaKategorieToUredniDeskaField(string $kategorie): string|null
     {
         return match ($kategorie) {
@@ -536,6 +537,7 @@ final class StrapiContent implements Content
         };
     }
 
+
     public function getDokumentyUraduData(): SekceSDlazdicemaData
     {
         $strapiResponse = $this->strapiClient->getApiResource('urad-dokumenty-uradu', [
@@ -543,5 +545,26 @@ final class StrapiContent implements Content
         ]);
 
         return SekceSDlazdicemaData::createFromStrapiResponse($strapiResponse['data']['attributes']['Sekce_s_dlazdicema']);
+    }
+
+
+    /**
+     * @return array<string, string>
+     */
+    public function getTagy(): array
+    {
+        $strapiResponse = $this->strapiClient->getApiResource('tagies', [], []);
+
+        $tags = [];
+
+        foreach ($strapiResponse['data'] ?? [] as $tagData) {
+            if ($tagData['attributes']['slug'] === null) {
+                continue;
+            }
+
+            $tags[$tagData['attributes']['slug']] = $tagData['attributes']['Tag'];
+        }
+
+        return $tags;
     }
 }

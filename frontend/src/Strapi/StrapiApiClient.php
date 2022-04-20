@@ -26,8 +26,8 @@ final class StrapiApiClient
     ): array
     {
         $query = [
-            'populate' => $populate ?: '*',
-            'fields' => $fields ?: '*',
+            'populate' => $populate === null ? '*' : $populate,
+            'fields' => $fields === null ? '*' : $fields,
         ];
 
         if ($pagination !== null) {

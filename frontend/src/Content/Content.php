@@ -119,4 +119,9 @@ interface Content
      * @return array<GrafickyPasData>
      */
     public function getObecniOrganizaceData(): array;
+
+    /**
+     * @return array<string, string>
+     */
+    public function getTagy(): array;
 }

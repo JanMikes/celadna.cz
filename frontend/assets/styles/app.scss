@@ -1371,6 +1371,11 @@ footer {
     @include clearfix;
     position: relative;
     overflow: hidden;
+    text-align: center;
+
+    @include media-breakpoint-up(md) {
+        text-align: left;
+    }
 
     .letajici-obrazek {
         position: absolute;
@@ -1508,7 +1513,15 @@ footer {
     margin: 3px 3px 3px 0;
 
     &:hover {
-        // color: #000 !important;
+        color: #000 !important;
+    }
+
+    &.active_tag {
+        background: #000;
+
+        &:hover {
+            color: #fff !important;
+        }
     }
 }
 

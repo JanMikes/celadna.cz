@@ -11,6 +11,16 @@
     <section class="aktuality-section">
         <h2>Aktuality</h2>
 
+        {% if tagy %}
+            <p class="tags">
+                {% for TagSlug, Tag in tagy %}
+                    <a href="{{ path('aktuality_tag_filter', {'tag': TagSlug}) }}" class="tag-link {% if TagSlug is same as active_tag %}active_tag{% endif %}">
+                        {{ Tag }}
+                    </a>
+                {% endfor %}
+            </p>
+        {% endif %}
+
         {% for aktualita in aktuality %}
             <article>
                 {% if aktualita.Obrazek %}
