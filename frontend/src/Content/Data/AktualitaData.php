@@ -63,7 +63,7 @@ final class AktualitaData
             $tags,
             $data['Popis'],
             $data['slug'],
-            $data['Soubory']['data'] ? FileData::createManyFromStrapiResponse($data['Soubory']) : [],
+            isset($data['Soubory']['data']) ? FileData::createManyFromStrapiResponse($data['Soubory']) : [],
         );
     }
 }
