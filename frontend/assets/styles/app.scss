@@ -539,7 +539,11 @@ footer {
     }
 
     .slide-inner {
-        padding: 20px 7.5%;
+        padding: 0 7.5% 20px;
+
+        @include media-breakpoint-up(lg) {
+            padding-top: 20px;
+        }
     }
 
     .decoration-image {
@@ -579,13 +583,27 @@ footer {
         .slide-inner {
             float: right;
             padding-left: 30px;
-            padding-right: 120px;
+            padding-right: 30px;
             width: calc(100% - min(45%, 500px));
         }
 
     }
 
     @include media-breakpoint-up(xl) {
+        .decoration-image {
+            max-width: 600px;
+            width: 55%;
+        }
+
+        .slide-inner {
+            float: right;
+            padding-left: 30px;
+            padding-right: 90px;
+            width: calc(100% - min(55%, 600px));
+        }
+    }
+
+    @include media-breakpoint-up(xxl) {
         .decoration-image {
             max-width: 680px;
             width: 60%;
@@ -603,7 +621,7 @@ footer {
 .homepage-quick-links {
     @include make-container();
     max-width: 1480px;
-    margin-top: -215px;
+    margin-top: -190px;
     margin-bottom: 40px;
 
     h2 {
