@@ -34,6 +34,10 @@ a {
 header {
     color: #fff;
 
+    .container-fluid {
+        max-width: 1320px;
+    }
+
     a {
         color: #fff;
         font-weight: bold;
@@ -786,7 +790,7 @@ footer {
         font-weight: bold;
         font-size: 13px;
         text-decoration: none;
-        margin-top: 20px;
+        margin-top: 30px;
 
         &:hover {
             color: #fff;
@@ -1820,7 +1824,7 @@ p + br {
 
 .homepage-uredni-deska {
     .time {
-        margin: 30px 0 5px;
+        margin: 30px 0 0;
     }
 
     h4 {
