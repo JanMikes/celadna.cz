@@ -21,39 +21,43 @@
             </p>
         {% endif %}
 
-        {% for aktualita in aktuality %}
-            <article>
-                {% if aktualita.Obrazek %}
-                    <img src="{{ aktualita.Obrazek }}" alt="" aria-labelledby="aktualita-{{ aktualita.id }}">
-                {% endif %}
-
-                <div class="actuality-content">
-                    <h3 id="aktualita-{{ aktualita.id }}">
-                        {% if aktualita.slug %}
-                            <a href="{{ path('detail_aktuality', {'slug': aktualita.slug}) }}">
-                                {{ aktualita.Nadpis }}
-                            </a>
-                        {% else %}
-                            {{ aktualita.Nadpis }}
+        <div class="actualities-wrapper">
+            {% for aktualita in aktuality %}
+                <article>
+                    <div class="actuality-inner">
+                        {% if aktualita.Obrazek %}
+                            <img src="{{ aktualita.Obrazek }}" alt="" aria-labelledby="aktualita-{{ aktualita.id }}">
                         {% endif %}
-                    </h3>
 
-                    <p><time>{{ aktualita.DatumZverejneni|date('d.m.Y') }}</time></p>
+                        <div class="actuality-content">
+                            <h3 id="aktualita-{{ aktualita.id }}">
+                                {% if aktualita.slug %}
+                                    <a href="{{ path('detail_aktuality', {'slug': aktualita.slug}) }}">
+                                        {{ aktualita.Nadpis }}
+                                    </a>
+                                {% else %}
+                                    {{ aktualita.Nadpis }}
+                                {% endif %}
+                            </h3>
 
-                    {% if aktualita.Tagy %}
-                        <p class="tags">
-                            {% for TagSlug, Tag in aktualita.Tagy %}
-                                <a href="{{ path('aktuality_tag_filter', {'tag': TagSlug}) }}" class="tag-link">
-                                    {{ Tag }}
-                                </a>
-                            {% endfor %}
-                        </p>
-                    {% endif %}
+                            <p><time>{{ aktualita.DatumZverejneni|date('d.m.Y') }}</time></p>
 
-                    {{ aktualita.Popis|u.truncate(150, '...', true)|markdown_to_html|nl2br }}
-                </div>
-            </article>
-        {% endfor %}
+                            {% if aktualita.Tagy %}
+                                <p class="tags">
+                                    {% for TagSlug, Tag in aktualita.Tagy %}
+                                        <a href="{{ path('aktuality_tag_filter', {'tag': TagSlug}) }}" class="tag-link">
+                                            {{ Tag }}
+                                        </a>
+                                    {% endfor %}
+                                </p>
+                            {% endif %}
+
+                            {{ aktualita.Popis|u.truncate(150, '...', true)|markdown_to_html|nl2br }}
+                        </div>
+                    </div>
+                </article>
+            {% endfor %}
+        </div>
     </section>
 {% endblock %}
 
