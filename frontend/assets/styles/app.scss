@@ -67,7 +67,10 @@ header {
 
         .homepage {
             background: url('../images/home.svg') no-repeat center;
-            margin-right: 50px;
+
+            @include media-breakpoint-up(lg) {
+                margin-right: 50px;
+            }
         }
 
         .instagram {
@@ -90,6 +93,20 @@ header {
             span {
                 @include visually-hidden;
             }
+
+            &.mobile-icons {
+                @include media-breakpoint-down(lg) {
+                    display: none !important;
+                }
+            }
+        }
+
+    }
+
+    @include media-breakpoint-down(lg) {
+        .nav-link {
+            text-align: right;
+            padding-right: 13px !important;
         }
     }
 
