@@ -26,7 +26,9 @@
                 <article>
                     <div class="actuality-inner">
                         {% if aktualita.Obrazek %}
-                            <img src="{{ aktualita.Obrazek }}" alt="" aria-labelledby="aktualita-{{ aktualita.id }}">
+                            <div class="image-wrapper">
+                                <img src="{{ aktualita.Obrazek }}" alt="" aria-labelledby="aktualita-{{ aktualita.id }}">
+                            </div>
                         {% endif %}
 
                         <div class="actuality-content">

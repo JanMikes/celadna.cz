@@ -956,7 +956,7 @@ footer {
         }
 
         @include media-breakpoint-down(lg) {
-            @include make-col-ready();
+            @include make-col-ready(30px);
         }
         @include media-breakpoint-between(xs, sm) {
             @include make-col(12);
@@ -972,16 +972,23 @@ footer {
 
             .actuality-inner {
                 @include make-row();
+                align-items: center;
             }
         }
 
-        img {
+        .image-wrapper {
             @include make-col-ready();
             padding: 0;
+            max-height: 182px;
+            overflow: hidden;
 
             @include media-breakpoint-up(lg) {
                 max-width: 290px;
             }
+        }
+
+        img {
+            max-width: 100%;
         }
 
         .actuality-content {
@@ -1010,7 +1017,7 @@ footer {
 
     .actualities-wrapper {
         @include media-breakpoint-down(lg) {
-            @include make-row();
+            @include make-row(30px);
         }
     }
 }
