@@ -1047,8 +1047,12 @@ footer {
     }
 
     img {
-        max-width: 100%;
+        width: 100%;
+    }
+
+    .img-wrapper {
         max-height: 500px;
+        overflow: hidden;
         margin-bottom: 20px;
     }
 
