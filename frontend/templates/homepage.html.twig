@@ -3,39 +3,34 @@
 {% block content %}
     <div class="carousel-wrapper">
         <section id="homepage-carousel" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#homepage-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Golf a turistika"></button>
-                <button type="button" data-bs-target="#homepage-carousel" data-bs-slide-to="1" aria-label="Moderní obec"></button>
-                <button type="button" data-bs-target="#homepage-carousel" data-bs-slide-to="2" aria-label="Lázeňství"></button>
-            </div>
             <div class="carousel-inner">
                 <article class="carousel-item active">
                     <div class="container">
+                        <span role="presentation" class="decoration-image image-moderni-obec"></span>
                         <div class="slide-inner">
                             <h2>Moderní obec</h2>
                             <p>Nová éra Čeladné se datuje k roku 1999, kdy byla v obci zahájena výstavba nového centra obce, které bylo dokončeno v roce 2002. V roce 2001 bylo v obci otevřeno největší golfové hřiště v ČR. Od té doby zažívá Čeladná bouřlivý rozvoj a stala se vyhledávaným místem pro bydlení i rekreaci.</p>
                         </div>
-                        <span role="presentation" class="decoration-image image-moderni-obec"></span>
                     </div>
                 </article>
 
                 <article class="carousel-item">
                     <div class="container">
+                        <span role="presentation" class="decoration-image image-golf"></span>
                         <div class="slide-inner">
                             <h2>Golf a turistika</h2>
                             <p>V novodobé historii se Čeladná stala nejen vyhlášeným golfovým rájem, ale také významným turistickým centrem. Na počátku 21. století prošla většina zdejších ubytovacích zařízení výraznou modernizací a zároveň začaly vyrůstat nové hotely a penziony. Díky tomu dnes v obci najdou vhodné místo k rekreaci rodiny s dětmi, turisté i klienti, kteří hledají služby na nejvyšší světové úrovni.</p>
                         </div>
-                        <span role="presentation" class="decoration-image image-golf"></span>
                     </div>
                 </article>
 
                 <article class="carousel-item">
                     <div class="container">
+                        <span role="presentation" class="decoration-image image-lazenstvi"></span>
                         <div class="slide-inner">
                             <h2>Lázeňství</h2>
                             <p>Na lázeňskou tradici navázalo Beskydské rehabilitační centrum na úpatí Ondřejníku. Díky&nbsp; vysoké úrovni rehabilitační péče je BRC vyhledávaným zdravotnickým zařízením. Lara Spa doplnilo léčebné kůry o nadstandardní wellness služby a spolu s možností komfortního ubytování a stravování jezdí za vzácnou atmosférou rodinných lázní do Čeladné pacienti a hosté z celé republiky.</p>
                         </div>
-                        <span role="presentation" class="decoration-image image-lazenstvi"></span>
                     </div>
                 </article>
             </div>
@@ -68,7 +63,7 @@
             <h2>Infoservis</h2>
 
             <div class="content-wrapper">
-                <section>
+                <section class="homepage-aktuality">
                     <h3>Aktuality</h3>
 
                     {% for aktualita in aktuality %}
@@ -83,7 +78,7 @@
                                 {% endif %}
                             </h4>
 
-                            <p><time>{{ aktualita.DatumZverejneni|date('d.m.Y') }}</time></p>
+                            <p class="time"><time>{{ aktualita.DatumZverejneni|date('d.m.Y') }}</time></p>
 
                             {{ aktualita.Popis|u.truncate(150, '...', true)|markdown_to_html|nl2br }}
                         </article>
@@ -92,11 +87,15 @@
                     <a class="all-link" href="{{ path('aktuality') }}">Všechny aktuality</a>
                 </section>
 
-                <section>
+                <section class="homepage-uredni-deska">
                     <h3>Úřední deska</h3>
 
                     {% for uredni_deska_dokument in uredni_deska %}
                         <article>
+                            <p class="time">
+                                Zveřejněno od <time>{{ uredni_deska_dokument.Datum_zverejneni|date('d.m.Y') }}</time> {% if uredni_deska_dokument.Datum_stazeni %}do <time>{{ uredni_deska_dokument.Datum_stazeni|date('d.m.Y') }}</time>{% endif %}
+                            </p>
+
                             <h4>
                                 {% if uredni_deska_dokument.slug %}
                                     <a href="{{ path('detail_uredni_desky', {'slug': uredni_deska_dokument.slug}) }}">
@@ -107,9 +106,6 @@
                                 {% endif %}
                             </h4>
 
-                            <p>
-                                Zveřejněno od <time>{{ uredni_deska_dokument.Datum_zverejneni|date('d.m.Y') }}</time> {% if uredni_deska_dokument.Datum_stazeni %}do <time>{{ uredni_deska_dokument.Datum_stazeni|date('d.m.Y') }}</time>{% endif %}
-                            </p>
 
                             {% if uredni_deska_dokument.Kategorie %}
                                 <p class="tags">
