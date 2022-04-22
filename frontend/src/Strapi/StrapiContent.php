@@ -468,7 +468,6 @@ final class StrapiContent implements Content
             'Soubory',
             'Zodpovedna_osoba.Fotka',
         ], filters: [
-            'Zobrazovat' => ['$eq' => true],
             'slug' => ['$eq' => $slug],
         ]);
 
