@@ -109,12 +109,12 @@
 
             <section class="banners">
                 <div class="banner-wrapper">
-                    <iframe src="https://polar.cz/rss/celadna" scrolling="no"></iframe>
+                    <iframe title="Polar.tv" src="https://polar.cz/rss/celadna" scrolling="no"></iframe>
                 </div>
 
                 {% for footerItem in footer %}
                     <div class="banner-wrapper">
-                        <a href="{{ footerItem.Odkaz }}"><img src="{{ footerItem.Obrazek }}" alt=""></a>
+                        <a href="{{ footerItem.Odkaz }}"><img src="{{ footerItem.Obrazek }}" alt="{{ footerItem.Odkaz }}"></a>
                     </div>
                 {% endfor %}
 
