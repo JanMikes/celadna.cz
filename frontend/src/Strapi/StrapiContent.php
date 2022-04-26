@@ -239,6 +239,17 @@ final class StrapiContent implements Content
     }
 
 
+    public function getPristupnostAppData(): PristupnostData
+    {
+        $strapiResponse = $this->strapiClient->getApiResource('prohlaseni-o-pristupnosti-app');
+
+        return new PristupnostData(
+            $strapiResponse['data']['attributes']['Nadpis'],
+            $strapiResponse['data']['attributes']['Obsah'],
+        );
+    }
+
+
     private function getGenericDokumentyData(string $resourceName): DokumentyData
     {
         $strapiResponse = $this->strapiClient->getApiResource($resourceName);

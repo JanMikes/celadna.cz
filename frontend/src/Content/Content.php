@@ -62,6 +62,8 @@ interface Content
 
     public function getPristupnostData(): PristupnostData;
 
+    public function getPristupnostAppData(): PristupnostData;
+
     public function getDokumentyFormulareData(): DokumentyData;
 
     public function getDokumentyNavodyData(): DokumentyData;

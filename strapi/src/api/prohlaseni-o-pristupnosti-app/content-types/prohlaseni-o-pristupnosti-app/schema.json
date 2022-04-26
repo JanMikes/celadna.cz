@@ -4,10 +4,11 @@
   "info": {
     "singularName": "prohlaseni-o-pristupnosti-app",
     "pluralName": "prohlaseni-o-pristupnosti-apps",
-    "displayName": "06 > Přístupnost mobilní app"
+    "displayName": "06 > Přístupnost mobilní app",
+    "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
