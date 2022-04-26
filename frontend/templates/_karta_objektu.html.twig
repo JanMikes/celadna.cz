@@ -14,8 +14,11 @@
             <span class="address">{{ objekt.Adresa }}</span><br>
         {% endif %}
 
-        {{ objekt.Telefon }}<br>
-        <a href="mailto:{{ objekt.Email }}">{{ objekt.Email }}</a>
+        {{ objekt.Telefon }}
+        {% if objekt.Email %}
+            <br>
+            <a href="mailto:{{ objekt.Email }}">{{ objekt.Email }}</a>
+        {% endif %}
 
 
         {% if objekt.Odkaz_web %}
