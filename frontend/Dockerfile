@@ -1,4 +1,4 @@
-FROM docker.io/nginx/unit:1.26.1-php8.1 as dev
+FROM registry.gitlab.com/thc-infrastructure/docker-nginx-unit:1.26.1-php-8.1 as dev
 
 ENV COMPOSER_MEMORY_LIMIT=-1
 
