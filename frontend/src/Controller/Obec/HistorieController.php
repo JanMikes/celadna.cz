@@ -20,6 +20,7 @@ final class HistorieController extends AbstractController
     public function __invoke(): Response
     {
         return $this->render('obec_historie.html.twig', [
+            'historie_graficke_pasy' => $this->contentProvider->getHistorieData(),
             'footer' => $this->contentProvider->getFooterData(),
         ]);
     }

@@ -1,16 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Historie obce{% endblock %}
+{% block title %}Historie{% endblock %}
 
 {% block content %}
-    {{ include('_breadcrumb.html.twig', {
-        'current': block('title'),
-        'items': {
-            'obec': 'Obec',
-        },
+    {{ include('_graficke_pasy.html.twig', {
+        'graficke_pasy': historie_graficke_pasy
     }) }}
-
-    <p class="sorry-in-progress">Tuto sekci pro vás momentálně intenzivně připravujeme.<br><br>Rozhodně se máte na co těšit!</p>
 {% endblock %}
-
-

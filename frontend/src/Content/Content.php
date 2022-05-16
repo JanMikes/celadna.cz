@@ -60,6 +60,11 @@ interface Content
      */
     public function getVyletyData(): array;
 
+    /**
+     * @return array<GrafickyPasData>
+     */
+    public function getHistorieData(): array;
+
     public function getPristupnostData(): PristupnostData;
 
     public function getPristupnostAppData(): PristupnostData;

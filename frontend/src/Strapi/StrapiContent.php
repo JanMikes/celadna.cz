@@ -228,6 +228,12 @@ final class StrapiContent implements Content
     }
 
 
+    public function getHistorieData(): array
+    {
+        return $this->getGrafickePasy('obec-historie');
+    }
+
+
     public function getPristupnostData(): PristupnostData
     {
         $strapiResponse = $this->strapiClient->getApiResource('prohlaseni-o-pristupnosti');
