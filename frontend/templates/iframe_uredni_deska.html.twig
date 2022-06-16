@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Úřední deska{% endblock %}
+
+{% block header %}{% endblock %}
+{% block footer %}{% endblock %}
+
+{% block content %}
+    <section class="uredni-deska-text-section trimmed-section">
+        <h2>Úřední deska</h2>
+    </section>
+
+    {{ include('_uredni_deska.html.twig', {
+        'uredni_deska': uredni_desky,
+        'show_categories': true,
+        'years': [],
+        'years_filter_name': '',
+    }) }}
+{% endblock %}

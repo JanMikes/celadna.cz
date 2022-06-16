@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Aktuality{% endblock %}
+
+{% block header %}{% endblock %}
+{% block footer %}{% endblock %}
+
+{% block content %}
+    <section class="aktuality-section trimmed-section">
+        <h2>Aktuality</h2>
+
+        <div class="actualities-wrapper">
+            {% for aktualita in aktuality %}
+                <article>
+                    <div class="actuality-inner">
+                        {% if aktualita.Obrazek %}
+                            <div class="image-wrapper">
+                                <img src="{{ aktualita.Obrazek }}" alt="" aria-labelledby="aktualita-{{ aktualita.id }}">
+                            </div>
+                        {% endif %}
+
+                        <div class="actuality-content">
+                            <h3 id="aktualita-{{ aktualita.id }}">
+                                {% if aktualita.slug %}
+                                    <a href="{{ path('detail_aktuality', {'slug': aktualita.slug}) }}">
+                                        {{ aktualita.Nadpis }}
+                                    </a>
+                                {% else %}
+                                    {{ aktualita.Nadpis }}
+                                {% endif %}
+                            </h3>
+
+                            <p><time>{{ aktualita.DatumZverejneni|date('d.m.Y') }}</time></p>
+
+                            {% if aktualita.Tagy %}
+                                <p class="tags">
+                                    {% for TagSlug, Tag in aktualita.Tagy %}
+                                        <a href="{{ path('aktuality_tag_filter', {'tag': TagSlug}) }}" class="tag-link">
+                                            {{ Tag }}
+                                        </a>
+                                    {% endfor %}
+                                </p>
+                            {% endif %}
+
+                            {{ aktualita.Popis|u.truncate(150, '...', true)|markdown_to_html|nl2br }}
+                        </div>
+                    </div>
+                </article>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}
+

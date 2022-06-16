@@ -33,42 +33,44 @@
 </head>
 <body>
 
-    <header>
-        <h1>{% if app.request.pathInfo != path('homepage') %}{{ block('title') }} - {% endif %}Obec Čeladná</h1>
+    {% block header %}
+        <header>
+            <h1>{% if app.request.pathInfo != path('homepage') %}{{ block('title') }} - {% endif %}Obec Čeladná</h1>
 
-        <nav class="navbar navbar-dark navbar-expand-lg fixed-top">
-            <div class="container-fluid">
+            <nav class="navbar navbar-dark navbar-expand-lg fixed-top">
+                <div class="container-fluid">
 
-                <a class="navbar-brand" href="{{ path('homepage') }}">
-                    <img src="{{ asset('images/logo.svg') }}" width="202" height="71" alt="Znak obce">
-                </a>
+                    <a class="navbar-brand" href="{{ path('homepage') }}">
+                        <img src="{{ asset('images/logo.svg') }}" width="202" height="71" alt="Znak obce">
+                    </a>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Otevřít navigaci">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Otevřít navigaci">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
 
-                <div class="collapse navbar-collapse" id="main-navbar">
-                    <div class="navbar-nav">
-                        <div class="nav-link">
-                            <a class="homepage" href="{{ path('homepage') }}"><span>Úvodní stránka</span></a>
-                            <a class="instagram mobile-icons" href="https://instagram.com/obecceladna"><span>Instagram</span></a>
-                            <a class="facebook mobile-icons" href="https://www.facebook.com/Obec-Čeladná-109458195016182/"><span>Facebook</span></a>
-                        </div>
-                        <div class="ms-lg-auto">
-                            <a class="nav-link" href="{{ path('obec') }}">Obec</a>
-                            <a class="nav-link" href="{{ path('urad') }}">Obecní úřad</a>
-                            <a class="nav-link" href="{{ path('aktuality') }}">Aktuality</a>
-                            <a class="nav-link" href="{{ path('urad_kontakty') }}">Kontakty</a>
-                        </div>
-                        <div class="nav-link d-lg-none d-xl-none d-xxl-none">
-                            <a class="instagram" href="https://instagram.com/obecceladna"><span>Instagram</span></a>
-                            <a class="facebook" href="https://www.facebook.com/Obec-Čeladná-109458195016182/"><span>Facebook</span></a>
+                    <div class="collapse navbar-collapse" id="main-navbar">
+                        <div class="navbar-nav">
+                            <div class="nav-link">
+                                <a class="homepage" href="{{ path('homepage') }}"><span>Úvodní stránka</span></a>
+                                <a class="instagram mobile-icons" href="https://instagram.com/obecceladna"><span>Instagram</span></a>
+                                <a class="facebook mobile-icons" href="https://www.facebook.com/Obec-Čeladná-109458195016182/"><span>Facebook</span></a>
+                            </div>
+                            <div class="ms-lg-auto">
+                                <a class="nav-link" href="{{ path('obec') }}">Obec</a>
+                                <a class="nav-link" href="{{ path('urad') }}">Obecní úřad</a>
+                                <a class="nav-link" href="{{ path('aktuality') }}">Aktuality</a>
+                                <a class="nav-link" href="{{ path('urad_kontakty') }}">Kontakty</a>
+                            </div>
+                            <div class="nav-link d-lg-none d-xl-none d-xxl-none">
+                                <a class="instagram" href="https://instagram.com/obecceladna"><span>Instagram</span></a>
+                                <a class="facebook" href="https://www.facebook.com/Obec-Čeladná-109458195016182/"><span>Facebook</span></a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </nav>
-    </header>
+            </nav>
+        </header>
+    {% endblock %}
 
     {#
         <div class="in-progress-lista">Právě pro vás aktualizujeme webové stránky, omluvte prosím případně dočasné nedostatky. Staré webové stránky jsou dostupné na adrese <a href="http://www.archiv.celadna.cz"><b>www.archiv.celadna.cz</b></a>.</div>
@@ -78,66 +80,68 @@
         {% block content %}{% endblock %}
     </main>
 
-    <footer>
-        <div class="inner-footer">
-            <div class="apps-row">
-                <p>Aplikace Obec Čeladná ke stažení zdarma.</p>
+    {% block footer %}
+        <footer>
+            <div class="inner-footer">
+                <div class="apps-row">
+                    <p>Aplikace Obec Čeladná ke stažení zdarma.</p>
 
-                <ul class="download-links">
-                    <li class="google-play-download">
-                        <a href="https://play.google.com/store/apps/details?id=cz.tripon.obecceladna">
-                            <span class="visually-hidden-focusable">
-                                Stáhnout z Google Play
-                            </span>
-                        </a>
+                    <ul class="download-links">
+                        <li class="google-play-download">
+                            <a href="https://play.google.com/store/apps/details?id=cz.tripon.obecceladna">
+                                <span class="visually-hidden-focusable">
+                                    Stáhnout z Google Play
+                                </span>
+                            </a>
+                        </li>
+                        <li class="apple-app-store-download">
+                            <a href="https://itunes.apple.com/us/app/obec-celadna/id1102072135?l=cs&ls=1&mt=8">
+                                <span class="visually-hidden-focusable">
+                                    Stáhnout z Apple App Store
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <p class="copyright">
+                        Copyright &copy; Čeladná<br>
+                        Všechna práva vyhrazena.<br>
+                        Vytvořil <a href="https://wantoo.cz">Wantoo design</a>
+                    </p>
+                </div>
+
+                <section class="banners">
+                    <div class="banner-wrapper">
+                        <iframe title="Polar.tv" src="https://polar.cz/rss/celadna" scrolling="no"></iframe>
+                    </div>
+
+                    {% for footerItem in footer %}
+                        <div class="banner-wrapper">
+                            <a href="{{ footerItem.Odkaz }}"><img src="{{ footerItem.Obrazek }}" alt="{{ footerItem.Odkaz }}"></a>
+                        </div>
+                    {% endfor %}
+
+                    <div class="banner-wrapper">
+                        <img src="https://ovm.bezstavy.cz/v1/gAkgN2F-FTL4Zf7btVeZd3FlmWSv-g/b/250" alt="ČEZ Distribuce – Plánované odstávky">
+                    </div>
+                </section>
+
+                <ul class="footer-links">
+                    <li>
+                        <a href="{{ path('pristupnost') }}">Prohlášení o přístupnosti</a>
                     </li>
-                    <li class="apple-app-store-download">
-                        <a href="https://itunes.apple.com/us/app/obec-celadna/id1102072135?l=cs&ls=1&mt=8">
-                            <span class="visually-hidden-focusable">
-                                Stáhnout z Apple App Store
-                            </span>
-                        </a>
+                    <li>
+                        <a href="{{ path('pristupnost_mobilni_app') }}">Prohlášení o přístupnosti mobilní aplikace</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('mapa_stranek') }}">Mapa stránek</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('gdpr') }}">Ochrana osobních údajů</a>
                     </li>
                 </ul>
-
-                <p class="copyright">
-                    Copyright &copy; Čeladná<br>
-                    Všechna práva vyhrazena.<br>
-                    Vytvořil <a href="https://wantoo.cz">Wantoo design</a>
-                </p>
             </div>
-
-            <section class="banners">
-                <div class="banner-wrapper">
-                    <iframe title="Polar.tv" src="https://polar.cz/rss/celadna" scrolling="no"></iframe>
-                </div>
-
-                {% for footerItem in footer %}
-                    <div class="banner-wrapper">
-                        <a href="{{ footerItem.Odkaz }}"><img src="{{ footerItem.Obrazek }}" alt="{{ footerItem.Odkaz }}"></a>
-                    </div>
-                {% endfor %}
-
-                <div class="banner-wrapper">
-                    <img src="https://ovm.bezstavy.cz/v1/gAkgN2F-FTL4Zf7btVeZd3FlmWSv-g/b/250" alt="ČEZ Distribuce – Plánované odstávky">
-                </div>
-            </section>
-
-            <ul class="footer-links">
-                <li>
-                    <a href="{{ path('pristupnost') }}">Prohlášení o přístupnosti</a>
-                </li>
-                <li>
-                    <a href="{{ path('pristupnost_mobilni_app') }}">Prohlášení o přístupnosti mobilní aplikace</a>
-                </li>
-                <li>
-                    <a href="{{ path('mapa_stranek') }}">Mapa stránek</a>
-                </li>
-                <li>
-                    <a href="{{ path('gdpr') }}">Ochrana osobních údajů</a>
-                </li>
-            </ul>
-        </div>
-    </footer>
+        </footer>
+    {% endblock %}
 </body>
 </html>
