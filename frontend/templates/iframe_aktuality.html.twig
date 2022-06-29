@@ -22,7 +22,7 @@
                         <div class="actuality-content">
                             <h3 id="aktualita-{{ aktualita.id }}">
                                 {% if aktualita.slug %}
-                                    <a href="{{ path('detail_aktuality', {'slug': aktualita.slug}) }}">
+                                    <a href="{{ path('iframe_detail_aktuality', {'slug': aktualita.slug}) }}">
                                         {{ aktualita.Nadpis }}
                                     </a>
                                 {% else %}
@@ -35,7 +35,7 @@
                             {% if aktualita.Tagy %}
                                 <p class="tags">
                                     {% for TagSlug, Tag in aktualita.Tagy %}
-                                        <a href="{{ path('aktuality_tag_filter', {'tag': TagSlug}) }}" class="tag-link">
+                                        <a href="{{ path('iframe_aktuality_tag_filter', {'tag': TagSlug}) }}" class="tag-link">
                                             {{ Tag }}
                                         </a>
                                     {% endfor %}

@@ -7,6 +7,7 @@ namespace Celadna\Website\Controller;
 use Celadna\Website\Content\Content;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpClient\Exception\ClientException;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -18,10 +19,16 @@ final class DetailAktualityController extends AbstractController
 
 
     #[Route('/aktualita/{slug}', name: 'detail_aktuality')]
-    public function __invoke(string $slug): Response
+    #[Route('/iframe/aktualita/{slug}', name: 'iframe_detail_aktuality')]
+    public function __invoke(string $slug, Request $request): Response
     {
+        $templateName = 'detail_aktuality.html.twig';
+        if ($request->attributes->get('_route') === 'iframe_detail_aktuality') {
+            $templateName = 'iframe_detail_aktuality.html.twig';
+        }
+
         try {
-            return $this->render('detail_aktuality.html.twig',[
+            return $this->render($templateName,[
                 'aktualita' => $this->contentProvider->getAktualitaData($slug),
                 'footer' => $this->contentProvider->getFooterData(),
             ]);

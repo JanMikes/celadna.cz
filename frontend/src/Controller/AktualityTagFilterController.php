@@ -6,6 +6,7 @@ namespace Celadna\Website\Controller;
 
 use Celadna\Website\Content\Content;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -16,9 +17,15 @@ final class AktualityTagFilterController extends AbstractController
     ) {}
 
     #[Route('/aktuality/kategorie/{tag}', name: 'aktuality_tag_filter')]
-    public function __invoke(string $tag): Response
+    #[Route('/iframe/aktuality/kategorie/{tag}', name: 'iframe_aktuality_tag_filter')]
+    public function __invoke(string $tag, Request $request): Response
     {
-        return $this->render('aktuality.html.twig', [
+        $templateName = 'aktuality.html.twig';
+        if ($request->attributes->get('_route') === 'iframe_aktuality_tag_filter') {
+            $templateName = 'iframe_aktuality.html.twig';
+        }
+
+        return $this->render($templateName, [
             'tagy' => $this->contentProvider->getTagy(),
             'active_tag' => $tag,
             'aktuality' => $this->contentProvider->getAktualityData(tag: $tag),

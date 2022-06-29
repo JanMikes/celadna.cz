@@ -32,7 +32,13 @@
                 </p>
                 <h4 id="uredni-deska-{{ uredni_deska_dokument.id }}">
                     {% if uredni_deska_dokument.slug %}
-                        <a href="{{ path('detail_uredni_desky', {'slug': uredni_deska_dokument.slug}) }}">
+                        <a
+                            {% if iframe %}
+                                href="{{ path('iframe_detail_uredni_desky', {'slug': uredni_deska_dokument.slug}) }}"
+                            {% else %}
+                                href="{{ path('detail_uredni_desky', {'slug': uredni_deska_dokument.slug}) }}"
+                            {% endif %}
+                        >
                             {{ uredni_deska_dokument.Nadpis }}
                         </a>
                     {% else %}
@@ -43,7 +49,14 @@
                 {% if show_categories and uredni_deska_dokument.Kategorie %}
                     <p class="tags">
                         {% for Kategorie in uredni_deska_dokument.Kategorie %}
-                            <a href="{{ path('uredni_deska_kategorie_filter', {'kategorie': Kategorie.slug}) }}" class="tag-link">{{ Kategorie.value }}</a>
+                            <a
+                                {% if iframe %}
+                                    href="{{ path('iframe_uredni_deska_kategorie_filter', {'kategorie': Kategorie.slug}) }}"
+                                {% else %}
+                                    href="{{ path('uredni_deska_kategorie_filter', {'kategorie': Kategorie.slug}) }}"
+                                {% endif %}
+                            class="tag-link">
+                                {{ Kategorie.value }}</a>
                         {% endfor %}
                     </p>
                 {% endif %}
