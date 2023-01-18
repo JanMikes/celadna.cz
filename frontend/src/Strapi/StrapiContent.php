@@ -474,7 +474,7 @@ final class StrapiContent implements Content
         $strapiResponse = $this->strapiClient->getApiResource('uredni-deskas', [
             'Soubory',
             'Zodpovedna_osoba.Fotka',
-        ], filters: $filters, pagination: $pagination, sort: ['Datum_zverejneni:desc']);
+        ], filters: $filters, pagination: $pagination, sort: ['Datum_zverejneni:desc', 'Nadpis']);
 
         return UredniDeskaData::createManyFromStrapiResponse($strapiResponse);
     }
