@@ -16,6 +16,8 @@
     <link rel="canonical" href="https://celadna.cz">
     <link rel="icon" type="image/x-icon" href="{{ asset('images/favicon.ico') }}">
 
+    <link rel="stylesheet" href="{{ asset('css/notifee.css') }}" type="text/css"/>
+
     <title>{% if app.request.pathInfo != path('homepage') %}{{ block('title') }} - {% endif %}Obec Čeladná</title>
     <meta property="og:description" content="Obec Čeladná se nachází v okrese Frýdek-Místek v Moravskoslezském kraji. Obec je situována v podhůří Beskyd. Žije zde přibližně 2 900 obyvatel. ">
 
@@ -143,5 +145,13 @@
             </div>
         </footer>
     {% endblock %}
+
+    <div id="notifee-dialog-wrapper"></div>
+    <div id="notifee-icon-wrapper"></div>
+    <div id="notifee-banner-wrapper"></div>
+    <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script> <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-messaging.js"></script> <script src="{{ asset('js/notifee.js') }}"></script>
+    <script>
+        Notifee.init("https://" + window.location.host, false);
+    </script>
 </body>
 </html>
