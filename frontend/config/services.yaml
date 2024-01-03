@@ -23,3 +23,9 @@ services:
             - '../src/Kernel.php'
             - '*/Data/*'
             - '*/Exception/*'
+
+    Sentry\Integration\IgnoreErrorsIntegration:
+        arguments:
+            $options:
+                ignore_exceptions:
+                    - Symfony\Component\HttpKernel\Exception\NotFoundHttpException
