@@ -2,6 +2,11 @@
 
 name: Strapi
 
+permissions:
+    contents: read
+    deployments: write
+    packages: write
+
 on:
     push:
         branches:
