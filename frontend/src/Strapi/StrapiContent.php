@@ -292,6 +292,12 @@ final class StrapiContent implements Content
     }
 
 
+    public function getDokumentyVolbyData(): DokumentyData
+    {
+        return $this->getGenericDokumentyData('urad-dokumenty-volby');
+    }
+
+
     public function getDokumentyRozpoctyData(): DokumentyData
     {
         return $this->getGenericDokumentyData('urad-dokumenty-rozpocty');
@@ -523,6 +529,7 @@ final class StrapiContent implements Content
             'urad-dokumenty-zivotni-situace' => 'Zobrazit_v_zivotni_situace',
             'urad-povinne-zverejnovane-informace' => 'Zobrazit_v_poskytnute_informace',
             'urad-dokumenty-verejnopravni-smlouvy' => 'Zobrazit_v_verejnopravni_smlouvy',
+            'urad-dokumenty-volby' => 'Zobrazit_v_volby',
             default => throw new \LogicException('Resource not matched: ' . $resourceName),
         };
     }

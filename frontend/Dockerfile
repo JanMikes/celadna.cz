@@ -1,4 +1,4 @@
-FROM docker.io/nginx/unit:1.26.1-php8.1 as dev
+FROM unit:1.32.1-php8.3 AS dev
 
 ENV COMPOSER_MEMORY_LIMIT=-1
 
@@ -23,7 +23,7 @@ COPY .docker/config.json /docker-entrypoint.d/config.json
 WORKDIR /www
 
 
-FROM dev as prod-composer
+FROM dev AS prod-composer
 
 ENV APP_ENV="prod"
 ENV APP_DEBUG=0
@@ -39,7 +39,7 @@ COPY composer.json composer.lock symfony.lock ./
 RUN composer install --no-interaction --no-scripts
 
 
-FROM node:14 as js-builder
+FROM node:14 AS js-builder
 
 WORKDIR /build
 
@@ -56,7 +56,7 @@ COPY ./assets ./assets
 RUN yarn run build
 
 
-FROM prod-composer as prod
+FROM prod-composer AS prod
 
 # Copy js build
 COPY --from=js-builder /build .

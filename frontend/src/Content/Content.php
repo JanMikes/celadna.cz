@@ -75,6 +75,8 @@ interface Content
 
     public function getDokumentyOdpadyData(): DokumentyData;
 
+    public function getDokumentyVolbyData(): DokumentyData;
+
     public function getDokumentyRozpoctyData(): DokumentyData;
 
     public function getDokumentyStrategickeDokumentyData(): DokumentyData;
