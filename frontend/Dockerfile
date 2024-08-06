@@ -1,6 +1,7 @@
 FROM unit:1.32.1-php8.3 AS dev
 
 ENV COMPOSER_MEMORY_LIMIT=-1
+ENV COMPOSER_ALLOW_SUPERUSER=1
 
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
