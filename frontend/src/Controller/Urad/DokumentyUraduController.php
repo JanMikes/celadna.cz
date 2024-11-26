@@ -7,7 +7,7 @@ namespace Celadna\Website\Controller\Urad;
 use Celadna\Website\Content\Content;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 
 final class DokumentyUraduController extends AbstractController
 {
