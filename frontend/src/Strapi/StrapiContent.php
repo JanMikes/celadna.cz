@@ -298,6 +298,12 @@ final class StrapiContent implements Content
     }
 
 
+    public function getDokumentyProjektyData(): DokumentyData
+    {
+        return $this->getGenericDokumentyData('urad-dokumenty-projekty');
+    }
+
+
     public function getDokumentyRozpoctyData(): DokumentyData
     {
         return $this->getGenericDokumentyData('urad-dokumenty-rozpocty');
@@ -530,6 +536,7 @@ final class StrapiContent implements Content
             'urad-povinne-zverejnovane-informace' => 'Zobrazit_v_poskytnute_informace',
             'urad-dokumenty-verejnopravni-smlouvy' => 'Zobrazit_v_verejnopravni_smlouvy',
             'urad-dokumenty-volby' => 'Zobrazit_v_volby',
+            'urad-dokumenty-projekty' => 'Zobrazit_v_projekty',
             default => throw new \LogicException('Resource not matched: ' . $resourceName),
         };
     }
@@ -555,6 +562,7 @@ final class StrapiContent implements Content
             'Financni_vybor' => 'Zobrazit_v_financni_vybor',
             'Kulturni_komise' => 'Zobrazit_v_kulturni_komise',
             'Volby' => 'Zobrazit_v_volby',
+            'Projekty' => 'Zobrazit_v_projekty',
             '-' => null,
             default => throw new \LogicException('Resource not matched: ' . $kategorie),
         };
