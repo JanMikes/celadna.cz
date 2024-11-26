@@ -25,6 +25,7 @@ enum KategorieUredniDesky: string
     case Financni_vybor = 'Finanční výbor';
     case Kulturni_komise = 'Kultirní komise';
     case Volby = 'Volby';
+    case Projekty = 'Projekty';
 
 
     public function slug(): string

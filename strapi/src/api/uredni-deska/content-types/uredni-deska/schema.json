@@ -127,6 +127,11 @@
       "required": true,
       "default": false
     },
+    "Zobrazit_v_projekty": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
     "Zobrazovat": {
       "type": "boolean",
       "default": true,

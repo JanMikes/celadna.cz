@@ -22,6 +22,7 @@ enum UredniDeskaKategorieField
     case Zobrazit_v_financni_vybor;
     case Zobrazit_v_kulturni_komise;
     case Zobrazit_v_volby;
+    case Zobrazit_v_projekty;
 
 
     public function toKategorie(): KategorieUredniDesky
@@ -43,6 +44,7 @@ enum UredniDeskaKategorieField
             self::Zobrazit_v_financni_vybor => KategorieUredniDesky::Financni_vybor,
             self::Zobrazit_v_kulturni_komise => KategorieUredniDesky::Kulturni_komise,
             self::Zobrazit_v_volby => KategorieUredniDesky::Volby,
+            self::Zobrazit_v_projekty => KategorieUredniDesky::Projekty,
         };
     }
 }
