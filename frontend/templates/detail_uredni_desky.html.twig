@@ -26,6 +26,11 @@
             <p>Zveřejnil {{ uredni_deska.Zodpovedna_osoba.Jmeno }}</p>
         {% endif %}
 
+        {% if display_image %}
+            <p class="text-center">
+                <img src="{{ asset('images/' ~ display_image) }}" alt="{{ uredni_deska.Nadpis }}" style="max-width: 100%;">
+            </p>
+        {% endif %}
 
         {% if uredni_deska.Kategorie %}
             <p class="tags">
