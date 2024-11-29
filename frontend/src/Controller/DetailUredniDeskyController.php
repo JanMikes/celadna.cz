@@ -27,10 +27,17 @@ final class DetailUredniDeskyController extends AbstractController
             $templateName = 'iframe_detail_uredni_desky.html.twig';
         }
 
+        $displayPublishDate = true;
+
+        if ($slug === 'rekonstrukce-hygienickeho-zazemi-hyg-smycka-a-zachody-a-elektroinstalace-v-denni-mistnosti-vc-podhledu-v-pozarni-zbrojnici-sdh-celadna-p-c-st-646-c-p-345-k-u-celadna-739-12-celadna-2') {
+            $displayPublishDate = false;
+        }
+
         try {
             return $this->render($templateName, [
                 'uredni_deska' => $this->contentProvider->getUredniDeskaData($slug),
                 'footer' => $this->contentProvider->getFooterData(),
+                'display_publish_date' => $displayPublishDate,
             ]);
         } catch (ClientException) {
             throw $this->createNotFoundException();
