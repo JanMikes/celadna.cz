@@ -35,6 +35,11 @@ final class DetailUredniDeskyController extends AbstractController
             $displayImage = 'projekt-rekonstrukce-hygienickeho-zazemi.png';
         }
 
+        if ($slug === 'virtualni-realita-a-robot-moji-novi-kamaradi') {
+            $displayPublishDate = false;
+            $displayImage = 'virtualni-realita-a-robot.jpg';
+        }
+
         try {
             return $this->render($templateName, [
                 'uredni_deska' => $this->contentProvider->getUredniDeskaData($slug),
