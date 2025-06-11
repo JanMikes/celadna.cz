@@ -1,13 +1,15 @@
-<section class="sekce-s-dlazdicema">
+<section class="sekce-s-dlazdicema" role="region" aria-label="{{ sekce.Nadpis }}">
     <h3>{{ sekce.Nadpis }}</h3>
 
     {% if sekce.Popis %}
         {{ sekce.Popis|markdown_to_html|nl2br }}
     {% endif %}
 
-    <section class="dlazdice-wrapper">
+    <div class="dlazdice-wrapper" role="list" aria-label="{{ sekce.Nadpis }}">
         {% for dlazdice in sekce.Dlazdice %}
-            {{ include('_dlazdice.html.twig') }}
+            <div role="listitem">
+                {{ include('_dlazdice.html.twig') }}
+            </div>
         {% endfor %}
-    </section>
+    </div>
 </section>

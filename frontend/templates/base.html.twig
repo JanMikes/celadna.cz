@@ -59,10 +59,10 @@
                                 <a class="facebook mobile-icons" href="https://www.facebook.com/Obec-Čeladná-109458195016182/" aria-label="Facebook Obec Čeladná"><span>Facebook</span></a>
                             </div>
                             <div class="ms-lg-auto">
-                                <a class="nav-link" href="{{ path('obec') }}">Obec</a>
-                                <a class="nav-link" href="{{ path('urad') }}">Obecní úřad</a>
-                                <a class="nav-link" href="{{ path('aktuality') }}">Aktuality</a>
-                                <a class="nav-link" href="{{ path('urad_kontakty') }}">Kontakty</a>
+                                <a class="nav-link" href="{{ path('obec') }}" {% if app.request.pathInfo == path('obec') %}aria-current="page"{% endif %}>Obec</a>
+                                <a class="nav-link" href="{{ path('urad') }}" {% if app.request.pathInfo == path('urad') %}aria-current="page"{% endif %}>Obecní úřad</a>
+                                <a class="nav-link" href="{{ path('aktuality') }}" {% if app.request.pathInfo == path('aktuality') %}aria-current="page"{% endif %}>Aktuality</a>
+                                <a class="nav-link" href="{{ path('urad_kontakty') }}" {% if app.request.pathInfo == path('urad_kontakty') %}aria-current="page"{% endif %}>Kontakty</a>
                             </div>
                             <div class="nav-link d-lg-none d-xl-none d-xxl-none">
                                 <a class="instagram" href="https://instagram.com/obecceladna" aria-label="Instagram Obec Čeladná"><span>Instagram</span></a>
@@ -109,7 +109,7 @@
                     </p>
                 </div>
 
-                <section class="banners">
+                <section class="banners" role="region" aria-label="Bannery">
                     <div class="banner-wrapper">
                         <iframe title="Polar.tv" src="https://polar.cz/rss/celadna" scrolling="no"></iframe>
                     </div>
@@ -127,17 +127,17 @@
                     </div>
                 </section>
 
-                <ul class="footer-links">
-                    <li>
+                <ul class="footer-links" role="list" aria-label="Odkazy v patičce">
+                    <li role="listitem">
                         <a href="{{ path('pristupnost') }}">Prohlášení o přístupnosti</a>
                     </li>
-                    <li>
+                    <li role="listitem">
                         <a href="{{ path('pristupnost_mobilni_app') }}">Prohlášení o přístupnosti mobilní aplikace</a>
                     </li>
-                    <li>
+                    <li role="listitem">
                         <a href="{{ path('mapa_stranek') }}">Mapa stránek</a>
                     </li>
-                    <li>
+                    <li role="listitem">
                         <a href="{{ path('gdpr') }}">Ochrana osobních údajů</a>
                     </li>
                 </ul>
@@ -145,9 +145,9 @@
         </footer>
     {% endblock %}
 
-    <div id="notifee-dialog-wrapper"></div>
-    <div id="notifee-icon-wrapper"></div>
-    <div id="notifee-banner-wrapper"></div>
+    <div id="notifee-dialog-wrapper" role="region" aria-live="polite" aria-label="Dialog notifikací"></div>
+    <div id="notifee-icon-wrapper" role="status" aria-label="Ikona notifikace"></div>
+    <div id="notifee-banner-wrapper" role="status" aria-label="Páska notifikací"></div>
     <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script> <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-messaging.js"></script> <script src="{{ asset('js/notifee.js') }}"></script>
     <script>
         Notifee.init("https://" + window.location.host, false, '/js/');

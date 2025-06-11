@@ -6,7 +6,7 @@
     },
 }) }}
 
-<section class="uzemni-dokumenty-section">
+<section class="uzemni-dokumenty-section" role="region" aria-label="{{ dokument.Nadpis }}">
     <h2>{{ dokument.Nadpis }}</h2>
 
     {% if dokument.Uredni_deska %}
@@ -20,25 +20,25 @@
     {% endif %}
 
     {% for Kategorie in dokument.Kategorie %}
-        <article class="kategorie">
+        <article class="kategorie" role="region" aria-label="Kategorie {{ Kategorie.Nazev }}">
             <h3>{{ Kategorie.Nazev }}</h3>
 
             {% if Kategorie.Dokumenty %}
-                <ul class="dokumenty">
+                <ul class="dokumenty" role="list" aria-label="Dokumenty – {{ Kategorie.Nazev }}">
 
                     {% for Dokument in Kategorie.Dokumenty %}
-                        <li>
+                        <li role="listitem">
                             {% if Dokument.Datum_nahrani %}
-                                <time>{{ Dokument.Datum_nahrani|date('d.m.Y') }}</time>
+                                <time datetime="{{ Dokument.Datum_nahrani|date('Y-m-d') }}">{{ Dokument.Datum_nahrani|date('d.m.Y') }}</time>
                             {% elseif Kategorie.Datum_vyveseni %}
-                                <time>{{ Kategorie.Datum_vyveseni|date('d.m.Y') }}</time>
+                                <time datetime="{{ Kategorie.Datum_vyveseni|date('Y-m-d') }}">{{ Kategorie.Datum_vyveseni|date('d.m.Y') }}</time>
                             {% endif %}
 
                             {% if Dokument.Soubor %}
-                                <a class="file-link" href="{{ Dokument.Soubor.url }}">
+                                <a class="file-link" href="{{ Dokument.Soubor.url }}" aria-label="Stáhnout dokument {{ Dokument.Nazev }} ({{ Dokument.Soubor.kbytes }} kb)">
                                     <span class="file-caption name">{{ Dokument.Nazev }}</span>
                                     <span class="file-info">({{ Dokument.Soubor.kbytes }}kb)</span>
-                                    <span class="icon-download"></span>
+                                    <span class="icon-download" aria-hidden="true"></span>
                                 </a>
                             {% endif %}
                         </li>

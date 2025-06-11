@@ -1,29 +1,31 @@
-<article style="--tooltip: '{% if number < 10 %}0{% endif %}{{ number }}';">
-    <img src="{{ objekt.Obrazek }}" alt="Foto {{ objekt.Nazev }}">
+<article class="object-card" role="region" aria-label="Karta objektu {{ objekt.Nazev }}" style="--tooltip: '{% if number < 10 %}0{% endif %}{{ number }}';">
+    <img src="{{ objekt.Obrazek }}" alt="Fotografie objektu {{ objekt.Nazev }}">
 
     <h3>
         {% if objekt.Odkaz_mapa %}
-            <a target="_blank" href="{{ objekt.Odkaz_mapa }}">{{ objekt.Nazev }}</a>
+            <a target="_blank" rel="noopener noreferrer" href="{{ objekt.Odkaz_mapa }}"
+               aria-label="Zobrazit {{ objekt.Nazev }} na mapě">{{ objekt.Nazev }}</a>
         {% else %}
-            {{ objekt.Nazev }}
+            <span>{{ objekt.Nazev }}</span>
         {% endif %}
     </h3>
 
     <address>
         {% if objekt.Adresa %}
-            <span class="address">{{ objekt.Adresa }}</span><br>
+            <p class="address">{{ objekt.Adresa }}</p>
         {% endif %}
 
-        {{ objekt.Telefon }}
+        {% if objekt.Telefon %}
+            <p><a href="tel:{{ objekt.Telefon }}" aria-label="Zavolat na {{ objekt.Telefon }}">{{ objekt.Telefon }}</a></p>
+        {% endif %}
+
         {% if objekt.Email %}
-            <br>
-            <a href="mailto:{{ objekt.Email }}">{{ objekt.Email }}</a>
+            <p><a href="mailto:{{ objekt.Email }}" aria-label="Napsat e-mail {{ objekt.Email }}">{{ objekt.Email }}</a></p>
         {% endif %}
-
 
         {% if objekt.Odkaz_web %}
-            <br>
-            <a target="_blank" class="website-link" href="{{ objekt.Odkaz_web }}">Navštívit web</a>
+            <p><a target="_blank" rel="noopener noreferrer" class="website-link" href="{{ objekt.Odkaz_web }}"
+               aria-label="Navštívit web {{ objekt.Nazev }}">Navštívit web</a></p>
         {% endif %}
     </address>
 </article>

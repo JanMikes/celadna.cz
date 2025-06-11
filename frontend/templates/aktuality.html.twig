@@ -14,7 +14,10 @@
         {% if tagy %}
             <p class="tags">
                 {% for TagSlug, Tag in tagy %}
-                    <a href="{{ path('aktuality_tag_filter', {'tag': TagSlug}) }}" class="tag-link {% if TagSlug is same as active_tag %}active_tag{% endif %}">
+                    <a href="{{ path('aktuality_tag_filter', {'tag': TagSlug}) }}"
+                       role="listitem"
+                       class="tag-link {% if TagSlug is same as active_tag %}active_tag{% endif %}"
+                       {% if TagSlug is same as active_tag %}aria-current="true"{% endif %}>
                         {{ Tag }}
                     </a>
                 {% endfor %}
@@ -23,7 +26,7 @@
 
         <div class="actualities-wrapper">
             {% for aktualita in aktuality %}
-                <article>
+                <article id="aktualita-{{ aktualita.id }}" role="region" aria-labelledby="aktualita-title-{{ aktualita.id }}">
                     <div class="actuality-inner">
                         {% if aktualita.Obrazek %}
                             <div class="image-wrapper">
@@ -32,7 +35,7 @@
                         {% endif %}
 
                         <div class="actuality-content">
-                            <h3 id="aktualita-{{ aktualita.id }}">
+                            <h3 id="aktualita-title-{{ aktualita.id }}">
                                 {% if aktualita.slug %}
                                     <a href="{{ path('detail_aktuality', {'slug': aktualita.slug}) }}">
                                         {{ aktualita.Nadpis }}
@@ -62,4 +65,3 @@
         </div>
     </section>
 {% endblock %}
-

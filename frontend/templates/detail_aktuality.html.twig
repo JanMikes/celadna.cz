@@ -10,7 +10,7 @@
         'current': block('title'),
     }) }}
 
-    <section class="detail-aktuality-section">
+    <section class="detail-aktuality-section" role="region" aria-label="Detail aktuality {{ aktualita.Nadpis }}">
         {#
         <nav>
             <a href="{{ path('aktuality') }}">Všechny příspěvky</a>
@@ -20,42 +20,42 @@
         </nav>
         #}
 
-        <article>
+        <article role="region" aria-labelledby="aktualita-{{ aktualita.id }}">
             <h2 id="aktualita-{{ aktualita.id }}">{{ aktualita.Nadpis }}</h2>
 
             <p>
                 {% if aktualita.Zverejnil %}
-                    {{ aktualita.Zverejnil.Jmeno }}<br>
+                    {{ aktualita.Zverejnil.Jmeno }}<br aria-hidden="true">
                 {% endif %}
-                <time>{{ aktualita.DatumZverejneni|date('d.m.Y') }}</time>
+                <time datetime="{{ aktualita.DatumZverejneni|date('Y-m-d') }}">{{ aktualita.DatumZverejneni|date('d.m.Y') }}</time>
             </p>
 
 
             {% if aktualita.Tagy %}
-                <p class="tags">
+                <p class="tags" role="list" aria-label="Štítky aktuality">
                     {% for Tag in aktualita.Tagy %}
                         {#  <a href="{{ Kategorie.name }}" class="tag-link">{{ Kategorie.value }}</a> #}
-                        <span class="tag-link">{{ Tag }}</span>
+                        <span class="tag-link" role="listitem">{{ Tag }}</span>
                     {% endfor %}
                 </p>
             {% endif %}
 
             {% if aktualita.Obrazek %}
                 <div class="img-wrapper">
-                    <img src="{{ aktualita.Obrazek }}" alt="" aria-labelledby="aktualita-{{ aktualita.id }}">
+                    <img src="{{ aktualita.Obrazek }}" alt="Obrázek k aktualitě {{ aktualita.Nadpis }}">
                 </div>
             {% endif %}
 
             {{ aktualita.Popis|markdown_to_html|nl2br }}
 
             {% if aktualita.Soubory %}
-                <ul class="files-list">
+                <ul class="files-list" aria-label="Seznam souborů">
                     {% for file in aktualita.Soubory %}
                         <li>
                             <a class="file-link" href="{{ file.url }}">
                                 <span class="file-caption">{{ file.caption}}</span>
                                 <span class="file-info">({{ file.kbytes }}kb)</span>
-                                <span class="icon-download"></span>
+                                <span class="icon-download" aria-hidden="true"></span>
                             </a>
                         </li>
                     {% endfor %}
@@ -64,4 +64,3 @@
         </article>
     </section>
 {% endblock %}
-

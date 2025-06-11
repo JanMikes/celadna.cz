@@ -1,6 +1,6 @@
 {% set year_filter_value = years_filter_name ? app.request.query.get(years_filter_name) : null %}
 
-<section class="uredni-deska-section">
+<section class="uredni-deska-section" role="region" aria-label="Úřední deska">
     {% if years %}
         <ul class="years-selector">
             <li class="show-only">Zobrazit pouze rok:</li>
@@ -23,16 +23,20 @@
 
     {% for uredni_deska_dokument in uredni_deska %}
         {% if not year_filter_value or year_filter_value is same as uredni_deska_dokument.Datum_zverejneni.format('Y') %}
-            <article>
+            <article role="region" aria-label="Dokument {{ uredni_deska_dokument.Nadpis }}">
                 {% if display_publish_date|default(true) %}
                     <p class="time">
-                        Zveřejněno <time>{{ uredni_deska_dokument.Datum_zverejneni|date('d.m.Y') }}</time>
+                        Zveřejněno <time datetime="{{ uredni_deska_dokument.Datum_zverejneni|date('Y-m-d') }}">
+                            {{ uredni_deska_dokument.Datum_zverejneni|date('d.m.Y') }}
+                        </time>
                         {% if uredni_deska_dokument.Datum_stazeni %}
-                            do <time>{{ uredni_deska_dokument.Datum_stazeni|date('d.m.Y') }}</time>
+                            do <time datetime="{{ uredni_deska_dokument.Datum_stazeni|date('Y-m-d') }}">
+                                {{ uredni_deska_dokument.Datum_stazeni|date('d.m.Y') }}
+                            </time>
                         {% endif %}
                     </p>
                 {% endif %}
-                <h4 id="uredni-deska-{{ uredni_deska_dokument.id }}">
+                <h4>
                     {% if uredni_deska_dokument.slug %}
                         <a
                             {% if iframe %}
@@ -40,6 +44,7 @@
                             {% else %}
                                 href="{{ path('detail_uredni_desky', {'slug': uredni_deska_dokument.slug}) }}"
                             {% endif %}
+                            aria-label="Otevřít dokument {{ uredni_deska_dokument.Nadpis }}"
                         >
                             {{ uredni_deska_dokument.Nadpis }}
                         </a>
@@ -66,4 +71,3 @@
         {% endif %}
     {% endfor %}
 </section>
-
