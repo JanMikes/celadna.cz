@@ -1,4 +1,4 @@
-<article class="person-detail">
+<article class="person-detail" role="region" aria-label="Detail osoby {{ clovek.Jmeno }}">
     <div class="photo default-{{ clovek.muz ? 'muz' : 'zena' }}">
         {% if clovek.Fotka %}
             <img src="{{ clovek.Fotka }}" alt="Fotografie {{ clovek.Jmeno }}">

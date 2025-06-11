@@ -1,11 +1,12 @@
-<section class="text-banner">
+<section class="text-banner" role="region" aria-label="{{ banner.Nadpis }}">
     <div class="container">
         <div class="text-banner-inner">
-            <div role="presentation" class="decoration-image" style="background-image: url('{{ banner.Obrazek }}');"></div>
+            <div class="decoration-image" role="img"
+                 aria-label="{{ banner.AltText|default(banner.Nadpis) }}"
+                 style="background-image: url('{{ banner.Obrazek }}');"></div>
 
             <div class="banner-text">
                 <h2>{{ banner.Nadpis }}</h2>
-
                 {{ banner.Text_pod_nadpisem|markdown_to_html|nl2br }}
             </div>
         </div>

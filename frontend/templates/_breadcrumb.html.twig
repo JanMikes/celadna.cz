@@ -1,16 +1,26 @@
-<nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-        <li class="path">Cesta:</li>
-        <li class="breadcrumb-item"><a href="{{ path('homepage') }}">Titulní stránka</a></li>
+<nav role="navigation" aria-label="breadcrumb">
+    <ol class="breadcrumb" role="list" itemscope itemtype="https://schema.org/BreadcrumbList">
+        <li class="path" aria-hidden="true">Cesta:</li>
+        <li class="breadcrumb-item" role="listitem" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a href="{{ path('homepage') }}" itemprop="item">
+                <span itemprop="name">Titulní stránka</span>
+            </a>
+            <meta itemprop="position" content="1" />
+        </li>
 
         {% for breadcrumb_path, breadcrumb_title in items %}
-            <li class="breadcrumb-item">
-                <a href="{{ path(breadcrumb_path) }}">
-                    {{ breadcrumb_title }}
+            <li class="breadcrumb-item" role="listitem" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <a href="{{ path(breadcrumb_path) }}" itemprop="item">
+                    <span itemprop="name">{{ breadcrumb_title }}</span>
                 </a>
+                <meta itemprop="position" content="{{ loop.index + 1 }}" />
             </li>
         {% endfor %}
 
-        <li class="breadcrumb-item active" aria-current="page">{{ current }}</li>
+        <li class="breadcrumb-item active" role="listitem" aria-current="page"
+            itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <span itemprop="name">{{ current }}</span>
+            <meta itemprop="position" content="{{ items|length + 2 }}" />
+        </li>
     </ol>
 </nav>

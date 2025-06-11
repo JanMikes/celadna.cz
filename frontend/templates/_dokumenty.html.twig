@@ -6,8 +6,8 @@
     },
 }) }}
 
-<div class="documents-section">
-    <section class="simple-text-section">
+<section class="documents-section" role="region" aria-label="Dokumenty – {{ dokumenty.Nadpis }}">
+    <section class="simple-text-section" role="region" aria-label="{{ dokumenty.Nadpis }}">
         <h2>{{ dokumenty.Nadpis }}</h2>
 
         {% if dokumenty.Obsah %}
@@ -15,12 +15,14 @@
         {% endif %}
     </section>
 
-    {{ include('_uredni_deska.html.twig', {
-        'uredni_deska': dokumenty.Uredni_deska,
-        'show_categories': false,
-        'years': dokumenty.Uredni_deska_roky,
-        'years_filter_name': 'rok',
-        'iframe': false,
-        'display_publish_date': display_publish_date|default(true)
-    }) }}
-</div>
+    <section class="official-board" role="region" aria-label="Úřední deska">
+        {{ include('_uredni_deska.html.twig', {
+            'uredni_deska': dokumenty.Uredni_deska,
+            'show_categories': false,
+            'years': dokumenty.Uredni_deska_roky,
+            'years_filter_name': 'rok',
+            'iframe': false,
+            'display_publish_date': display_publish_date|default(true)
+        }) }}
+    </section>
+</section>
