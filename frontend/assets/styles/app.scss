@@ -152,7 +152,7 @@ header {
 
 footer {
     background: #c7c7c7;
-    color: #595959;
+    color: #505050;
     text-align: center;
     font-size: 0.8em;
     padding: 20px 0;
@@ -693,7 +693,7 @@ footer {
 
         &:hover span {
             color: #fff;
-            background: #A9BF04;
+            background: #1a3174;
         }
 
         span {
@@ -702,8 +702,8 @@ footer {
             left: 50%;
             transform: translate(-50%, 0);
             bottom: 10px;
-            color: #A9BF04;
-            border: 1px solid #A9BF04;
+            color: #1a3174;
+            border: 1px solid #1a3174;
             border-radius: 40px;
             height: 50px;
             line-height: 50px;
@@ -819,8 +819,8 @@ footer {
 
     .all-link {
         display: inline-block;
-        color: #A9BF04;
-        border: 1px solid #A9BF04;
+        color: #1a3174;
+        border: 1px solid #1a3174;
         border-radius: 40px;
         height: 48px;
         line-height: 46px;
@@ -833,7 +833,7 @@ footer {
 
         &:hover {
             color: #fff;
-            background: #A9BF04;
+            background: #1a3174;
         }
     }
 
@@ -1640,13 +1640,13 @@ footer {
     font-size: 13px;
     display: inline-block;
     padding: 4px 8px;
-    color: #fff !important;
+    color: #000 !important;
     background: #A9BF04;
     text-decoration: none;
     margin: 3px 3px 3px 0;
 
     &:hover {
-        color: #000 !important;
+        color: #fff !important;
     }
 
     &.active_tag {
