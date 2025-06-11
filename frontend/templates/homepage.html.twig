@@ -2,9 +2,11 @@
 
 {% block content %}
     <div class="carousel-wrapper">
-        <section id="homepage-carousel" class="carousel slide" data-bs-ride="carousel">
+        <section id="homepage-carousel" class="carousel slide" data-bs-ride="carousel"
+                 role="region" aria-roledescription="carousel" aria-label="Hlavní karusel">
             <div class="carousel-inner">
-                <article class="carousel-item active">
+                <article class="carousel-item active"
+                         aria-roledescription="slide" aria-label="Slide 1: Moderní obec">
                     <div class="container">
                         <span role="presentation" class="decoration-image image-moderni-obec"></span>
                         <div class="slide-inner">
@@ -14,7 +16,8 @@
                     </div>
                 </article>
 
-                <article class="carousel-item">
+                <article class="carousel-item"
+                         aria-roledescription="slide" aria-label="Slide 2: Golf a turistika">
                     <div class="container">
                         <span role="presentation" class="decoration-image image-golf"></span>
                         <div class="slide-inner">
@@ -24,7 +27,8 @@
                     </div>
                 </article>
 
-                <article class="carousel-item">
+                <article class="carousel-item"
+                         aria-roledescription="slide" aria-label="Slide 3: Lázeňství">
                     <div class="container">
                         <span role="presentation" class="decoration-image image-lazenstvi"></span>
                         <div class="slide-inner">
@@ -47,8 +51,8 @@
         </section>
     </div>
 
-    <section class="homepage-quick-links">
-        <h2>Hledáte u nás?</h2>
+    <section class="homepage-quick-links" role="region" aria-labelledby="quicklinks-heading">
+        <h2 id="quicklinks-heading">Hledáte u nás?</h2>
 
         <ul>
             <li style="--tooltip: '01';" class="link-ubytovani"><a href="{{ path('obec_ubytovani') }}"><span>Zobrazit</span> Ubytování</a></li>
@@ -58,13 +62,13 @@
         </ul>
     </section>
 
-    <section class="homepage-infoservis">
+    <section class="homepage-infoservis" role="region" aria-labelledby="infoservis-heading">
         <div class="container">
-            <h2>Infoservis</h2>
+            <h2 id="infoservis-heading">Infoservis</h2>
 
             <div class="content-wrapper">
-                <section class="homepage-aktuality">
-                    <h3>Aktuality</h3>
+                <section class="homepage-aktuality" aria-labelledby="aktuality-heading">
+                    <h3 id="aktuality-heading">Aktuality</h3>
 
                     {% for aktualita in aktuality %}
                         <article>
@@ -78,7 +82,9 @@
                                 {% endif %}
                             </h4>
 
-                            <p class="time"><time>{{ aktualita.DatumZverejneni|date('d.m.Y') }}</time></p>
+                            <p class="time"><time datetime="{{ aktualita.DatumZverejneni|date('Y-m-d') }}">
+                              {{ aktualita.DatumZverejneni|date('d.m.Y') }}
+                            </time></p>
 
                             {{ aktualita.Popis|u.truncate(150, '...', true)|markdown_to_html|nl2br }}
                         </article>
@@ -87,13 +93,17 @@
                     <a class="all-link" href="{{ path('aktuality') }}">Všechny aktuality</a>
                 </section>
 
-                <section class="homepage-uredni-deska">
-                    <h3>Úřední deska</h3>
+                <section class="homepage-uredni-deska" aria-labelledby="uredni-deska-heading">
+                    <h3 id="uredni-deska-heading">Úřední deska</h3>
 
                     {% for uredni_deska_dokument in uredni_deska %}
                         <article>
                             <p class="time">
-                                Zveřejněno od <time>{{ uredni_deska_dokument.Datum_zverejneni|date('d.m.Y') }}</time> {% if uredni_deska_dokument.Datum_stazeni %}do <time>{{ uredni_deska_dokument.Datum_stazeni|date('d.m.Y') }}</time>{% endif %}
+                                Zveřejněno od <time datetime="{{ uredni_deska_dokument.Datum_zverejneni|date('Y-m-d') }}">
+                                  {{ uredni_deska_dokument.Datum_zverejneni|date('d.m.Y') }}
+                                </time> {% if uredni_deska_dokument.Datum_stazeni %}do <time datetime="{{ uredni_deska_dokument.Datum_stazeni|date('Y-m-d') }}">
+                                  {{ uredni_deska_dokument.Datum_stazeni|date('d.m.Y') }}
+                                </time>{% endif %}
                             </p>
 
                             <h4>

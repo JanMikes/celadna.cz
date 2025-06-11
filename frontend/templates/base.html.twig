@@ -34,12 +34,13 @@
     {{ encore_entry_script_tags('app') }}
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Přeskočit na obsah</a>
 
     {% block header %}
-        <header>
+        <header role="banner">
             <h1>{% if app.request.pathInfo != path('homepage') %}{{ block('title') }} - {% endif %}Obec Čeladná</h1>
 
-            <nav class="navbar navbar-dark navbar-expand-lg fixed-top">
+            <nav class="navbar navbar-dark navbar-expand-lg fixed-top" role="navigation" aria-label="Hlavní navigace">
                 <div class="container-fluid">
 
                     <a class="navbar-brand" href="{{ path('homepage') }}">
@@ -54,8 +55,8 @@
                         <div class="navbar-nav">
                             <div class="nav-link">
                                 <a class="homepage" href="{{ path('homepage') }}"><span>Úvodní stránka</span></a>
-                                <a class="instagram mobile-icons" href="https://instagram.com/obecceladna"><span>Instagram</span></a>
-                                <a class="facebook mobile-icons" href="https://www.facebook.com/Obec-Čeladná-109458195016182/"><span>Facebook</span></a>
+                                <a class="instagram mobile-icons" href="https://instagram.com/obecceladna" aria-label="Instagram Obec Čeladná"><span>Instagram</span></a>
+                                <a class="facebook mobile-icons" href="https://www.facebook.com/Obec-Čeladná-109458195016182/" aria-label="Facebook Obec Čeladná"><span>Facebook</span></a>
                             </div>
                             <div class="ms-lg-auto">
                                 <a class="nav-link" href="{{ path('obec') }}">Obec</a>
@@ -64,8 +65,8 @@
                                 <a class="nav-link" href="{{ path('urad_kontakty') }}">Kontakty</a>
                             </div>
                             <div class="nav-link d-lg-none d-xl-none d-xxl-none">
-                                <a class="instagram" href="https://instagram.com/obecceladna"><span>Instagram</span></a>
-                                <a class="facebook" href="https://www.facebook.com/Obec-Čeladná-109458195016182/"><span>Facebook</span></a>
+                                <a class="instagram" href="https://instagram.com/obecceladna" aria-label="Instagram Obec Čeladná"><span>Instagram</span></a>
+                                <a class="facebook" href="https://www.facebook.com/Obec-Čeladná-109458195016182/" aria-label="Facebook Obec Čeladná"><span>Facebook</span></a>
                             </div>
                         </div>
                     </div>
@@ -78,29 +79,25 @@
         <div class="in-progress-lista">Právě pro vás aktualizujeme webové stránky, omluvte prosím případně dočasné nedostatky. Staré webové stránky jsou dostupné na adrese <a href="http://www.archiv.celadna.cz"><b>www.archiv.celadna.cz</b></a>.</div>
     #}
 
-    <main>
+    <main id="main-content" role="main">
         {% block content %}{% endblock %}
     </main>
 
     {% block footer %}
-        <footer>
+        <footer role="contentinfo">
             <div class="inner-footer">
                 <div class="apps-row">
                     <p>Aplikace Obec Čeladná ke stažení zdarma.</p>
 
                     <ul class="download-links">
                         <li class="google-play-download">
-                            <a href="https://play.google.com/store/apps/details?id=cz.tripon.obecceladna">
-                                <span class="visually-hidden-focusable">
-                                    Stáhnout z Google Play
-                                </span>
+                            <a href="https://play.google.com/store/apps/details?id=cz.tripon.obecceladna" aria-label="Stáhnout z Google Play">
+                                <span class="visually-hidden-focusable">Stáhnout z Google Play</span>
                             </a>
                         </li>
                         <li class="apple-app-store-download">
-                            <a href="https://itunes.apple.com/us/app/obec-celadna/id1102072135?l=cs&ls=1&mt=8">
-                                <span class="visually-hidden-focusable">
-                                    Stáhnout z Apple App Store
-                                </span>
+                            <a href="https://itunes.apple.com/us/app/obec-celadna/id1102072135?l=cs&ls=1&mt=8" aria-label="Stáhnout z Apple App Store">
+                                <span class="visually-hidden-focusable">Stáhnout z Apple App Store</span>
                             </a>
                         </li>
                     </ul>
@@ -119,7 +116,7 @@
 
                     {% for footerItem in footer %}
                         <div class="banner-wrapper">
-                            <a href="{{ footerItem.Odkaz }}"><img src="{{ footerItem.Obrazek }}" alt="{{ footerItem.Odkaz }}"></a>
+                            <a href="{{ footerItem.Odkaz }}"><img src="{{ footerItem.Obrazek }}" alt="{{ footerItem.AltText|default('Reklamní banner') }}"></a>
                         </div>
                     {% endfor %}
 

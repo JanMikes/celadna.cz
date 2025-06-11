@@ -1879,3 +1879,28 @@ p + br {
     margin-top: -50px;
     padding-top: 20px !important;
 }
+
+.skip-link {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.skip-link:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    background: #000;
+    color: #fff;
+    padding: 0.5em;
+    text-decoration: none;
+}
