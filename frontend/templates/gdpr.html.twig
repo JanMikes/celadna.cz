@@ -8,7 +8,7 @@
         'items': {},
     }) }}
 
-    <article class="simple-text-section">
+    <article class="simple-text-section" role="region" aria-label="{{ gdpr.Nadpis }}">
         <h2>{{ gdpr.Nadpis }}</h2>
 
         {{ gdpr.Obsah|markdown_to_html|nl2br }}

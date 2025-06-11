@@ -10,10 +10,10 @@
         },
     }) }}
 
-    <section class="sitemap">
-        <h2>Mapa stránek</h2>
+    <section class="sitemap" role="region" aria-labelledby="sitemap-heading">
+        <h2 id="sitemap-heading">Mapa stránek</h2>
 
-        <nav>
+        <nav role="navigation" aria-label="Mapa stránek">
             <ul>
                 <li><a href="{{ path('homepage') }}">Úvodní stránka</a></li>
                 <li><a href="{{ path('aktuality') }}">Aktuality</a></li>

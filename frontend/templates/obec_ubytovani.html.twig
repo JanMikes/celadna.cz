@@ -14,7 +14,7 @@
         },
     }) }}
 
-    <section class="objekty-section">
+    <section class="objekty-section" role="region" aria-label="{{ block('title') }}">
         <div class="objekty-wrapper">
             {% for ubytovani_objekt in ubytovani.Ubytovani %}
                 {{ include('_karta_objektu.html.twig', {

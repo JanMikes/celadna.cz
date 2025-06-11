@@ -71,8 +71,8 @@
                     <h3 id="aktuality-heading">Aktuality</h3>
 
                     {% for aktualita in aktuality %}
-                        <article>
-                            <h4>
+                        <article id="aktualita-{{ aktualita.id }}" role="region" aria-labelledby="aktualita-title-{{ aktualita.id }}">
+                            <h4 id="aktualita-title-{{ aktualita.id }}">
                                 {% if aktualita.slug %}
                                     <a href="{{ path('detail_aktuality', {'slug': aktualita.slug}) }}">
                                         {{ aktualita.Nadpis }}
@@ -97,7 +97,7 @@
                     <h3 id="uredni-deska-heading">Úřední deska</h3>
 
                     {% for uredni_deska_dokument in uredni_deska %}
-                        <article>
+                        <article id="uredni-deska-{{ uredni_deska_dokument.id }}" role="region" aria-labelledby="uredni-deska-title-{{ uredni_deska_dokument.id }}">
                             <p class="time">
                                 Zveřejněno od <time datetime="{{ uredni_deska_dokument.Datum_zverejneni|date('Y-m-d') }}">
                                   {{ uredni_deska_dokument.Datum_zverejneni|date('d.m.Y') }}
@@ -106,7 +106,7 @@
                                 </time>{% endif %}
                             </p>
 
-                            <h4>
+                            <h4 id="uredni-deska-title-{{ uredni_deska_dokument.id }}">
                                 {% if uredni_deska_dokument.slug %}
                                     <a href="{{ path('detail_uredni_desky', {'slug': uredni_deska_dokument.slug}) }}">
                                         {{ uredni_deska_dokument.Nadpis }}

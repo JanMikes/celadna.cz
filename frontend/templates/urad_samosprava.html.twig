@@ -10,12 +10,12 @@
         },
     }) }}
 
-    <section class="samosprava-section">
+    <section class="samosprava-section" role="region" aria-label="Samospráva">
         <h2>Samospráva</h2>
 
         {% for kategorie in kategorie_samospravy %}
-            <h3>{{ kategorie.Nadpis }}</h3>
-            <p>{{ kategorie.Obsah }}</p>
+            <h3 id="kategorie-{{ kategorie.Nadpis|slug|lower }}" role="heading" aria-level="3">{{ kategorie.Nadpis }}</h3>
+            <p aria-labelledby="kategorie-{{ kategorie.Nadpis|slug|lower }}">{{ kategorie.Obsah }}</p>
 
             {% for clovek in kategorie.Lide %}
                 {{ include('_clovek.html.twig', {
@@ -26,7 +26,7 @@
 
             {% if kategorie.Uredni_deska %}
                 {% if kategorie.Nadpis_uredni_desky %}
-                    <h4 class="uredni-deska-title">{{ kategorie.Nadpis_uredni_desky }}</h4>
+                    <h4 class="uredni-deska-title" role="heading" aria-level="4">{{ kategorie.Nadpis_uredni_desky }}</h4>
                 {% endif %}
 
                 {{ include('_uredni_deska.html.twig', {

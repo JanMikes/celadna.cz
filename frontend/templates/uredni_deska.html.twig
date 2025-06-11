@@ -10,10 +10,10 @@
         },
     }) }}
 
-    <section class="uredni-deska-text-section">
+    <section class="uredni-deska-text-section" role="region" aria-label="Úřední deska">
         <h2>Úřední deska</h2>
 
-        <p>Na elektronické úřední desce www.celadna.cz je zveřejňován obsah úřední desky Obce Čeladná podle § 26 zákona č. 500/2004 Sb., správní řád, ve znění pozdějších předpisů. Obsah má informativní charakter a je shodný svým obsahem kamenné úřední desce. Na úřední desce obce se nacházejí jen ty dokumenty, které podléhají zákonné lhůtě o zveřejnění. Po stažení z úřední desky se dokumenty přesouvají do záložky <a href="{{ path('urad_dokumenty_uradu') }}">dokumenty úřadu</a>.</p>
+        <p>Na elektronické úřední desce www.celadna.cz je zveřejňován obsah úřední desky Obce Čeladná podle § 26 zákona č. 500/2004 Sb., správní řád, ve znění pozdějších předpisů. Obsah má informativní charakter a je shodný svým obsahem kamenné úřední desce. Na úřední desce obce se nacházejí jen ty dokumenty, které podléhají zákonné lhůtě o zveřejnění. Po stažení z úřední desky se dokumenty přesouvají do záložky <a href="{{ path('urad_dokumenty_uradu') }}" aria-label="Přejít na dokumenty úřadu">dokumenty úřadu</a>.</p>
     </section>
 
     {{ include('_uredni_deska.html.twig', {

@@ -10,14 +10,14 @@
         },
     }) }}
 
-    <article class="uredni-deska-detail">
+    <article class="uredni-deska-detail" role="region" aria-labelledby="uredni-deska-{{ uredni_deska.id }}">
         <h2 id="uredni-deska-{{ uredni_deska.id }}">{{ uredni_deska.Nadpis }}</h2>
 
         {% if display_publish_date %}
             <p>
-                Zveřejněno <time>{{ uredni_deska.Datum_zverejneni|date('d.m.Y') }}</time>
+                Zveřejněno <time datetime="{{ uredni_deska.Datum_zverejneni|date('Y-m-d') }}">{{ uredni_deska.Datum_zverejneni|date('d.m.Y') }}</time>
                 {% if uredni_deska.Datum_stazeni %}
-                    do <time>{{ uredni_deska.Datum_stazeni|date('d.m.Y') }}</time>
+                    do <time datetime="{{ uredni_deska.Datum_stazeni|date('Y-m-d') }}">{{ uredni_deska.Datum_stazeni|date('d.m.Y') }}</time>
                 {% endif %}
             </p>
         {% endif %}
@@ -33,21 +33,21 @@
         {% endif %}
 
         {% if uredni_deska.Kategorie %}
-            <p class="tags">
+            <p class="tags" role="list" aria-label="Kategorie dokumentu">
                 {% for Kategorie in uredni_deska.Kategorie %}
-                    <a href="{{ path('uredni_deska_kategorie_filter', {'kategorie': Kategorie.slug}) }}" class="tag-link">{{ Kategorie.value }}</a>
+                    <a href="{{ path('uredni_deska_kategorie_filter', {'kategorie': Kategorie.slug}) }}" class="tag-link" role="listitem">{{ Kategorie.value }}</a>
                 {% endfor %}
             </p>
         {% endif %}
 
         {% if uredni_deska.Soubory %}
-            <ul class="files-list">
+            <ul class="files-list" aria-label="Seznam souborů">
                 {% for file in uredni_deska.Soubory %}
                     <li>
                         <a class="file-link" href="{{ file.url }}">
                             <span class="file-caption">{{ file.caption}}</span>
                             <span class="file-info">({{ file.kbytes }}kb)</span>
-                            <span class="icon-download"></span>
+                            <span class="icon-download" aria-hidden="true"></span>
                         </a>
                     </li>
                 {% endfor %}
@@ -59,4 +59,3 @@
         {% endif %}
     </article>
 {% endblock %}
-

@@ -14,13 +14,17 @@
         },
     }) }}
 
-    <section class="sluzby-section">
+    <section class="sluzby-section" role="region" aria-label="Služby">
         <div class="sluzby-wrapper">
             {% for sluzba in sluzby.Sluzby %}
-                <article id="{{ sluzba.Nadpis|lower|slug }}">
-                    <h3>{{ sluzba.Nadpis }}</h3>
+                <article id="sluzba-{{ sluzba.id }}" role="region" aria-labelledby="sluzba-title-{{ sluzba.id }}">
+                    <h3 id="sluzba-title-{{ sluzba.id }}">{{ sluzba.Nadpis }}</h3>
 
-                    <p>{{ sluzba.Telefon }}</p>
+                    <p>
+                      <a href="tel:{{ sluzba.Telefon }}" aria-label="Zavolat na {{ sluzba.Telefon }}">
+                        {{ sluzba.Telefon }}
+                      </a>
+                    </p>
 
                     {{ sluzba.Obsah|markdown_to_html|nl2br }}
                 </article>
