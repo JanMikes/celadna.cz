@@ -7,9 +7,7 @@
 
     <div class="dlazdice-wrapper" role="list" aria-label="{{ sekce.Nadpis }}">
         {% for dlazdice in sekce.Dlazdice %}
-            <div role="listitem">
-                {{ include('_dlazdice.html.twig') }}
-            </div>
+            {{ include('_dlazdice.html.twig') }}
         {% endfor %}
     </div>
 </section>
