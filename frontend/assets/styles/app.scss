@@ -1912,3 +1912,25 @@ p + br {
     padding: 0.5em;
     text-decoration: none;
 }
+
+.button-link {
+    display: inline-block;
+    cursor: pointer;
+    color: #1a3174;
+    background: #fff;
+    border: 1px solid #1a3174;
+    border-radius: 40px;
+    height: 48px;
+    line-height: 46px;
+    padding: 0 30px;
+    @include transition(all .45s);
+    font-weight: bold;
+    font-size: 13px;
+    text-decoration: none;
+    margin-top: 20px;
+
+    &:hover {
+        color: #fff;
+        background: #1a3174;
+    }
+}
