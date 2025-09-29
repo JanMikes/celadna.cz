@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Virtuální prohlídka{% endblock %}
+
+{% block content %}
+    {{ include('_breadcrumb.html.twig', {
+        'items': [],
+        'current': block('title'),
+    }) }}
+
+    <section class="aktuality-section">
+        <h2>Virtuální prohlídka</h2>
+
+        <iframe src="https://www.virtualtravel.cz/export/celadna" width="100%" height="500" allowfullscreen></iframe>
+    </section>
+{% endblock %}
