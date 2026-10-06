@@ -1,4 +1,4 @@
-FROM unit:1.34.2-php8.3 AS dev
+FROM unit:1.32.1-php8.3 AS dev
 
 ENV COMPOSER_MEMORY_LIMIT=-1
 ENV COMPOSER_ALLOW_SUPERUSER=1
@@ -8,7 +8,10 @@ COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 # Very convenient PHP extensions installer: https://github.com/mlocati/docker-php-extension-installer
 COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/local/bin/
 
-RUN apt-get update && apt-get install -y \
+# Debian 11 (bullseye) is EOL, its packages now live only on archive.debian.org.
+# Do not bump to a Debian 12 based image while the server runs Docker < 20.10.10 (clone3 seccomp breaks Unit threads).
+RUN sed -i -e 's#deb.debian.org#archive.debian.org#g' -e '/bullseye-updates/d' /etc/apt/sources.list && \
+    apt-get update && apt-get install -y \
     git \
     zip
 
